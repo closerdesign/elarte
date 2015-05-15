@@ -1056,8 +1056,8 @@
 			$con_sendy = mysqli_connect("localhost","elarte_phrosapp","Z,'VT,?x3*LdjMvR","elarte_sendy")or die('ERROR DB');
 			mysqli_query($con_sendy, "set NAMES utf8");
 			
-			$day = 'Tue';
-			//$day = date('D');
+			//$day = 'Tue';
+			$day = date('D');
 			
 			$limit = array(
 			   "Fri" => "100000",
