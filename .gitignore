@@ -1,0 +1,7 @@
+admin/
+sendy/
+phpmyadmin/
+old/
+includes/conn.php
+includes/config.php
+*error_log

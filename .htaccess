@@ -1,0 +1,63 @@
+# CONTENIDO BÁSICO
+RewriteCond %{THE_REQUEST} \?content=([^&\ ]+)($|\ )
+RewriteRule ^ /%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)$ /index.php?content=$1 [L]
+
+# ARTÍCULOS
+RewriteCond %{THE_REQUEST} \?content=articulos&id=([^&\ ]+)($|\ )
+RewriteRule ^ /articulos/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^articulos/([^/]+)$ /index.php?content=articulos&id=$1 [L]
+
+# CATEGORÍAS
+RewriteCond %{THE_REQUEST} \?content=articulos&categoria=([^&\ ]+)($|\ )
+RewriteRule ^ /articulos/categoria/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^articulos/categoria/([^/]+)$ /index.php?content=articulos&categoria=$1 [L]
+
+# MI CUENTA
+RewriteCond %{THE_REQUEST} \?content=mi-cuenta&task=([^&\ ]+)($|\ )
+RewriteRule ^ /mi-cuenta/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^mi-cuenta/([^/]+)$ /index.php?content=mi-cuenta&task=$1 [L]
+
+# PUBLICACIONES
+RewriteCond %{THE_REQUEST} \?content=publicacion&id=([^&\ ]+)($|\ )
+RewriteRule ^ /publicacion/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^publicacion/([^/]+)$ /index.php?content=publicacion&id=$1 [L]
+
+# PAQUETES
+RewriteCond %{THE_REQUEST} \?content=paquetes&id=([^&\ ]+)($|\ )
+RewriteRule ^ /paquetes/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^paquetes/([^/]+)$ /index.php?content=paquetes&id=$1 [L]
+
+# COLECCIONES
+RewriteCond %{THE_REQUEST} \?content=colecciones&id=([^&\ ]+)($|\ )
+RewriteRule ^ /colecciones/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^colecciones/([^/]+)$ /index.php?content=colecciones&id=$1 [L]
+
+# COLECCION
+RewriteCond %{THE_REQUEST} \?content=coleccion&id=([^&\ ]+)($|\ )
+RewriteRule ^ /coleccion/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^coleccion/([^/]+)$ /index.php?content=coleccion&id=$1 [L]

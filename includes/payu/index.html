@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Payu</title>
+</head>
+
+<body>
+<div class="container">
+   <div class="col-lg-8">
+        <div class="page-header">Payu Test</div>
+       <button id="pay" class="btn btn-primary"><i class="fa fa-credit-card"></i> Pay</button>
+       <hr>
+       <div id="result"><div class="loading"></div><pre></pre></div>
+   </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("#pay").click(function(){
+        
+        var data = {
+           "language": "es",
+           "command": "SUBMIT_TRANSACTION",
+           "merchant": {
+              "apiKey": "6u39nqhq8ftd0hlvnjfs66eh8c",
+              "apiLogin": "11959c415b33d0c"
+           },
+           "transaction": {
+              "order": {
+                 "accountId": "500538",
+                 "referenceCode": "payment_test_00000001",
+                 "description": "payment test",
+                 "language": "es",
+                 "signature": "82c8f95480266da7fae0e84312b67a69",
+                 "notifyUrl": "http://www.tes.com/confirmation",
+                 "additionalValues": {
+                    "TX_VALUE": {
+                       "value": 10000,
+                       "currency": "COP"
+                    }
+                 },
+                 "buyer": {
+                    "merchantBuyerId": "1",
+                    "fullName": "First name and second buyer  name",
+                    "emailAddress": "buyer_test@test.com",
+                    "contactPhone": "7563126",
+                    "dniNumber": "5415668464654",
+                    "shippingAddress": {
+                       "street1": "calle 100",
+                       "street2": "5555487",
+                       "city": "Medellin",
+                       "state": "Antioquia",
+                       "country": "CO",
+                       "postalCode": "000000",
+                       "phone": "7563126"
+                    }
+                 },
+                 "shippingAddress": {
+                    "street1": "calle 100",
+                    "street2": "5555487",
+                    "city": "Medellin",
+                    "state": "Antioquia",
+                    "country": "CO",
+                    "postalCode": "0000000",
+                    "phone": "7563126"
+                 }
+              },
+              "payer": {
+                 "merchantPayerId": "1",
+                 "fullName": "First name and second payer name",
+                 "emailAddress": "payer_test@test.com",
+                 "contactPhone": "7563126",
+                 "dniNumber":"5415668464654",
+                 "billingAddress": {
+                    "street1": "calle 93",
+                    "street2": "125544",
+                    "city": "Bogota",
+                    "state": "Bogota DC",
+                    "country": "CO",
+                    "postalCode": "000000",
+                    "phone": "7563126"
+                 }
+              },
+              "creditCard": {
+                 "number": "4097440000000004",
+                 "securityCode": "321",
+                 "expirationDate": "2014/12",
+                 "name": "REJECTED"
+              },
+              "extraParameters": {
+                 "INSTALLMENTS_NUMBER": 1
+              },
+              "type": "AUTHORIZATION_AND_CAPTURE",
+              "paymentMethod": "VISA",
+              "paymentCountry": "CO",
+              "deviceSessionId": "vghs6tvkcle931686k1900o6e1",
+              "ipAddress": "127.0.0.1",
+              "cookie": "pt1t38347bs6jc9ruv2ecpv7o2",
+              "userAgent": "Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
+           },
+           "test": false
+        }
+         $("#result div.loading").addClass("alert alert-info").html( '<i class="fa fa-cog fa-spin"></i> Pagando....'    )
+         //Desde aca se hace el llamado al que procesa la vaina
+        $.post('load.php',{data:data}, function(result){                 
+                    $("#result pre").html(result);
+                    $("#result div.loading").removeClass("alert alert-info").empty();
+            });
+    });
+});
+    </script>
+</body>
+</html>
+
+
