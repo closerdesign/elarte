@@ -21,40 +21,28 @@
 							</th>
 						</tr>
 					</thead>
-					<tbody>
-					<?php
-						if(!isset($_COOKIE['pedido'])){
-							echo("<tr><td colspan='3'>Tu pedido está vacio.</td></tr>");
-						}else{
-							$q=mysqli_query($con, "SELECT * FROM publicacionesxpedido WHERE pedido = '$_COOKIE[pedido]'");
-							$n=mysqli_num_rows($q);
-							if($n<1){
-								echo("<tr><td colspan='3'>Tu pedido está vacio.</td></tr>");
-							}else{
-								while($prod=mysqli_fetch_assoc($q)){
-									echo("<tr><td>".getNombrePublicacion($prod['publicacion'])."</td><td class='text-center'>".getPrecioPublicacion($prod['publicacion'])."</td><td class='text-center'><a class='delPub' value='$prod[publicacion]'><i class='fa fa-trash'></i></a></td></tr>");
-									$sum += getPrecioPublicacion($prod['publicacion']);
-								}
-							}
-						}
-					?>
-					<tr>
-						<td>
-							<b>VALOR TOTAL</b>
-						</td>
-						<td colspan="2" class="text-center">
-							<b>USD <span id='vrPedido' value='<?php echo $sum ?>'><?php echo number_format($sum,2); ?></span></b>
-							<input type="hidden" name="valorPedido" id="valorPedido" value="<?php echo $sum; ?>" />
-							<input type="hidden" name="order" id="order" value="<?php echo $_COOKIE['pedido'] ?>" />
-						</td>
-					</tr>
+					<tbody class="loaderPedido">
+						<tr>
+							<td colspan="3">
+								<p class="text-center"><img src="/img/ajax-loader.gif" /></p>
+							</td>
+						</tr>
+						<script>
+							$(document).ready(function(){
+								contenidoDelPedido();
+							})
+						</script>
 					</tbody>
 				</table>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<?php
-				if($n>0){
+				if(
+					(isset($_COOKIE['pedido'])) &&
+					(getValorDeLaOrden($_COOKIE['pedido'])>0)
+				){
+					echo getValorDeLaOrden($_COOKIE['pedido'])."-".$_COOKIE['pedido'];
 					?>
 					<div class="row">
 						<div class="col-md-12 form-group">

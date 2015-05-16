@@ -51,6 +51,24 @@ $(document).ready(function(){
 	function limpiarCampos(){
 		$('.form-control').val('');
 	}
+	// Obtener detalle del pedido
+	function contenidoDelPedido(){
+		var pedido = $.cookie('pedido');
+		if( pedido != 0 ){
+			$.post('/includes/php.php',{
+				consulta: "detalleDelPedido",
+				pedido: pedido
+			}).done(function(data){
+				if(data == 0){
+					location.reload();
+				}else{
+					$('.loaderPedido').html(data);
+				}
+			})
+		}else{
+			$('.loaderPedido').html("<tr><td colspan='3' class='text-center'>¿Aún no tienes publicaciones en tu pedido?<br />Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a></td></tr>");
+		}
+	}
 
 // Portadas Walter Portada
 $('.bxslider').bxSlider({
@@ -555,6 +573,7 @@ $('.cerrarSesion').click(function(){
 	$.post('/includes/php.php',{
 		consulta: 'cerrarSesion'
 	}).done(function(msg){
+		$.removeCookie('pedido');
 		location.reload();
 	})
 })

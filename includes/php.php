@@ -598,6 +598,7 @@
 		unset($_SESSION['FBID']);
 		unset($_SESSION['EMAIL']);
 		unset($_SESSION['FULLNAME']);
+		unset($_COOKIE['pedido']);
 	}
 	
 	// Completa los datos del registro
@@ -914,6 +915,90 @@
 			}
 		}
 	
+	
+	/////////////////////////////////////////////////////////////////////////
+	
+	// GESTIÓN DE PEDIDOS
+	
+	/////////////////////////////////////////////////////////////////////////
+	
+		// GENERAR EL DETALLE DEL PEDIDO
+		if($_POST['consulta'] == 'detalleDelPedido'){
+			$pedido = $_POST['pedido'];
+			$q = mysqli_query($con, "
+				SELECT
+					*
+				FROM
+					publicacionesxpedido
+				WHERE
+					pedido = '$pedido'
+			");
+			$n = mysqli_num_rows($q);
+			if($n < 1){
+				$html = ""; 
+				$html .= "<tr><td colspan='3' class='text-center'>";
+				$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
+				$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
+				$html .= "</td></tr>";
+				mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
+				echo $html;
+			}else{
+				$total = 0;
+				while($row = mysqli_fetch_assoc($q)){
+					$html .= "<tr id='codigo$row[publicacion]'>";
+					$html .= "	<td>".getNombrePublicacion($row['publicacion'])."</td>";
+					$html .= "	<td class='text-center'>USD ".getPrecioPublicacion($row['publicacion'])."</td>";
+					$html .= "	<td>";
+					$html .= "		<p class='text-center'>";
+					$html .= "			<button class='btn btn-default eliminarItem$row[publicacion]' codigo='$row[publicacion]'>";
+					$html .= "				<i class='fa fa-trash'></i>";
+					$html .= "			</button>";
+					$html .= "		</p>";
+					$html .= "	</td>";
+					$html .= "</tr>";
+					$html .= "<script>";
+					$html .= "	$('.eliminarItem$row[publicacion]').click(function(){";
+					$html .= "		cargar();";
+					$html .= "		$.post('/includes/php.php',{ consulta: 'eliminaDelPedido', item: '$row[publicacion]', pedido: $.cookie('pedido') })";
+					$html .= "		.done(function(data){";
+					$html .= "			if( data == 0 ){";
+					$html .= "				alert('Se ha presentado un error. Por favor intente de nuevo');";
+					$html .= "				descargar();";
+					$html .= "			} else {";
+					$html .= "				contenidoDelPedido();";
+					$html .= "				labelProductos();";
+					$html .= "				descargar();";
+					$html .= "			}";
+					$html .= "		})";
+					$html .= "	})";
+					$html .= "</script>";
+					$total += getPrecioPublicacion($row['publicacion']);
+				}
+				$html .= "<tr>";
+				$html .= "	<td class='text-right'><b>TOTAL A PAGAR</b></td>";
+				$html .= "	<td colspan='2' class='text-center'><b>USD ".number_format($total,2)."</b></td>";
+				$html .= "</tr>";
+				mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$pedido'");
+				echo $html;
+			}
+		}
+		
+		if($_POST['consulta'] == 'eliminaDelPedido'){
+			$item = $_POST['item'];
+			$pedido = $_POST['pedido'];
+			if(!mysqli_query($con, "
+				DELETE FROM
+					publicacionesxpedido
+				WHERE
+					pedido = '$pedido'
+				AND
+					publicacion = '$item'
+			")){
+				echo 0;
+			}else{
+				echo 1;
+			}
+		}
 	
 	/////////////////////////////////////////////////////////////////////////
 	
