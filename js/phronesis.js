@@ -63,6 +63,16 @@ $(document).ready(function(){
 					location.reload();
 				}else{
 					$('.loaderPedido').html(data);
+					$.post('/includes/php.php',{
+						consulta: "valorDelPedido",
+						orden: $.cookie('pedido')
+					}).done(function(msg){
+						if( msg > 0 ){
+							$('#formasDePago').fadeIn();
+						} else {
+							$('#formasDePago').fadeOut();
+						}
+					})
 				}
 			})
 		}else{

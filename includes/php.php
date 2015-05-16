@@ -999,6 +999,10 @@
 				echo 1;
 			}
 		}
+		
+		if($_POST['consulta']=='valorDelPedido'){
+			echo getValorDeLaOrden($_POST['orden']);
+		}
 	
 	/////////////////////////////////////////////////////////////////////////
 	
