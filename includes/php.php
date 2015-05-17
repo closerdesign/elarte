@@ -49,11 +49,11 @@
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
 		if($n!=1){
-			echo "0";
+			echo 0;
 		}else{
 			$id=mysqli_fetch_array($q);
 			$_SESSION['id']=$id['id'];
-			echo "1";
+			echo $id['id'];
 		}
 	}
 	
@@ -573,21 +573,6 @@
 			echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo. ";
 		}else{
 			echo "Hemos agregado tu dirección a nuestra lista de envío para que comiences a recibir nuestros contenidos.";
-		}
-	}
-	
-	// Modal de inicio de sesión
-	if($_POST['consulta']=='ingresar'){
-		$sql="SELECT * FROM usuarios WHERE email = '$_POST[email]' AND password = '".md5($_POST['password'])."'";
-		$q=mysqli_query($con, $sql);
-		$n=mysqli_num_rows($q);
-		if($n!=1){
-			echo "false";
-		}else{
-			$data=mysqli_fetch_array($q);
-			$_SESSION['id']=$data['id'];
-			$_SESSION['perfil']=$data['perfil'];
-			echo "true";
 		}
 	}
 	

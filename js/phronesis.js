@@ -555,28 +555,6 @@ $('#newsletter').validate({
 	}
 });
 
-// Modal de inicio de sesión
-$('#formIngresar').validate({
-	submitHandler: function(form){
-		$('#myModalIngresar').modal();
-		$('.load').fadeIn();
-		$.post('/includes/php.php',{
-			consulta: 'ingresar',
-			email: $('#emailIngresar').val(),
-			password: $('#passIngresar').val()
-		}).done(function(data){
-			$('.form-control').val('');
-			if(data=='false'){
-				$('.load').fadeOut();
-				$('#modalAlert').show();
-				$('#myModalIngresar').modal('show');
-			} else {
-				location.reload();
-			}
-		})
-	}
-});
-
 // Ajax finalizar sesión
 $('.cerrarSesion').click(function(){
 	$('.load').fadeIn();
@@ -584,6 +562,7 @@ $('.cerrarSesion').click(function(){
 		consulta: 'cerrarSesion'
 	}).done(function(msg){
 		$.removeCookie('pedido');
+		$.removeCookie('session');
 		location.reload();
 	})
 })
@@ -663,7 +642,8 @@ function loginAjax(){
 	    usuario: $('#emailLogin').val(),
 	    password: $('#passwordLogin').val()
     }).done(function(data){
-	    if(data==1){
+	    if( data > 0 ){
+		    $.cookie('session',data);
 		    location.reload();
 	    } else {
 		    shakeModal();

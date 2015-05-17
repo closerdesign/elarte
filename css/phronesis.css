@@ -18,6 +18,10 @@ th{
 	text-align: center;
 }
 
+#formasDePago{
+	display: none;
+}
+
 .categoriasPortada{
 	padding: 45px 0 15px;
 	background: #61126D;
