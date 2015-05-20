@@ -47,6 +47,14 @@ $(document).ready(function(){
 		$('#myModalVacioContenido').html(contenido);
 		$('#myModalVacio').modal('show');
 	}
+	
+	// General modal vacio
+	function nuevoModal(contenido){
+		descargar();
+		$('#myNuevoModalContenido').html(contenido);
+		$('#myNuevoModal').modal('show');
+	}
+	
 	// Limpiar campos
 	function limpiarCampos(){
 		$('.form-control').val('');
@@ -78,6 +86,66 @@ $(document).ready(function(){
 		}else{
 			$('.loaderPedido').html("<tr><td colspan='3' class='text-center'>¿Aún no tienes publicaciones en tu pedido?<br />Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a></td></tr>");
 		}
+	}
+	
+	// Obtener formulario de pago
+	function obtenerFormularioDePago(metodo){
+		cargar();
+		$.post('/includes/php.php',{
+			consulta: "obtenerFormularioDePago",
+			metodo: metodo
+		}).done(function(data){
+			descargar();
+			nuevoModal(data);
+		})
+	}
+	
+	function procesaInscripcionConferencia(usuario,metodo,idtransaccion,estadotransaccion,valor){
+		$.post('/includes/php.php',{
+			consulta: "almacenaInscripcion",
+			usuario: usuario,
+			metodo: metodo,
+			idtransaccion: idtransaccion,
+			estadotransaccion: estadotransaccion,
+			valor: valor
+		}).done(function(data){
+			descargar();
+			modal("Proceso de inscripción",data);
+		})
+	}
+	
+	function actualizaInscripcionConferencia(usuario,metodo,idtransaccion,estadotransaccion,valor){
+		cargar();
+		$.post('/includes/php.php',{
+			consulta: "actualizaInscripcion",
+			usuario: usuario,
+			metodo: metodo,
+			idtransaccion: idtransaccion,
+			estadotransaccion: estadotransaccion,
+			valor: valor
+		}).done(function(data){
+			descargar();
+			modal("Proceso de inscripción",data);
+		})
+	}
+	
+	// Almacenar pendientes PSE
+	function almacenaPendientePSE( usuario,estado,metodo,idtransaccion,valor,url ){
+		$.post('/includes/php.php',{
+			consulta: 'almacenaPendientePSE',
+			usuario: usuario,
+			estado: estado,
+			metodo: metodo,
+			idtransaccion: idtransaccion,
+			valor: valor
+		}).done(function(msg){
+			if( msg == 1 ){
+				window.location.href = url;
+			} else {
+				alert(msg);
+				descargar();
+			}
+		})
 	}
 
 // Portadas Walter Portada
@@ -144,9 +212,7 @@ $('#cambiar-contrasena').validate({
 			}
 		})
 		.done(function(msg){
-			$('#current_password').val('');
-			$('#new_password').val('');
-			$('#confirm_password').val('');
+			$('.form-control').val('');
 			$('.load').fadeOut();
 			bootbox.alert(msg, function() {console.log("Alert Callback");})
 		})
@@ -825,5 +891,24 @@ $('#conferencia').validate({
 				modal("El arte de amar sin apegos","<p>" + data + "</p>");
 			}
 		})
+	}
+});
+
+// Medios de pago para la conferencia
+$('#paisConferencia').change(function(){
+	cargar();
+	$.post('includes/php.php',{
+		consulta: 'obtenerMediosDePago',
+		pais: $('#paisConferencia').val()
+	}).done(function(data){
+		$('#formaDePagoConferencia').html(data);
+		descargar();
+	})
+})
+
+// Inscripcion en la conferencia
+$('#inscripcionConferencia').validate({
+	submitHandler: function(form){
+		obtenerFormularioDePago($('#formaDePagoConferencia').val());
 	}
 });

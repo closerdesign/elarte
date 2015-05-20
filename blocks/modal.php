@@ -466,3 +466,10 @@
 		</div>
 	</div>
 </div>
+
+<!-- Nuevo modal -->
+<div class="modal fade" id="myNuevoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" id="myNuevoModalContenido"></div>
+	</div>
+</div>

@@ -49,6 +49,8 @@
 			require_once('blocks/darse-de-baja.php');
 		}elseif($_REQUEST['content']=='conferencia-virtual'){
 			require_once('blocks/conferencia-virtual.php');
+		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
+			require_once( 'blocks/inscripcion-conferencia.php' );
 		}else{
 			require_once('blocks/articulos.php');
 		}
@@ -83,6 +85,34 @@
 		
 		require_once('blocks/validaRegistro.php');
 		require_once('blocks/procesoPedido.php');
+		
+	?>
+	
+	<?php
+		
+		if(
+			(isset($_REQUEST['transactionId'])) &&
+			(isset($_REQUEST['lapTransactionState']))
+		){
+			$q = mysqli_query($con, "SELECT usuario_id,metodo_pago,valor_inscripcion FROM inscritos_conferencia WHERE transaction_id = '$_REQUEST[transactionId]'");
+			$n = mysqli_num_rows($q);
+			if($n==1){
+				$data = mysqli_fetch_array($q);
+				?>
+				<script>
+					$(document).ready(function(){
+						actualizaInscripcionConferencia(
+						   '<?php echo $data['usuario_id'] ?>',
+						   '<?php echo $data['metodo_pago'] ?>',
+						   '<?php echo $_REQUEST['transactionId'] ?>',
+						   '<?php echo $_REQUEST['lapTransactionState'] ?>',
+						   '<?php echo $data['valor_inscripcion'] ?>'
+						);
+					})
+				</script>
+				<?php	
+			}
+		}
 		
 	?>
 	

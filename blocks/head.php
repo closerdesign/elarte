@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="/css/jquery.bxslider.css" />
 	<link rel="stylesheet" href="/css/fws2.css" />
 	<link rel="stylesheet" href="/css/rotating-card.css" />
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<!-- Phronesis Theme -->
 	<link rel="stylesheet" href="/css/phronesis.css" />
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

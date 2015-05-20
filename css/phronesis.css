@@ -1,5 +1,6 @@
 body{
 	font-size: 13px;
+	font-family: 'PT Sans', sans-serif;
 }
 
 p{
@@ -1391,4 +1392,68 @@ img.mfp-img {
 .big-register:hover{
     border-color: #00A4E4;
     color:  #00A4E4;
+}
+
+/* ---------------------------------------------- */
+/* ESTILOS CONFERENCIA */
+/* ---------------------------------------------- */
+.tituloConferencia{
+	text-transform: uppercase;
+	background: #3D9EA5;
+	color: #fff;
+	padding: 20px;
+	margin: 15px;
+}
+
+.contenidoConferencia h1,h2,h3{
+	text-transform: uppercase;
+}
+
+.tituloConferencia span{
+	color: #E5BE37;
+	font-weight: bold;
+}
+
+.formularioConferencia{
+	background: #3D9EA5;
+	margin: 15px;
+	padding: 15px;
+	border-bottom: solid 15px #E5BE37;
+	color: #fff;
+	padding-bottom: 45px;
+	margin-top: 0;
+}
+
+.formularioConferencia h1{
+	color: #E5BE37;
+}
+
+.formularioConferencia hr{
+	color: #E5BE37;
+	border: solid 1px #E5BE37;
+	margin: 15px;
+}
+
+.fechaConferencia{
+	background: #E5BE37;
+	padding: 30px 0 30px;
+	border-bottom: solid 5px #fff;
+}
+
+.fechaEvento{
+	width: 130px;
+	height: 130px;
+	background: #F8C71A;
+	float: right;
+	margin: 15px;
+	padding: 15px;
+	font-size: 36px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 1;
+	color: #fff;
+}
+
+.fechaEvento span{
+	font-size: 60px;
 }

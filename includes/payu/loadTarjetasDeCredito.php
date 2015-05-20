@@ -2,7 +2,7 @@
     
     	require_once('PayU.php');
 
-    	$reference = $_POST['pedido'];
+    $reference = $_POST['pedido'];
 	$value = $_POST['vrPedido'];
 	$expiration = $_POST['yearTarjeta']."/".$_POST['mesTarjeta'];
 	
@@ -40,7 +40,7 @@
 	// -- pagador --
 	//Ingrese aquí el nombre del pagador.
 	//PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
-	PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
+	PayUParameters::PAYER_NAME => $_POST['nombreTarjeta'],
 	//Ingrese aquí el email del pagador.
 	PayUParameters::PAYER_EMAIL => $_POST['email'],
 	PayUParameters::PAYER_CITY => $_POST['ciudad'],

@@ -31,7 +31,7 @@
 	$array=PayUPayments::getPSEBanks($parameters);
 	$banks=$array->banks;
 	
-	$html="<option value=''>Seleccione...</option>";
+	$html="<option value=''>Seleccione banco...</option>";
 	
 	foreach ($banks as $bank) {
 		$html.="<option value='".$bank->pseCode."'>".$bank->description."</option>";
