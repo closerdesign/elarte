@@ -18,7 +18,7 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-12">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/89goY9taDX0' frameborder='0' allowfullscreen></iframe></div>
+						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/a_USeV3g0lA?autoplay=true' frameborder='0' allowfullscreen></iframe></div>
 					</div>
 				</div>
 				<hr>
@@ -43,6 +43,7 @@
 							<p>No te pierdas esta oportunidad única de participar en este evento sin precedentes. Estás a tiempo de inscribirte y obtener tus entradas.</p>
 						</div>
 					</div>
+					<?php if(isset($_SESSION['id'])){ ?>
 					<form id="inscripcionConferencia">
 						<div class="row">
 							<div class="col-md-12 form-group">
@@ -61,14 +62,17 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12 form-group">
-								<?php if(!isset($_SESSION['id'])){ ?>
-								<button type="button" class='muestraLogin btn btn-primary pull-right'>Regístrese o inicie sesión con su cuenta</button>
-								<?php }else{ ?>
 								<button class="btn btn-primary btn-lg pull-right">Inscribirme</button>
-								<?php } ?>
 							</div>
 						</div>
 					</form>
+					<?php }else{ ?>
+					<div class="row">
+						<div class="col-md-12">
+							<button style='width: 100%' type="button" class='muestraLogin btn btn-primary'><i class='fa fa-user'></i> Regístrate o inicia sesión con tu cuenta</button>
+						</div>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 			
