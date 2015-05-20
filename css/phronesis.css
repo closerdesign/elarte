@@ -1405,6 +1405,12 @@ img.mfp-img {
 	margin: 15px;
 }
 
+@media screen and (max-width:480px){
+	.tituloConferencia{
+		margin: 0 !important;
+	}
+}
+
 .contenidoConferencia h1,h2,h3{
 	text-transform: uppercase;
 }
@@ -1422,6 +1428,12 @@ img.mfp-img {
 	color: #fff;
 	padding-bottom: 45px;
 	margin-top: 0;
+}
+
+@media screen and (max-width:480px){
+	.formularioConferencia{
+		margin: 0;
+	}
 }
 
 .formularioConferencia h1{
