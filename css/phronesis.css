@@ -271,6 +271,10 @@ th{
 	padding-left: 0;
 }
 
+.articulos-container img{
+	border-bottom: solid 1px #f5f5f5;
+}
+
 .btnCategorias{
 	border-color: #fff !important;
 	color: #fff !important;
@@ -342,6 +346,7 @@ th{
 	float: left;
 	margin-right: 15px;
 	margin-bottom: 15px;
+	border: solid 1px #f5f5f5;
 	border-bottom: solid 5px #6A1279;
 }
 
@@ -411,6 +416,7 @@ th{
 
 .banner{
 	margin-bottom: 15px;
+	padding-left: 0;
 }
 
 .banner img{

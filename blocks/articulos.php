@@ -80,176 +80,190 @@
 							</div>
 						</div>
 						
-						<div class="row">
-							<div class="col-lg-12 col-md-12 col-sm-12 articulo-detalle">
-								
-								<div class="row articulos-titulo">
-									<div class="col-lg-12 col-md-12 col-sm-12">
-										<h2><?php echo $data['titulo'] ?></h2>
+						<?php if(
+								($data['programas_especiales']>0) &&
+								(!isset($_SESSION['id']))
+							){
+								?>
+								<div class="row">
+									<div class="col-md-12">
+										<p class='lead'>Contenido exclusivo para miembros de la comunidad.</p>
+										<p>Para poder disfrutar de este contenido, <a class='btn btn-default' href='javascript:void(0)' onclick='openRegisterModal()'>regístrate</a> o <a class='btn btn-default' href='javascript:void(0)' onclick='openLoginModal()'>inicia sesión</a> con tu cuenta.</p>
 									</div>
-									<div class="col-lg-12 col-md-12 col-sm-12">
-										<div class="articulo-meta">
-											<?php
-												$fecha=strtotime($data['fecha_publicacion']);
-												$dia=date('d',$fecha);
-												$vistames=array(
-													"01"=>"Enero",
-													"02"=>"Febrero",
-													"03"=>"Marzo",
-													"04"=>"Abril",
-													"05"=>"Mayo",
-													"06"=>"Junio",
-													"07"=>"Julio",
-													"08"=>"Agosto",
-													"09"=>"Septiembre",
-													"10"=>"Octubre",
-													"11"=>"Noviembre",
-													"12"=>"Diciembre"
-													);
-												$mes=$vistames[date('m',$fecha)];
-												$anio=date('Y',$fecha);
-											?>
-											<p><i class="fa fa-calendar"></i> <?php echo $mes." ".$dia.", ".$anio; ?></p>
+								</div>
+								<?php
+							}else{ ?>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 articulo-detalle">
+									
+									<div class="row articulos-titulo">
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<h2><?php echo $data['titulo'] ?></h2>
 										</div>
-										
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="articulo-meta">
+												<?php
+													$fecha=strtotime($data['fecha_publicacion']);
+													$dia=date('d',$fecha);
+													$vistames=array(
+														"01"=>"Enero",
+														"02"=>"Febrero",
+														"03"=>"Marzo",
+														"04"=>"Abril",
+														"05"=>"Mayo",
+														"06"=>"Junio",
+														"07"=>"Julio",
+														"08"=>"Agosto",
+														"09"=>"Septiembre",
+														"10"=>"Octubre",
+														"11"=>"Noviembre",
+														"12"=>"Diciembre"
+														);
+													$mes=$vistames[date('m',$fecha)];
+													$anio=date('Y',$fecha);
+												?>
+												<p><i class="fa fa-calendar"></i> <?php echo $mes." ".$dia.", ".$anio; ?></p>
+											</div>
+											
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-md-12">
+											<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $data['imagen'] ?>" />
+										</div>
+									</div>
+									
+									
+									
+									<div class="row articulos-compartir">
+										<div class="col-lg-4 col-md-4 col-sm-4">
+											<?php
+												$favUser="";
+												if(isset($_SESSION['id'])){
+													$favUser=$_SESSION['id'];
+												}
+											?>
+											<button articulo="<?php echo $_REQUEST['id'] ?>" usuario="<?php echo $favUser; ?>" class="btn btn-primary btnFavoritos">
+												<i class="fa fa-heart"></i> Agregar a favoritos
+											</button>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4">
+											<button class="btn btn-primary compartirAmigo"><i class="fa fa-share-square-o"></i> Compartir con un amigo</button>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4">
+											<button class="btn btn-primary compartirFacebook"><i class="fa fa-facebook"></i> Compartir en Facebook</button>
+										</div>
+									</div>
+									
+									<hr>
+									
+									<div class="row">
+										<div class="col-md-12">
+											<?php echo $data['contenido'] ?>
+										</div>
+									</div>
+									
+								</div>	
+							</div>
+							
+							<div class="row comentarios-articulo">
+								<div class="row hidden-xs">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<div class="banner728x90">
+											<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+											<!-- Web App - Banner Artículo Comentarios -->
+											<ins class="adsbygoogle"
+											     style="display:inline-block;width:728px;height:90px"
+											     data-ad-client="ca-pub-5955686545071577"
+											     data-ad-slot="7194524442"></ins>
+											<script>
+											(adsbygoogle = window.adsbygoogle || []).push({});
+											</script>
+										</div>
 									</div>
 								</div>
-								
-								<div class="row">
-									<div class="col-md-12">
-										<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $data['imagen'] ?>" />
-									</div>
-								</div>
-								
-								
-								
-								<div class="row articulos-compartir">
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<?php
-											$favUser="";
-											if(isset($_SESSION['id'])){
-												$favUser=$_SESSION['id'];
-											}
-										?>
-										<button articulo="<?php echo $_REQUEST['id'] ?>" usuario="<?php echo $favUser; ?>" class="btn btn-primary btnFavoritos">
-											<i class="fa fa-heart"></i> Agregar a favoritos
-										</button>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<button class="btn btn-primary compartirAmigo"><i class="fa fa-share-square-o"></i> Compartir con un amigo</button>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4">
-										<button class="btn btn-primary compartirFacebook"><i class="fa fa-facebook"></i> Compartir en Facebook</button>
-									</div>
-								</div>
-								
-								<hr>
-								
-								<div class="row">
-									<div class="col-md-12">
-										<?php echo $data['contenido'] ?>
-									</div>
-								</div>
-								
-							</div>	
-						</div>
-						
-						<div class="row comentarios-articulo">
-							<div class="row hidden-xs">
-								<div class="col-lg-12 col-md-12 col-sm-12">
-									<div class="banner728x90">
+								<div class="row publicidadMoviles">
+									<div class="col-lg-12 col-md-12 col-sm-12">
 										<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-										<!-- Web App - Banner Artículo Comentarios -->
+										<!-- Web App - Móvil Categoría -->
 										<ins class="adsbygoogle"
-										     style="display:inline-block;width:728px;height:90px"
+										     style="display:inline-block;width:320px;height:100px"
 										     data-ad-client="ca-pub-5955686545071577"
-										     data-ad-slot="7194524442"></ins>
+										     data-ad-slot="5988915648"></ins>
 										<script>
 										(adsbygoogle = window.adsbygoogle || []).push({});
 										</script>
 									</div>
 								</div>
-							</div>
-							<div class="row publicidadMoviles">
 								<div class="col-lg-12 col-md-12 col-sm-12">
-									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-									<!-- Web App - Móvil Categoría -->
-									<ins class="adsbygoogle"
-									     style="display:inline-block;width:320px;height:100px"
-									     data-ad-client="ca-pub-5955686545071577"
-									     data-ad-slot="5988915648"></ins>
-									<script>
-									(adsbygoogle = window.adsbygoogle || []).push({});
-									</script>
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-12">
-								<p class="lead">Comparte tus comentarios</p>
-								<?php
-									if(!isset($_SESSION['id'])){
+									<p class="lead">Comparte tus comentarios</p>
+									<?php
+										if(!isset($_SESSION['id'])){
+											echo '
+												<p>Para poder comentar este artículo debes ser un usuario registrado. <a class="btn btn-default" href="javascript:void(0)" onclick="openRegisterModal()">Regístrate</a> o ingresa haciendo click <a class="btn btn-default" href="javascript:void(0)" onclick="openLoginModal()">aquí</a>.</p>
+											';
+										}else{
+											?>
+											<form name="comentarios" id="comentarios">
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+														<textarea class="form-control" name="comentario" id="comentario" placeholder="Escribe aquí tu comentario" required ></textarea>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+														<input type="hidden" name="articulo" id="articulo" value="<?php echo $data['id'] ?>" />
+														<input type="hidden" name="usuario" id="usuario" value="<?php echo $_SESSION['id'] ?>" />
+														<button type="submit" class="btn btn-primary">Enviar comentario</button>
+													</div>
+												</div>
+											</form>
+											<?php
+										}
+									?>
+									<?php
+										$sql="SELECT * FROM comentarios WHERE articulo = '$data[id]' AND status = 1 ORDER BY creado DESC";
+										$q=mysqli_query($con, $sql);
+										$n=mysqli_num_rows($q);
+										
 										echo '
-											<p>Para poder comentar este artículo debes ser un usuario registrado. <a class="btn btn-default" href="javascript:void(0)" onclick="openRegisterModal()">Regístrate</a> o ingresa haciendo click <a class="btn btn-default" href="javascript:void(0)" onclick="openLoginModal()">aquí</a>.</p>
-										';
-									}else{
-										?>
-										<form name="comentarios" id="comentarios">
 											<div class="row">
-												<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-													<textarea class="form-control" name="comentario" id="comentario" placeholder="Escribe aquí tu comentario" required ></textarea>
+												<div class="col-lg-12 col-md-12 col-sm-12">
+													<h4>Comentarios</h4>
+													<hr>
 												</div>
-											</div>
-											<div class="row">
-												<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-													<input type="hidden" name="articulo" id="articulo" value="<?php echo $data['id'] ?>" />
-													<input type="hidden" name="usuario" id="usuario" value="<?php echo $_SESSION['id'] ?>" />
-													<button type="submit" class="btn btn-primary">Enviar comentario</button>
-												</div>
-											</div>
-										</form>
-										<?php
-									}
-								?>
-								<?php
-									$sql="SELECT * FROM comentarios WHERE articulo = '$data[id]' AND status = 1 ORDER BY creado DESC";
-									$q=mysqli_query($con, $sql);
-									$n=mysqli_num_rows($q);
-									
-									echo '
-										<div class="row">
-											<div class="col-lg-12 col-md-12 col-sm-12">
-												<h4>Comentarios</h4>
-												<hr>
-											</div>
-										</div>';
-									
-									if($n<1){
-										echo "
-											<div class='row'>
-												<div class='col-lg-12 col-md-12 col-sm-12'>
-													<p>Este artículo aún no tiene comentarios.</p>
-												</div>
-											</div>
-										";
-									}else{
-										while($c=mysqli_fetch_assoc($q)){
+											</div>';
+										
+										if($n<1){
 											echo "
 												<div class='row'>
 													<div class='col-lg-12 col-md-12 col-sm-12'>
-														<div class='globo-comentarios'>
-															$c[comentarios]
-														</div>
-														<div class='meta-comentarios'>
-															Por ".getMetaComentarios($c['usuario'])."
-														</div>
+														<p>Este artículo aún no tiene comentarios.</p>
 													</div>
 												</div>
 											";
+										}else{
+											while($c=mysqli_fetch_assoc($q)){
+												echo "
+													<div class='row'>
+														<div class='col-lg-12 col-md-12 col-sm-12'>
+															<div class='globo-comentarios'>
+																$c[comentarios]
+															</div>
+															<div class='meta-comentarios'>
+																Por ".getMetaComentarios($c['usuario'])."
+															</div>
+														</div>
+													</div>
+												";
+											}
 										}
-									}
-									
-								?>
-							</div>
-						</div>
+										
+									?>
+								</div>
+							</div>		
+							<?php } ?>
 						
 						<!-- INICIO DE BANNER MOVIL CAMPAÑA -->
 						<div class="row">

@@ -51,6 +51,8 @@
 			require_once('blocks/conferencia-virtual.php');
 		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
 			require_once( 'blocks/inscripcion-conferencia.php' );
+		}elseif($_REQUEST['content']=='programas-especiales'){
+			require_once('blocks/programas-especiales.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}

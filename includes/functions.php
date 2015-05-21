@@ -569,6 +569,27 @@
 			return $html;
 		}
 		
+		// OBTENER EL IDENTIFICADOR DEL PROGRAMA ESPECIAL
+		function getIdPrograma($val){
+			global $con;
+			$data = mysqli_fetch_array(mysqli_query($con, "SELECT id_programa FROM programas_especiales WHERE alias = '$val'"));
+			return $data['id_programa'];
+		}
+		
+		// OBTENER EL TITULO DEL PROGRAMA ESPECIAL
+		function getTituloPrograma($val){
+			global $con;
+			$data = mysqli_fetch_array(mysqli_query($con, "SELECT titulo FROM programas_especiales WHERE id_programa = '$val'"));
+			return $data['titulo'];
+		}
+		
+		// OBTENER LA DESCRIPCION DEL PROGRAMA ESPECIAL
+		function getDescripcionPrograma($val){
+			global $con;
+			$data = mysqli_fetch_array(mysqli_query($con, "SELECT descripcion FROM programas_especiales WHERE id_programa = '$val'"));
+			return $data['descripcion'];
+		}
+		
 	/////////////////////////////////////////////////////////////////////////
 	
 	// NOTIFICACIONES

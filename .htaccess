@@ -22,6 +22,14 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^articulos/categoria/([^/]+)$ /index.php?content=articulos&categoria=$1 [L]
 
+# PROGRAMAS ESPECIALES
+RewriteCond %{THE_REQUEST} \?content=programas-especiales&alias=([^&\ ]+)($|\ )
+RewriteRule ^ /programas-especiales/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^programas-especiales/([^/]+)$ /index.php?content=programas-especiales&alias=$1 [L]
+
 # MI CUENTA
 RewriteCond %{THE_REQUEST} \?content=mi-cuenta&task=([^&\ ]+)($|\ )
 RewriteRule ^ /mi-cuenta/%1? [L,R=301]
