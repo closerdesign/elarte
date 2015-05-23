@@ -2107,7 +2107,8 @@
 			   $id_lista = mysqli_insert_id($con_sendy);
 			   
 			   // CREACION DE LOS SUSCRIPTORES EN LA LISTA
-			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT ".$limit_query);
+			   //$q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT ".$limit_query);
+			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1");
 			   $n = mysqli_num_rows($q);
 			   
 			   if($n > 0){
