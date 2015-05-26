@@ -1719,7 +1719,7 @@
 			}else{
 				
 				$mensaje = "";
-				$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
+				$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
 				$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
 				if( $estado == 1 ){
 					$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
@@ -1729,7 +1729,7 @@
 					$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
 				}
 				
-				$notificar = notificar(getEmailUsuario($_SESSION['id']),"Acerca de tu proceso de inscripción",$mensaje);
+				$notificar = notificar(getEmailUsuario($usuario),"Acerca de tu proceso de inscripción",$mensaje);
 				
 				if($notificar == 0){
 					echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. (msg)</p>";

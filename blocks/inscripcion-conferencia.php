@@ -18,7 +18,7 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-12">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/VybI6i8RMF0?autoplay=true' frameborder='0' allowfullscreen></iframe></div>
+						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/yHwo5EunKXo?autoplay=true' frameborder='0' allowfullscreen></iframe></div>
 					</div>
 				</div>
 				<hr>
@@ -31,8 +31,9 @@
 						<p>
 							Esta conferencia es para que vivas el amor desde una nueva perspectiva, sin necesidades obsesivas y en plena libertad interior. El amor saludable es una construcción personal que puede gestionarse y disfrutarlo.
 						</p>
-						<p>
-							<b>Recuerde que esta es una CONFERENCIA EN LÍNEA.</b>
+						<hr>
+						<p class='lead'>
+							Recuerde que esta es una CONFERENCIA EN LÍNEA. Al comprar su acceso, usted obtendrá además la posibilidad de disfrutar del contenido del video a través de su cuenta en elartedesabervivir.com.
 						</p>
 					</div>
 				</div>
