@@ -153,6 +153,11 @@ $(document).ready(function(){
 			url: url
 		})
 	}
+	
+	// Modal Expectativa Evento
+	function modalEx(){
+		modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup.jpg" class="img img-responsive" /></a></p>');
+	}
 
 // Portadas Walter Portada
 $('.bxslider').bxSlider({

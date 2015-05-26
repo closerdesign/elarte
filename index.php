@@ -137,4 +137,17 @@
 		}
 	?>
 	
+	<?php
+		if(
+			(!isset($_REQUEST['content'])) ||
+			($_REQUEST['content']!='conferencia-virtual')
+		){
+			?>
+			<div class="pieEvento">
+				<p class="text-center"><a onclick="modalEx()" href="#">Próximamente: <b>Conferencia Virtual por Walter Riso</</b> <i class="fa fa-arrow-circle-right"></i></a></p>
+			</div>
+			<?php
+		}
+	?>
+	
 </html>

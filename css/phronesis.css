@@ -1475,3 +1475,15 @@ img.mfp-img {
 .fechaEvento span{
 	font-size: 60px;
 }
+
+.pieEvento{
+	width: 100%;
+	background: #6A1279;
+	position: fixed;
+	bottom: 0;
+	padding: 10px 5px 0 5px;
+}
+
+.pieEvento a{
+	color: #F8C71A;
+}
