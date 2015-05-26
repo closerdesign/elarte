@@ -23,12 +23,6 @@ $(document).ready(function(){
             this.value = this.value.toLocaleUpperCase();
     });
     
-    var evento = $.cookie('evento');
-    if(evento != 1){
-	    modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup.jpg" class="img img-responsive" /></a></p>');
-	    $.cookie('evento',1);
-    }
-    
 })
 
 // Funciones
@@ -140,11 +134,23 @@ $(document).ready(function(){
 			valor: valor
 		}).done(function(msg){
 			if( msg == 1 ){
-				window.location.href = url;
+				if( (metodo > 3) && (metodo < 7) ){
+				   notificaComprobante(usuario,url);
+				}
+				window.open(url,'_blank');
 			} else {
 				alert(msg);
 				descargar();
 			}
+		})
+	}
+	
+	// Comprobantes de pago via email
+	function notificaComprobante(usuario,url){
+		$.post('/includes/php.php',{
+			consulta: "notificaComprobante",
+			usuario: usuario,
+			url: url
 		})
 	}
 

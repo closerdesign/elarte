@@ -118,4 +118,23 @@
 		
 	?>
 	
+	<?php
+		if(
+			(!isset($_REQUEST['content'])) ||
+			($_REQUEST['content'] != 'inscripcion-conferencia')
+		){
+			?>
+			<script>
+				$(document).ready(function(){
+					var evento = $.cookie('evento');
+					if(evento != 1){
+					    modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup.jpg" class="img img-responsive" /></a></p>');
+					    $.cookie('evento',1);
+					}
+				})
+			</script>
+			<?php
+		}
+	?>
+	
 </html>

@@ -1960,6 +1960,16 @@
 			
 		}
 		
+		// ENVIAR NOTIFICACIONES CON COMPROBANTE DE PAGO
+		if($_POST['consulta']=='notificaComprobante'){
+			$mensaje = "";
+			$mensaje .= "<p>Estimado(a) ".getNombreUsuario($_POST['usuario']).",</p>";
+			$mensaje .= "<p>A continuación encontrará el enlace para la generación del comprobante de su pago en efectivo en caso tal de que llegue a requerirlo nuevamente.</p>";
+			$mensaje .= "<h1><a href='$_POST[url]'>Haga click aquí para generar el comprobante</a></h1>";
+			$mensaje .= "<p>Gracias por tu interés en nuestra conferencia virtual.</p>";
+			notificar(getEmailUsuario($_POST['usuario']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+		}
+		
 	/////////////////////////////////////////////////////////////////////////
 	
 	// GESTIÓN DE ARTÍCULOS

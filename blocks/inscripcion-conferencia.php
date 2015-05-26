@@ -7,8 +7,8 @@
 					Julio <span>11</span>
 				</div>
 				<h1 class="tituloConferencia">
-					El <span>arte de amar</span> sin apego por <span>Walter Riso</span><br />
-					Conferencia Virtual
+					El arte de amar sin apegos<br />
+					<span style="font-size: 0.7em">Conferencia Virtual por Walter Riso</span>
 				</h1>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-12">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/a_USeV3g0lA?autoplay=true' frameborder='0' allowfullscreen></iframe></div>
+						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/VybI6i8RMF0?autoplay=true' frameborder='0' allowfullscreen></iframe></div>
 					</div>
 				</div>
 				<hr>
@@ -31,6 +31,9 @@
 						<p>
 							Esta conferencia es para que vivas el amor desde una nueva perspectiva, sin necesidades obsesivas y en plena libertad interior. El amor saludable es una construcción personal que puede gestionarse y disfrutarlo.
 						</p>
+						<p>
+							<b>Recuerde que esta es una CONFERENCIA EN LÍNEA.</b>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -41,6 +44,40 @@
 							<h1 class="text-center">¡Inscríbete ahora!</h1>
 							<hr>
 							<p>No te pierdas esta oportunidad única de participar en este evento sin precedentes. Estás a tiempo de inscribirte y obtener tus entradas.</p>
+							<p class="lead">Para poder inscribirte en este evento debes ser un usuario registrado.</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th colspan="2">
+												PRECIOS
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Desde Junio 1 y hasta Junio 20 de 2015
+											</td>
+											<td class="text-center">
+												USD 7.99
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Desde Junio 21 hasta Julio 10 de 2015
+											</td>
+											<td class="text-center">
+												USD 9.99
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 					<?php if(isset($_SESSION['id'])){ ?>
