@@ -74,6 +74,14 @@
 		$data=mysqli_fetch_array($q);
 		return $data['formato'];
 	}
+	
+	function getDemoPublicacion($val){
+		global $con;
+		$sql="SELECT demo FROM publicaciones WHERE id = '$val'";
+		$q=mysqli_query($con, $sql);
+		$data=mysqli_fetch_array($q);
+		return $data['demo'];
+	}
 
 	function getArchivoAudio($val){
 		global $con;
@@ -208,47 +216,15 @@
 				$data=mysqli_fetch_array($q);
 				
 				if($data['formato']==2){
-					// Ejecutar las acciones cuando la publicación tiene un formato de audio
-					//$btn='<button class="btn btn-primary btnDemo'.$val.'"><i class="fa fa-play-circle"></i> Demo</button>';
-					//$btn.='<button class="btn btn-primary btnStop'.$val.'" style="display:none !important"><i class="fa fa-pause"></i> Demo</button>';
-					//$btn.='
-					//   
-					//   <script>
-					//   	$(document).ready(function(){
-					//   	$("#jquery_jplayer_'.$val.'").jPlayer({
-					//           ready: function () {
-					//             $(this).jPlayer("setMedia", {
-					//               title: "Bubble",
-					//               mp3: "admin/_lib/file/docmuestras/'.getArchivoMuestra($val).'"
-					//             });
-					//           },
-					//           cssSelectorAncestor: "#jp_container_'.$val.'",
-					//           swfPath: "/js",
-					//           useStateClassSkin: true,
-					//           autoBlur: false,
-					//           smoothPlayBar: true,
-					//           keyEnabled: true,
-					//           remainingDuration: true,
-					//           toggleDuration: true
-					//         });	
-					//   	})
-					//   	$(".btnDemo'.$val.'").click(function(){
-					//   		$("#jquery_jplayer_'.$val.'").jPlayer("play");
-					//   		$(".btnDemo'.$val.'").hide();
-					//   		$(".btnStop'.$val.'").show();
-					//   	})
-					//   	$(".btnStop'.$val.'").click(function(){
-					//   		$("#jquery_jplayer_'.$val.'").jPlayer("stop");
-					//   		$(".btnDemo'.$val.'").show();
-					//   		$(".btnStop'.$val.'").hide();
-					//   	})
-					//   </script>
-					//   <div id="jquery_jplayer_'.$val.'" class="jp-jplayer"></div>
-					//';
-					$btn="";
+					$demo = getDemoPublicacion($val);
+					if($demo==""){
+						$btn="";
+					}else{
+						$btn='<a href="https://www.youtube.com/watch?v='.$demo.'" id="btnVideo" class="btn btn-primary popup-youtube"><i class="fa fa-play-circle"></i> Demo</a>';
+					}
 				}else{
 					// Ejecutar las acciones en caso contrario
-					$btn='<button user="'.$_SESSION['id'].'" value="'.$val.'" class="btn btn-primary btnMuestraRegistro">Muestra</button>';
+					$btn='<button user="'.$_SESSION['id'].'" value="'.$val.'" class="btn btn-primary btnMuestraRegistro"><i class="fa fa-search-plus"></i> Muestra</button>';
 				}
 
 			}	
@@ -266,7 +242,7 @@
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
 		if($data['video']!=""){
-			$btn='<a href="https://www.youtube.com/watch?v='.$data['video'].'" id="btnVideo" class="btn btn-primary popup-youtube">Video</a>';
+			$btn='<a href="https://www.youtube.com/watch?v='.$data['video'].'" id="btnVideo" class="btn btn-primary popup-youtube"><i class="fa fa-video-camera"></i> Video</a>';
 		}
 		echo $btn;
 	}
