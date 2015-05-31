@@ -795,6 +795,42 @@ $('#registroUsuarios').validate({
 	}
 });
 
+$('#registroInscripcion').validate({
+	rules: {
+		email: {
+			remote: {
+				url: '/includes/php.php',
+				type: 'post',
+				data: {
+					consulta: "verificaEmail"
+				}
+			}
+		},
+		password: {
+			minlength: 8
+		},
+		cpassword: {
+			equalTo: "#passwordReg"
+		}
+	},
+	messages: {
+		emailRegistro: {
+			remote: "Este email ya se encuentra registrado"
+		}
+	},
+	submitHandler: function(form){
+		$.post('/includes/php.php',$('#registroInscripcion').serialize())
+		.done(function(data){
+			if(data == 0){
+				shakeModalRegistro();
+			}else{
+				location.reload();
+			}
+		})
+		
+	}
+});
+
 function shakeModal(){
     $('#loginModal .modal-dialog').addClass('shake');
              $('.error').addClass('alert alert-danger').html("Nombre de usuario o contraseña inválidos");

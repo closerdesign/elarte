@@ -81,7 +81,7 @@
 						$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM inscritos_conferencia WHERE usuario_id = '$_SESSION[id]' AND estado_inscripcion = 1"));
 						if( $n > 0 ){
 							?>
-							<p class="lead text-center">Felicitaciones! Ya te encuentras inscrito(a) en esta conferencia.</p>
+							<p class="lead text-center">¡Felicitaciones! Ya te encuentras inscrito(a) en esta conferencia.</p>
 							<p class='text-center'><a class="btn btn-primary btn-lg" href="http://www.timeanddate.com/scripts/ics.php?type=utc&p1=41&iso=20150725T15&ah=1&am=30&msg=Conferencia%20Virtual%20-%20El%20Arte%20de%20Amar%20Sin%20Apegos"><i class="fa fa-calendar"></i> Agregar a mi Calendario</a></p>
 							<?php
 						}else{
@@ -162,15 +162,46 @@
 					<div class="row" id="bloque3" style="display:none">
 						<hr>
 						<div class="col-md-12">
-							<p class='text-center'>¿Aún no tienes una cuenta en Phronesis? <a href="#" onclick="openRegisterModal()"><b>¡Regístrate!</b></a></p>
+							<p class='text-center'>¿Aún no tienes una cuenta en Phronesis? <button class="btn btn-default" id="btnRegistroInscripcion"><b>¡Regístrate!</b></button></p>
 						</div>
 					</div>
+					<form id="registroInscripcion">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<div id="bloque4" class="row" style="display:none">
+									<div class="col-md-12 form-group">
+										<input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
+									</div>
+									<div class="col-md-12 form-group">
+										<input type="password" class="form-control" name="password" id="passwordReg" placeholder="Contraseña" required />
+									</div>
+									<div class="col-md-12 form-group">
+										<input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Repetir contraseña" required />
+									</div>
+								</div>
+								<div id="bloque5" class="row" style="display:none">
+									<div class="col-md-12 form-group">
+										<input type="hidden" name="consulta" id="consulta" value="registro" />
+										<button type="submit" class="btn btn-primary pull-right">Registrarme</button>
+									</div>
+								</div>		
+							</div>
+						</div>
+					</form>
 					<script>
 						$('#bloques').click(function(){
 							$('#bloque0').hide();
 							$('#bloque1').fadeIn();
 							$('#bloque2').fadeIn();
 							$('#bloque3').fadeIn();
+						})
+						$('#btnRegistroInscripcion').click(function(){
+							$('#bloque0').hide();
+							$('#bloque1').hide();
+							$('#bloque2').hide();
+							$('#bloque3').hide();
+							$('#bloque4').fadeIn();
+							$('#bloque5').fadeIn();
 						})
 					</script>
 					<?php } ?>
