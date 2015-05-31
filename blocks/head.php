@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="/css/jquery.bxslider.css" />
 	<link rel="stylesheet" href="/css/fws2.css" />
 	<link rel="stylesheet" href="/css/rotating-card.css" />
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<!-- Phronesis Theme -->
 	<link rel="stylesheet" href="/css/phronesis.css" />
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -37,7 +37,7 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<!-- jQuery validate -->
-	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.js"></script>
 	<!-- jQuery UI -->
 	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	<!-- jQuery Cookie -->

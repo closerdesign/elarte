@@ -802,7 +802,7 @@ $('#registroInscripcion').validate({
 				url: '/includes/php.php',
 				type: 'post',
 				data: {
-					consulta: "verificaEmail"
+					consulta: "verificaEmailRegistro"
 				}
 			}
 		},
@@ -814,7 +814,7 @@ $('#registroInscripcion').validate({
 		}
 	},
 	messages: {
-		emailRegistro: {
+		email: {
 			remote: "Este email ya se encuentra registrado"
 		}
 	},

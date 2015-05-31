@@ -619,6 +619,16 @@
 		}
 	}
 	
+	if($_POST['consulta']=='verificaEmailRegistro'){
+		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
+		$n=mysqli_num_rows($q);
+		if($n>0){
+			echo "false";
+		}else{
+			echo "true";
+		}
+	}
+	
 	// Finalizar registro Facebook
 	if($_POST['consulta']=='emailFacebook'){
 		$sql="SELECT * FROM usuarios WHERE email = '$_POST[email]'";
