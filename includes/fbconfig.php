@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('config.php');
-$url_referrer = $_REQUEST['url'];
+$url_referrer = urlencode($_REQUEST['url']);
 // added in v4.0.0
 define('FACEBOOK_SDK_V4_SRC_DIR', 'Facebook/');
 require_once 'autoload.php';
@@ -51,7 +51,7 @@ if ( isset( $session ) ) {
 	$_SESSION['EMAIL'] =  $femail;
 	
 	/* ---- header location after session ----*/
-	header("Location: /index.php?content=".$_REQUEST['url'] );
+	header( "Location: $_REQUEST[url]" );
 
 } else {
 	

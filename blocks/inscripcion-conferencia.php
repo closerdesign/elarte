@@ -154,7 +154,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<p>&nbsp;</p>
-									<a href="/includes/fbconfig.php?url=<?php echo $_REQUEST['content'] ?>" class="btn btn-info"><i class='fa fa-facebook'></i> Entrar con Facebook</a>
+									<a href="/includes/fbconfig.php?url=<?php echo $_SERVER['REQUEST_URI'] ?>" class="btn btn-info"><i class='fa fa-facebook'></i> Entrar con Facebook</a>
 								</div>
 							</div>
 						</div>
@@ -181,4 +181,14 @@
 		
 	</div>
 </div>
-
+<!-- ClickDesk Live Chat Service for websites -->
+<script type='text/javascript'>
+	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
+	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
+	'http://my.clickdesk.com/clickdesk-ui/browser/');
+	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
+	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
+	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+</script>
+<!-- End of ClickDesk -->

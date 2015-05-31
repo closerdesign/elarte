@@ -160,7 +160,7 @@
 				<div class="box">
 					<div class="content">
 						<div class="social">
-							<a id="facebook_login" class="circle facebook" href="/includes/fbconfig.php?url=<?php echo "$_REQUEST[content]" ?>">
+							<a id="facebook_login" class="circle facebook" href="/includes/fbconfig.php?url=<?php echo $_SERVER['REQUEST_URI'] ?>">
 							<i class="fa fa-facebook fa-fw"></i>
 							</a>
 						</div>
