@@ -31,10 +31,6 @@
 						<p>
 							Esta conferencia es para que vivas el amor desde una nueva perspectiva, sin necesidades obsesivas y en plena libertad interior. El amor saludable es una construcción personal que puede gestionarse y disfrutarlo.
 						</p>
-						<hr>
-						<p class='lead'>
-							Recuerde que esta es una CONFERENCIA EN LÍNEA. Al comprar su acceso, usted obtendrá además la posibilidad de disfrutar del contenido del video a través de su cuenta en elartedesabervivir.com.
-						</p>
 					</div>
 				</div>
 			</div>
@@ -45,7 +41,6 @@
 							<h1 class="text-center">¡Inscríbete ahora!</h1>
 							<hr>
 							<p>No te pierdas esta oportunidad única de participar en este evento sin precedentes. Estás a tiempo de inscribirte y obtener tus entradas.</p>
-							<p class="lead">Para poder inscribirte en este evento debes ser un usuario registrado.</p>
 						</div>
 					</div>
 					<div class="row">
@@ -105,11 +100,60 @@
 						</div>
 					</form>
 					<?php }else{ ?>
-					<div class="row">
+					<div id="bloque0" class="row">
 						<div class="col-md-12">
-							<button style='width: 100%' type="button" class='muestraLogin btn btn-primary'><i class='fa fa-user'></i> Regístrate o inicia sesión con tu cuenta</button>
+							<ul class="listaInscripcion">
+								<li>La conferencia es en vivo y en directo</li>
+								<li>Podrás realizar preguntas</li>
+								<li>Una vez finalizado el evento tendrás acceso ilimitado a una copia del video</li>
+								<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
+								<li>La duración de la conferencia es de 1 hora y 30 minutos. <a href="#">Consulta el horario de tu país.</a></li>
+							</ul>
+							<hr>
+							<p class="text-center"><button id="bloques" type="button" class="btn btn-primary btn-lg"><i class='fa fa-sign-in'></i> Inscribirme</button></p>
 						</div>
 					</div>
+					<div id="bloque1" class="row" style="display:none">
+						<div class="col-md-12">
+							<p class="lead text-center">Para inscribirte debes iniciar sesión en tu cuenta de Phronesis</p>
+						</div>
+					</div>
+					<div id="bloque2" class="row" style="display:none">
+						<div class="col-md-6">
+							<form>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<input class="form-control" type="email" name="email" id="email" placeholder="Email" required />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<input class="form-control" type="password" name="password" id="password" placeholder="Contraseña" required />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<button class="btn btn-primary pull-right" type="submit"><i class="fa fa-sign-in"></i> Ingresar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-12">
+									<p>&nbsp;</p>
+									<button class="btn btn-primary"><i class='fa fa-facebook'></i> Entrar con Facebook</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<script>
+						$('#bloques').click(function(){
+							$('#bloque0').hide();
+							$('#bloque1').fadeIn();
+							$('#bloque2').fadeIn();
+						})
+					</script>
 					<?php } ?>
 				</div>
 			</div>

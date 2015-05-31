@@ -2025,7 +2025,10 @@
 	/////////////////////////////////////////////////////////////////////////
 
 		// Envío del newsletter	
-		if($_REQUEST['consulta'] == 'newsletter'){
+		if(
+			($_REQUEST['consulta'] == 'newsletter') &&
+			($_REQUEST['id']) == '80234042'
+		){
 			
 			$con_sendy = mysqli_connect("localhost","elarte_phrosapp","Z,'VT,?x3*LdjMvR","elarte_sendy")or die('ERROR DB');
 			mysqli_query($con_sendy, "set NAMES utf8");
