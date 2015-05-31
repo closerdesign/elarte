@@ -2050,7 +2050,7 @@
 			
 			// CREAR MENSAJE
 			$msg = "";
-			$q_msg = mysqli_query($con, "SELECT id, titulo, imagen, contenido FROM articulos WHERE categoria != 1 AND status = 1 ORDER BY creado DESC LIMIT 3");
+			$q_msg = mysqli_query($con, "SELECT id, titulo, imagen, contenido FROM articulos WHERE categoria != 1 AND status = 1 ORDER BY fecha_publicacion DESC LIMIT 3");
 			while($a = mysqli_fetch_assoc($q_msg)){
 			   $msg .= "
 			   	<table align='center'>
