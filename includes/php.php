@@ -1030,7 +1030,7 @@
 		if( $_POST['consulta'] == 'obtenerFormularioDePago' ){
 			
 			$metodo = $_POST['metodo'];
-			$valor = 3.5;
+			$valor = 7.99;
 			
 			// Proceso de pago con tarjeta de crédito
 			if( $metodo == 1 ){

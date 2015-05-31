@@ -736,6 +736,22 @@ function registroAjax(){
 	
 }
 
+$('#loginInscripcion').validate({
+	submitHandler: function(form){
+		cargar();
+		$.post('/includes/php.php',$('#loginInscripcion').serialize())
+		.done(function(data){
+		    if( data > 0 ){
+			    $.cookie('session',data);
+			    location.reload();
+		    } else {
+			    alert('Nombre de usuario y/o contraseña inválido');
+			    descargar();
+		    }
+	    })	
+	}
+});
+
 $('#registroUsuarios').validate({
 	rules: {
 		emailRegistro: {

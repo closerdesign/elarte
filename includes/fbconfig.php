@@ -1,5 +1,7 @@
 <?php
 session_start();
+require('config.php');
+$url_referrer = $_REQUEST['url'];
 // added in v4.0.0
 define('FACEBOOK_SDK_V4_SRC_DIR', 'Facebook/');
 require_once 'autoload.php';
@@ -15,9 +17,9 @@ use Facebook\Entities\AccessToken;
 use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\HttpClients\FacebookHttpable;
 // init app with app id and secret
-FacebookSession::setDefaultApplication( '1555280741417343', '3b972cb244f2e6b202c87dad6d57412d' );
+FacebookSession::setDefaultApplication( FB_APP_ID, FB_APP_SECRET );
 // login helper with redirect_uri
-$helper = new FacebookRedirectLoginHelper('https://www.elartedesabervivir.com/includes/fbconfig.php' );
+$helper = new FacebookRedirectLoginHelper( URL.'includes/fbconfig.php?url='.$url_referrer );
 try {
 	$session = $helper->getSessionFromRedirect();
 } catch( FacebookRequestException $ex ) {
@@ -49,7 +51,7 @@ if ( isset( $session ) ) {
 	$_SESSION['EMAIL'] =  $femail;
 	
 	/* ---- header location after session ----*/
-	header("Location: /");
+	header("Location: /index.php?content=".$_REQUEST['url'] );
 
 } else {
 	

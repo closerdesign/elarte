@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="fechaEvento">
-					Julio <span>11</span>
+					Julio <span>25</span>
 				</div>
 				<h1 class="tituloConferencia">
 					El arte de amar sin apegos<br />
@@ -57,7 +57,7 @@
 									<tbody>
 										<tr>
 											<td>
-												Desde Junio 1 y hasta Junio 20 de 2015
+												Desde Junio 1 y hasta Junio 30 de 2015
 											</td>
 											<td class="text-center">
 												USD 7.99
@@ -65,7 +65,7 @@
 										</tr>
 										<tr>
 											<td>
-												Desde Junio 21 hasta Julio 10 de 2015
+												Desde Julio 1 hasta Julio 25 de 2015
 											</td>
 											<td class="text-center">
 												USD 9.99
@@ -77,29 +77,40 @@
 						</div>
 					</div>
 					<?php if(isset($_SESSION['id'])){ ?>
-					<form id="inscripcionConferencia">
-						<div class="row">
-							<div class="col-md-12 form-group">
-								<select class="form-control" name="paisConferencia" id="paisConferencia" required >
-									<option value="">Selecciona tu país ...</option>
-									<?php echo selectPaises(); ?>
-								</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 form-group">
-								<select class="form-control" name="formaDePagoConferencia" id="formaDePagoConferencia" required >
-									<option value="">Selecciona tu medio de pago preferido ...</option>
-								</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 form-group">
-								<button class="btn btn-primary btn-lg pull-right">Inscribirme</button>
-							</div>
-						</div>
-					</form>
-					<?php }else{ ?>
+					<?php
+						$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM inscritos_conferencia WHERE usuario_id = '$_SESSION[id]' AND estado_inscripcion = 1"));
+						if( $n > 0 ){
+							?>
+							<p class="lead text-center">Felicitaciones! Ya te encuentras inscrito(a) en esta conferencia.</p>
+							<p class='text-center'><a class="btn btn-primary btn-lg" href="http://www.timeanddate.com/scripts/ics.php?type=utc&p1=41&iso=20150725T15&ah=1&am=30&msg=Conferencia%20Virtual%20-%20El%20Arte%20de%20Amar%20Sin%20Apegos"><i class="fa fa-calendar"></i> Agregar a mi Calendario</a></p>
+							<?php
+						}else{
+							?>
+							<form id="inscripcionConferencia">
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<select class="form-control" name="paisConferencia" id="paisConferencia" required >
+											<option value="">Selecciona tu país ...</option>
+											<?php echo selectPaises(); ?>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<select class="form-control" name="formaDePagoConferencia" id="formaDePagoConferencia" required >
+											<option value="">Selecciona tu medio de pago preferido ...</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<button class="btn btn-primary btn-lg pull-right">Inscribirme</button>
+									</div>
+								</div>
+							</form>
+							<?php
+						}
+					}else{ ?>
 					<div id="bloque0" class="row">
 						<div class="col-md-12">
 							<ul class="listaInscripcion">
@@ -107,7 +118,7 @@
 								<li>Podrás realizar preguntas</li>
 								<li>Una vez finalizado el evento tendrás acceso ilimitado a una copia del video</li>
 								<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
-								<li>La duración de la conferencia es de 1 hora y 30 minutos. <a href="#">Consulta el horario de tu país.</a></li>
+								<li>La duración de la conferencia es de 1 hora y 30 minutos. <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30">Consulta el horario de tu país.</a></li>
 							</ul>
 							<hr>
 							<p class="text-center"><button id="bloques" type="button" class="btn btn-primary btn-lg"><i class='fa fa-sign-in'></i> Inscribirme</button></p>
@@ -120,10 +131,10 @@
 					</div>
 					<div id="bloque2" class="row" style="display:none">
 						<div class="col-md-6">
-							<form>
+							<form id="loginInscripcion">
 								<div class="row">
 									<div class="col-md-12 form-group">
-										<input class="form-control" type="email" name="email" id="email" placeholder="Email" required />
+										<input class="form-control" type="email" name="usuario" id="usuario" placeholder="Email" required />
 									</div>
 								</div>
 								<div class="row">
@@ -133,6 +144,7 @@
 								</div>
 								<div class="row">
 									<div class="col-md-12 form-group">
+										<input type="hidden" name="consulta" id="consulta" value="login" />
 										<button class="btn btn-primary pull-right" type="submit"><i class="fa fa-sign-in"></i> Ingresar</button>
 									</div>
 								</div>
@@ -142,9 +154,15 @@
 							<div class="row">
 								<div class="col-md-12">
 									<p>&nbsp;</p>
-									<button class="btn btn-primary"><i class='fa fa-facebook'></i> Entrar con Facebook</button>
+									<a href="/includes/fbconfig.php?url=<?php echo $_REQUEST['content'] ?>" class="btn btn-info"><i class='fa fa-facebook'></i> Entrar con Facebook</a>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="row" id="bloque3" style="display:none">
+						<hr>
+						<div class="col-md-12">
+							<p class='text-center'>¿Aún no tienes una cuenta en Phronesis? <a href="#" onclick="openRegisterModal()"><b>¡Regístrate!</b></a></p>
 						</div>
 					</div>
 					<script>
@@ -152,6 +170,7 @@
 							$('#bloque0').hide();
 							$('#bloque1').fadeIn();
 							$('#bloque2').fadeIn();
+							$('#bloque3').fadeIn();
 						})
 					</script>
 					<?php } ?>
@@ -162,3 +181,4 @@
 		
 	</div>
 </div>
+
