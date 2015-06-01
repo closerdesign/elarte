@@ -2,6 +2,9 @@
 session_start();
 require('config.php');
 $url_referrer = urlencode($_REQUEST['url']);
+if($url_referrer=='%2Finscripcion-conferencia'){
+	$url_referrer="%2Findex.php%3Fcontent%3Dinscripcion-conferencia%26popup%3D1";
+}
 // added in v4.0.0
 define('FACEBOOK_SDK_V4_SRC_DIR', 'Facebook/');
 require_once 'autoload.php';

@@ -722,6 +722,8 @@ function openRegisterModal(){
 
 function loginAjax(){
  
+ 	var curUrl = location.href;
+ 
     $.post('/includes/php.php',{
 	    consulta: "login",
 	    usuario: $('#emailLogin').val(),
@@ -729,7 +731,18 @@ function loginAjax(){
     }).done(function(data){
 	    if( data > 0 ){
 		    $.cookie('session',data);
-		    location.reload();
+		    
+		    if(
+		    		(curUrl=='http://elarte.desarrollo.closerdesign.co/inscripcion-conferencia') ||
+		    		(curUrl=='http://elarte.desarrollo.closerdesign.co/inscripcion-conferencia#')
+		    	){
+			    
+			    window.location.href = "http://elarte.desarrollo.closerdesign.co/index.php?content=inscripcion-conferencia&popup=1";
+			    
+		    } else {
+			  location.reload();  
+		    }
+		    
 	    } else {
 		    shakeModal();
 	    }
