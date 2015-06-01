@@ -3,7 +3,9 @@
 		?>
 		<script>
 			$(document).ready(function(){
-				scrollToAnchor('seleccionaPais');
+				$('html, body').animate({
+			        scrollTop: $("#inscripcionConferencia").offset().top
+			    	}, 2000);
 			});
 		</script>
 		<?php 
@@ -96,7 +98,6 @@
 							<?php
 						}else{
 							?>
-							<a name="seleccionaPais"></a>
 							<form id="inscripcionConferencia">
 								<div class="row">
 									<div class="col-md-12 form-group">
