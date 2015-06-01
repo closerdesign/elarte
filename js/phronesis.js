@@ -166,6 +166,12 @@ $(document).ready(function(){
 	function modalEx(){
 		modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup.jpg" class="img img-responsive" /></a></p>');
 	}
+	
+	// Scroll a anchor point
+	function scrollToAnchor(aid){
+	    var aTag = $("a[name='"+ aid +"']");
+	    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
 
 // Portadas Walter Portada
 $('.bxslider').bxSlider({
@@ -648,6 +654,7 @@ $('.cerrarSesion').click(function(){
 	}).done(function(msg){
 		$.removeCookie('pedido');
 		$.removeCookie('session');
+		$.removeCookie('e');
 		location.reload();
 	})
 })
@@ -721,33 +728,18 @@ function openRegisterModal(){
 }
 
 function loginAjax(){
- 
- 	var curUrl = location.href;
- 
-    $.post('/includes/php.php',{
-	    consulta: "login",
-	    usuario: $('#emailLogin').val(),
-	    password: $('#passwordLogin').val()
-    }).done(function(data){
-	    if( data > 0 ){
+	$.post('/includes/php.php',{
+		consulta: "login",
+		usuario: $('#emailLogin').val(),
+		password: $('#passwordLogin').val()
+	}).done(function(data){
+		if( data > 0 ){
 		    $.cookie('session',data);
-		    
-		    if(
-		    		(curUrl=='http://elarte.desarrollo.closerdesign.co/inscripcion-conferencia') ||
-		    		(curUrl=='http://elarte.desarrollo.closerdesign.co/inscripcion-conferencia#')
-		    	){
-			    
-			    window.location.href = "http://elarte.desarrollo.closerdesign.co/index.php?content=inscripcion-conferencia&popup=1";
-			    
-		    } else {
-			  location.reload();  
-		    }
-		    
-	    } else {
+		    location.reload();
+		} else {
 		    shakeModal();
-	    }
-    })
-     
+		}
+	})     
 }
 
 function registroAjax(){

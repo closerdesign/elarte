@@ -1,3 +1,13 @@
+<?php 
+	if( (isset($_SESSION['id'])) ){
+		?>
+		<script>
+			$(document).ready(function(){
+				scrollToAnchor('seleccionaPais');
+			});
+		</script>
+		<?php 
+	} ?>
 <div class="row top">
 	<div class="container contenidoConferencia">
 		
@@ -18,7 +28,7 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-12">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/yHwo5EunKXo?autoplay=true' frameborder='0' allowfullscreen></iframe></div>
+						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/yHwo5EunKXo' frameborder='0' allowfullscreen></iframe></div>
 					</div>
 				</div>
 				<hr>
@@ -86,6 +96,7 @@
 							<?php
 						}else{
 							?>
+							<a name="seleccionaPais"></a>
 							<form id="inscripcionConferencia">
 								<div class="row">
 									<div class="col-md-12 form-group">
@@ -214,12 +225,12 @@
 </div>
 <!-- ClickDesk Live Chat Service for websites -->
 <script type='text/javascript'>
-	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
-	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
-	'http://my.clickdesk.com/clickdesk-ui/browser/');
-	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
-	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
-	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
-	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+//	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
+//	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
+//	'http://my.clickdesk.com/clickdesk-ui/browser/');
+//	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+//	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
+//	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
+//	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
 </script>
 <!-- End of ClickDesk -->
