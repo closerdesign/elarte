@@ -3,7 +3,7 @@
 		?>
 		<script>
 			$(document).ready(function(){
-				$('html, body').animate({
+				$('.body').animate({
 			        scrollTop: $("#inscripcionConferencia").offset().top
 			    	}, 2000);
 			});

@@ -8,7 +8,7 @@
 	
 	<?php require_once('blocks/head.php'); ?>
 	
-	<body>
+	<body class="body">
 	
 	<?php require_once('blocks/finRegistro.php'); ?>
 	
