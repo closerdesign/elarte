@@ -49,7 +49,7 @@
 				<?php
 					if(!isset($_SESSION['id'])){
 						?>
-						<li><a class="muestraLogin" href="#"><i class="fa fa-user"></i> Iniciar sesión</a></li>
+						<li><button class="muestraLogin btn btn-primary" style="margin: 8px;"><i class="fa fa-user"></i> Iniciar sesión</button></li>
 						<?php
 					}else{
 						echo('<li><a class="cerrarSesion" href="javascript:void(0)">Salir <i class="fa fa-sign-out"></i></a></li>');
