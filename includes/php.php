@@ -1041,14 +1041,14 @@
 			
 			$metodo = $_POST['metodo'];
 			
-			$valor = 9.99;
+			$valor = "9.99";
 	
 			$today = date("Y-m-d H:i:s");
 			$date = "2015-06-30 00:00:00";
 			
 			if($today > $date){
 				
-				$valor = 15.99;
+				$valor = "15.99";
 				
 			}
 			
