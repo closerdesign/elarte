@@ -6,6 +6,7 @@ window.sr = new scrollReveal( config );
 
 // Descargar el cargador
 $(document).ready(function(){
+	
 	$('.load').fadeOut('slow');
 	$( ".datepicker" ).datepicker({
 		dateFormat: "yy-mm-dd",

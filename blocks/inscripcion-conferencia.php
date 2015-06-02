@@ -1,3 +1,12 @@
+<?php if(isset($_SESSION['id'])){ ?>
+<script>
+	$(document).ready(function(){
+		if( $('html,body').scrollTop() != 150 ){
+		    $('html,body').animate({scrollTop: $(window).scrollTop() + 1000},'slow');
+		}
+	})	
+</script>
+<?php } ?>
 <div class="row top">
 	<div class="container contenidoConferencia">
 		
@@ -34,7 +43,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" >
 				<div class="formularioConferencia">
 					<div class="row">
 						<div class="col-md-12">
@@ -57,7 +66,7 @@
 									<tbody>
 										<tr>
 											<td>
-												Desde Junio 1 y hasta Junio 30 de 2015
+												Junio 1 y hasta Junio 30 de 2015
 											</td>
 											<td class="text-center">
 												USD 7.99
@@ -65,7 +74,7 @@
 										</tr>
 										<tr>
 											<td>
-												Desde Julio 1 hasta Julio 25 de 2015
+												Julio 1 hasta Julio 25 de 2015
 											</td>
 											<td class="text-center">
 												USD 9.99
@@ -212,20 +221,6 @@
 		
 	</div>
 </div>
-
-<?php 
-	if( (isset($_SESSION['id'])) ){
-		?>
-		<script>
-			$(document).ready(function(){
-				$('html, body').animate({
-			        scrollTop: $("#inscripcionConferencia").offset().top
-			    }, 2000);
-			});
-		</script>
-		<?php 
-	} 
-?>
 
 <!-- ClickDesk Live Chat Service for websites -->
 <script type='text/javascript'>
