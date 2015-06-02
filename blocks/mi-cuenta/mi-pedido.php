@@ -577,7 +577,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+						<div class="col-md-4 form-group">
 							<label>Mes vencimiento</label>
 							<select class="form-control" name="mesTarjeta" id="mesTarjeta" required >
 								<option value="">Seleccione...</option>
@@ -595,7 +595,7 @@
 								<option value="12">12</option>
 							</select>
 						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+						<div class="col-md-4 form-group">
 							<label>Año vencimiento</label>
 							<select class="form-control" name="yearTarjeta" id="yearTarjeta" required>
 								<option value="">Seleccione...</option>
@@ -612,19 +612,14 @@
 								<option value='2025'>25</option>
 							</select>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6 form-group">
-							<label>Número de cuotas</label>
-							<input type="text" class="form-control" name="cuotas" id="cuotas" required />
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 form-group">
+						<div class="col-md-4 form-group">
 							<label>Código de seguridad</label>
 							<input type="text" class="form-control" name="codigoSeguridad" id="codigoSeguridad" placeholder="CVV" required />
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+							<input type="hidden" class="form-control" name="cuotas" id="cuotas" value="1" />
 							<input type="hidden" name="pedido" id="pedido" value="<?php echo $_COOKIE['pedido'] ?>" />
 							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo $sum; ?>" />
 							<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']); ?>" />
