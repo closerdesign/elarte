@@ -1,15 +1,3 @@
-<?php 
-	if( (isset($_SESSION['id'])) ){
-		?>
-		<script>
-			$(document).ready(function(){
-				$('.body').animate({
-			        scrollTop: $("#inscripcionConferencia").offset().top
-			    	}, 2000);
-			});
-		</script>
-		<?php 
-	} ?>
 <div class="row top">
 	<div class="container contenidoConferencia">
 		
@@ -224,6 +212,21 @@
 		
 	</div>
 </div>
+
+<?php 
+	if( (isset($_SESSION['id'])) ){
+		?>
+		<script>
+			$(document).ready(function(){
+				$('html, body').animate({
+			        scrollTop: $("#inscripcionConferencia").offset().top
+			    }, 2000);
+			});
+		</script>
+		<?php 
+	} 
+?>
+
 <!-- ClickDesk Live Chat Service for websites -->
 <script type='text/javascript'>
 //	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
