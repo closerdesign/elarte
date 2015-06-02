@@ -33,13 +33,16 @@
 				<hr>
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="text-center">Y tú, ¿te atreves a amar sin apegos?</h3>
-						<p>
-							Amar sin apegos es amar de manera independiente, sin posesión, sin angustia, siendo uno mismo a cada pulsación y a cada latido. Es querer al otro sin dejar de quererse uno mismo, es cuidar al ser amado y cuidar el propio yo. El amor sano es recíproco y colabora a tu autorrealización en vez de obstaculizarla.
+						<p class="lead">
+							<b>"El Arte de Amar Sin Apegos"</b> es la conferencia magistral mas aclamada y laureada del prestigioso psicólogo y escritor Walter Riso, fue presentada en diversos países despertando la ovación y reconocimiento de sus asistentes. Hoy Phronesis quiere ponerla al alcance de todas las personas impartiendo este gran evento a través de Internet, sin limitaciones geográficas y a bajo costo. <b>¿Y tu, te atreves a amar sin apegos?</b>
 						</p>
-						<p>
-							Esta conferencia es para que vivas el amor desde una nueva perspectiva, sin necesidades obsesivas y en plena libertad interior. El amor saludable es una construcción personal que puede gestionarse y disfrutarlo.
-						</p>
+						<hr>
+						<ul class="listaInscripcion">
+							<li>La conferencia es en vivo y en directo el sabado 25 de julio de 2015. <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30">Consulta los horarios de tu pais.</a></li>
+							<li>Podrás realizar preguntas</li>
+							<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
+							<li>La duración de la conferencia es de 1 hora y 30 minutos.</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -47,7 +50,7 @@
 				<div class="formularioConferencia">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="text-center">¡Inscríbete ahora!</h1>
+							<h1 class="text-center">¡Inscríbete ahora!<br /><span style="font-size: .8em;">Entradas Limitadas</span></h1>
 							<hr>
 							<p>No te pierdas esta oportunidad única de participar en este evento sin precedentes. Estás a tiempo de inscribirte y obtener tus entradas.</p>
 						</div>
@@ -69,7 +72,7 @@
 												Junio 1 y hasta Junio 30 de 2015
 											</td>
 											<td class="text-center">
-												USD 7.99
+												USD 9.99
 											</td>
 										</tr>
 										<tr>
@@ -77,7 +80,7 @@
 												Julio 1 hasta Julio 25 de 2015
 											</td>
 											<td class="text-center">
-												USD 9.99
+												USD 15.99
 											</td>
 										</tr>
 									</tbody>
@@ -96,6 +99,11 @@
 						}else{
 							?>
 							<form id="inscripcionConferencia">
+								<div class="row">
+									<div class="col-md-12">
+										<p class="lead text-center">Selecciona el medio y el país desde donde realizaras el pago</p>
+									</div>
+								</div>
 								<div class="row">
 									<div class="col-md-12 form-group">
 										<select class="form-control" name="paisConferencia" id="paisConferencia" required >
@@ -116,29 +124,23 @@
 										<button class="btn btn-primary btn-lg pull-right">Inscribirme</button>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-md-12 form-group">
+										<p>&nbsp;</p>
+										<h6 class='text-center'>IMPORTANTE</h6>
+										<p>Una vez realices el pago recibirás un email de notificación. Así mismo te estaremos enviando recordatorios e instrucciones para acceder a la conferencia días antes al evento.</p>
+									</div>
+								</div>
 							</form>
 							<?php
 						}
 					}else{ ?>
-					<div id="bloque0" class="row">
-						<div class="col-md-12">
-							<ul class="listaInscripcion">
-								<li>La conferencia es en vivo y en directo</li>
-								<li>Podrás realizar preguntas</li>
-								<li>Una vez finalizado el evento tendrás acceso ilimitado a una copia del video</li>
-								<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
-								<li>La duración de la conferencia es de 1 hora y 30 minutos. <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30">Consulta el horario de tu país.</a></li>
-							</ul>
-							<hr>
-							<p class="text-center"><button id="bloques" type="button" class="btn btn-primary btn-lg"><i class='fa fa-sign-in'></i> Inscribirme</button></p>
-						</div>
-					</div>
-					<div id="bloque1" class="row" style="display:none">
+					<div id="bloque1" class="row">
 						<div class="col-md-12">
 							<p class="lead text-center">Para inscribirte debes iniciar sesión en tu cuenta de Phronesis</p>
 						</div>
 					</div>
-					<div id="bloque2" class="row" style="display:none">
+					<div id="bloque2" class="row">
 						<div class="col-md-6">
 							<form id="loginInscripcion">
 								<div class="row">
@@ -163,12 +165,12 @@
 							<div class="row">
 								<div class="col-md-12">
 									<p>&nbsp;</p>
-									<a href="/includes/fbconfig.php?url=<?php echo $_SERVER['REQUEST_URI'] ?>" class="btn btn-info"><i class='fa fa-facebook'></i> Entrar con Facebook</a>
+									<p><a href="/includes/fbconfig.php?url=<?php echo $_SERVER['REQUEST_URI'] ?>" class="btn btn-info" style="width: 100%"><i class='fa fa-facebook'></i> Entrar con Facebook</a></p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="row" id="bloque3" style="display:none">
+					<div class="row" id="bloque3">
 						<hr>
 						<div class="col-md-12">
 							<p class='text-center'>¿Aún no tienes una cuenta en Phronesis? <button class="btn btn-default" id="btnRegistroInscripcion"><b>¡Regístrate!</b></button></p>
@@ -177,6 +179,11 @@
 					<form id="registroInscripcion">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2">
+								<div id="bloque4a" class="row" style="display:none">
+									<div class="col-md-12">
+										<p class="text-center lead">Registro de Usuarios</p>
+									</div>
+								</div>
 								<div id="bloque4" class="row" style="display:none">
 									<div class="col-md-12 form-group">
 										<input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
@@ -191,6 +198,7 @@
 								<div id="bloque5" class="row" style="display:none">
 									<div class="col-md-12 form-group">
 										<input type="hidden" name="consulta" id="consulta" value="registro" />
+										<button type="button" id="back" class="btn btn-default"><i class="fa fa-step-backward"></i></button>
 										<button type="submit" class="btn btn-primary pull-right">Registrarme</button>
 									</div>
 								</div>		
@@ -198,23 +206,38 @@
 						</div>
 					</form>
 					<script>
-						$('#bloques').click(function(){
-							$('#bloque0').hide();
-							$('#bloque1').fadeIn();
-							$('#bloque2').fadeIn();
-							$('#bloque3').fadeIn();
-						})
 						$('#btnRegistroInscripcion').click(function(){
-							$('#bloque0').hide();
 							$('#bloque1').hide();
 							$('#bloque2').hide();
 							$('#bloque3').hide();
 							$('#bloque4').fadeIn();
+							$('#bloque4a').fadeIn();
 							$('#bloque5').fadeIn();
+						})
+						$('#back').click(function(){
+							$('#bloque1').fadeIn();
+							$('#bloque2').fadeIn();
+							$('#bloque3').fadeIn();
+							$('#bloque4').hide();
+							$('#bloque4a').hide();
+							$('#bloque5').hide();
 						})
 					</script>
 					<?php } ?>
 				</div>
+				
+				<div class="row">
+					<div class="col-md-5">
+						<center><a href="http://www.payulatam.com/logos/pol.php?l=150&c=556dbd87a2c6b" target="_blank"><img class="img-responsive" src="http://www.payulatam.com/logos/logo.php?l=150&c=556dbd87a2c6b" alt="PayU Latam" border="0" /></a><br /></center>
+					</div>
+					<div class="col-md-3">
+						<center><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img class="img-responsive" src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_secured_by_pp_2line.png" border="0" alt="Secured by PayPal"></a><br /></center>
+					</div>
+					<div class="col-md-4">
+						<center><img src="/images/verified.png"/><br /></center>
+					</div>
+				</div>
+				
 			</div>
 			
 		</div>

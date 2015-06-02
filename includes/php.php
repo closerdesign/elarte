@@ -1040,12 +1040,13 @@
 		if( $_POST['consulta'] == 'obtenerFormularioDePago' ){
 			
 			$metodo = $_POST['metodo'];
-			$valor = 7.99;
+			$valor = 9.99;
 			
 			// Proceso de pago con tarjeta de crédito
 			if( $metodo == 1 ){
 				$tipopago = "pagoTarjetaDeCredito";
 				$titulo = "<i class='fa fa-credit-card'></i> Pagar con tarjeta de crédito";
+				$titulo .= '<a href="http://www.payulatam.com/logos/pol.php?l=150&c=556df33bef3cd" target="_blank"><img class="pull-right" src="http://www.payulatam.com/logos/logo.php?l=150&c=556df33bef3cd" height="30" alt="PayU Latam" border="0" /></a>';
 				$mensaje = "";
 				$mensaje .= "	<div class='row'>";
 				$mensaje .= "		<div class='col-md-3 form-group'>";
@@ -1389,6 +1390,7 @@
 			$html .= "	<h4>".$titulo."</h4>";
 			$html .= "</div>";
 			$html .= "<div class='modal-body'>";
+			$mensaje .= "<hr><div class='row'><div class='col-md-12'><p class='lead pull-right'>Valor a pagar: USD ".number_format($valor,2)."</p></div></div>";
 			$html .= $mensaje;
 			$html .= "</div>";
 			$html .= "<div class='modal-footer'>";

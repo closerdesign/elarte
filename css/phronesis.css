@@ -1446,7 +1446,7 @@ img.mfp-img {
 	}
 }
 
-.formularioConferencia h1{
+.formularioConferencia h1,h6{
 	color: #E5BE37;
 }
 
@@ -1496,9 +1496,16 @@ img.mfp-img {
 	font-size: 1.2em;
 }
 
+.listaInscripcion{
+	padding-left: 0;
+}
+
 .listaInscripcion li{
-	padding-right: 25px;
+	background: url('../images/Checked_Data_16.png') left top no-repeat;
 	font-size: 1.2em;
 	line-height: 1.2;
 	margin-bottom: 15px;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 25px;
 }

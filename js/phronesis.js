@@ -142,11 +142,17 @@ $(document).ready(function(){
 			valor: valor
 		}).done(function(msg){
 			if( msg == 1 ){
+				
+				if(metodo == 3){
+					window.location.href = url;
+				}
+				
 				if( (metodo > 3) && (metodo < 7) ){
 				   notificaComprobante(usuario,url);
+				   $('#myNuevoModal').modal('hide');
+				   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p>Además, hemos enviado un link a su buzón de correo electrónico para que pueda descargarlo más tarde si así lo prefiere.</p>")
 				}
-				$('#myNuevoModal').modal('hide');
-				modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p>Además, hemos enviado un link a su buzón de correo electrónico para que pueda descargarlo más tarde si así lo prefiere.</p>")
+				
 			} else {
 				alert(msg);
 				descargar();
