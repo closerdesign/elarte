@@ -912,9 +912,10 @@ function iniciaFb(fbId){
 		consulta: 'iniciaFb',
 		fbId: fbId
 	}).done(function(data){
-		if(data!=1){
-			alert('Se ha presentado un error, por favor intente de nuevo');
-		}else{
+		if(data == 0){
+			alert(data);
+		}
+		if(data == 1){
 			location.reload();
 		}
 	})

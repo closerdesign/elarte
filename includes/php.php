@@ -697,11 +697,37 @@
 	
 	// Iniciar sesión FB
 	if($_POST['consulta']=='iniciaFb'){
-		$sql="SELECT id FROM usuarios WHERE fbId = '$_POST[fbId]'";
-		$q=mysqli_query($con, $sql);
-		$data=mysqli_fetch_array($q);
-		$_SESSION['id']=$data['id'];
-		echo 1;
+		
+		$sql = "SELECT id FROM usuarios WHERE fbId = '$_POST[fbId]'";
+		$q = mysqli_query($con, $sql);
+		$n = mysqli_num_rows($q);
+		
+		if($n == 0){
+			if(!mysqli_query($con, "
+				INSERT INTO
+					usuarios (
+						fbId
+					) VALUES (
+						'$_POST[fbId]'
+					)
+			")){
+				unset($_SESSION['FBID']);
+				echo "No fue posible crear el usuario. Por favor intente de nuevo.";
+			}else{
+				$id = mysqli_insert_id($con);
+				$_SESSION['id'] = $id;
+				echo 1;
+			}
+		}else{
+			$data=mysqli_fetch_array($q);
+			if($data<1){
+				echo 0;
+			}else{
+				$_SESSION['id']=$data['id'];
+				echo 1;
+			}
+		}
+	
 	}
 	
 	// Actualizar label de # de productos
@@ -1018,7 +1044,7 @@
 				$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
 				$html .= "<option value='4'>Puntos VIA Baloto</option>";
 			}elseif( $pais == 'MX' ){
-				$html .= "<option value='5'>OXXO - 7 Eleven</option>";
+				$html .= "<option value='5'>OXXO</option>";
 			}elseif( $pais == 'PE' ){
 				$html .= "<option value='6'>Banco de Crédito - BCP</option>";
 			}

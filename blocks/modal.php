@@ -412,7 +412,7 @@
 									<div class="content">
 										<div class="main">
 											<p>Armonía entre cuerpo y mente de la mano de la Dra. Iris Luna, médico psiquiatra magister en nutrición con especialización en sobrepeso y obesidad.</p>
-											<p style="text-align: center"><a class="btn btn-default" href="/index.php?content=mi-cuenta&task=combatiendo-la-obesidad">Ir al programa</a></p>
+											<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/mente-sana-vida-sana">Ir al programa</a></p>
 										</div>
 									</div>
 								</div>
@@ -431,24 +431,24 @@
 										<img src="/images/rotating_card_thumb2.png"/>
 									</div>
 									<div class="user">
-										<img class="img-circle" src="/images/mentes.jpg"/>
+										<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg"/>
 									</div>
 									<div class="content">
 										<div class="main">
-											<h3 class="name">Crecimiento Personal & Calidad de Vida</h3>
-											<p class="profession">Un espacio para la salud mental</p>
+											<h3 class="name">¿Ángeles caídos o antropoides erguidos?</h3>
+											<p class="profession">Luis Flórez Alarcón</p>
 										</div>
 									</div>
 								</div>
 								<!-- end front panel -->
 								<div class="back">
 									<div class="header">
-										<h5 class="motto">Crecimiento Personal & Calidad de Vida</h5>
+										<h5 class="motto">¿Ángeles caídos o antropoides erguidos?</h5>
 									</div>
 									<div class="content">
 										<div class="main">
-											<p>Un espacio para trabajar nuestra mente, con contenido y material desarrollado por reconocidos especialistas de la salud mental.</p>
-											<p style="text-align: center"><a class="btn btn-default" href="/#">Proximamente</a></p>
+											<p>Esta columna pretende analizar las motivaciones humanas a la luz de algunos principios científicos acerca del proceso motivacional, mirando este proceso desde una perspectiva teórica de corte cognitivo.</p>
+											<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/angeles-caidos-o-antropoides-erguidos">Ir al programa</a></p>
 										</div>
 									</div>
 								</div>
@@ -471,5 +471,77 @@
 <div class="modal fade" id="myNuevoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content" id="myNuevoModalContenido"></div>
+	</div>
+</div>
+
+<!-- Modal Finaliza Registro -->
+<div class="modal fade" id="myModalCompletaRegistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form name="formFinalizaRegistro" id="formFinalizaRegistro" >
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">¡Registro exitoso!</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<p>Por favor completa los datos a continuación para finalizar tu registro:</p>
+					</div>
+				</div>
+				<?php
+					$sql="SELECT * FROM usuarios WHERE id = '$_SESSION[id]'";
+					$q=mysqli_query($con, $sql);
+					$data=mysqli_fetch_array($q);
+				?>
+				<div class="row" <?php if($data['email']!=""){echo('style="display:none"');} ?> >
+					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" name="frEmail" id="frEmail" value="<?php echo $data['email'] ?>" required />
+					</div>
+				</div>
+				<div class="row" <?php if($data['nombre']!=""){echo('style="display:none"');} ?> >
+					<div class="col-md-12 form-group">
+						<label>Nombre</label>
+						<input type="text" class="form-control" name="frNombre" id="frNombre" value="<?php echo $data['nombre'] ?>" required />
+					</div>
+				</div>
+				<div class="row" <?php if($data['apellido']!=""){echo('style="display:none"');} ?> >
+					<div class="col-md-12 form-group">
+						<label>Apellido</label>
+						<input type="text" class="form-control" name="frApellido" id="frApellido" value="<?php echo $data['apellido'] ?>" required />
+					</div>
+				</div>
+				<div class="row" <?php if($data['ciudad']!=""){echo('style="display:none"');} ?>>
+					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+						<label>Ciudad</label>
+						<input type="text" class="form-control" name="frCiudad" id="frCiudad" required />
+					</div>
+				</div>
+				<div class="row" <?php if($data['pais']!=""){echo('style="display:none"');} ?>>
+					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+						<label>País</label>
+						<select class="form-control" name="frPais" id="frPais" required>
+							<option value="">Seleccione...</option>
+							<?php echo selectPaises(); ?>
+						</select>
+					</div>
+				</div>
+				<div class="row" <?php if($data['genero']!=""){echo('style="display:none"');} ?>>
+					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+						<label>Género</label>
+						<select class="form-control" name="frGenero" id="frGenero" required >
+							<option value="">Seleccione...</option>
+							<option value="Mujer">Mujer</option>
+							<option value="Hombre">Hombre</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<input type="hidden" name="consulta" id="consulta" value="finRegistro" />
+				<button class="btn btn-primary pull-right" type="submit">Finalizar</button>
+			</div>
+			</form>
+		</div>
 	</div>
 </div>

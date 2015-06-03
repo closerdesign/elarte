@@ -2,7 +2,7 @@
 <script>
 	$(document).ready(function(){
 		if( $('html,body').scrollTop() != 150 ){
-		    $('html,body').animate({scrollTop: $(window).scrollTop() + 1000},'slow');
+		    $('html,body').animate({scrollTop: $(window).scrollTop() + 2000},'slow');
 		}
 	})	
 </script>
@@ -227,13 +227,13 @@
 				</div>
 				
 				<div class="row">
-					<div class="col-md-5">
-						<center><a href="http://www.payulatam.com/logos/pol.php?l=150&c=556dbd87a2c6b" target="_blank"><img class="img-responsive" src="http://www.payulatam.com/logos/logo.php?l=150&c=556dbd87a2c6b" alt="PayU Latam" border="0" /></a><br /></center>
+					<div class="col-md-5 col-xs-5">
+						<center><a href="http://www.payulatam.com/logos/pol.php?l=150&c=556dbd87a2c6b" target="_blank"><img class="img-responsive" src="/images/logo_payu.png" alt="PayU Latam" border="0" /></a><br /></center>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 col-xs-3">
 						<center><a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img class="img-responsive" src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_secured_by_pp_2line.png" border="0" alt="Secured by PayPal"></a><br /></center>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-xs-4">
 						<center><img src="/images/verified.png"/><br /></center>
 					</div>
 				</div>
@@ -247,12 +247,12 @@
 
 <!-- ClickDesk Live Chat Service for websites -->
 <script type='text/javascript'>
-//	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
-//	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
-//	'http://my.clickdesk.com/clickdesk-ui/browser/');
-//	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
-//	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
-//	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
-//	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
+	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
+	'http://my.clickdesk.com/clickdesk-ui/browser/');
+	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
+	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
+	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
 </script>
 <!-- End of ClickDesk -->

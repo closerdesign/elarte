@@ -1,3 +1,7 @@
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
+
 # CONTENIDO BÁSICO
 RewriteCond %{THE_REQUEST} \?content=([^&\ ]+)($|\ )
 RewriteRule ^ /%1? [L,R=301]
