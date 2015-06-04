@@ -2016,6 +2016,42 @@
 			$mensaje .= "<p>Estimado(a) ".getNombreUsuario($_POST['usuario']).",</p>";
 			$mensaje .= "<p>A continuación encontrará el enlace para la generación del comprobante de su pago en efectivo en caso tal de que llegue a requerirlo nuevamente.</p>";
 			$mensaje .= "<h1><a href='$_POST[url]'>Haga click aquí para generar el comprobante</a></h1>";
+			
+			if( $_POST['metodo'] == 6 ){
+				$mensaje .= "
+					<p><b>NOTA IMPORTANTE PARA PAGOS EN BCP</b></p>
+					<ul>
+						<li>Dirígete a partir de mañana a las 12:00 PM a cualquier banco de crédito del Perú (BCP) y realiza el pago con el recibo que generarás a través del enlace.</li>
+						<li>Una vez realizado el pago no olvides enviarnos escaneado o en una foto clara el comprobante del pago a info@phronesisvirtual.com.</li>
+						<li>Ten presente que el pago va dirigido a la compañía PagosOnline no a Editorial Phronesis.
+Es importante que guardes el certificado de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
+					</ul>
+				";
+			}
+			
+			if( $_POST['metodo'] == 5 ){
+				$mensaje .= "
+					<p><b>NOTA IMPORTANTE PARA PAGOS EN OXXO</b></p>
+					<ul>
+						<li>Imprime el recibo con el enlace que te estamos enviando en una impresora láser y preséntalo en cualquier tienda OXXO del país.</li>
+						<li>Si por algún motivo el código de barras no puede ser leído solicita al cajero que digite los números que se encuentran debajo del código.</li>
+						<li>Una vez realizado el pago no olvides enviarnos escaneado o en una foto clara el comprobante del pago.</li>
+						<li>Ten presente que el pago va dirigido a la compañía PagosOnline o PayuLatam y no a Editorial Phronesis.</li>
+						<li>Es importante que guardes el certificado de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
+					</ul>
+				";
+			}
+			
+			if( $_POST['metodo'] == 4 ){
+				$mensaje .= "
+					<p><b>NOTA IMPORTANTE PARA PAGOS EN BALOTO</b></p>
+					<ul>
+						<li>Para realizar el pago dirígete a cualquier punto Vía Baloto del país con los datos que encontrarás en el recibo que te estamos enviando adjunto. Una vez realizado el pago recibirás un email con las instrucciones para acceder a los productos adquiridos.</li>
+						<li>Es importante que guardes el recibo de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
+					</ul>
+				";
+			}
+			
 			$mensaje .= "<p>Gracias por tu interés en nuestra conferencia virtual.</p>";
 			notificar(getEmailUsuario($_POST['usuario']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
 		}

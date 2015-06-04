@@ -148,9 +148,9 @@ $(document).ready(function(){
 				}
 				
 				if( (metodo > 3) && (metodo < 7) ){
-				   notificaComprobante(usuario,url);
+				   notificaComprobante(usuario,url,metodo);
 				   $('#myNuevoModal').modal('hide');
-				   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p>Además, hemos enviado un link a su buzón de correo electrónico para que pueda descargarlo más tarde si así lo prefiere.</p>")
+				   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p><b>Importante:</b> Te hemos enviado a tu correo un mensaje que contiene algunas recomendaciones que debes tener en cuenta para poder realizar tu pago, así mismo como un enlace para que puedas generar tu recibo en caso de requerirlo nuevamente.</p>")
 				}
 				
 			} else {
@@ -161,11 +161,12 @@ $(document).ready(function(){
 	}
 	
 	// Comprobantes de pago via email
-	function notificaComprobante(usuario,url){
+	function notificaComprobante(usuario,url,metodo){
 		$.post('/includes/php.php',{
 			consulta: "notificaComprobante",
 			usuario: usuario,
-			url: url
+			url: url,
+			metodo: metodo
 		})
 	}
 	

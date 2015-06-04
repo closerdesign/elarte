@@ -49,7 +49,7 @@
 		}elseif($_REQUEST['content']=='darse-de-baja'){
 			require_once('blocks/darse-de-baja.php');
 		}elseif($_REQUEST['content']=='conferencia-virtual'){
-			require_once('blocks/conferencia-virtual.php');
+			require_once('blocks/inscripcion-conferencia.php');
 		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
 			require_once( 'blocks/inscripcion-conferencia.php' );
 		}elseif($_REQUEST['content']=='programas-especiales'){
@@ -129,7 +129,7 @@
 				$(document).ready(function(){
 					var evento = $.cookie('evento');
 					if(evento != 1){
-					    modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup.jpg" class="img img-responsive" /></a></p>');
+					    modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup-ventas.jpg" class="img img-responsive" /></a></p>');
 					    $.cookie('evento',1);
 					}
 				})
