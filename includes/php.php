@@ -1140,7 +1140,7 @@
 				$mensaje .= "		<div class='col-md-4 form-group'>";
 				$mensaje .= "			<input type='text' class='form-control' name='codigoSeguridad' id='codigoSeguridad' placeholder='Código de seguridad' required />";
 				$mensaje .= "		</div>";
-				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='3.5' />";
+				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='".$valor."' />";
 				$mensaje .= "		<input type='hidden' name='pedido' id='pedido' value='CF".$_SESSION['id']."' />";
 				$mensaje .= "		<input type='hidden' name='email' id='email' value='".getEmailUsuario($_SESSION['id'])."' />";
 				$mensaje .= "		<input type='hidden' name='ciudad' id='ciudad' value='".getCiudadUsuario($_SESSION['id'])."' />";

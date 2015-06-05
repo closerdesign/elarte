@@ -129,7 +129,7 @@
 				$(document).ready(function(){
 					var evento = $.cookie('evento');
 					if(evento != 1){
-					    modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup-ventas.jpg" class="img img-responsive" /></a></p>');
+					    modal('¡No te la pierdas!...','<p><a href="index.php?content=conferencia-virtual"><img src="/images/popup_conferencia.jpg" class="img img-responsive" /></a></p>');
 					    $.cookie('evento',1);
 					}
 				})
@@ -145,7 +145,7 @@
 		){
 			?>
 			<div class="pieEvento">
-				<p class="text-center"><a onclick="modalEx()" href="#">Próximamente: <b>Conferencia Virtual por Walter Riso</</b> <i class="fa fa-arrow-circle-right"></i></a></p>
+				<p class="text-center"><a onclick="modalEx()" href="#">¡No te la pierdas!: <b>Conferencia Virtual por Walter Riso</</b> <i class="fa fa-arrow-circle-right"></i></a></p>
 			</div>
 			<?php
 		}

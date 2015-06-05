@@ -4,7 +4,6 @@
 
     $reference = $_POST['referencia'];
 	$value = $_POST['precio'];
-	//$value = 3.5;
 	$expiration = $_POST['ano']."/".$_POST['mes'];
 	$nombreTarjeta=$_POST['nombre'];
 	$email=$_POST['email'];

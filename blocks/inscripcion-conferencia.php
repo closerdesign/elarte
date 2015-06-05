@@ -38,7 +38,7 @@
 						</p>
 						<hr>
 						<ul class="listaInscripcion">
-							<li>La conferencia es en vivo y en directo el sabado 25 de julio de 2015. <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30">Consulta los horarios de tu pais.</a></li>
+							<li>La conferencia es en vivo y en directo el sábado 25 de julio de 2015 a las 15:00 hrs (Bogotá UTC/GMT -5 hora) <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30">Consulta los horarios de tu pais.</a></li>
 							<li>Podrás realizar preguntas</li>
 							<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
 							<li>La duración de la conferencia es de 1 hora y 30 minutos.</li>
@@ -93,7 +93,7 @@
 						$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM inscritos_conferencia WHERE usuario_id = '$_SESSION[id]' AND estado_inscripcion = 1"));
 						if( $n > 0 ){
 							?>
-							<p class="lead text-center">¡Felicitaciones! Ya te encuentras inscrito(a) en esta conferencia.</p>
+							<p class="lead text-center">¡Felicitaciones! Ya te ecuentras inscrito(a) a esta conferencia. Te hemos enviado un mensaje de notificación a tu correo, pronto te estaremos informando las instrucciones de acceso al evento.</p>
 							<p class='text-center'><a class="btn btn-primary btn-lg" href="http://www.timeanddate.com/scripts/ics.php?type=utc&p1=41&iso=20150725T15&ah=1&am=30&msg=Conferencia%20Virtual%20-%20El%20Arte%20de%20Amar%20Sin%20Apegos"><i class="fa fa-calendar"></i> Agregar a mi Calendario</a></p>
 							<?php
 						}else{
