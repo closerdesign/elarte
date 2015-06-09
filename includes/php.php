@@ -1299,11 +1299,12 @@
 				
 				$mensaje = "";
 				$mensaje .= "<div class='row'>";
-				$mensaje .= "	<div class='col-md-12 form-group'>";
-				$mensaje .= "		<input type='text' class='form-control' name='noDocumentoBaloto' id='noDocumentoBaloto' placeholder='Número de documento' required />";
+				$mensaje .= "	<div class='col-md-12'>";
+				$mensaje .= "		<p>A continuación efectuaremos el procedimiento de generación de su recibo para pago en efectivo a través de puntos VIA Baloto</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
 				
+				$mensaje .= "<input type='hidden' name='noDocumentoBaloto' id='noDocumentoBaloto' value='900476732' />";
 				$mensaje .= "<input type='hidden' name='noPedido' id='noPedido' value='CONF".$_SESSION['id']."' />";
 				$mensaje .= "<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
 				$mensaje .= "<input type='hidden' name='email' id='email' value='".getEmailUsuario($_SESSION['id'])."' />";
@@ -1342,7 +1343,8 @@
 				$mensaje = "";
 				$mensaje .= "<div class='row'>";
 				$mensaje .= "	<div class='col-md-12'>";
-				$mensaje .= "		<input type='text' class='form-control' name='noDocumentoOxxo' id='noDocumentoOxxo' placeholder='Número documento' required />";
+				$mensaje .= "		<p>A continuación efectuaremos en procedimiento de generación de su recibo para pago en efectivo a través de puntos OXXO.</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
+				$mensaje .= "		<input type='hidden' name='noDocumentoOxxo' id='noDocumentoOxxo' value='900476732' />";
 				$mensaje .= "		<input type='hidden' name='noPedido' id='noPedido' value='CONF$_SESSION[id]' />";
 				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
 				$mensaje .= "		<input type='hidden' name='consulta' id='consulta' value='oxxoRequest' />";
@@ -1383,7 +1385,8 @@
 				$mensaje = "";
 				$mensaje .= "<div class='row'>";
 				$mensaje .= "	<div class='col-md-12'>";
-				$mensaje .= "		<input type='text' class='form-control' name='noDocumentoBcp' id='noDocumentoBcp' placeholder='Número documento' required />";
+				$mensaje .= "		<p>A continuación efectuaremos en procedimiento de generación de su recibo para pago en efectivo a través de BCP.</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
+				$mensaje .= "		<input type='hidden' name='noDocumentoBcp' id='noDocumentoBcp' value='900476732' />";
 				$mensaje .= "		<input type='hidden' name='noPedido' id='noPedido' value='CONF$_SESSION[id]' />";
 				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
 				$mensaje .= "		<input type='hidden' name='consulta' id='consulta' value='bcpRequest' />";

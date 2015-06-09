@@ -1459,6 +1459,10 @@ img.mfp-img {
 	margin: 15px;
 }
 
+.textoConferencia p{
+	font-size: 1.2em;
+}
+
 .fechaConferencia{
 	background: #E5BE37;
 	padding: 30px 0 30px;

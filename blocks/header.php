@@ -76,9 +76,13 @@
 				<?php
 					if(!isset($_SESSION['id'])){
 						?>
+						<?php if($_REQUEST['content']!='conferencia-virtual'){ ?>
+						<?php if($_REQUEST['content']!='inscripcion-conferencia'){ ?>
 						<div class="col-md-offset-3 col-lg-6 col-md-6 col-sm-6 hidden-xs form-group">
 							<button type="button" onclick="openRegisterModal()" class="btn btn-success btn-lg pull-right">Regístrate</button>
 						</div>
+						<?php } ?>
+						<?php } ?>
 						<?php
 					}else{
 						?>

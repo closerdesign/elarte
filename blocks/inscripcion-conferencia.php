@@ -27,22 +27,29 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-md-12">
+						<img src="/images/imgConferencia.jpg" class="img img-responsive img-rounded" />
+						<!--
 						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/yHwo5EunKXo' frameborder='0' allowfullscreen></iframe></div>
+						-->
 					</div>
 				</div>
 				<hr>
 				<div class="row">
-					<div class="col-md-12">
-						<p class="lead">
-							<b>"El Arte de Amar Sin Apegos"</b> es la conferencia magistral mas aclamada y laureada del prestigioso psicólogo y escritor Walter Riso, fue presentada en diversos países despertando la ovación y reconocimiento de sus asistentes. Hoy Phronesis quiere ponerla al alcance de todas las personas impartiendo este gran evento a través de Internet, sin limitaciones geográficas y a bajo costo. <b>¿Y tu, te atreves a amar sin apegos?</b>
+					<div class="col-md-12 textoConferencia">
+						<p>
+							Amar sin apegos es amar de manera independiente, sin posesión, sin angustia, sin miedos, siendo uno mismo a cada pulsación y a cada latido, es querer al otro sin dejar de quererse uno mismo, es cuidar al ser amado y cuidar el propio yo, es entender que el amor no se suplica ni se exige y que es una construcción personal que puede gestionarse para convertirse en una experiencia plena y saludable.
+						</p>
+						<p>
+							En esta conferencia Walter Riso descifrará las pautas para amar sin apegos y analizará junto al público los vicios que convierten al amor en un enemigo palpable ante la individualidad de cada ser humano. Mostrará las diferencias entre una relación sana y otra carcomida por los abusos y la codependencia. Será un espacio para reflexionar y reencontrarse con la propia esencia, en ese proceso donde las aspiraciones personales y los ideales de pareja habrán de converger en un estado de salud y bienestar mutuo.
 						</p>
 						<hr>
-						<ul class="listaInscripcion">
-							<li>La conferencia es en vivo y en directo el sábado 25 de julio de 2015 a las 15:00 hrs (Bogotá UTC/GMT -5 hora) <a target="_blank" href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30">Consulta los horarios de tu pais.</a></li>
-							<li>Podrás realizar preguntas</li>
-							<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
-							<li>La duración de la conferencia es de 1 hora y 30 minutos.</li>
-						</ul>
+						<p class="text-center">
+							<b style="font-size: 1.5em">¿Y tu, te atreves a amar sin apegos?</b>
+						</p>
+						<hr>
+						<p style="font-size: 1em;">
+							"El Arte de Amar Sin Apegos" es la conferencia magistral más aclamada y laureada del prestigioso psicólogo y escritor Walter Riso, fue presentada en diversos países despertando la ovación y reconocimiento de sus asistentes. Hoy Phronesis quiere ponerla al alcance de todas las personas impartiendo este gran evento a través de Internet, sin limitaciones geográficas y a bajo costo. No te pierdas esta oportunidad única de participar en este evento sin precedentes. Estás a tiempo de inscribirte y obtener tus entradas.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -52,7 +59,13 @@
 						<div class="col-md-12">
 							<h1 class="text-center">¡Inscríbete ahora!<br /><span style="font-size: .8em;">Entradas Limitadas</span></h1>
 							<hr>
-							<p>No te pierdas esta oportunidad única de participar en este evento sin precedentes. Estás a tiempo de inscribirte y obtener tus entradas.</p>
+							<ul class="listaInscripcion">
+								<li>La conferencia es en vivo y en directo el sábado 25 de julio de 2015. <a href="#" style="color:blue" onclick="$('#myModalHorarios').modal()">Consulta los horarios de tu país</a>.</li>
+								<li>Podrás realizar preguntas</li>
+								<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
+								<li>La duración de la conferencia es de 1 hora y 30 minutos.</li>
+								<li>Si por algún motivo no puedes acceder a la conferencia en vivo tendrás 48 horas para ver la grabación.</li>
+							</ul>
 						</div>
 					</div>
 					<div class="row">
@@ -69,7 +82,7 @@
 									<tbody>
 										<tr>
 											<td>
-												Junio 1 y hasta Junio 30 de 2015
+												Precio de preventa (hasta junio 30 de 2015)
 											</td>
 											<td class="text-center">
 												USD 9.99
@@ -77,7 +90,7 @@
 										</tr>
 										<tr>
 											<td>
-												Julio 1 hasta Julio 25 de 2015
+												Precio Full
 											</td>
 											<td class="text-center">
 												USD 15.99
@@ -94,20 +107,19 @@
 						if( $n > 0 ){
 							?>
 							<p class="lead text-center">¡Felicitaciones! Ya te ecuentras inscrito(a) a esta conferencia. Te hemos enviado un mensaje de notificación a tu correo, pronto te estaremos informando las instrucciones de acceso al evento.</p>
-							<p class='text-center'><a class="btn btn-primary btn-lg" href="http://www.timeanddate.com/scripts/ics.php?type=utc&p1=41&iso=20150725T15&ah=1&am=30&msg=Conferencia%20Virtual%20-%20El%20Arte%20de%20Amar%20Sin%20Apegos"><i class="fa fa-calendar"></i> Agregar a mi Calendario</a></p>
 							<?php
 						}else{
 							?>
 							<form id="inscripcionConferencia">
 								<div class="row">
 									<div class="col-md-12">
-										<p class="lead text-center">Selecciona el medio y el país desde donde realizaras el pago</p>
+										<p class="lead text-center">Para inscribirte selecciona el medio y el país desde donde realizaras el pago</p>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 form-group">
 										<select class="form-control" name="paisConferencia" id="paisConferencia" required >
-											<option value="">Selecciona tu país ...</option>
+											<option value="">Selecciona el país ...</option>
 											<?php echo selectPaises(); ?>
 										</select>
 									</div>
@@ -115,7 +127,7 @@
 								<div class="row">
 									<div class="col-md-12 form-group">
 										<select class="form-control" name="formaDePagoConferencia" id="formaDePagoConferencia" required >
-											<option value="">Selecciona tu medio de pago preferido ...</option>
+											<option value="">Selecciona el medio de pago ...</option>
 										</select>
 									</div>
 								</div>
@@ -239,9 +251,7 @@
 				</div>
 				
 			</div>
-			
 		</div>
-		
 	</div>
 </div>
 
@@ -256,3 +266,46 @@
 	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
 </script>
 <!-- End of ClickDesk -->
+
+<!-- Modal Horarios -->
+<div class="modal fade" id="myModalHorarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Horarios "El Arte de Amar sin Apegos"</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead text-center">Julio 25 de 2015</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!--<div class="table-responsive">-->
+							<table class="table table-striped table-bordered">
+								<tr><th>Ciudad</th><th>Hora</th></tr>
+								<tr><td>Phoenix, Los Angeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
+								<tr><td>Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>2:00 PM</td></tr>
+								<tr><td>Bogotá, México, Lima, Quito, Panamá, New Orleans</td><td>3:00 PM</td></tr>
+								<tr><td>Caracas</td><td>3:30 PM</td></tr>
+								<tr><td>San Juan, Asunción, La paz, Miami, New York</td><td>4:00 PM</td></tr>
+								<tr><td>Buenos Aires, Sao Paulo, Santiago, Montevideo</td><td>5:00 PM</td></tr>
+								<tr><td>Madrid, Barcelona</td><td>10:00 PM</td></tr>
+							</table>
+						<!--</div>-->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead text-center"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30" target="_blank">Consultar más horarios</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
