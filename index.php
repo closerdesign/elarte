@@ -54,6 +54,8 @@
 			require_once( 'blocks/inscripcion-conferencia.php' );
 		}elseif($_REQUEST['content']=='programas-especiales'){
 			require_once('blocks/programas-especiales.php');
+		}elseif($_REQUEST['content']=='migracion'){
+			require_once('blocks/migracion.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}

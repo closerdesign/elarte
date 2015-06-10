@@ -45,7 +45,17 @@
 	
 	// Inicio de sesión
 	if($_POST['consulta']=='login'){
-		$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5($_POST['password'])."'";
+		
+		$sql_pre = "SELECT ps FROM usuarios WHERE email = '$_POST[usuario]' LIMIT 1";
+		$q_pre = mysqli_query($con, $sql_pre);
+		$data_pre = mysqli_fetch_array($q_pre);
+		
+		if($data_pre['ps']==0){
+			$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5($_POST['password'])."'";
+		}else{
+			$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5("Is8IaahjYe3NiERKNnaLaQcJxJiVYnw0ap84ckWIPTjAboqLSmg4yL1R".$_POST['password'])."'";
+		}
+		
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
 		if($n!=1){
@@ -76,6 +86,7 @@
 			if(!mysqli_query($con, "UPDATE usuarios SET password = '".md5($_POST['new_password'])."' WHERE id = '$_POST[usuario]'")){
 				echo "Lo sentimos, se ha presentado un error procesando su solicitud. Por favor intente de nuevo.";
 			}else{
+				mysqli_query($con, "UPDATE usuarios SET ps = '0' WHERE id = '$_POST[usuario]'");
 				echo "Su contraseña ha sido actualizada exitosamente.";
 			}
 		}
@@ -189,6 +200,7 @@
 			if(!mysqli_query($con, "UPDATE usuarios SET password = '".md5($_POST['password'])."' WHERE id = '$_POST[usuario]'")){
 				echo "Lo sentimos, se ha presentado un error, por favor inténtelo de nuevo.";
 			}else{
+				mysqli_query($con, "UPDATE usuarios SET ps = '0' WHERE id = '$_POST[usuario]'");
 				echo "Contraseña actualizada exitosamente. Por favor ingrese con sus nuevas credenciales.";
 			}
 		}

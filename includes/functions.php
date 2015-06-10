@@ -91,6 +91,22 @@
 		return $data['archivo'];
 	}
 	
+	function getNombrePublicacionPs($val){
+		global $con;
+		$sql="SELECT titulo FROM publicaciones WHERE codPs = '$val'";
+		$q=mysqli_query($con, $sql);
+		$data=mysqli_fetch_array($q);
+		return $data['titulo'];
+	}
+	
+	function getCodigoPublicacionPs($val){
+		global $con;
+		$sql="SELECT id FROM publicaciones WHERE codPs = '$val'";
+		$q=mysqli_query($con, $sql);
+		$data=mysqli_fetch_array($q);
+		return $data['id'];
+	}
+	
 	function getAudioBtn($val){
 		$btn='<button class="btn btn-primary btnDemo'.$val.'"><i class="fa fa-play-circle"></i> Reproducir</button>';
 		$btn.='<button class="btn btn-primary btnStop'.$val.'" style="display:none !important"><i class="fa fa-pause"></i> Detener</button>';
