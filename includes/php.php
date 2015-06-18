@@ -2131,6 +2131,9 @@ Es importante que guardes el certificado de pago para cualquier reclamación o i
 			($_REQUEST['id']) == '80234042'
 		){
 			
+			set_time_limit(1200);
+			//ini_set('max_execution_time', 1200);
+			
 			$con_sendy = mysqli_connect("localhost","elarte_phrosapp","Z,'VT,?x3*LdjMvR","elarte_sendy")or die('ERROR DB');
 			mysqli_query($con_sendy, "set NAMES utf8");
 			
@@ -2152,6 +2155,7 @@ Es importante que guardes el certificado de pago para cualquier reclamación o i
 			// CREAR MENSAJE
 			$msg = "";
 			$q_msg = mysqli_query($con, "SELECT id, titulo, imagen, contenido FROM articulos WHERE categoria != 1 AND status = 1 ORDER BY fecha_publicacion DESC LIMIT 3");
+			
 			while($a = mysqli_fetch_assoc($q_msg)){
 			   $msg .= "
 			   	<table align='center'>
@@ -2210,7 +2214,7 @@ Es importante que guardes el certificado de pago para cualquier reclamación o i
 			   	) VALUES (
 			   		'1',
 			   		'1',
-			   		'Newsletter - ".date('Y-m-d')."'
+			   		'Conferencia Global 2 - ".date('Y-m-d')."'
 			   	)
 			")){
 			   
@@ -2222,7 +2226,7 @@ Es importante que guardes el certificado de pago para cualquier reclamación o i
 			   
 			   // CREACION DE LOS SUSCRIPTORES EN LA LISTA
 			   //$q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT ".$limit_query);
-			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1");
+			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 200000 OFFSET 400000");
 			   $n = mysqli_num_rows($q);
 			   
 			   if($n > 0){

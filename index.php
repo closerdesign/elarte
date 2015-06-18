@@ -56,6 +56,8 @@
 			require_once('blocks/programas-especiales.php');
 		}elseif($_REQUEST['content']=='migracion'){
 			require_once('blocks/migracion.php');
+		}elseif($_REQUEST['content']=='migracion_passwords'){
+			require_once('blocks/migracion_passwords.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}

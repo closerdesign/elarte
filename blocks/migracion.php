@@ -7,7 +7,7 @@
 		$con_ps = mysqli_connect("localhost","phronesi_elarte","Z,'VT,?x3*LdjMvR","phronesi_live") or die ("DB Error");
 		mysqli_query($con_ps, "SET NAMES utf8");
 		
-		$sql = "SELECT * FROM ps_customer LIMIT 5";
+		$sql = "SELECT * FROM ps_customer LIMIT 3000 OFFSET 33000";
 		$q = mysqli_query($con_ps, $sql);
 		$n = mysqli_num_rows($q);
 		
@@ -15,6 +15,24 @@
 		
 		$html = "";
 		$html .= "<table class='table table-bordered table-striped'>";
+		
+		function agregarPublicaciones($usuario,$publicacion){
+			global $con;
+			$sql12 = "SELECT * FROM publicacionesxusuario WHERE usuario = '$usuario' AND publicacion = '".getCodigoPublicacionPs($publicacion)."'";
+			$q12 = mysqli_query($con, $sql12);
+			$n12 = mysqli_num_rows($q12);
+			if($n12>0){
+				$html .= "<p>El producto ya se encuentra en la biblioteca del usuario.</p>";
+			}else{
+				$sql13 = "INSERT INTO publicacionesxusuario (usuario,publicacion) VALUES ('$usuarioId','".getCodigoPublicacionPs($prod['product_id'])."')";
+				$q13 = mysqli_query($con, $sql13);
+				if(!$q13){
+					$html .= "<p>No se pudo agregar la publicación ".getNombrePublicacionPs($publicacion)." en la biblioteca.</p>";
+				}else{
+					$html .= "<p>El producto ".getNombrePublicacionPs($publicacion)." ha sido agregado en la biblioteca.</p>";
+				}						
+			}
+		}
 		
 		while( $row = mysqli_fetch_assoc($q) ){
 			
@@ -273,20 +291,27 @@
 				$sql11 = "SELECT * FROM ps_order_detail WHERE id_order = '$order[id_order]'";
 				$q11 = mysqli_query($con_ps, $sql11);
 				while($prod = mysqli_fetch_assoc($q11)){
-					$html .= "<p>Producto <b>".getNombrePublicacionPs($prod['product_id'])."</b> incluído en la orden</p>";
-					$sql12 = "SELECT * FROM publicacionesxusuario WHERE usuario = '$usuarioId' AND publicacion = '".getCodigoPublicacionPs($prod['product_id'])."'";
-					$q12 = mysqli_query($con, $sql12);
-					$n12 = mysqli_num_rows($q12);
-					if($n12>0){
-						$html .= "<p>El producto ya se encuentra en la biblioteca del usuario.</p>";
-					}else{
-						$sql13 = "INSERT INTO publicacionesxusuario (usuario,publicacion) VALUES ('$usuarioId','".getCodigoPublicacionPs($prod['product_id'])."')";
-						$q13 = mysqli_query($con, $sql13);
-						if(!$q13){
-							$html .= "<p>No se pudo agregar la publicación en la biblioteca.</p>";
-						}else{
-							$html .= "<p>El producto ha sido agregado en la biblioteca.</p>";
+					
+					if(
+						($prod['product_id'] == 25) ||
+						($prod['product_id'] == 54)
+					){
+						$html .= "<p style='color:red'>Paquete PDF encontrado</p>";
+						$contenidos = array(2,3,4,8,11);
+						foreach( $contenidos as $cont ){
+							$html .= agregarPublicaciones( $usuarioId,$cont );
 						}
+					}elseif(
+						($prod['product_id'] == 40)
+					){
+						$html .= "<p style='color:red'>Paquete AUDIO encontrado</p>";
+						$contenidos = array(26,27,29,30,31);
+						foreach( $contenidos as $cont ){
+							$html .= agregarPublicaciones( $usuarioId,$cont );
+						}
+					}else{
+						$html .= "<p>Producto <b>".getNombrePublicacionPs($prod['product_id'])."</b> incluído en la orden</p>";
+						$html .= agregarPublicaciones($usuarioId,$prod['product_id']);	
 					}
 				}
 			}

@@ -15,8 +15,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="banner300x250">
-				<a href="index.php?content=paquetes&id=1">
-					<img src="/img/bannerPaquete1.jpg" />
+				<a href="/conferencia-virtual">
+					<img src="/img/bannerConferencia300x250.jpg" />
 				</a>
 			</div>
 		</div>

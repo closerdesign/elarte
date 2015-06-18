@@ -85,7 +85,7 @@
 												Precio de preventa (hasta junio 30 de 2015)
 											</td>
 											<td class="text-center">
-												USD 9.99
+												USD $9.99
 											</td>
 										</tr>
 										<tr>
@@ -93,14 +93,16 @@
 												Precio Full
 											</td>
 											<td class="text-center">
-												USD 15.99
+												USD $15.99
 											</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
+							<p class="small text-center">Los precios están en dólares americanos. Si utilizas algún mecanismo de pago en efectivo o transferencia bancaria, el sistema realizará el cambio a tu moneda local de acuerdo con la tasa cambiaria del día.</p>
 						</div>
 					</div>
+					<hr>
 					<?php if(isset($_SESSION['id'])){ ?>
 					<?php
 						$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM inscritos_conferencia WHERE usuario_id = '$_SESSION[id]' AND estado_inscripcion = 1"));
