@@ -174,7 +174,7 @@
 							<form method="post" action="/login" accept-charset="UTF-8">
 								<input id="emailLogin" class="form-control" type="text" placeholder="Email" name="emailLogin">
 								<input id="passwordLogin" class="form-control" type="password" placeholder="Contraseña" name="passwordLogin">
-								<input id="currentURL" type="hidden" value="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" />
+								<input id="currentUrl" name="currentUrl" type="hidden" value="<?php echo "$_SERVER[REQUEST_URI]" ?>" />
 								<input class="btn btn-default btn-login" type="button" value="Entrar" onclick="loginAjax()">
 							</form>
 						</div>

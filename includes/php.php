@@ -63,6 +63,7 @@
 		}else{
 			$id=mysqli_fetch_array($q);
 			$_SESSION['id']=$id['id'];
+			$_SESSION['sesion']=logRegistros($id['id'],$_POST['url']);
 			echo $id['id'];
 		}
 	}
@@ -158,6 +159,7 @@
 	
 	// Agregar
 	if($_POST['consulta']=="agregar"){
+		
 		if($_POST['pedido']==""){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
@@ -176,9 +178,11 @@
 			if(!mysqli_query($con, "INSERT INTO publicacionesxpedido (pedido, publicacion) VALUES ('$id', '$_POST[publicacion]')")){
 				echo "0";
 			}else{
+				actualizaPedido($id);
 				echo $id;
 			}	
 		}
+		
 	}
 	
 	// Borrar publicación
@@ -309,7 +313,7 @@
 			$mail->Body = utf8_decode($html);
 			$mail->IsHTML(true);
 			$mail->AddAddress(NOTIFICACIONES);
-			$mail->AddBCC('juanc@closerdesign.co');
+			//$mail->AddBCC('juanc@closerdesign.co');
 			$mail->AddReplyTo($_POST['email']);
 			if(!$sent_mail= $mail->Send()){
 				echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
@@ -592,6 +596,7 @@
 	if($_POST['consulta']=='cerrarSesion'){
 		unset($_SESSION['id']);
 		unset($_SESSION['perfil']);
+		unset($_SESSION['sesion']);
 		unset($_SESSION['FBID']);
 		unset($_SESSION['EMAIL']);
 		unset($_SESSION['FULLNAME']);
@@ -728,6 +733,7 @@
 			}else{
 				$id = mysqli_insert_id($con);
 				$_SESSION['id'] = $id;
+				$_SESSION['sesion'] = logRegistros($id,$_POST['url']);
 				echo 1;
 			}
 		}else{
@@ -736,6 +742,7 @@
 				echo 0;
 			}else{
 				$_SESSION['id']=$data['id'];
+				$_SESSION['sesion'] = logRegistros($data['id'],$_POST['url']);
 				echo 1;
 			}
 		}
@@ -2313,6 +2320,11 @@ Es importante que guardes el certificado de pago para cualquier reclamación o i
 				agregaListaNewsletter($_POST['email']);
 				echo "<p>Gracias por tu interés. Pronto te estaremos informando acerca de este magnifico evento.</p>";
 			}
+		}
+		
+		// Log de actividades
+		if($_POST['consulta']=='logActividades'){
+			logActividades($_SESSION['id'],$_SESSION['sesion'],$_POST['actividad']);
 		}
 
 ?>

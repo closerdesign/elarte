@@ -2,7 +2,7 @@
 	
 	if(isset($_SESSION['FBID'])){
 	   if(!isset($_SESSION['id'])){
-	   	echo('<script>iniciaFb('.$_SESSION['FBID'].');</script>');
+	   	echo('<script>iniciaFb('.$_SESSION['FBID'].',"'.$_SERVER['REQUEST_URI'].'");</script>');
 	   }
 	}
 	

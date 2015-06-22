@@ -685,6 +685,28 @@
 			return $data['email'];
 		}
 		
+		// RECORRER LOS ITEMS Y ACTUALIZAR EL VALOR DEL PEDIDO
+		function actualizaPedido($val){
+			
+			$total = 0;
+			
+			global $con;
+			$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$val'";
+			$q=mysqli_query($con, $sql);
+			$n=mysqli_num_rows($q);
+			
+			if($n>0){
+				while( $p = mysqli_fetch_assoc($q) ){
+					$total += getPrecioPublicacion($p['publicacion']);
+				}
+			}
+			
+			if( $total > 0 ){
+				mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$val'");
+			}
+			
+		}
+		
 		// OBTENER EL PRECIO DE LA ORDEN
 		function getValorDeLaOrden($val){
 			global $con;
@@ -863,6 +885,17 @@
 				
 			}
 			
+		}
+		
+		function logRegistros($usuario,$url){
+			global $con;
+			mysqli_query($con, "INSERT INTO log_sesiones (usuario,url) VALUES ('$usuario','$url')");
+			return mysqli_insert_id($con);
+		}
+		
+		function logActividades($usuario,$sesion,$actividad){
+			global $con;
+			mysqli_query($con, "INSERT INTO log_actividades (usuario,sesion,actividad) VALUES ('$usuario', '$sesion', '$actividad')");
 		}
 	
 ?>

@@ -98,6 +98,11 @@
 									
 									<div class="row articulos-titulo">
 										<div class="col-lg-12 col-md-12 col-sm-12">
+											<?php if($data['programas_especiales'] > 0){ ?>
+											<h5 style="text-transform: uppercase; background: #f5f5f5; padding: 10px; border-radius: 4px; border-bottom: solid 3px #ddd;">
+												<?php echo getTituloPrograma($data['programas_especiales']) ?>
+											</h5>
+											<?php } ?>
 											<h2><?php echo $data['titulo'] ?></h2>
 										</div>
 										<div class="col-lg-12 col-md-12 col-sm-12">

@@ -43,12 +43,6 @@ if ( isset( $session ) ) {
 
 	/* ---- Session Variables -----*/
 	$_SESSION['FBID'] = $fbid;
-	$_SESSION['FIRST_NAME'] = $firstName;
-	$_SESSION['LAST_NAME'] = $lastName;
-	$_SESSION['BIRTHDAY'] = $birthDay;
-	$_SESSION['FULLNAME'] = $fbfullname;
-	$_SESSION['EMAIL'] =  "";
-	$_SESSION['EMAIL'] =  $femail;
 	
 	/* ---- header location after session ----*/
 	header( "Location: $_REQUEST[url]" );

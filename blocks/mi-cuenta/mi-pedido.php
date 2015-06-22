@@ -366,7 +366,7 @@
 							<input type="hidden" name="nombreOxxo" id="nombreOxxo" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="noDocumentoOxxo" id="noDocumentoOxxo" value="900307622" />
 							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo $_COOKIE['pedido'] ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo $sum ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
 							<button class="btn btn-primary">Generar desprendible de pago</button>
 						</div>
 					</div>

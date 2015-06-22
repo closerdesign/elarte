@@ -86,6 +86,7 @@ $(document).ready(function(){
 	// Obtener formulario de pago
 	function obtenerFormularioDePago(metodo){
 		cargar();
+		logActividades("Llama formulario de pago para el metodo " + metodo);
 		$.post('/includes/php.php',{
 			consulta: "obtenerFormularioDePago",
 			metodo: metodo
@@ -179,6 +180,14 @@ $(document).ready(function(){
 	function scrollToAnchor(aid){
 	    var aTag = $("a[name='"+ aid +"']");
 	    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	}
+	
+	// Log de actividades
+	function logActividades(actividad){
+		$.post('/includes/php.php',{
+			consulta: "logActividades",
+			actividad: actividad
+		})
 	}
 
 // Portadas Walter Portada
@@ -739,7 +748,8 @@ function loginAjax(){
 	$.post('/includes/php.php',{
 		consulta: "login",
 		usuario: $('#emailLogin').val(),
-		password: $('#passwordLogin').val()
+		password: $('#passwordLogin').val(),
+		url: $('#currentUrl').val()
 	}).done(function(data){
 		if( data > 0 ){
 		    $.cookie('session',data);
@@ -908,10 +918,11 @@ $('#formEmailFacebook').validate({
 });
 
 // Inicia sesión FB
-function iniciaFb(fbId){
+function iniciaFb(fbId,url){
 	$.post('/includes/php.php',{
 		consulta: 'iniciaFb',
-		fbId: fbId
+		fbId: fbId,
+		url: url
 	}).done(function(data){
 		if(data == 0){
 			alert(data);
@@ -982,6 +993,7 @@ $('#conferencia').validate({
 // Medios de pago para la conferencia
 $('#paisConferencia').change(function(){
 	cargar();
+	logActividades('Selecciona pais conferencia');
 	$.post('includes/php.php',{
 		consulta: 'obtenerMediosDePago',
 		pais: $('#paisConferencia').val()
