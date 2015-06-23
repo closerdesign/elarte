@@ -50,6 +50,12 @@
 			require_once('blocks/darse-de-baja.php');
 		}elseif($_REQUEST['content']=='conferencia-virtual'){
 			require_once('blocks/inscripcion-conferencia.php');
+		}elseif($_REQUEST['content']=='conferencia-virtual-inscripcion'){
+			require_once('blocks/inscripcion-conferencia-v2.php');
+		}elseif($_REQUEST['content']=='inscripcion-conferencia-elarte'){
+			require_once('blocks/inscripcion-conferencia-v3.php');
+		}elseif($_REQUEST['content']=='conferencia-inscripcion-elarte'){
+			require_once('blocks/inscripcion-conferencia-v4.php');
 		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
 			require_once( 'blocks/inscripcion-conferencia.php' );
 		}elseif($_REQUEST['content']=='programas-especiales'){
