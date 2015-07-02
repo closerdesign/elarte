@@ -897,5 +897,459 @@
 			global $con;
 			mysqli_query($con, "INSERT INTO log_actividades (usuario,sesion,actividad) VALUES ('$usuario', '$sesion', '$actividad')");
 		}
-	
+		
+		function validatePSEResponseTransferencia()
+		{
+			global $con;
+			extract($_REQUEST);
+
+			if(
+				isset($merchantId) 
+				&& isset($transactionState) 
+				&& isset($lapTransactionState) 
+				&& isset($message) 
+				&& isset($referenceCode) 
+				&& isset($reference_pol) 
+				&& isset($transactionId) 
+				&& isset($description) 
+				&& isset($trazabilityCode) 
+				&& isset($cus) 
+				&& isset($orderLanguage) 
+				&& isset($extra1) 
+				&& isset($extra2) 
+				&& isset($extra3) 
+				&& isset($polTransactionState) 
+				&& isset($signature) 
+				&& isset($polResponseCode) 
+				&& isset($lapResponseCode) 
+				&& isset($risk) 
+				&& isset($polPaymentMethod) 
+				&& isset($lapPaymentMethod) 
+				&& isset($polPaymentMethodType) 
+				&& isset($lapPaymentMethodType) 
+				&& isset($installmentsNumber) 
+				&& isset($pseCycle) 
+				&& isset($buyerEmail) 
+				&& isset($pseBank) 
+				&& isset($pseReference1) 
+				&& isset($pseReference2) 
+				&& isset($pseReference3) 
+			){
+				$user_message = '';
+				$sql= 'UPDATE
+						pedidos
+					SET
+						' . ( $lapTransactionState == 'PENDING' ? 'status = \'0\' ' : '' ) . '
+						' . ( $lapTransactionState == 'APPROVED' ? 'status = \'1\' ' : '' ) . '
+						' . ( $lapTransactionState == 'DECLINED' ? 'status = \'3\' ' : '' ) . '
+						' . ( $lapTransactionState == 'ERROR' ? 'status = \'4\' ' : '' ) . '
+						' . ( $lapTransactionState == 'EXPIRED' ? 'status = \'5\' ' : '' ) . ',
+						state = \'' . $lapTransactionState . '\',
+						pendingReason = \'' . $lapTransactionState . '_' . $lapResponseCode .'\',
+						responseCode = \'' . $lapResponseCode . '\'
+					WHERE id = \'' . $referenceCode . '\'
+					';
+				if(!mysqli_query($con, $sql)){
+					$consulta = 'no exitosa: ';
+				}else{
+					$consulta = 'exitosa: ';
+				}
+
+				if ( $lapTransactionState == 'APPROVED' 
+					&& $transactionState == 4
+					&& $polTransactionState == 4
+					&& $lapResponseCode == 'APPROVED'
+					&& $polResponseCode == 1
+				) {
+					$user_message = 'Transacción aprobada';
+					entregarPedido($referenceCode);
+				}
+
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'PAYMENT_NETWORK_REJECTED'
+					&& $polResponseCode == 4
+				) {
+					$user_message = 'Transacción rechazada por entidad financiera';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'ENTITY_DECLINED'
+					&& $polResponseCode == 5
+				) {
+					$user_message = 'Transacción rechazada por el banco';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INSUFFICIENT_FUNDS'
+					&& $polResponseCode == 6
+				) {
+					$user_message = 'Fondos insuficientes';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INVALID_CARD'
+					&& $polResponseCode == 7
+				) {
+					$user_message = 'Tarjeta inválida';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'CONTACT_THE_ENTITY'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Contactar entidad financiera';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'BANK_ACCOUNT_ACTIVATION_ERROR'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Débito automático no permitido';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'BANK_ACCOUNT_NOT_AUTHORIZED_FOR_AUTOMATIC_DEBIT'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Débito automático no permitido';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'BANK_ACCOUNT_NOT_AUTHORIZED_FOR_AUTOMATIC_DEBIT'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Débito automático no permitido';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INVALID_AGENCY_BANK_ACCOUNT'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Débito automático no permitido';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INVALID_BANK_ACCOUNT'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Débito automático no permitido';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INVALID_BANK'
+					&& $polResponseCode == 8
+				) {
+					$user_message = 'Débito automático no permitido';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'EXPIRED_CARD'
+					&& $polResponseCode == 9
+				) {
+					$user_message = 'Tarjeta vencida';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'RESTRICTED_CARD'
+					&& $polResponseCode == 10
+				) {
+					$user_message = 'Tarjeta restringida';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INVALID_EXPIRATION_DATE_OR_SECURITY_CODE'
+					&& $polResponseCode == 12
+				) {
+					$user_message = 'Fecha de expiración o código de seguridad inválidos';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'REPEAT_TRANSACTION'
+					&& $polResponseCode == 13
+				) {
+					$user_message = 'Reintentar pago';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'INVALID_TRANSACTION'
+					&& $polResponseCode == 14
+				) {
+					$user_message = 'Transacción inválida';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'EXCEEDED_AMOUNT'
+					&& $polResponseCode == 17
+				) {
+					$user_message = 'El valor excede el máximo permitido por la entidad';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'ABANDONED_TRANSACTION'
+					&& $polResponseCode == 19
+				) {
+					$user_message = 'Transacción abandonada por el pagador';
+				}
+
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'CREDIT_CARD_NOT_AUTHORIZED_FOR_INTERNET_TRANSACTIONS'
+					&& $polResponseCode == 22
+				) {
+					$user_message = 'Tarjeta no autorizada para comprar por internet';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'ANTIFRAUD_REJECTED'
+					&& $polResponseCode == 23
+				) {
+					$user_message = 'Transacción rechazada por sospecha de fraude';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'DIGITAL_CERTIFICATE_NOT_FOUND'
+					&& $polResponseCode == 9995
+				) {
+					$user_message = 'Certificado digital no encotnrado';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'BANK_UNREACHABLE'
+					&& $polResponseCode == 9996
+				) {
+					$user_message = 'Error tratando de cominicarse con el banco';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'ENTITY_MESSAGING_ERROR'
+					&& $polResponseCode == 9997
+				) {
+					$user_message = 'Error comunicándose con la entidad financiera';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'NOT_ACCEPTED_TRANSACTION'
+					&& $polResponseCode == 9998
+				) {
+					$user_message = 'Transacción no permitida al tarjetahabiente';
+				}
+				
+				if ( $lapTransactionState == 'DECLINED' 
+					&& $transactionState == 6
+					&& $polTransactionState == 6
+					&& ( 
+							$lapResponseCode == 'INTERNAL_PAYMENT_PROVIDER_ERROR'
+							|| $lapResponseCode == 'INACTIVE_PAYMENT_PROVIDER'
+						)
+					&& $polResponseCode == 9999
+				) {
+					$user_message = 'Error';
+				}
+				
+				if ( $lapTransactionState == 'ERROR'
+					&& $transactionState == 104
+					&& $polTransactionState == 6
+					&& ( 
+							$lapResponseCode == 'ERROR'
+							|| $lapResponseCode == 'ERROR_CONVERTING_TRANSACTION_AMOUNTS'
+							|| $lapResponseCode == 'BANK_ACCOUNT_ACTIVATION_ERROR'
+							|| $lapResponseCode == 'FIX_NOT_REQUIRED'
+							|| $lapResponseCode == 'AUTOMATICALLY_FIXED_AND_SUCCESS_REVERSAL'
+							|| $lapResponseCode == 'AUTOMATICALLY_FIXED_AND_UNSUCCESS_REVERSAL'
+							|| $lapResponseCode == 'AUTOMATIC_FIXED_NOT_SUPPORTED'
+							|| $lapResponseCode == 'NOT_FIXED_FOR_ERROR_STATE'
+							|| $lapResponseCode == 'ERROR_FIXING_AND_REVERSING'
+							|| $lapResponseCode == 'ERROR_FIXING_INCOMPLETE_DATA'
+							|| $lapResponseCode == 'PAYMENT_NETWORK_BAD_RESPONSE'
+						)
+					&& $polResponseCode == 9999
+				) {
+					$user_message = 'Error';
+				}
+				
+				if ( $lapTransactionState == 'ERROR'
+					&& $transactionState == 104
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'PAYMENT_NETWORK_NO_CONNECTION'
+					&& $polResponseCode == 9996
+				) {
+					$user_message = 'No fue posible establecer comunicación con la entidad financiera';
+				}
+				
+				if ( $lapTransactionState == 'ERROR'
+					&& $transactionState == 104
+					&& $polTransactionState == 6
+					&& $lapResponseCode == 'PAYMENT_NETWORK_NO_RESPONSE'
+					&& $polResponseCode == 9996
+				) {
+					$user_message = 'No se recibió respuesta de la entidad financiera';
+				}
+				
+				if ( $lapTransactionState == 'EXPIRED'
+					&& $transactionState == 5
+					&& $polTransactionState == 5
+					&& $lapResponseCode == 'EXPIRED_TRANSACTION'
+					&& $polResponseCode == 20
+				) {
+					$user_message = 'Transacción expirada';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 7
+					&& $lapResponseCode == 'PENDING_TRANSACTION_REVIEW'
+					&& $polResponseCode == 15
+				) {
+					$user_message = 'Transacción en validación manual';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 14
+					&& $lapResponseCode == 'PENDING_TRANSACTION_CONFIRMATION'
+					&& $polResponseCode == 15
+				) {
+					$user_message = 'Recibo de pago generado. En espera de pago';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 7
+					&& $lapResponseCode == 'PENDING_TRANSACTION_TRANSMISSION'
+					&& $polResponseCode == 9998
+				) {
+					$user_message = 'Transacción no permitida';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 14
+					&& $lapResponseCode == 'PENDING_PAYMENT_IN_ENTITY'
+					&& $polResponseCode == 25
+				) {
+					$user_message = 'Recibo de pago generado. En espera de pago';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 15
+					&& $lapResponseCode == 'PENDING_PAYMENT_IN_BANK'
+					&& $polResponseCode == 26
+				) {
+					$user_message = 'Recibo de pago generado. En espera de pago';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 10
+					&& $lapResponseCode == 'PENDING_SENT_TO_FINANCIAL_ENTITY'
+					&& $polResponseCode == 29
+				) {
+					$user_message = '';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 12
+					&& $lapResponseCode == 'PENDING_AWAITING_PSE_CONFIRMATION'
+					&& $polResponseCode == 9994
+				) {
+					$user_message = 'En espera de confirmación de PSE';
+				}
+				
+				if ( $lapTransactionState == 'PENDING'
+					&& $transactionState == 7
+					&& $polTransactionState == 18
+					&& $lapResponseCode == 'PENDING_NOTIFYING_ENTITY'
+					&& $polResponseCode == 25
+				) {
+					$user_message = 'Recibo de pago generado. En espera de pago';
+				}
+				
+
+				$html = "";
+				$html .= '<div class="modal fade" id="PseResponse" tabindex="-1" role="dialog" aria-labelledby="PseResponseLabel" aria-hidden="false">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+										<h4 class="modal-title" id="PseResponseVacioTitulo">Proceso de Pago</h4>
+									</div>
+									<div class="modal-body">
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12" id="PseResponseVacioContenido">
+												<h3>Estimado Cliente</h3>
+												<p>Le informamos que su proceso de compra se encuentra en estado: <strong>' . $message . '</strong>
+												</p>
+												<blockquote>
+													'. $user_message .'
+												</blockquote>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+									</div>
+								</div>
+							</div>
+						</div>';
+				$html .= "<script>";
+				$html .= " 
+							$(window).load(function (){
+								$('#PseResponse').modal('show');
+								console.log('".$consulta."');
+							});
+						";
+				$html .= "</script>";
+				return $html;
+			}
+		}	
 ?>

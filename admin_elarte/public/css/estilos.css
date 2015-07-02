@@ -1,0 +1,1277 @@
+@charset "utf-8";
+/* CSS Document */
+
+.container-cabecera{
+	width:100%; 
+	height:70px; 
+	background-color:#fff; 
+	background-image:url(../images/border-cabecera3.png); 
+	background-repeat:repeat-x; 
+	background-position:bottom
+}
+
+.container-logo{
+
+	float:left; 
+	width:200px; 
+	padding:10px;"	
+	
+}
+
+.container-welcome{
+	
+	float:left; 
+	width:400px; 
+	padding:10px;
+	
+}
+
+.container-menu-principal{
+	
+	margin-top:40px; 
+	height:25px; 
+	margin-right:20px; 
+	float:right; 
+	
+	width:300px; 
+	
+	vertical-align:bottom;
+	
+}
+
+.item-menu-principal{
+
+	float:right; 
+	margin:5px;	
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:12px; 
+	color:#666; 
+	
+}
+
+.item-menu-principal-sel{
+	
+	float:right; 
+	margin:5px; 
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:12px;
+	color:green;
+	font-weight:bold;
+	
+}
+
+.separador-menu-principal{
+
+	float:right; 
+	margin-top:1px;	
+	
+}
+
+.text_box_peq{
+	height:15px;
+}
+
+.drop_peq{
+	height:20px;
+	font-size:12px;
+}
+
+#MensajesEventosDiv{
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin:5px;
+}
+
+.pop_up_container_users {
+	float:left;
+	position:fixed;
+	width:100%;
+	z-index:210;
+	top: 200px; 
+	left: 0px;
+	visibility:hidden;
+}
+
+
+
+.ContenidoPopupUsers{
+	border-style:solid;
+	border-width:2px;
+	background-color:#F7F7F7;
+	color:#000;
+	width:510px;
+	height:210px;
+	margin-top:5px;
+}
+
+.pop_up_container_to_do {
+	float:left;
+	position:fixed;
+	width:100%;
+	z-index:210;
+	top: 167px; 
+	left: 0px;
+	visibility:hidden;
+}
+
+.ContenidoPopupToDo{
+	border-style:solid;
+	border-width:2px;
+	background-color:#F7F7F7;
+	color:#000;
+	width:550px;
+	height:270px;
+	margin-top:5px;
+}
+
+.MarcoCalendarTodo{
+	padding:10px;
+	padding-right:20px;
+	padding-left:20px;
+	text-align:left;
+	height:385px;
+	overflow:auto;
+}
+
+.titulo_popup_users{
+	background-color:#000;
+	font-weight: bold;	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+}
+
+.texto_permisos{
+	font-size:8px;
+	color:#F90;
+}
+
+.texto_normal{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:12px;
+}
+
+.texto_normal2{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:14px;
+}
+
+.radio_button_peq{
+	width:13px;
+	height:13px;
+}
+
+.titulo_col_assign_user{
+	position:relative;
+	width:250px;
+	margin-right:25px;
+	margin-left:25px;
+	margin-top:25px;
+	margin-bottom:5px;
+	font-weight:bold;	
+}
+
+.col_assign_user{
+	position:relative; 
+	width:250px; 
+	height:270px; 
+	margin-right:25px; 
+	margin-left:25px; 
+	overflow:scroll; 
+	border-style:solid; 
+	border-width:1px;
+	text-align:left;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.col_buttons_assign_user{
+	position:relative;
+	margin:10px;
+	align:center;
+}
+
+.link1{
+	color:#00F;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+.link2{
+	color:#999;
+	cursor:pointer;
+}
+
+.link3{
+	color:#00F;
+	cursor:pointer;
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.link4{
+	color:#000;
+	cursor:pointer;
+}
+
+.link4:hover{
+	color:green;
+	cursor:pointer;
+}
+
+
+
+.link5{
+	color:#696969;
+	cursor:pointer;
+}
+
+.link_naranja{
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#F90;
+	cursor:pointer;
+}
+
+.link_verde{
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#090;
+	cursor:pointer;
+}
+
+.texto_secundario{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color:#999;
+}
+
+.alertas{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color:#F00;
+}
+
+.tabla1-100{
+	background-color:#999;
+	width:100%;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.tabla1{
+	background-color:#999;
+	width:97%;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+
+
+.tabla1_cabecera{
+	background-image:url(../images/bar1.jpg);
+	font-weight:bold;
+}
+
+.tabla2{
+	width:97%;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+}
+
+.tabla3{
+	background-color:#999;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.MenuEventos {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	color:#000;
+}
+
+
+.BotonAddRegister{
+	background-color:#000;
+	color:#FFF;
+	width:150px;
+	font-size:13px;
+	height:23px;
+	border-color:gray;
+}
+
+.BotonMultiEdit{
+	background-color:#F90;
+	color:#FFF;
+	width:100px;
+	font-size:13px;
+	height:23px;
+	border-color:#F90;
+}
+
+.BotonPeq1{
+	background-color:#F90;
+	color:#FFF;
+	width:55px;
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+.BotonPeq2{
+	background-color:#000;
+	color:#FFF;
+	width:35px;
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+.linea_divison{
+	background-image:url(../images/bar1.jpg);
+	height:18px;
+}
+
+.titulo_pagina{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.texto_welcome_user{
+	font-weight:bold;	
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color:#000;
+}
+
+.texto_logout{
+	font-size: 11px;
+	color:#F90;
+}
+
+.barra_menu_principal{
+	background-image:url(../images/barra_menu_prin.jpg);
+	color: #FFF; 
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	height:24px;
+}
+
+.boton_barra_menu_principal{
+	float:left;
+	width:150px;
+	font-weight:bold;
+	text-align:center;
+	margin-top:4px;
+	border-right-style:groove;
+	border-right-width:1px;
+	border-right-color:#FFF;
+	cursor:pointer;
+	color:#FFF;
+}
+
+.boton_peq_menu
+{
+	font:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	width:90px;
+}
+
+.boton_peq_lista_registros
+{
+	font:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	width:90px;
+}
+
+.boton_barra_menu_principal_sel{
+	float:left;
+	width:150px;
+	font-weight:bold;
+	text-align:center;
+	margin-top:4px;
+	border-right-style:groove;
+	border-right-width:1px;
+	border-right-color:#FFF;
+	cursor:pointer;
+	color:#000;
+}
+
+
+.container_banner_prin{
+	height:38px;
+}
+
+.logo_bbm{
+	float:left;
+	width:130px;
+}
+
+.banner_superior{
+	float:left;
+}
+
+.pestana_activa_menu_prin{
+	float:right;
+	background-image:url(../images/pestana_activa_menu.jpg);
+	background-repeat:no-repeat;
+	background-position:bottom;
+	width:103px;
+	vertical-align:bottom;
+	height:23px;
+	margin-top:15px;
+}
+
+.pestana_no_activa_menu_prin{
+	float:right;
+	background-image:url(../images/pestana_no_activa_menu.png);
+	background-repeat:no-repeat;
+	background-position:bottom;
+	width:103px;
+	vertical-align:bottom;
+	cursor:pointer;
+	height:23px;
+	margin-top:14px;
+}
+
+.texto_pestanas_menu_prin{
+	color: #FFF; 
+	font-family: Verdana, Geneva, sans-serif; 
+	font-size: 12px; 
+	font-weight: bold;
+	text-align:center;
+	margin-top:5px;
+}
+
+
+.ContenidoPopup{
+	background-color:#FFF;
+	color:#000;
+	
+}
+
+.ContenidoPopup2{
+	background-color:#FFF;
+	color:#000;
+	width:700px;
+	
+}
+
+
+.boton_cerrar_popup{
+	background-color:#000;
+	font-weight: bold;	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+	background-image:url(../images/cerrar.gif);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	text-align:right;
+	width:15px;
+}
+
+.titulo_popup{
+	background-color:#000;
+	font-weight: bold;	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #FFF;
+}
+
+
+.titulo_popup2{
+	background-color:#000;
+	font-weight: bold;	
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	color: #FFF;
+	height:25px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:4px;
+	width:950px;
+	
+}
+
+
+.pop_up_container {
+	float:left;
+	position:fixed;
+	width:100%;
+	z-index:200;
+	top: 60px; 
+	left: 0px;
+	visibility:hidden;
+}
+
+.layer {
+	display:block;
+	float:left;
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index:100;
+	background:Gray;
+	filter: alpha(opacity=70);
+	opacity:0.7;
+	top: 0px; 
+	left: 0px; 
+}
+
+a:link{text-decoration:none}
+
+a:visited{text-decoration:none}
+
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+
+.action_assigned_users{
+	position:relative; 
+	width:147px; 
+	height:77px; 
+	overflow:auto;  
+	text-align:left;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.AgendaEventoPorDia{
+	border-style:solid;
+	border-width:1px;
+	border-color:#999;
+}
+
+.TituloEventoAgendaPorDia{
+	background-color:#FC6;
+	text-align:center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+}
+
+.TituloEventosAgendaPorDia{
+	font-weight:bold;
+	background-image:url(../images/bar1.jpg);
+}
+
+.ListaEventosAgendaPorDia
+{
+	border-style:solid;
+	border-width:1px;
+	border-color:#999;
+	width:178px;
+	height:200px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	
+}
+
+.NoActionsMessage{
+	border-style:solid;
+	border-width:1px;
+	border-color:#999;
+	width:100%px;
+	height:358px;
+	text-align:center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	
+}
+
+.CalendarPeqAgendaPorDia{
+	background-color:#999;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.AgendaPorDiaTituloUsuario{
+	vertical-align:middle;
+	background-color:#99CCFF;
+	width:10%;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.AgendaPorDiaContenido{
+	text-align:left;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	
+}
+
+.PestanaCalendarDaySel{
+
+	position: fixed; 
+	top: 230px; 
+	width: 20px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pest_cal_day_sel.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarDaySelOver{
+
+	position: fixed; 
+	top: 230px; 
+	width: 20px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pest_cal_day_sel_over.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarMonth{
+
+	position: fixed; 
+	top: 340px; 
+	width: 17px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pestana_calendar_month.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarMonthOver{
+
+	position: fixed; 
+	top: 340px; 
+	width: 17px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pestana_calendar_month_over.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarMonthSel{
+
+	position: fixed; 
+	top: 340px; 
+	width: 20px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pestana_calendar_month_sel.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarMonthSelOver{
+
+	position: fixed; 
+	top: 340px; 
+	width: 20px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pest_cal_month_sel_over.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarDaySel{
+
+	position: fixed; 
+	top: 230px; 
+	width: 20px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pest_cal_day_sel.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarDay{
+	
+	position: fixed; 
+	top: 230px; 
+	width: 17px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pestana_calendar_day.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.PestanaCalendarDayOver{
+	
+	position: fixed; 
+	top: 230px; 
+	width: 17px; 
+	height: 119px; 
+	z-index: 90; 
+	cursor: pointer; 
+	background:url(../images/pestana_calendar_day_over.png) no-repeat scroll right top;
+	left: 0pt;
+}
+
+.col_fields{
+	position:relative; 
+	width:300px; 
+	height:180px; 
+	margin-right:25px; 
+	margin-left:25px; 
+	overflow:scroll; 
+	border-style:solid; 
+	border-width:1px;
+	text-align:left;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+
+.tab_container{
+
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	border-bottom: 1px solid #B2B2B2;
+	padding:20px;
+	vertical-align: middle;
+	font-size:15px;
+}
+
+
+
+#tab_pestanas_container{
+
+	border-bottom: 1px solid #B2B2B2;
+	height:30px;
+	padding-top:20px;
+	
+}
+
+#tab_pestanas_container2{
+
+	border-bottom: 1px solid #B2B2B2;
+	height:30px;
+	padding-top:20px;
+	padding-left:20px;
+	
+}
+
+#tab_pestanas_a{
+
+	border: 0px;
+	border-bottom: 1px solid #FFFFFF;
+	height:30px;
+	float:left;
+	background-image: url(../images/tab_back.gif);
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	padding-top:6px;
+	font-weight:bold;
+}
+
+#tab_pestanas_i{
+
+	border: 0px;
+	border-bottom: 1px solid #FFFFFF;
+	height:30px;
+	float:left;
+	background-image: url(../images/tab_back_i.gif);
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	padding-top:6px;
+	
+}
+#tab_pestana_l{
+	background-image: url(../images/tab_left.gif);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;
+}
+
+#tab_pestana_r{
+	background-image: url(../images/tab_right.gif);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;	
+}
+
+#tab_pestana_l_i{
+	background-image: url(../images/tab_left_i.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;
+}
+
+#tab_pestana_l_i2{
+	background-image: url(../images/tab_left_i2.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;
+}
+
+#tab_pestana_l_i3{
+	background-image: url(../images/tab_left_i2.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;
+	margin-left:10px;
+}
+
+#tab_pestana_r_i{
+	background-image: url(../images/tab_right_i.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;	
+}
+
+#tab_pestana_r_i2{
+	background-image: url(../images/tab_right_i2.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;	
+}
+
+#tab_pestana_r_i3{
+	
+	background-image: url(../images/tab_right_i.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 31px;
+	width: 8px;
+	float:left;
+	margin-right:10px;
+	
+}
+
+
+#scrolling_div{
+	padding:0px 20px 20px 20px;
+	overflow:auto;
+	height:450px;
+}
+
+#mensajes_tab{
+	text-align:right;
+	padding-top:10px;
+	color:orange;
+	font-size:15px;
+}
+
+#register_notes{
+	width:300px;
+	height: 80px;
+        border: 1px solid #cccccc;
+        padding: 5px;
+
+}
+
+#pestana_titulo_evento{
+
+	border: 0px;
+	border-bottom: 1px solid #FFFFFF;
+	height:30px;
+	float:left;
+	background-image: url(../images/tab_back.gif);
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 17px;
+	padding-top:6px;
+	font-weight:bold;
+}
+
+#pestana_titulo_evento2{
+
+	border: 0px;
+	
+	height:23px;
+	float:left;
+	background-image: url(../images/tab_back.gif);
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 17px;
+	padding-top:6px;
+	font-weight:bold;
+	color:#999;
+}
+
+
+.Menu_evento{
+
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	background-image: url(../images/menu_header.gif);
+	background-repeat: repeat-x;
+	height:45px;
+	width:100%;	
+	padding-top:20px;
+	
+}
+
+.Menu_evento2{
+
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	background-image: url(../images/menu_header.gif);
+	background-repeat: repeat-x;
+	background-position:bottom;
+	padding-top:5px;
+	
+
+	height:60px;
+	width:100%;
+	
+	
+}
+
+.texto_menu_eventos{
+
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:13px;
+	text-align:right;
+	padding-right:20px;
+	color:#696969;
+
+}
+
+#ListadoRegistrosDiv
+{
+	
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	border-bottom: 1px solid #B2B2B2;
+	padding-bottom: 20px;
+	margin:10px;
+	margin-right:8px;
+	margin-top:0px;
+	background-color:#FFF;
+}
+
+#ListadoEventosDiv
+{
+	
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	border-bottom: 1px solid #B2B2B2;
+	padding-bottom: 20px;
+	padding-top:20px;
+	margin:10px;
+	margin-right:8px;
+	margin-top:0px;
+	background-color:#FFF;
+}
+
+.border_menu_registros
+{
+	width:100%;
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+}
+
+.status_lista_registros{
+
+	color:#000;
+	cursor:pointer;
+	width: 60px;
+	height: 17px;
+	padding-top:3px;
+}
+
+.status_lista_registros2{
+
+	width: 75px;
+	height: 26px;
+	position:relative;
+}
+
+.nota_lista_registros
+{
+	cursor:pointer;
+	margin:2px;
+}
+
+.num_notas_lista_registros
+{
+	position:relative;
+	top:13px;
+	left:3px;
+	z-index:1;
+	height:1px;
+	color:red;
+	font-weight:bold;
+
+}
+
+.container_boton_oculto1
+{
+	height:27px;
+	
+}
+
+.texto_status_registros
+{
+	padding-top:6px;
+
+}
+
+
+.boton_oculto1
+{
+	position:absolute;
+	background:url(../images/boton_fondo2.png);
+	width: 75px;
+	height: 26px;
+	cursor:pointer;
+	z-index:1;
+	margin-left:2px;
+	visibility:hidden;
+}
+
+
+.texto_boton_oculto1
+{
+	padding-top:2px;
+	color:red;
+	font-size: 10px;
+}
+
+.texto_boton_oculto2
+{
+	font-size: 11px;
+}
+
+#ContenidoSubmenuDiv
+{
+	border-left: 1px solid #B2B2B2;
+	border-right: 1px solid #B2B2B2;
+	border-bottom: 1px solid #B2B2B2;
+	padding-bottom: 20px;
+	
+	margin:10px;
+	margin-right:8px;
+	margin-top:0px;
+	background-color:#FFF;
+}
+
+.tituloItemSubmenu{
+
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight:bold;
+	padding:10px;
+}
+
+.barraControles{
+
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-weight:bold;
+	padding:10px;
+	background-color:#999;
+	color:#000;
+	background-image:url(../images/fondo_rayado2.png);
+}
+
+.barraControles .contenedorControles{
+	float:right;
+	width:200px;
+	text-align:right;
+	
+}
+
+.TablasItems{
+	width:900px;
+	border:1px solid #B2B2B2;
+	padding-bottom:10px;
+	background-color:#FFF;
+
+}
+
+.menuItemsContainer{
+	width:900px;
+	padding-bottom:10px;
+
+}
+
+.TablasItems2{
+	width:900px;
+	border:1px solid #B2B2B2;
+	margin:20px;
+	margin-top:0;
+}
+
+.TablasItems3{
+	width:100%;
+	height:400px;
+	overflow:auto;
+}
+
+.TablasItems4{
+	width:700px;
+	border:1px solid #B2B2B2;
+	margin:20px;
+	margin-top:0;
+	padding:10px;
+}
+
+.TablasItemsMax{
+	width:100%;
+	border:1px solid #B2B2B2;
+	padding-bottom:10px;
+}
+
+
+.BotonEditItems{
+	background-color:#F90;
+	color:#FFF;
+	font-size:13px;
+	height:23px;
+	border-color:#F90;
+}
+
+.BotonDelItems{
+	background-color:#800000;
+	color:#FFF;
+	font-size:13px;
+	height:23px;
+	border-color:gray;
+}
+
+.exitEvent{
+	text-align:right;
+	padding:10px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+}
+
+
+.recuadroMenuVertical{
+	width:95%;
+	
+	background-color:#f3f3f3;
+	border:solid 1px #bcbcbc;
+	padding-bottom:30px;
+	background-image:url(../images/fondo-menu-vertical-250.png);
+	background-repeat:repeat-y;
+	background-position:left;
+	
+}
+
+.menuRecuadroMenuVertical{
+	float:left;
+	width:230px;
+	padding-top:20px;
+	padding-left:20px;
+}
+
+.menuRecuadroMenuVertical .itemMenu{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#999;
+	text-align:left;
+	height:30px;
+	padding-top:14px;
+	padding-left:23px;
+		
+	
+}
+
+.menuRecuadroMenuVertical .itemMenuSel{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#666;
+	text-align:left;
+	height:28px;
+	padding-top:10px;
+	padding-left:23px;
+	background-color:#f3f3f3;
+	width:202px;
+	
+		
+	background: url(../images/item-menu-ver-left.png) bottom left no-repeat,
+		 url(../images/item-menu-ver-r2.png) top right no-repeat,
+	  	 url(../images/item-menu-ver-r.png) repeat-x;
+}
+
+
+#contenidoMenuVertical{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;	
+	color:#666;
+	padding-top:20px;
+	min-height:470px;
+	
+}
+
+#contenidoMenuVertical input{
+	border:solid 1px #ccc;
+	height:20px;
+	color:#333;
+	font-size:13px;	
+		
+}
+
+.BotonSave{
+	
+	color:#FFF;
+	width:150px;
+	font-size:13px;
+	height:29px;
+	font-size:14px;
+	border:none;
+	cursor:pointer;
+	
+	background: url(../images/fondo-boton1-l.png) bottom left no-repeat, 
+	  url(../images/fondo-boton1-r.png) right no-repeat,
+	   url(../images/fondo-boton1.png) center repeat-x;
+	
+}
+
+.BotonSave:hover{
+	
+	filter: alpha(opacity=80); opacity: .8
+	
+}
+
+.mensajeEstadoMenuVertical{
+	position:absolute;
+	top:97px;
+	left:500px;
+	margin:100px;; 
+	width:300px;
+	background-color:#000;
+	color:#fff;
+	height:35px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;	
+	padding-top:15px;
+	border-radius: 0px 0px 10px 10px;
+	
+}
+
+.invisible{
+	display:none;	
+}

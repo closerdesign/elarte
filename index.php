@@ -8,8 +8,10 @@
 <html lang="es">
 	
 	<?php require_once('blocks/head.php'); ?>
-	
 	<body class="body">
+	<?php
+		echo validatePSEResponseTransferencia();
+	?>
 	
 	<?php require_once('blocks/finRegistro.php'); ?>
 	
@@ -50,7 +52,15 @@
 			require_once('blocks/darse-de-baja.php');
 		}elseif($_REQUEST['content']=='conferencia-virtual'){
 			require_once('blocks/inscripcion-conferencia.php');
+		}elseif($_REQUEST['content']=='conferencia-virtual-inscripcion'){
+			require_once('blocks/inscripcion-conferencia-v2.php');
+		}elseif($_REQUEST['content']=='inscripcion-conferencia-elarte'){
+			require_once('blocks/inscripcion-conferencia-v3.php');
+		}elseif($_REQUEST['content']=='conferencia-inscripcion-elarte'){
+			require_once('blocks/inscripcion-conferencia-v4.php');
 		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
+			require_once( 'blocks/inscripcion-conferencia.php' );
+		}elseif( $_REQUEST['content'] == 'amar-sin-apegos' ){
 			require_once( 'blocks/inscripcion-conferencia.php' );
 		}elseif($_REQUEST['content']=='programas-especiales'){
 			require_once('blocks/programas-especiales.php');
@@ -58,6 +68,8 @@
 			require_once('blocks/migracion.php');
 		}elseif($_REQUEST['content']=='migracion_passwords'){
 			require_once('blocks/migracion_passwords.php');
+		}elseif($_REQUEST['content']=='prueba-inscripcion'){
+			require_once('blocks/inscripcion-conferencia-v5.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}
@@ -155,4 +167,4 @@
 		}
 	?>
 	
-</html>
+</html><!--  -->

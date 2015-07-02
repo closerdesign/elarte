@@ -18,19 +18,19 @@
 					}
 				?>
 				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>><a href="/"><i class="fa fa-home"></i> Inicio</a></li>
-				<li<?php if($_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras"><i class="fa fa-align-justify"></i> Guías y Obras Editoriales</a></li>
+				<!-- <li<?php if($_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras"><i class="fa fa-align-justify"></i> Guías y Obras Editoriales</a></li> -->
 				<li<?php if($_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=mis-publicaciones"><i class="fa fa-book"></i> Mi Biblioteca</a></li>
 				<li<?php if($_REQUEST['content']=='articulos'){ echo(" class='active' "); } ?>><a href="/?content=articulos"><i class="fa fa-pencil"></i> Artículos</a></li>
 				<li<?php if($_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=articulos-favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a></li>
 				<?php
 					if(isset($_SESSION['id'])){
 						?>
-						<li<?php if($_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
+						<!-- <li<?php if($_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
 							<a href="/?content=mi-cuenta&task=mi-pedido">
 								<i class="fa fa-shopping-cart"></i> Mi pedido
 								<span class="label label-danger" id="noProductos" style="display:none"></span>
 							</a>
-						</li>
+						</li> -->
 						<?php
 					}
 				?>
@@ -78,9 +78,11 @@
 						?>
 						<?php if($_REQUEST['content']!='conferencia-virtual'){ ?>
 						<?php if($_REQUEST['content']!='inscripcion-conferencia'){ ?>
+						<?php if($_REQUEST['content']!='amar-sin-apegos'){ ?>
 						<div class="col-md-offset-3 col-lg-6 col-md-6 col-sm-6 hidden-xs form-group">
 							<button type="button" onclick="openRegisterModal()" class="btn btn-success btn-lg pull-right">Regístrate</button>
 						</div>
+						<?php } ?>
 						<?php } ?>
 						<?php } ?>
 						<?php

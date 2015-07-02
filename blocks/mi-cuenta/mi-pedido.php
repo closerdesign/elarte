@@ -283,18 +283,22 @@
 				<div class="col-md-12 form-group selectFormaPago" style="display:none">
 					<label>Por favor selecciona una forma de pago...</label>
 					<select class="form-control" name="formaPago" id="formaPago">
-						<option value="">Seleccione...</option>
-						<option value="1">Tarjeta de Crédito</option>
+						<!-- <option value="">Seleccione...</option>
+						<option value="1">Tarjeta de Crédito</option> -->
 						<!--<option value="2">Paypal</option>-->
-						<option class="co" style="display:none" value="3">Transferencia Bancaria - PSE</option>
+						<!-- <option class="co" style="display:none" value="3">Transferencia Bancaria - PSE</option>
 						<option class="co" style="display:none" value="4">Puntos VIA Baloto</option>
 						<option class="mx" style="display:none" value="5">OXXO - 7 Eleven</option>
-						<option class="pe" style="display:none" value="6">Banco de Crédito - BCP</option>
+						<option class="pe" style="display:none" value="6">Banco de Crédito - BCP</option> -->
 					</select>
 				</div>
 			</div>
 			
-			<!-- INICIO BCP -->
+			<!-- De aqui para abajo esta el despliegue de cada una de las formas de pago. 
+			     Tanto del formulario como del jQuery que hace la peticion y procesa la respuesta. -->
+
+			<!-- INICIO BCP - En todos los casos, la peticion arranca de esta manera. Este proceso toca optimizarlo, porque no es tan cristiano
+			     como deberia ser, si te das cuenta la peticion se despliega ahi mismo con valores y todo. Pero esto luego lo vemos. -->
 			<div class="pagosBcp" style="display:none">
 				<form id="formBcp">
 					<div class="row">
@@ -302,7 +306,7 @@
 							<input type="hidden" name="emailBcp" id="emailBcp" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="nombreBcp" id="nombreBcp" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="noDocumentoBcp" id="noDocumentoBcp" value="900476732" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo $sum ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
 							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo $_COOKIE['pedido'] ?>" />
 							<button class="btn btn-primary">Generar desprendible de pago</button>
 						</div>
@@ -310,17 +314,23 @@
 				</form>
 			</div>
 			
+			<!-- Aqui arranca el jQuery que procesa la peticion inmediatamente anterior. Si te das cuenta en el de
+			la conferencia, hasta el mismo jQuery se regresa con la respuesta del ajax. Esto tambien lo vemos luego. Por
+			ahora lo que quiere Paul es que el tema funcione. y para lograr eso, nos toca es hacer debug sobre estas zonas
+			y validar es la forma en la que se recibe la respuesta para que la orden siempre entregue los productos. -->
 			<script type="text/javascript">
 				$('#formBcp').validate({
 					submitHandler: function(form){
 						$('.load').fadeIn();
+						// Aqui el post se hace sobre archivos distintos. Yo separe los archivos dependiente del proceso que hacen. 
+						// Eso nos toca mejorarlo, y en la implementacion de la conferencia ya funciona sin esos archivos
 						$.post('/includes/payu/loadBcp.php',$('#formBcp').serialize())
 						.done(function(data){
 							var response = JSON.parse(data);
 							$.post('/includes/php.php',{
 								consulta: "pedidoPendiente",
 								pedido: $.cookie('pedido'),
-								valor: "<?php echo $sum ?>",
+								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
 								formaPago: "6",
 								orderId: response.transactionResponse.orderId,
 								transactionId: response.transactionResponse.transactionId,
@@ -335,9 +345,11 @@
 									$('.load').fadeOut();
 								}
 								if(msg==1){
+									// Aqui estan los cierres del pedido, que es cuando recibimos la respuesta de la peticion de payu.
+									// Aqui mismo termina el procedimiento. Pero ahora mira:
+									$.removeCookie('pedido');
 									$('#myModalVacioTitulo').html('¡Gracias por tu pedido!');
 									$('#myModalVacioContenido').html('<p class="text-center"><b>Tu pedido ha sido procesado exitosamente.</b></p><p class="text-center"><a href="' + response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML + '" class="btn btn-primary">Haz click aquí para generar tu desprendible de pago</a></p>');
-									$.removeCookie('pedido');
 									$('.load').fadeOut();
 									$('#myModalVacio').modal('show');
 								}
@@ -383,7 +395,7 @@
 							$.post('/includes/php.php',{
 								consulta: "pedidoPendiente",
 								pedido: $.cookie('pedido'),
-								valor: "<?php echo $sum ?>",
+								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
 								formaPago: "5",
 								orderId: response.transactionResponse.orderId,
 								transactionId: response.transactionResponse.transactionId,
@@ -398,9 +410,9 @@
 									$('.load').fadeOut();
 								}
 								if(msg==1){
+									$.removeCookie("pedido");
 									$('#myModalVacioTitulo').html('¡Gracias por tu pedido!');
 									$('#myModalVacioContenido').html('<p class="text-center"><b>Tu pedido ha sido procesado exitosamente.</b></p><p class="text-center"><a href="' + response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML + '" class="btn btn-primary">Haz click aquí para generar tu desprendible de pago</a></p>');
-									$.removeCookie('pedido');
 									$('.load').fadeOut();
 									$('#myModalVacio').modal('show');
 								}
@@ -418,7 +430,7 @@
 							<input type="hidden" name="noDocumentoBaloto" id="noDocumentoBaloto" value="900307622" />
 							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']) ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo $sum ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
 							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo $_COOKIE['pedido'] ?>" />
 							<button type="submit" class="btn btn-primary">Generar desprendible de pago</button>
 						</div>
@@ -436,7 +448,7 @@
 							$.post('/includes/php.php',{
 								consulta: "pedidoPendiente",
 								pedido: $.cookie('pedido'),
-								valor: "<?php echo $sum ?>",
+								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
 								formaPago: "4",
 								orderId: response.transactionResponse.orderId,
 								transactionId: response.transactionResponse.transactionId,
@@ -451,9 +463,9 @@
 									$('.load').fadeOut();
 								}
 								if(msg==1){
+									$.removeCookie('pedido');
 									$('#myModalVacioTitulo').html('¡Gracias por tu pedido!');
 									$('#myModalVacioContenido').html('<p class="text-center"><b>Tu pedido ha sido procesado exitosamente.</b></p><p class="text-center"><a href="' + response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML + '" class="btn btn-primary">Haz click aquí para generar tu desprendible de pago</a></p>');
-									$.removeCookie('pedido');
 									$('.load').fadeOut();
 									$('#myModalVacio').modal('show');
 								}
@@ -526,13 +538,105 @@
 					<div class="row">
 						<div class="col-md-12 form-group">
 							<input type="hidden" name="pedido" id="pedido" value="<?php echo $_COOKIE['pedido'] ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo $sum ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
 							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']); ?>" />
-							<button class="btn btn-primary">Pagar</button>
+							<input type="hidden" name="consulta" id="consulta" value="pseRequestTienda" />
+							<button id="ButtonPSEPayment" class="btn btn-primary">Pagar</button>
 						</div>
 					</div>
 				</form>
 			</div>
+			<script type="text/javascript">
+				<?php if( isset($_COOKIE['pedido']) ) { ?>
+					// primero valida si hay una cookie con el id de pedido para mostrar este código ya que sino existe muestra un error
+				$('#formPSE').validate({
+					submitHandler: function(form){
+						$('.load').fadeIn();
+						var response;
+						$.post('/includes/php.php',$('#formPSE').serialize()).done(function (data) {
+							response = JSON.parse(data);
+							
+							var data = {
+								consulta: "pedidoPendiente",
+								pedido: <?php echo $_COOKIE['pedido'] ?>,
+								valor: $('#vrPedido').val(),
+								formaPago: 3,
+								orderId: response.transactionResponse.orderId,
+								transactionId: response.transactionResponse.transactionId,
+								state: response.transactionResponse.state,
+								pendingReason: response.transactionResponse.pendingReason,
+								responseCode: response.transactionResponse.responseCode,
+								urlPaymentReceiptHtml: response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML,
+								reference: response.transactionResponse.extraParameters.REFERENCE,
+								json: true
+							};
+							$.ajax({
+								url: '/includes/php.php',
+								type: 'POST',
+								dataType: 'json',
+								data: data,
+							})
+							.done(function(data) {
+								console.log(data);
+								if (data.code == 1) {
+									console.log("success");
+									$.removeCookie('pedido');
+									/*form.submit();*/
+									window.location = response.transactionResponse.extraParameters.BANK_URL;
+								}
+							})
+							.fail(function(data) {
+								console.log(data);
+								console.log("error");
+							})
+							.always(function(data) {
+								console.log(data);
+								console.log("complete");
+							});
+						});
+						
+					}
+				});
+				/*$('#formPSE').validate({
+					submitHandler: function(form){
+						//acá  asigno las variables para enviarlas a una función que se llama dpedidoPendiente, esto antes no se hacía así que cuando el usuario quería pagar con este método, en el administrador no se cambiaba el estado del pedido ni se sabía con que método intentaba pagar. Así que eso simplemente deja el estado de la orden en pendiente y con el mensaje iniciando pago con PSE. PEro cuando el cliente paga, la pasarela de pagos devuelve a unos links que mi imagino uno configura, que es lo que no sé como hacer si quieres te hago un ejemplo. Skype
+						
+						
+						//antes estaba este código pero arrojaba unos errores, viendo el proceso puse el que está arriba pero omití esta linea que carga desde el archivo loadBaloto.php
+						$('.load').fadeIn();
+						$.post('/includes/payu/loadBaloto.php',$('#formPSE').serialize())
+						.done(function(data){
+							var response = JSON.parse(data);
+							$.post('/includes/php.php',{
+								consulta: "pedidoPendiente",
+								pedido: $.cookie('pedido'),
+								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
+								formaPago: "4",
+								orderId: response.transactionResponse.orderId,
+								transactionId: response.transactionResponse.transactionId,
+								state: response.transactionResponse.state,
+								pendingReason: response.transactionResponse.pendingReason,
+								responseCode: response.transactionResponse.responseCode,
+								urlPaymentReceiptHtml: response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML,
+								reference: response.transactionResponse.extraParameters.REFERENCE
+							}).done(function(msg){
+								if(msg==0){
+									alert('Lo sentimos, se ha presentado un error. Por favor intente de nuevo.');
+									$('.load').fadeOut();
+								}
+								if(msg==1){
+									$('#myModalVacioTitulo').html('¡Gracias por tu pedido!');
+									$('#myModalVacioContenido').html('<p class="text-center"><b>Tu pedido ha sido procesado exitosamente.</b></p><p class="text-center"><a href="' + response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML + '" class="btn btn-primary">Haz click aquí para generar tu desprendible de pago</a></p>');
+									$.removeCookie('pedido');
+									$('.load').fadeOut();
+									$('#myModalVacio').modal('show');
+								}
+							})
+						})	
+					}
+				});*/
+				<?php } ?>
+			</script>
 			<!-- FIN PSE -->
 			
 			<div class="btnPaypal" style="display:none" >
@@ -621,7 +725,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 							<input type="hidden" class="form-control" name="cuotas" id="cuotas" value="1" />
 							<input type="hidden" name="pedido" id="pedido" value="<?php echo $_COOKIE['pedido'] ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo $sum; ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']); ?>" />
 							<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']); ?>" />
 							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="ciudad" id="ciudad" value="<?php echo getCiudadUsuario($_SESSION['id']) ?>" />
@@ -632,6 +736,8 @@
 				</div>
 			</form>
 			
+			<!-- La de tarjetas de credito, es la que muestra el flujo mas completo, arriba el formulario, a continuacion el jQuery. -->
+
 			<script type="text/javascript">
 				$('#formTarjetaCredito').validate({
 					rules: {
@@ -647,10 +753,11 @@
 							var response = JSON.parse(data);
 							if(response.transactionResponse.state=='APPROVED'){
 								$.post('/includes/php.php',{
+									// Este post entrega el pedido
 									consulta: "cierra-pedido",
 									pedido: $.cookie('pedido'),
 									usuario: "<?php echo $_SESSION['id']; ?>",
-									valor: "<?php echo $sum; ?>",
+									valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']); ?>",
 									status: "2",
 									formaPago: "1",
 									orderId: response.transactionResponse.orderId,
@@ -659,6 +766,8 @@
 									responseCode: response.transactionResponse.responseCode
 								}).done(function(msg){
 									if(msg==1){
+										// Y si el pedido se entrega, se elimina la cookie 
+										$.removeCookie('pedido');
 										alert('Tu pago ha sido aprobado. Ahora podrás encontrar los productos adquiridos en tu biblioteca.');
 										window.location.href="/index.php?content=mi-cuenta&task=mis-publicaciones";
 									} else {
@@ -666,9 +775,9 @@
 										alert(msg);
 										$('.load').fadeOut();
 									}
-									$.removeCookie('pedido');
 								})
 							}
+							// Aqui ya recibimos la respuesta de Payu, entonces el sistema recibe la respuesta y ejecuta las acciones correspondientes
 							if(response.transactionResponse.state=='DECLINED'){
 								alert('Tu medio de pago ha sido rechazado. Por favor intenta con un medio de pago diferente o comúnicate con tu entidad bancaria para resolver la situación');
 								$('.form-control').val('');
@@ -678,7 +787,7 @@
 								$.post('/includes/php.php',{
 									consulta: "pedidoPendiente",
 									pedido: $.cookie('pedido'),
-									valor: "<?php echo $sum; ?>",
+									valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']); ?>",
 									status: "1",
 									formaPago: "1",
 									orderId: response.transactionResponse.orderId,

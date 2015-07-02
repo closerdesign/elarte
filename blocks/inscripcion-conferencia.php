@@ -65,6 +65,7 @@
 								<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
 								<li>La duración de la conferencia es de 1 hora y 30 minutos.</li>
 								<li>Si por algún motivo no puedes acceder a la conferencia en vivo tendrás 48 horas para ver la grabación.</li>
+								<li>Conferencia dictada <b>EN ESPAÑOL.</b></li>
 							</ul>
 						</div>
 					</div>
@@ -82,15 +83,7 @@
 									<tbody>
 										<tr>
 											<td>
-												Precio de preventa (hasta junio 30 de 2015)
-											</td>
-											<td class="text-center">
-												USD $9.99
-											</td>
-										</tr>
-										<tr>
-											<td>
-												Precio Full
+												Precio de Lanzamiento
 											</td>
 											<td class="text-center">
 												USD $15.99
@@ -109,6 +102,26 @@
 						if( $n > 0 ){
 							?>
 							<p class="lead text-center">¡Felicitaciones! Ya te ecuentras inscrito(a) a esta conferencia. Te hemos enviado un mensaje de notificación a tu correo, pronto te estaremos informando las instrucciones de acceso al evento.</p>
+							
+							<!-- Google Code for Venta de Entrada Conversion Page -->
+							<script type="text/javascript">
+							/* <![CDATA[ */
+							var google_conversion_id = 947153368;
+							var google_conversion_language = "en";
+							var google_conversion_format = "3";
+							var google_conversion_color = "ffffff";
+							var google_conversion_label = "mIY-CNmO_V0Q2NPRwwM";
+							var google_remarketing_only = false;
+							/* ]]> */
+							</script>
+							<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+							</script>
+							<noscript>
+							<div style="display:inline;">
+							<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/947153368/?label=mIY-CNmO_V0Q2NPRwwM&amp;guid=ON&amp;script=0"/>
+							</div>
+							</noscript>
+
 							<?php
 						}else{
 							?>
