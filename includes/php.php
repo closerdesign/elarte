@@ -16,85 +16,410 @@
 	require_once('conn.php');
 	require_once('phpmailer.php');
 	require_once('functions.php');
+
+	switch ($_POST['consulta']) {
+		case 'registro':
+			registroDeUsuarios();
+			break;
+		case 'login':
+			inicioSesion();
+			break;
+		case 'email-registro':
+			verificaEmailCorreo();
+			break;
+		case 'cambiar-contrasena':
+			actualziarContrasena();
+			break;
+		case 'validar-codigo-descuento':
+			validarCodigoDescuento();
+			break;
+		case 'logErroresPagos':
+			logErroresPagos();
+			break;
+		case 'optin':
+			optin();
+			break;
+		case 'actualizaPerfil':
+			actualizaPerfil();
+			break;
+		case 'descarga':
+			descarga();
+			break;
+		case 'agregar':
+			agregar();
+			break;
+		case 'delPub':
+			borrarPublicacion();
+			break;
+		case 'nueva-contrasena':
+			nuevaContrasena();
+			break;
+		case 'cierra-pedido':
+			cerrarPedido();
+			break;
+		case 'pedidoPendiente':
+			pedidoPendiente();
+			break;
+		case 'contacto':
+			contacto();
+			break;
+		case 'compartirAmigo':
+			compartirAmigo();
+			break;
+		case 'agregarFavoritos':
+			agregarFavoritos();
+			break;
+		case 'eliminaFavoritos':
+			eliminaFavoritos();
+			break;
+		case 'agregarComentarios':
+			agregarComentarios();
+			break;
+		case 'detallePedido':
+			detallePedido();
+			break;
+		case 'delordenpub':
+			delordenpub();
+			break;
+		case 'descargaMuestra':
+			descargaMuestra();
+			break;
+		case 'descripcion':
+			descripcion();
+			break;
+		case 'newsletter':
+			newsletter();
+			break;
+		case 'cerrarSesion':
+			cerrarSesion();
+			break;
+		case 'finRegistro':
+			finRegistro();
+			break;
+		case 'verificaEmail':
+			verificaEmail();
+			break;
+		case 'verificaEmailRegistro':
+			verificaEmailRegistro();
+			break;
+		case 'emailFacebook':
+			emailFacebook();
+			break;
+		case 'iniciaFb':
+			iniciaFb();
+			break;
+		case 'publicacionesPedido':
+			publicacionesPedido();
+			break;
+		case 'detallesPedido':
+			detallesPedido();
+			break;
+		case 'procesaPaquete':
+			procesaPaquete();
+			break;
+		case 'crearOrdenPaquete':
+			crearOrdenPaquete();
+			break;
+		case 'recuperar-contrasena':
+			recuperarContrasena();
+			break;
+		case 'detalleDelPedido':
+			detalleDelPedido();
+			break;
+		case 'eliminaDelPedido':
+			eliminaDelPedido();
+			break;
+		case 'valorDelPedido':
+			valorDelPedido();
+			break;
+		case 'obtenerMediosDePago':
+			obtenerMediosDePago();
+			break;
+		default:
+			# code...
+			break;
+	}
 	
-	// Registro de usuarios
-	if($_POST['consulta']=='registro'){
-		if(!mysqli_query($con, "
-			INSERT INTO
-				usuarios (
-					email,
-					password,
-					status,
-					optin,
-					perfil
-				) VALUES (
-					'$_POST[email]',
-					'".md5($_POST['password'])."',
-					'0',
-					'1',
-					'0'
-				)
-		")){
-			echo "0";
+	function logErroresPagos()
+	{
+		global $con;
+		extract($_POST);
+		if ( isset($id_usuario) && !empty($id_usuario) 
+			&& isset($url) && !empty($url)
+			&& isset($metodo) && !empty($metodo)
+		) {
+
+			switch ( $metodo ) {
+				case 1:
+					$metodo = 'Tarjeta de Crédito';
+					break;
+
+				case 2:
+					$metodo = 'Paypal';
+					break;
+
+				case 3:
+					$metodo = 'Transferencia Bancaria - PSE';
+					break;
+
+				case 4:
+					$metodo = 'Puntos VIA Baloto';
+					break;
+
+				case 5:
+					$metodo = 'OXXO';
+					break;
+
+				case 6:
+					$metodo = 'Banco de Crédito - BCP';
+					break;
+				
+				default:
+					# code...
+					break;
+			}
+
+			if(!mysqli_query($con, "
+				INSERT INTO
+					log_pagos (
+						id_usuario,
+						url,
+						metodo,
+						fecha
+					) VALUES (
+						'$id_usuario',
+						'$url',
+						'$metodo',
+						NOW()
+					)
+			")){
+				$result['error'] = 0;
+				$result['message'] = 'Ha ocurrido un error en el registro del log.';
+				echo json_encode($result);
+				return;
+			}else{
+				$date = date('m/d/Y h:i:s a', time());
+				$id=mysqli_insert_id($con);
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+				$template=NOTIFICACION;
+				$html=file_get_contents($template);
+				$contenido="
+					<p>
+						<strong>ID Usuario: </strong>$id_usuario
+					</p>
+					<p>
+						<strong>URL: </strong>$url
+					</p>
+					<p>
+						<strong>Método: </strong>$metodo
+					</p>
+					<p>
+						<strong>Fecha: </strong>$date
+					</p>
+				";
+				$html=str_replace("{{contenido}}",$contenido,$html);         
+				$mail = new PHPMailer();
+				$mail->From = 'no-reply@phronesisvirtual.com';
+				$mail->FromName = 'Phronesis | El arte de saber vivir';
+				$mail->Subject = utf8_decode('Ha ocurrido un error de pago con '.$metodo);
+				$mail->Body = utf8_decode($html);
+				$mail->IsHTML(true);
+				$mail->AddAddress('pfhurtado@phronesisvirtual.com');
+				$mail->AddAddress('lpaloma@phronesisvirtual.com');
+				/*$mail->AddReplyTo($_POST['']);*/
+				if(!$sent_mail= $mail->Send()){
+					$result['error'] = 0;
+					$result['message'] = 'Registro log fallido.';
+					echo json_encode($result);
+					return;
+				}else{
+					$result['error'] = 1;
+					$result['message'] = 'Registro log exitoso.';
+					echo json_encode($result);
+					return;
+				}
+			}
+		}
+	}
+
+	function validarCodigoDescuento()
+	{
+		extract($_POST);
+		if (isset($codigo) && !empty($codigo)) {
+			$codigo_valido = 'ABCYD';
+			$valor_descuento = 9.99;
+			$valor_normal = 15.99;
+
+			if ( $codigo_valido == $codigo ) {
+				$result['error'] = 1;
+				$result['message'] = 'Código correcto';
+				$result['valor'] = $valor_descuento;
+				echo json_encode($result);
+				return;
+			}else{
+				$result['error'] = 0;
+				$result['message'] = 'Error código incorrecto';
+				$result['valor'] = $valor_normal;
+				echo json_encode($result);
+				return;
+			}
 		}else{
-			$_SESSION['id']=mysqli_insert_id($con);
-			agregaListaNewsletter($_POST['email']);
-			echo "1";
+			$result['error'] = 0;
+			$result['message'] = 'Error no se enviaron los parámetros.';
+			$result['valor'] = $valor_normal;
+			echo json_encode($result);
+			return;
+		}
+	}
+
+	// Registro de usuarios
+	function registroDeUsuarios()
+	{
+		extract($_POST);
+		if ( !empty($email) && !empty($password) ) {
+			if(!mysqli_query($con, "
+				INSERT INTO
+					usuarios (
+						email,
+						password,
+						status,
+						optin,
+						perfil
+					) VALUES (
+						'$email',
+						'".md5($password)."',
+						'0',
+						'1',
+						'0'
+					)
+			")){
+				$result['error'] = 0;
+				$result['message'] = 'Ha ocurrido un error en el registro de usuario.';
+				echo json_encode($result);
+				return;
+			}else{
+				$_SESSION['id']=mysqli_insert_id($con);
+				agregaListaNewsletter($_POST['email']);
+				$result['error'] = 1;
+				$result['message'] = 'Registro exitoso.';
+				echo json_encode($result);
+				return;
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = 'Error. No se ha enviado el correo y el password.';
+			echo json_encode($result);
+			return;
 		}
 	}
 	
 	// Inicio de sesión
-	if($_POST['consulta']=='login'){
-		
-		$sql_pre = "SELECT ps FROM usuarios WHERE email = '$_POST[usuario]' LIMIT 1";
-		$q_pre = mysqli_query($con, $sql_pre);
-		$data_pre = mysqli_fetch_array($q_pre);
-		
-		if($data_pre['ps']==0){
-			$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5($_POST['password'])."'";
+	function inicioSesion()
+	{
+		global $con;
+		extract($_POST);
+		if ( !empty($usuario) && !empty($password) && !empty($url) ) {
+			$sql_pre = "SELECT ps FROM usuarios WHERE email = '$usuario' LIMIT 1";
+			$q_pre = mysqli_query($con, $sql_pre);
+			$data_pre = mysqli_fetch_array($q_pre);
+			
+			if($data_pre['ps']==0){
+				$sql="SELECT id FROM usuarios WHERE email = '$usuario' AND password = '".md5($password)."'";
+			}else{
+				$sql="SELECT id FROM usuarios WHERE email = '$usuario' AND password = '".md5("Is8IaahjYe3NiERKNnaLaQcJxJiVYnw0ap84ckWIPTjAboqLSmg4yL1R".$password)."'";
+			}
+			
+			$q=mysqli_query($con, $sql);
+			$n=mysqli_num_rows($q);
+			if($n!=1){
+				$result['error'] = 0;
+				$result['message'] = 'Se ha presentado un error al iniciar sesión.';
+				echo json_encode($result);
+				return;
+			}else{
+				$id=mysqli_fetch_array($q);
+				$_SESSION['id']=$id['id'];
+				$_SESSION['sesion']=logRegistros($id['id'],$url);
+				$result['error'] = 1;
+				$result['message'] = 'Inicio de sesión exitosa.';
+				$result['id'] = $id['id'];
+				echo json_encode($result);
+				return;
+			}
 		}else{
-			$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5("Is8IaahjYe3NiERKNnaLaQcJxJiVYnw0ap84ckWIPTjAboqLSmg4yL1R".$_POST['password'])."'";
-		}
-		
-		$q=mysqli_query($con, $sql);
-		$n=mysqli_num_rows($q);
-		if($n!=1){
-			echo 0;
-		}else{
-			$id=mysqli_fetch_array($q);
-			$_SESSION['id']=$id['id'];
-			$_SESSION['sesion']=logRegistros($id['id'],$_POST['url']);
-			echo $id['id'];
+			$result['error'] = 0;
+			$result['message'] = 'Error. No se han enviado los parámetros requeridos.';
+			echo json_encode($result);
+			return;
 		}
 	}
 	
 	// Verificación de correo electrónico
-	if($_POST['consulta']=='email-registro'){
-		$n=mysqli_num_rows(mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'"));
-		if($n>0){
-			echo "false";
-		}else{
-			echo "true";
-		}
-	}
-	
-	// Actualización de contraseña
-	if($_POST['consulta']=='cambiar-contrasena'){
-		$n=mysqli_num_rows(mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '".md5($_POST['current_password'])."'"));
-		if($n!=1){
-			echo "La contraseña actual no coincide. Los datos lo pudieron ser actualizados.";
-		}else{
-			if(!mysqli_query($con, "UPDATE usuarios SET password = '".md5($_POST['new_password'])."' WHERE id = '$_POST[usuario]'")){
-				echo "Lo sentimos, se ha presentado un error procesando su solicitud. Por favor intente de nuevo.";
+	function verificaEmailCorreo()
+	{
+		global $con;
+		extract($_POST);
+		if( !empty($email) ){
+			$n=mysqli_num_rows(mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$email'"));
+			if($n>0){
+				$result['error'] = false;
+				$result['message'] = 'El correo ha sido encontrado.';
+				echo json_encode($result);
+				return;
 			}else{
-				mysqli_query($con, "UPDATE usuarios SET ps = '0' WHERE id = '$_POST[usuario]'");
-				echo "Su contraseña ha sido actualizada exitosamente.";
+				$result['error'] = true;
+				$result['message'] = 'El correo no ha sido encontrado.';
+				echo json_encode($result);
+				return;
 			}
 		}
 	}
 	
+	// Actualización de contraseña
+	function actualziarContrasena()
+	{
+		global $con;
+		extract($_POST);
+		if( 
+			isset($usuario) 
+			&& !empty($usuario) 
+			&& isset($current_password) 
+			&& !empty($current_password) 
+			&& isset($new_password) 
+			&& !empty($new_password) 
+		){
+			$n=mysqli_num_rows(mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '".md5($_POST['current_password'])."'"));
+			if($n!=1){
+				$result['error'] = 0;
+				$result['message'] = "La contraseña actual no coincide. Los datos lo pudieron ser actualizados.";
+				echo json_encode($result);
+				return;
+			}else{
+				if(!mysqli_query($con, "UPDATE usuarios SET password = '".md5($_POST['new_password'])."' WHERE id = '$_POST[usuario]'")){
+					$result['error'] = 0;
+					$result['message'] = "Lo sentimos, se ha presentado un error procesando su solicitud. Por favor intente de nuevo.";
+					echo json_encode($result);
+					return;
+				}else{
+					mysqli_query($con, "UPDATE usuarios SET ps = '0' WHERE id = '$_POST[usuario]'");
+					$result['error'] = 1;
+					$result['message'] = "Su contraseña ha sido actualizada exitosamente.";
+					echo json_encode($result);
+					return;
+				}
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = "No se han enviado los parametros necesarios.";
+			echo json_encode($result);
+			return;
+		}
+	}
+	
 	// Optin
-	if($_POST['consulta']=='optin'){
+	function optin()
+	{
 		$actual = mysqli_fetch_array(mysqli_query($con, "SELECT optin FROM usuarios WHERE id = '$_POST[usuario]'"));
 		$nuevo = $actual['optin'] == 1 ? 0 : 1;
 		if(!mysqli_query($con, "UPDATE usuarios SET optin = '$nuevo' WHERE id = '$_POST[usuario]'")){
@@ -103,9 +428,10 @@
 			echo "La información ha sido actualizada correctamente";
 		}
 	}
-	
+
 	// Mi perfil
-	if($_POST['consulta']=='actualizaPerfil'){
+	function actualizaPerfil()
+	{
 		if(!mysqli_query($con, "
 			UPDATE
 				usuarios
@@ -126,7 +452,8 @@
 	}
 	
 	// Descarga
-	if($_POST['consulta']=='descarga'){
+	function descarga()
+	{
 		if(!mysqli_query($con,"INSERT INTO descargas (usuario,publicacion) VALUES ('$_POST[usuario]','$_POST[publicacion]')")){
 		   echo json_encode(array("0","0"));
 		}else{
@@ -158,8 +485,8 @@
 	}
 	
 	// Agregar
-	if($_POST['consulta']=="agregar"){
-		
+	function agregar()
+	{		
 		if($_POST['pedido']==""){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
@@ -182,11 +509,11 @@
 				echo $id;
 			}	
 		}
-		
 	}
 	
 	// Borrar publicación
-	if($_POST['consulta']=='delPub'){
+	function borrarPublicacion()
+	{
 		if(!mysqli_query($con, "DELETE FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]' AND publicacion = '$_POST[publicacion]'")){
 			echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
 		}else{
@@ -195,7 +522,8 @@
 	}
 	
 	// Configurar nueva contraseña
-	if($_POST['consulta']=='nueva-contrasena'){
+	function nuevaContrasena()
+	{
 		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '$_POST[token]'");
 		$n=mysqli_num_rows($q);
 		if($n!=1){
@@ -211,7 +539,8 @@
 	}
 	
 	// Cerrar pedido
-	if($_POST['consulta']=='cierra-pedido'){
+	function cerrarPedido()
+	{
 		if(!mysqli_query($con, "UPDATE pedidos SET valor = '$_POST[valor]', status = '$_POST[status]', formaPago = '$_POST[formaPago]', orderId = '$_POST[orderId]', transactionId = '$_POST[transactionId]', state = '$_POST[state]', responseCode = '$_POST[responseCode]' WHERE id = '$_POST[pedido]'")){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
@@ -264,7 +593,8 @@
 	}
 	
 	// Pedido Pendiente
-	if($_POST['consulta']=='pedidoPendiente'){
+	function pedidoPendiente()
+	{
 		if(!mysqli_query($con, "
 			UPDATE
 				pedidos
@@ -289,7 +619,8 @@
 	}
 	
 	// Formulario de contacto
-	if($_POST['consulta']=='contacto'){
+	function contacto()
+	{
 		if(!mysqli_query($con, "INSERT INTO contacto (nombre, apellido, email, motivo, mensaje) VALUES ('".strtoupper($_POST['nombre'])."', '".strtoupper($_POST['apellido']."', '".strtolower($_POST['email'])."', '".$_POST['motivo']."', '".$_POST['mensaje']."')"))){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
@@ -325,7 +656,8 @@
 	}
 	
 	// Compartir con un amigo
-	if($_POST['consulta']=='compartirAmigo'){
+	function compartirAmigo()
+	{
 		if(!mysqli_query($con, "
 			INSERT INTO compartir (
 				tuNombre,
@@ -373,7 +705,8 @@
 	}
 	
 	// Agregar a favoritos
-	if($_POST['consulta']=='agregarFavoritos'){
+	function agregarFavoritos()
+	{
 		$sql="SELECT * FROM favoritos WHERE usuario = '$_POST[usuario]' AND articulo = '$_POST[articulo]'";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -397,7 +730,8 @@
 	}
 	
 	// Eliminar favorito
-	if($_POST['consulta']=='eliminaFavoritos'){
+	function eliminaFavoritos()
+	{
 		if(!mysqli_query($con, "
 			DELETE FROM
 				favoritos
@@ -413,7 +747,8 @@
 	}
 	
 	// Agregar comentarios
-	if($_POST['consulta']=='agregarComentarios'){
+	function agregarComentarios()
+	{
 		if(!mysqli_query($con, "
 			INSERT INTO comentarios (
 				usuario,
@@ -458,7 +793,8 @@
 	}
 	
 	// Lightbox detalle de pedido
-	if($_POST['consulta']=='detallePedido'){
+	function detallePedido()
+	{
 		$html="";
 		$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]'";
 		$q=mysqli_query($con, $sql);
@@ -479,7 +815,7 @@
 									</tr>
 								</thead>
 								<tbody>";
-			while($p=mysqli_fetch_assoc($q)){
+			while( $p=mysqli_fetch_assoc($q) ){
 				$html.="
 					<tr id='ordenpub".$p['publicacion']."'>
 						<td>
@@ -496,25 +832,23 @@
 							</p>
 						</td>
 					</tr>
-					<script>
-						$('.delordenpub".$p['publicacion']."').click(function(){
-							$('.load').fadeIn();
-							$.post('/includes/php.php',{
-								consulta: 'delordenpub',
-								publicacion: $(this).attr('publicacion'),
-								pedido: $.cookie('pedido')
-							}).done(function(data){
-								if(data==1){
-									$('#ordenpub".$p['publicacion']."').fadeOut();
-									labelProductos();
-								}
-								if(data==0){
-									alert('Se ha presentado un error. Por favor intente de nuevo.');
-								}
-								$('.load').fadeOut();
-							})
-						})
-					</script>
+					$('.delordenpub".$p['publicacion']."').click(function(){
+						$('.load').fadeIn();
+						$.post('/includes/php.php',{
+							consulta: 'delordenpub',
+							publicacion: $(this).attr('publicacion'),
+							pedido: $.cookie('pedido')
+						}).done(function(data){
+							if(data==1){
+								$('#ordenpub".$p['publicacion']."').fadeOut();
+								labelProductos();
+							}
+							if(data===0){
+								alert('Se ha presentado un error. Por favor intente de nuevo.');
+							}
+							$('.load').fadeOut();
+						});
+					});
 				";
 			}					
 			$html.="				</tbody>
@@ -528,7 +862,8 @@
 	}
 	
 	// Eliminar publicación en el lightbox de la orden
-	if($_POST['consulta']=='delordenpub'){
+	function delordenpub()
+	{
 		$sql="DELETE FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]' AND publicacion = '$_POST[publicacion]'";
 		if(!mysqli_query($con, $sql)){
 		   echo 0;
@@ -538,7 +873,8 @@
 	}
 	
 	// Enviar muestra de producto
-	if($_POST['consulta']=='descargaMuestra'){
+	function descargaMuestra()
+	{	
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 		$url=NOTIFICACION;
@@ -566,7 +902,8 @@
 	}
 	
 	// Obtener descripción de la obra
-	if($_POST['consulta']=='descripcion'){
+	function descripcion()
+	{
 		$sql="SELECT * FROM publicaciones WHERE id = '$_POST[publicacion]'";
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
@@ -575,7 +912,8 @@
 	}
 	
 	// Newsletter
-	if($_POST['consulta']=='newsletter'){
+	function newsletter()
+	{
 		if(!mysqli_query($con, "
 			INSERT INTO
 				newsletter (
@@ -593,7 +931,8 @@
 	}
 	
 	// Cerrar sesión
-	if($_POST['consulta']=='cerrarSesion'){
+	function cerrarSesion()
+	{
 		unset($_SESSION['id']);
 		unset($_SESSION['perfil']);
 		unset($_SESSION['sesion']);
@@ -604,7 +943,8 @@
 	}
 	
 	// Completa los datos del registro
-	if($_POST['consulta']=='finRegistro'){
+	function finRegistro()
+	{
 		if(!mysqli_query($con, "
 		   UPDATE
 		   	usuarios
@@ -626,7 +966,8 @@
 		}
 	}
 	
-	if($_POST['consulta']=='verificaEmail'){
+	function verificaEmail()
+	{
 		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[emailRegistro]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
@@ -636,7 +977,8 @@
 		}
 	}
 	
-	if($_POST['consulta']=='verificaEmailRegistro'){
+	function verificaEmailRegistro()
+	{
 		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
@@ -647,7 +989,8 @@
 	}
 	
 	// Finalizar registro Facebook
-	if($_POST['consulta']=='emailFacebook'){
+	function emailFacebook()
+	{
 		$sql="SELECT * FROM usuarios WHERE email = '$_POST[email]'";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -713,8 +1056,8 @@
 	}
 	
 	// Iniciar sesión FB
-	if($_POST['consulta']=='iniciaFb'){
-		
+	function iniciaFb()
+	{
 		$sql = "SELECT id FROM usuarios WHERE fbId = '$_POST[fbId]'";
 		$q = mysqli_query($con, $sql);
 		$n = mysqli_num_rows($q);
@@ -746,11 +1089,11 @@
 				echo 1;
 			}
 		}
-	
 	}
 	
 	// Actualizar label de # de productos
-	if($_POST['consulta']=='publicacionesPedido'){
+	function publicacionesPedido()
+	{
 		if(isset($_COOKIE['pedido'])){
 			$q=mysqli_query($con, "SELECT * FROM publicacionesxpedido WHERE pedido = '$_COOKIE[pedido]'");
 			$n=mysqli_num_rows($q);
@@ -759,7 +1102,8 @@
 	}
 	
 	// Detalle del pedido
-	if($_POST['consulta']=='detallesPedido'){
+	function detallesPedido($value='')
+	{
 		$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]'";
 		$q=mysqli_query($con, $sql);
 		$html="<table class='table table-bordered table-striped'><thead><tr><th>Publicación</th><th>Valor</th></tr></thead><tbody>";
@@ -776,8 +1120,8 @@
 	}
 	
 	// Procesamiento de Paquetes
-	if($_POST['consulta']=='procesaPaquete'){
-		
+	function procesaPaquete()
+	{		
 		if($_POST['estado']=='PENDING'){
 			$estado=1;
 		}
@@ -851,16 +1195,13 @@
 					}
 				}
 			}
-			
-			echo 1;
-			
+			echo 1;	
 		}
-		
 	}
 	
 	// CREACION DE ORDEN EN LOS PAQUETES
-	if($_POST['consulta']=='crearOrdenPaquete'){
-		
+	function crearOrdenPaquete()
+	{		
 		// Datos mínimos para la orden
 		$codigoPaquete = $_POST['codigoPaquete'];
 		$codigoUsuario = $_SESSION['id'];
@@ -906,15 +1247,11 @@
 				
 				if(!$q){
 					$codigoOrden = 0;
-				}
-				
+				}	
 			}
-			
 			// Devolvemos el número de la orden generada
-			echo $codigoOrden;
-			
+			echo $codigoOrden;	
 		}
-		
 	}
 
 	/////////////////////////////////////////////////////////////////////////
@@ -923,37 +1260,37 @@
 	
 	/////////////////////////////////////////////////////////////////////////
 	
-		// Recuperar contraseña
-		if($_POST['consulta']=='recuperar-contrasena'){
+	// Recuperar contraseña
+	function recuperarContrasena()
+	{
+		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
+		$n=mysqli_num_rows($q);
+		
+		if($n<1){
+			echo "Lo sentimos, no se ha encontrado una cuenta con esa dirección de correo electrónico";
+		}else{
 			
-			$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
-			$n=mysqli_num_rows($q);
+			$data=mysqli_fetch_array($q);
 			
-			if($n<1){
-				echo "Lo sentimos, no se ha encontrado una cuenta con esa dirección de correo electrónico";
+			$email=$data['email'];
+			$asunto="Enlace para la recuperación de tu contraseña";
+			$mensaje="
+				<p><b>Hola $data[nombre]!</b></p>
+				<p>Según lo solicitaste te estamos enviando el enlace para la recuperación de tu contraseña:</p>
+				<p><a href='".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]'>".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]</a></p>
+				<p>Por favor haga click en el enlace o copie y pegue la dirección en su navegador para completar el procedimiento.</p>
+				
+			";
+			
+			$notificar = notificar($email,$asunto,$mensaje);
+			
+			if($notificar==0){
+				echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
 			}else{
-				
-				$data=mysqli_fetch_array($q);
-				
-				$email=$data['email'];
-				$asunto="Enlace para la recuperación de tu contraseña";
-				$mensaje="
-					<p><b>Hola $data[nombre]!</b></p>
-					<p>Según lo solicitaste te estamos enviando el enlace para la recuperación de tu contraseña:</p>
-					<p><a href='".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]'>".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]</a></p>
-					<p>Por favor haga click en el enlace o copie y pegue la dirección en su navegador para completar el procedimiento.</p>
-					
-				";
-				
-				$notificar = notificar($email,$asunto,$mensaje);
-				
-				if($notificar==0){
-					echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
-				}else{
-					echo "Hemos enviado un enlace para la recuperación de su contraseña a la dirección de correo electrónico relacionada. En caso de no recibirlo por favor revise su bandeja de correo no deseado.";
-				}
+				echo "Hemos enviado un enlace para la recuperación de su contraseña a la dirección de correo electrónico relacionada. En caso de no recibirlo por favor revise su bandeja de correo no deseado.";
 			}
 		}
+	}
 	
 	
 	/////////////////////////////////////////////////////////////////////////
@@ -962,87 +1299,90 @@
 	
 	/////////////////////////////////////////////////////////////////////////
 	
-		// GENERAR EL DETALLE DEL PEDIDO
-		if($_POST['consulta'] == 'detalleDelPedido'){
-			$pedido = $_POST['pedido'];
-			$q = mysqli_query($con, "
-				SELECT
-					*
-				FROM
-					publicacionesxpedido
-				WHERE
-					pedido = '$pedido'
-			");
-			$n = mysqli_num_rows($q);
-			if($n < 1){
-				$html = ""; 
-				$html .= "<tr><td colspan='3' class='text-center'>";
-				$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
-				$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
-				$html .= "</td></tr>";
-				mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
-				echo $html;
-			}else{
-				$total = 0;
-				while($row = mysqli_fetch_assoc($q)){
-					$html .= "<tr id='codigo$row[publicacion]'>";
-					$html .= "	<td>".getNombrePublicacion($row['publicacion'])."</td>";
-					$html .= "	<td class='text-center'>USD ".getPrecioPublicacion($row['publicacion'])."</td>";
-					$html .= "	<td>";
-					$html .= "		<p class='text-center'>";
-					$html .= "			<button class='btn btn-default eliminarItem$row[publicacion]' codigo='$row[publicacion]'>";
-					$html .= "				<i class='fa fa-trash'></i>";
-					$html .= "			</button>";
-					$html .= "		</p>";
-					$html .= "	</td>";
-					$html .= "</tr>";
-					$html .= "<script>";
-					$html .= "	$('.eliminarItem$row[publicacion]').click(function(){";
-					$html .= "		cargar();";
-					$html .= "		$.post('/includes/php.php',{ consulta: 'eliminaDelPedido', item: '$row[publicacion]', pedido: $.cookie('pedido') })";
-					$html .= "		.done(function(data){";
-					$html .= "			if( data == 0 ){";
-					$html .= "				alert('Se ha presentado un error. Por favor intente de nuevo');";
-					$html .= "				descargar();";
-					$html .= "			} else {";
-					$html .= "				contenidoDelPedido();";
-					$html .= "				labelProductos();";
-					$html .= "				descargar();";
-					$html .= "			}";
-					$html .= "		})";
-					$html .= "	})";
-					$html .= "</script>";
-					$total += getPrecioPublicacion($row['publicacion']);
-				}
-				$html .= "<tr>";
-				$html .= "	<td class='text-right'><b>TOTAL A PAGAR</b></td>";
-				$html .= "	<td colspan='2' class='text-center'><b>USD ".number_format($total,2)."</b></td>";
+	// GENERAR EL DETALLE DEL PEDIDO
+	function detalleDelPedido()
+	{
+		$pedido = $_POST['pedido'];
+		$q = mysqli_query($con, "
+			SELECT
+				*
+			FROM
+				publicacionesxpedido
+			WHERE
+				pedido = '$pedido'
+		");
+		$n = mysqli_num_rows($q);
+		if($n < 1){
+			$html = ""; 
+			$html .= "<tr><td colspan='3' class='text-center'>";
+			$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
+			$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
+			$html .= "</td></tr>";
+			mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
+			echo $html;
+		}else{
+			$total = 0;
+			while($row = mysqli_fetch_assoc($q)){
+				$html .= "<tr id='codigo$row[publicacion]'>";
+				$html .= "	<td>".getNombrePublicacion($row['publicacion'])."</td>";
+				$html .= "	<td class='text-center'>USD ".getPrecioPublicacion($row['publicacion'])."</td>";
+				$html .= "	<td>";
+				$html .= "		<p class='text-center'>";
+				$html .= "			<button class='btn btn-default eliminarItem$row[publicacion]' codigo='$row[publicacion]'>";
+				$html .= "				<i class='fa fa-trash'></i>";
+				$html .= "			</button>";
+				$html .= "		</p>";
+				$html .= "	</td>";
 				$html .= "</tr>";
-				mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$pedido'");
-				echo $html;
+				$html .= "<script>";
+				$html .= "	$('.eliminarItem$row[publicacion]').click(function(){";
+				$html .= "		cargar();";
+				$html .= "		$.post('/includes/php.php',{ consulta: 'eliminaDelPedido', item: '$row[publicacion]', pedido: $.cookie('pedido') })";
+				$html .= "		.done(function(data){";
+				$html .= "			if( data == 0 ){";
+				$html .= "				alert('Se ha presentado un error. Por favor intente de nuevo');";
+				$html .= "				descargar();";
+				$html .= "			} else {";
+				$html .= "				contenidoDelPedido();";
+				$html .= "				labelProductos();";
+				$html .= "				descargar();";
+				$html .= "			}";
+				$html .= "		})";
+				$html .= "	})";
+				$html .= "</script>";
+				$total += getPrecioPublicacion($row['publicacion']);
 			}
+			$html .= "<tr>";
+			$html .= "	<td class='text-right'><b>TOTAL A PAGAR</b></td>";
+			$html .= "	<td colspan='2' class='text-center'><b>USD ".number_format($total,2)."</b></td>";
+			$html .= "</tr>";
+			mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$pedido'");
+			echo $html;
 		}
+	}
 		
-		if($_POST['consulta'] == 'eliminaDelPedido'){
-			$item = $_POST['item'];
-			$pedido = $_POST['pedido'];
-			if(!mysqli_query($con, "
-				DELETE FROM
-					publicacionesxpedido
-				WHERE
-					pedido = '$pedido'
-				AND
-					publicacion = '$item'
-			")){
-				echo 0;
-			}else{
-				echo 1;
-			}
+	function eliminaDelPedido()
+	{
+		$item = $_POST['item'];
+		$pedido = $_POST['pedido'];
+		if(!mysqli_query($con, "
+			DELETE FROM
+				publicacionesxpedido
+			WHERE
+				pedido = '$pedido'
+			AND
+				publicacion = '$item'
+		")){
+			echo 0;
+		}else{
+			echo 1;
 		}
-		
-		if($_POST['consulta']=='valorDelPedido'){
-			echo getValorDeLaOrden($_POST['orden']);
-		}
+	}
+
+	function valorDelPedido()
+	{
+		echo getValorDeLaOrden($_POST['orden']);
+	}		
 	
 	/////////////////////////////////////////////////////////////////////////
 	
@@ -1050,36 +1390,35 @@
 	
 	/////////////////////////////////////////////////////////////////////////
 	
-		// OBTENER MEDIOS DE PAGO
-		if( $_POST['consulta'] == 'obtenerMediosDePago' ){
-			
-			$pais = $_POST['pais'];
-			
-			$html = "";
-			$html .= "<option value=''>Selecciona tu medio de pago preferido ...</option>";
-			$html .= "<option value='1'>Tarjeta de Crédito</option>";
-			$html .= "<option value='2'>Paypal</option>";
-			if( $pais == 'CO' ){
-				$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
-				$html .= "<option value='4'>Puntos VIA Baloto</option>";
-			}elseif( $pais == 'MX' ){
-				$html .= "<option value='5'>OXXO</option>";
-			}elseif( $pais == 'PE' ){
-				$html .= "<option value='6'>Banco de Crédito - BCP</option>";
-			}
-			echo $html;
-			
-		}
+	// OBTENER MEDIOS DE PAGO
+	function obtenerMediosDePago()
+	{		
+		$pais = $_POST['pais'];
 		
-		// PROCESAMIENTO DE PAGOS VÍA PAYPAL
-		if($_REQUEST['consulta']=='pagarConPaypal'){
-			
-			$orden = $_REQUEST['orden'];
-			$urlCancela = $_REQUEST['urlCancela'];
-			
-			pagarConPaypal($orden,$urlCancela);
-			
+		$html = "";
+		$html .= "<option value=''>Selecciona tu medio de pago preferido ...</option>";
+		$html .= "<option value='1'>Tarjeta de Crédito</option>";
+		$html .= "<option value='2'>Paypal</option>";
+		if( $pais == 'CO' ){
+			$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
+			$html .= "<option value='4'>Puntos VIA Baloto</option>";
+		}elseif( $pais == 'MX' ){
+			$html .= "<option value='5'>OXXO</option>";
+		}elseif( $pais == 'PE' ){
+			$html .= "<option value='6'>Banco de Crédito - BCP</option>";
 		}
+		echo $html;
+	}
+		
+	// PROCESAMIENTO DE PAGOS VÍA PAYPAL
+	if($_REQUEST['consulta']=='pagarConPaypal'){
+		
+		$orden = $_REQUEST['orden'];
+		$urlCancela = $_REQUEST['urlCancela'];
+		
+		pagarConPaypal($orden,$urlCancela);
+		
+	}
 		
 		// OBTENER FORMULARIOS DE PAGO
 		if( $_POST['consulta'] == 'obtenerFormularioDePago' ){
@@ -1165,25 +1504,105 @@
 				$mensaje .= "		<input type='hidden' name='ciudad' id='ciudad' value='".getCiudadUsuario($_SESSION['id'])."' />";
 				$mensaje .= "		<input type='hidden' name='cuotas' id='cuotas' value='1' />";
 				$mensaje .= "	</div>";
-				$mensaje .= "<script type='text/javascript'>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			$('#myNuevoModal').modal('hide');";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/payu/loadTarjetasDeCredito.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				procesaInscripcionConferencia(
-											$_SESSION[id],
-											$metodo,
-											response.transactionResponse.transactionId,
-											response.transactionResponse.state,
-											$valor
-										);";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
-				$mensaje .= "</script>";
+				if ($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
+				$mensaje .= "
+								<script type='text/javascript'>
+									$('#$tipopago').validate({
+										submitHandler: function(form){
+											$('#myNuevoModal').modal('hide');
+											cargar();
+											$.ajax({
+												url: '/includes/payu/loadTarjetasDeCredito.php',
+												type: 'POST',
+												dataType: 'json',
+												data: $('#$tipopago').serialize(),
+												timeout: 1000
+											})
+											.done(function(data) {
+												console.log('success');
+												var response = JSON.parse(data);
+												procesaInscripcionConferencia(
+													$_SESSION[id],
+													$metodo,
+													response.transactionResponse.transactionId,
+													response.transactionResponse.state,
+													$valor
+													);
+											})
+											.fail(function() {
+												console.log('error');
+											})
+											.always(function() {
+												console.log('complete');
+											});
+											
+											/*$.post('/includes/payu/loadTarjetasDeCredito.php',$('#$tipopago').serialize())
+											.done(function(data){
+												var response = JSON.parse(data);
+												procesaInscripcionConferencia(
+													$_SESSION[id],
+													$metodo,
+													response.transactionResponse.transactionId,
+													response.transactionResponse.state,
+													$valor
+													);
+											});*/
+										}
+									});
+								</script>
+							";
+				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "
+								<script>
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});
+								</script>
+								";
+				}
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-credit-card'></i> Pagar</button>";
 			}
 			
@@ -1226,8 +1645,58 @@
 				$mensaje .= '<input type="hidden" name="charset" value="utf-8" />';
 				$mensaje .= '<input type="hidden" name="item_name" value="' . $data['product_name'] . '" />';
 				$mensaje .= '<input type="hidden" value="_xclick" name="cmd"/>';
-				$mensaje .= '<input type="hidden" name="amount" value="' . $data['amount'] . '" />';
+				$mensaje .= '<input type="hidden" id="PaypalvrPedido" name="amount" value="' . $data['amount'] . '" />';
 				$mensaje .= '<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>';
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				$mensaje .= "
+							<script>
+								$('body').on('click', '#validarDecuento', function(event) {
+									event.preventDefault();
+									var data = {
+										codigo : $('#codigoDescuento').val(),
+										consulta : 'validar-codigo-descuento'
+									};
+									$.ajax({
+										url: '/includes/php.php',
+										type: 'POST',
+										dataType: 'json',
+										data: data,
+									})
+									.done(function(data) {
+										if (data.error == 0){
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('El código de descuento está errado');
+											$('#PaypalvrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}else{
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('Descuento aplicado');
+											$('#PaypalvrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}
+									})
+									.fail(function() {
+										console.log('error');
+									})
+									.always(function() {
+										console.log('complete');
+									});
+								});
+							</script>
+							";
+				}
 				
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-paypal'></i> Continuar</button>";
 				
@@ -1275,7 +1744,20 @@
 				$mensaje .= "		<input type='text' class='form-control' name='noIdentificacion' id='noIdentificacion' placeholder='No. Identificacion' required />";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<input type='hidden' name='tipoPersona' id='tipoPersona' value='N' />";
 				$mensaje .= "<input type='hidden' name='nombreCompleto' id='nombreCompleto' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
 				$mensaje .= "<input type='hidden' name='emailPSE' id='emailPSE' value='".getEmailUsuario($_SESSION['id'])."' />";
@@ -1286,24 +1768,102 @@
 				$mensaje .= "<input type='hidden' name='email' id='email' value='".getEmailUsuario($_SESSION['id'])."' />";
 				
 				$mensaje .= "<script>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			$('#myNuevoModal').modal('hide');";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/php.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				almacenaPendientePSE(";
-				$mensaje .= "					'$_SESSION[id]',";
-				$mensaje .= "					'2',";
-				$mensaje .= "					'$metodo',";
-				$mensaje .= "					response.transactionResponse.transactionId,";
-				$mensaje .= "					'$valor',";
-				$mensaje .= "					response.transactionResponse.extraParameters.BANK_URL";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
+				$mensaje .= "
+							$('#$tipopago').validate({
+								submitHandler: function(form){
+									$('#myNuevoModal').modal('hide');
+									cargar();
+
+									$.ajax({
+										url: '/includes/php.php',
+										type: 'POST',
+										dataType: 'json',
+										data: $('#$tipopago').serialize(),
+										timeout: 1000
+									})
+									.done(function(data) {
+										console.log('success');
+										console.log(data);
+										almacenaPendientePSE(
+											'$_SESSION[id]',
+											'2',
+											'$metodo',
+											data.transactionResponse.transactionId,
+											'$valor',
+											data.transactionResponse.extraParameters.BANK_URL
+										);
+									})
+									.fail(function(data) {
+										if ( data.statusText === 'timeout' ) {
+											var info = {
+												id_usuario: '$_SESSION[id]',
+												url: window.location.href,
+												metodo: '$metodo',
+												consulta: 'logErroresPagos'
+											};
+											$.ajax({
+												url: '/includes/php.php',
+												type: 'POST',
+												dataType: 'json',
+												data: info,
+											})
+											.done(function(data) {
+												/*console.log('success');*/
+												if ( data.error === 1 ) {
+													descargar();
+													bootbox.confirm('Ha ocurrido un error con su pedido<br>desea intentarlo nuevamente?', function(result) {
+														if (result === true) {
+															location.reload();
+														}else{
+															window.location = 'http://elarte.desarrollo.closerdesign.co/';
+														}
+													}); 
+												}
+											});
+										}
+									})
+									.always(function() {
+										console.log('complete');
+									});
+								}
+							});
+							";
+				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});";
+				}
 				$mensaje .= "</script>";
 				
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
@@ -1322,7 +1882,20 @@
 				$mensaje .= "		<p>A continuación efectuaremos el procedimiento de generación de su recibo para pago en efectivo a través de puntos VIA Baloto</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<input type='hidden' name='noDocumentoBaloto' id='noDocumentoBaloto' value='900476732' />";
 				$mensaje .= "<input type='hidden' name='noPedido' id='noPedido' value='CONF".$_SESSION['id']."' />";
 				$mensaje .= "<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
@@ -1349,6 +1922,44 @@
 				$mensaje .= "		}";
 				$mensaje .= "	})";
 				$mensaje .= "</script>";
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "
+								<script>
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});
+								</script>
+								";
+				}
 				
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
 				
@@ -1370,7 +1981,20 @@
 				$mensaje .= "		<input type='hidden' name='nombreOxxo' id='nombreOxxo' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<script>";
 				$mensaje .= "	$('#$tipopago').validate({";
 				$mensaje .= "		submitHandler: function(form){";
@@ -1391,7 +2015,44 @@
 				$mensaje .= "		}";
 				$mensaje .= "	})";
 				$mensaje .= "</script>";
-				
+				if($_POST['pagina']=='prueba-inscripcion'){
+				$mensaje .= "
+							<script>
+								$('body').on('click', '#validarDecuento', function(event) {
+									event.preventDefault();
+									var data = {
+										codigo : $('#codigoDescuento').val(),
+										consulta : 'validar-codigo-descuento'
+									};
+									$.ajax({
+										url: '/includes/php.php',
+										type: 'POST',
+										dataType: 'json',
+										data: data,
+									})
+									.done(function(data) {
+										if (data.error == 0){
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('El código de descuento está errado');
+											$('#vrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}else{
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('Descuento aplicado');
+											$('#vrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}
+									})
+									.fail(function() {
+										console.log('error');
+									})
+									.always(function() {
+										console.log('complete');
+									});
+								});
+							</script>
+							";
+				}
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
 				
 			}
@@ -1412,7 +2073,20 @@
 				$mensaje .= "		<input type='hidden' name='nombreBcp' id='nombreBcp' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<script>";
 				$mensaje .= "	$('#$tipopago').validate({";
 				$mensaje .= "		submitHandler: function(form){";
@@ -1433,7 +2107,44 @@
 				$mensaje .= "		}";
 				$mensaje .= "	})";
 				$mensaje .= "</script>";
-				
+				if($_POST['pagina']=='prueba-inscripcion'){
+					$mensaje .= "
+								<script>
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});
+								</script>
+								";
+				}
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
 				
 			}
@@ -1450,7 +2161,7 @@
 			$html .= "	<h4>".$titulo."</h4>";
 			$html .= "</div>";
 			$html .= "<div class='modal-body'>";
-			$mensaje .= "<hr><div class='row'><div class='col-md-12'><p class='lead pull-right'>Valor a pagar: USD ".number_format($valor,2)."</p></div></div>";
+			$mensaje .= "<hr><div class='row'><div class='col-md-12'><p class='lead pull-right'>Valor a pagar: USD <span id='valorConferencia'>".number_format($valor,2)."</span></p></div></div>";
 			$html .= $mensaje;
 			$html .= "</div>";
 			$html .= "<div class='modal-footer'>";
@@ -1466,7 +2177,7 @@
 			
 			require_once('payu/PayU.php');
 
-		    	$reference = $_POST['pedido'];
+	    	$reference = $_POST['pedido'];
 			$value = $_POST['vrPedido'];
 			
 			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 

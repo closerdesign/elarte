@@ -1,21 +1,34 @@
 <?php
     
-    	require_once('PayU.php');
+	require_once('PayU.php');
 
     $reference = $_POST['pedido'];
 	$value = $_POST['vrPedido'];
 	$expiration = $_POST['yearTarjeta']."/".$_POST['mesTarjeta'];
-	
-	Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-	Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-	Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-	
-	PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-	PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-	PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-	PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-	PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-	$accountId = "501716";
+
+    if ( _TESTING_ ) {
+    	Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi");
+    	Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi");
+    	Environment::setSubscriptionsCustomUrl("https://stg.api.payulatam.com/payments-api/rest/v4.3/");
+
+    	PayU::$apiKey = "6u39nqhq8ftd0hlvnjfs66eh8c"; //Ingrese aquí su propio apiKey.
+    	PayU::$apiLogin = "11959c415b33d0c"; //Ingrese aquí su propio apiLogin.
+    	PayU::$merchantId = "500238"; //Ingrese aquí su Id de Comercio.
+    	PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+    	PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+    	$accountId = "500538";
+    }else{
+		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+		
+		PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+		PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+		PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+		$accountId = "501716";
+    }
 
 	$parameters = array(
 	//Ingrese aquí el identificador de la cuenta.
