@@ -16,85 +16,460 @@
 	require_once('conn.php');
 	require_once('phpmailer.php');
 	require_once('functions.php');
+
+	switch ($_POST['consulta']) {
+		case 'registro':
+			registroDeUsuarios();
+			break;
+		case 'login':
+			inicioSesion();
+			break;
+		case 'email-registro':
+			verificaEmailCorreo();
+			break;
+		case 'cambiar-contrasena':
+			actualziarContrasena();
+			break;
+		case 'validar-codigo-descuento':
+			validarCodigoDescuento();
+			break;
+		case 'logErroresPagos':
+			logErroresPagos();
+			break;
+		case 'optin':
+			optin();
+			break;
+		case 'actualizaPerfil':
+			actualizaPerfil();
+			break;
+		case 'descarga':
+			descarga();
+			break;
+		case 'agregar':
+			agregar();
+			break;
+		case 'delPub':
+			borrarPublicacion();
+			break;
+		case 'nueva-contrasena':
+			nuevaContrasena();
+			break;
+		case 'cierra-pedido':
+			cerrarPedido();
+			break;
+		case 'pedidoPendiente':
+			pedidoPendiente();
+			break;
+		case 'contacto':
+			contacto();
+			break;
+		case 'compartirAmigo':
+			compartirAmigo();
+			break;
+		case 'agregarFavoritos':
+			agregarFavoritos();
+			break;
+		case 'eliminaFavoritos':
+			eliminaFavoritos();
+			break;
+		case 'agregarComentarios':
+			agregarComentarios();
+			break;
+		case 'detallePedido':
+			detallePedido();
+			break;
+		case 'delordenpub':
+			delordenpub();
+			break;
+		case 'descargaMuestra':
+			descargaMuestra();
+			break;
+		case 'descripcion':
+			descripcion();
+			break;
+		case 'newsletter':
+			newsletter();
+			break;
+		case 'cerrarSesion':
+			cerrarSesion();
+			break;
+		case 'finRegistro':
+			finRegistro();
+			break;
+		case 'verificaEmail':
+			verificaEmail();
+			break;
+		case 'verificaEmailRegistro':
+			verificaEmailRegistro();
+			break;
+		case 'emailFacebook':
+			emailFacebook();
+			break;
+		case 'iniciaFb':
+			iniciaFb();
+			break;
+		case 'publicacionesPedido':
+			publicacionesPedido();
+			break;
+		case 'detallesPedido':
+			detallesPedido();
+			break;
+		case 'procesaPaquete':
+			procesaPaquete();
+			break;
+		case 'crearOrdenPaquete':
+			crearOrdenPaquete();
+			break;
+		case 'recuperar-contrasena':
+			recuperarContrasena();
+			break;
+		case 'detalleDelPedido':
+			detalleDelPedido();
+			break;
+		case 'eliminaDelPedido':
+			eliminaDelPedido();
+			break;
+		case 'valorDelPedido':
+			valorDelPedido();
+			break;
+		case 'obtenerMediosDePago':
+			obtenerMediosDePago();
+			break;
+		case 'obtenerFormularioDePago':
+			obtenerFormularioDePago();
+			break;
+		case 'pseRequest':
+			pseRequest();
+			break;
+		case 'almacenaPendientePSE':
+			almacenaPendientePSE();
+			break;
+		case 'requestBaloto':
+			requestBaloto();
+			break;
+		case 'oxxoRequest':
+			oxxoRequest();
+			break;
+		case 'bcpRequest':
+			bcpRequest();
+			break;
+		case 'almacenaInscripcion':
+			almacenaInscripcion();
+			break;
+		case 'actualizaInscripcion':
+			actualizaInscripcion();
+			break;
+		case 'notificaComprobante':
+			notificaComprobante();
+			break;
+		case 'cargarArticulos':
+			cargarArticulos();
+			break;
+		case 'buscarArticulos':
+			buscarArticulos();
+			break;
+		case 'requestPayPal':
+			requestPayPal();
+			break;
+		default:
+			break;
+	}
+
+	switch ($_GET['consulta']) {
+		case 'pagarConPaypal':
+			pagarConPaypal2();
+			break;
+		case 'inscripcionesPendientes':
+			inscripcionesPendientes();
+			break;
+		case 'ejecutarPago':
+			ejecutarPago();
+			break;
+		default:
+			# code...
+			break;
+	}
 	
-	// Registro de usuarios
-	if($_POST['consulta']=='registro'){
-		if(!mysqli_query($con, "
-			INSERT INTO
-				usuarios (
-					email,
-					password,
-					status,
-					optin,
-					perfil
-				) VALUES (
-					'$_POST[email]',
-					'".md5($_POST['password'])."',
-					'0',
-					'1',
-					'0'
-				)
-		")){
-			echo "0";
+	function logErroresPagos()
+	{
+		global $con;
+		extract($_POST);
+		if ( isset($id_usuario) && !empty($id_usuario) 
+			&& isset($url) && !empty($url)
+			&& isset($metodo) && !empty($metodo)
+		) {
+
+			switch ( $metodo ) {
+				case 1:
+					$metodo = 'Tarjeta de Crédito';
+					break;
+
+				case 2:
+					$metodo = 'Paypal';
+					break;
+
+				case 3:
+					$metodo = 'Transferencia Bancaria - PSE';
+					break;
+
+				case 4:
+					$metodo = 'Puntos VIA Baloto';
+					break;
+
+				case 5:
+					$metodo = 'OXXO';
+					break;
+
+				case 6:
+					$metodo = 'Banco de Crédito - BCP';
+					break;
+				
+				default:
+					# code...
+					break;
+			}
+
+			if(!mysqli_query($con, "
+				INSERT INTO
+					log_pagos (
+						id_usuario,
+						url,
+						metodo,
+						fecha
+					) VALUES (
+						'$id_usuario',
+						'$url',
+						'$metodo',
+						NOW()
+					)
+			")){
+				$result['error'] = 0;
+				$result['message'] = 'Ha ocurrido un error en el registro del log.';
+				echo json_encode($result);
+				return;
+			}else{
+				$date = date('m/d/Y h:i:s a', time());
+				$id=mysqli_insert_id($con);
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+				$template=NOTIFICACION;
+				$html=file_get_contents($template);
+				$contenido="
+					<p>
+						<strong>ID Usuario: </strong>$id_usuario
+					</p>
+					<p>
+						<strong>URL: </strong>$url
+					</p>
+					<p>
+						<strong>Método: </strong>$metodo
+					</p>
+					<p>
+						<strong>Fecha: </strong>$date
+					</p>
+				";
+				$html=str_replace("{{contenido}}",$contenido,$html);         
+				$mail = new PHPMailer();
+				$mail->From = 'no-reply@phronesisvirtual.com';
+				$mail->FromName = 'Phronesis | El arte de saber vivir';
+				$mail->Subject = utf8_decode('Ha ocurrido un error de pago con '.$metodo);
+				$mail->Body = utf8_decode($html);
+				$mail->IsHTML(true);
+				$mail->AddAddress('pfhurtado@phronesisvirtual.com');
+				$mail->AddAddress('lpaloma@phronesisvirtual.com');
+				/*$mail->AddReplyTo($_POST['']);*/
+				if(!$sent_mail= $mail->Send()){
+					$result['error'] = 0;
+					$result['message'] = 'Registro log fallido.';
+					echo json_encode($result);
+					return;
+				}else{
+					$result['error'] = 1;
+					$result['message'] = 'Registro log exitoso.';
+					echo json_encode($result);
+					return;
+				}
+			}
+		}
+	}
+
+	function validarCodigoDescuento()
+	{
+		extract($_POST);
+		$codigo_valido = 'AYKL23';
+		$valor_descuento = 9.99;
+		$valor_normal = 15.99;
+		if (isset($codigo) && !empty($codigo)) {
+
+			if ( $codigo_valido == $codigo ) {
+				$result['error'] = 1;
+				$result['message'] = 'Código correcto';
+				$result['valor'] = $valor_descuento;
+				echo json_encode($result);
+				return;
+			}else{
+				$result['error'] = 0;
+				$result['message'] = 'Error código incorrecto';
+				$result['valor'] = $valor_normal;
+				echo json_encode($result);
+				return;
+			}
 		}else{
-			$_SESSION['id']=mysqli_insert_id($con);
-			agregaListaNewsletter($_POST['email']);
-			echo "1";
+			$result['error'] = 0;
+			$result['message'] = 'Error no se enviaron los parámetros.';
+			$result['valor'] = $valor_normal;
+			echo json_encode($result);
+			return;
+		}
+	}
+
+	// Registro de usuarios
+	function registroDeUsuarios()
+	{
+		extract($_POST);
+		if ( !empty($email) && !empty($password) ) {
+			if(!mysqli_query($con, "
+				INSERT INTO
+					usuarios (
+						email,
+						password,
+						status,
+						optin,
+						perfil
+					) VALUES (
+						'$email',
+						'".md5($password)."',
+						'0',
+						'1',
+						'0'
+					)
+			")){
+				$result['error'] = 0;
+				$result['message'] = 'Ha ocurrido un error en el registro de usuario.';
+				echo json_encode($result);
+				return;
+			}else{
+				$_SESSION['id']=mysqli_insert_id($con);
+				agregaListaNewsletter($_POST['email']);
+				$result['error'] = 1;
+				$result['message'] = 'Registro exitoso.';
+				echo json_encode($result);
+				return;
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = 'Error. No se ha enviado el correo y el password.';
+			echo json_encode($result);
+			return;
 		}
 	}
 	
 	// Inicio de sesión
-	if($_POST['consulta']=='login'){
-		
-		$sql_pre = "SELECT ps FROM usuarios WHERE email = '$_POST[usuario]' LIMIT 1";
-		$q_pre = mysqli_query($con, $sql_pre);
-		$data_pre = mysqli_fetch_array($q_pre);
-		
-		if($data_pre['ps']==0){
-			$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5($_POST['password'])."'";
+	function inicioSesion()
+	{
+		global $con;
+		extract($_POST);
+		if ( !empty($usuario) && !empty($password) && !empty($url) ) {
+			$sql_pre = "SELECT ps FROM usuarios WHERE email = '$usuario' LIMIT 1";
+			$q_pre = mysqli_query($con, $sql_pre);
+			$data_pre = mysqli_fetch_array($q_pre);
+			
+			if($data_pre['ps']==0){
+				$sql="SELECT id FROM usuarios WHERE email = '$usuario' AND password = '".md5($password)."'";
+			}else{
+				$sql="SELECT id FROM usuarios WHERE email = '$usuario' AND password = '".md5("Is8IaahjYe3NiERKNnaLaQcJxJiVYnw0ap84ckWIPTjAboqLSmg4yL1R".$password)."'";
+			}
+			
+			$q=mysqli_query($con, $sql);
+			$n=mysqli_num_rows($q);
+			if($n!=1){
+				$result['error'] = 0;
+				$result['message'] = 'Se ha presentado un error al iniciar sesión.';
+				echo json_encode($result);
+				return;
+			}else{
+				$id=mysqli_fetch_array($q);
+				$_SESSION['id']=$id['id'];
+				$_SESSION['sesion']=logRegistros($id['id'],$url);
+				$result['error'] = 1;
+				$result['message'] = 'Inicio de sesión exitosa.';
+				$result['id'] = $id['id'];
+				echo json_encode($result);
+				return;
+			}
 		}else{
-			$sql="SELECT id FROM usuarios WHERE email = '$_POST[usuario]' AND password = '".md5("Is8IaahjYe3NiERKNnaLaQcJxJiVYnw0ap84ckWIPTjAboqLSmg4yL1R".$_POST['password'])."'";
-		}
-		
-		$q=mysqli_query($con, $sql);
-		$n=mysqli_num_rows($q);
-		if($n!=1){
-			echo 0;
-		}else{
-			$id=mysqli_fetch_array($q);
-			$_SESSION['id']=$id['id'];
-			$_SESSION['sesion']=logRegistros($id['id'],$_POST['url']);
-			echo $id['id'];
+			$result['error'] = 0;
+			$result['message'] = 'Error. No se han enviado los parámetros requeridos.';
+			echo json_encode($result);
+			return;
 		}
 	}
 	
 	// Verificación de correo electrónico
-	if($_POST['consulta']=='email-registro'){
-		$n=mysqli_num_rows(mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'"));
-		if($n>0){
-			echo "false";
-		}else{
-			echo "true";
-		}
-	}
-	
-	// Actualización de contraseña
-	if($_POST['consulta']=='cambiar-contrasena'){
-		$n=mysqli_num_rows(mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '".md5($_POST['current_password'])."'"));
-		if($n!=1){
-			echo "La contraseña actual no coincide. Los datos lo pudieron ser actualizados.";
-		}else{
-			if(!mysqli_query($con, "UPDATE usuarios SET password = '".md5($_POST['new_password'])."' WHERE id = '$_POST[usuario]'")){
-				echo "Lo sentimos, se ha presentado un error procesando su solicitud. Por favor intente de nuevo.";
+	function verificaEmailCorreo()
+	{
+		global $con;
+		extract($_POST);
+		if( !empty($email) ){
+			$n=mysqli_num_rows(mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$email'"));
+			if($n>0){
+				$result['error'] = false;
+				$result['message'] = 'El correo ha sido encontrado.';
+				echo json_encode($result);
+				return;
 			}else{
-				mysqli_query($con, "UPDATE usuarios SET ps = '0' WHERE id = '$_POST[usuario]'");
-				echo "Su contraseña ha sido actualizada exitosamente.";
+				$result['error'] = true;
+				$result['message'] = 'El correo no ha sido encontrado.';
+				echo json_encode($result);
+				return;
 			}
 		}
 	}
 	
+	// Actualización de contraseña
+	function actualziarContrasena()
+	{
+		global $con;
+		extract($_POST);
+		if( 
+			isset($usuario) 
+			&& !empty($usuario) 
+			&& isset($current_password) 
+			&& !empty($current_password) 
+			&& isset($new_password) 
+			&& !empty($new_password) 
+		){
+			$n=mysqli_num_rows(mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '".md5($_POST['current_password'])."'"));
+			if($n!=1){
+				$result['error'] = 0;
+				$result['message'] = "La contraseña actual no coincide. Los datos lo pudieron ser actualizados.";
+				echo json_encode($result);
+				return;
+			}else{
+				if(!mysqli_query($con, "UPDATE usuarios SET password = '".md5($_POST['new_password'])."' WHERE id = '$_POST[usuario]'")){
+					$result['error'] = 0;
+					$result['message'] = "Lo sentimos, se ha presentado un error procesando su solicitud. Por favor intente de nuevo.";
+					echo json_encode($result);
+					return;
+				}else{
+					mysqli_query($con, "UPDATE usuarios SET ps = '0' WHERE id = '$_POST[usuario]'");
+					$result['error'] = 1;
+					$result['message'] = "Su contraseña ha sido actualizada exitosamente.";
+					echo json_encode($result);
+					return;
+				}
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = "No se han enviado los parametros necesarios.";
+			echo json_encode($result);
+			return;
+		}
+	}
+	
 	// Optin
-	if($_POST['consulta']=='optin'){
+	function optin()
+	{
 		$actual = mysqli_fetch_array(mysqli_query($con, "SELECT optin FROM usuarios WHERE id = '$_POST[usuario]'"));
 		$nuevo = $actual['optin'] == 1 ? 0 : 1;
 		if(!mysqli_query($con, "UPDATE usuarios SET optin = '$nuevo' WHERE id = '$_POST[usuario]'")){
@@ -103,9 +478,10 @@
 			echo "La información ha sido actualizada correctamente";
 		}
 	}
-	
+
 	// Mi perfil
-	if($_POST['consulta']=='actualizaPerfil'){
+	function actualizaPerfil()
+	{
 		if(!mysqli_query($con, "
 			UPDATE
 				usuarios
@@ -126,7 +502,8 @@
 	}
 	
 	// Descarga
-	if($_POST['consulta']=='descarga'){
+	function descarga()
+	{
 		if(!mysqli_query($con,"INSERT INTO descargas (usuario,publicacion) VALUES ('$_POST[usuario]','$_POST[publicacion]')")){
 		   echo json_encode(array("0","0"));
 		}else{
@@ -158,8 +535,8 @@
 	}
 	
 	// Agregar
-	if($_POST['consulta']=="agregar"){
-		
+	function agregar()
+	{		
 		if($_POST['pedido']==""){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
@@ -182,11 +559,11 @@
 				echo $id;
 			}	
 		}
-		
 	}
 	
 	// Borrar publicación
-	if($_POST['consulta']=='delPub'){
+	function borrarPublicacion()
+	{
 		if(!mysqli_query($con, "DELETE FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]' AND publicacion = '$_POST[publicacion]'")){
 			echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
 		}else{
@@ -195,7 +572,8 @@
 	}
 	
 	// Configurar nueva contraseña
-	if($_POST['consulta']=='nueva-contrasena'){
+	function nuevaContrasena()
+	{
 		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '$_POST[token]'");
 		$n=mysqli_num_rows($q);
 		if($n!=1){
@@ -211,7 +589,8 @@
 	}
 	
 	// Cerrar pedido
-	if($_POST['consulta']=='cierra-pedido'){
+	function cerrarPedido()
+	{
 		if(!mysqli_query($con, "UPDATE pedidos SET valor = '$_POST[valor]', status = '$_POST[status]', formaPago = '$_POST[formaPago]', orderId = '$_POST[orderId]', transactionId = '$_POST[transactionId]', state = '$_POST[state]', responseCode = '$_POST[responseCode]' WHERE id = '$_POST[pedido]'")){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
@@ -264,7 +643,8 @@
 	}
 	
 	// Pedido Pendiente
-	if($_POST['consulta']=='pedidoPendiente'){
+	function pedidoPendiente()
+	{
 		if(!mysqli_query($con, "
 			UPDATE
 				pedidos
@@ -289,7 +669,8 @@
 	}
 	
 	// Formulario de contacto
-	if($_POST['consulta']=='contacto'){
+	function contacto()
+	{
 		if(!mysqli_query($con, "INSERT INTO contacto (nombre, apellido, email, motivo, mensaje) VALUES ('".strtoupper($_POST['nombre'])."', '".strtoupper($_POST['apellido']."', '".strtolower($_POST['email'])."', '".$_POST['motivo']."', '".$_POST['mensaje']."')"))){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
@@ -325,7 +706,8 @@
 	}
 	
 	// Compartir con un amigo
-	if($_POST['consulta']=='compartirAmigo'){
+	function compartirAmigo()
+	{
 		if(!mysqli_query($con, "
 			INSERT INTO compartir (
 				tuNombre,
@@ -373,7 +755,8 @@
 	}
 	
 	// Agregar a favoritos
-	if($_POST['consulta']=='agregarFavoritos'){
+	function agregarFavoritos()
+	{
 		$sql="SELECT * FROM favoritos WHERE usuario = '$_POST[usuario]' AND articulo = '$_POST[articulo]'";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -397,7 +780,8 @@
 	}
 	
 	// Eliminar favorito
-	if($_POST['consulta']=='eliminaFavoritos'){
+	function eliminaFavoritos()
+	{
 		if(!mysqli_query($con, "
 			DELETE FROM
 				favoritos
@@ -413,7 +797,8 @@
 	}
 	
 	// Agregar comentarios
-	if($_POST['consulta']=='agregarComentarios'){
+	function agregarComentarios()
+	{
 		if(!mysqli_query($con, "
 			INSERT INTO comentarios (
 				usuario,
@@ -458,7 +843,9 @@
 	}
 	
 	// Lightbox detalle de pedido
-	if($_POST['consulta']=='detallePedido'){
+	function detallePedido()
+	{
+		global $con;
 		$html="";
 		$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]'";
 		$q=mysqli_query($con, $sql);
@@ -479,7 +866,7 @@
 									</tr>
 								</thead>
 								<tbody>";
-			while($p=mysqli_fetch_assoc($q)){
+			while( $p=mysqli_fetch_assoc($q) ){
 				$html.="
 					<tr id='ordenpub".$p['publicacion']."'>
 						<td>
@@ -496,25 +883,23 @@
 							</p>
 						</td>
 					</tr>
-					<script>
-						$('.delordenpub".$p['publicacion']."').click(function(){
-							$('.load').fadeIn();
-							$.post('/includes/php.php',{
-								consulta: 'delordenpub',
-								publicacion: $(this).attr('publicacion'),
-								pedido: $.cookie('pedido')
-							}).done(function(data){
-								if(data==1){
-									$('#ordenpub".$p['publicacion']."').fadeOut();
-									labelProductos();
-								}
-								if(data==0){
-									alert('Se ha presentado un error. Por favor intente de nuevo.');
-								}
-								$('.load').fadeOut();
-							})
-						})
-					</script>
+					$('.delordenpub".$p['publicacion']."').click(function(){
+						$('.load').fadeIn();
+						$.post('/includes/php.php',{
+							consulta: 'delordenpub',
+							publicacion: $(this).attr('publicacion'),
+							pedido: $.cookie('pedido')
+						}).done(function(data){
+							if(data==1){
+								$('#ordenpub".$p['publicacion']."').fadeOut();
+								labelProductos();
+							}
+							if(data===0){
+								alert('Se ha presentado un error. Por favor intente de nuevo.');
+							}
+							$('.load').fadeOut();
+						});
+					});
 				";
 			}					
 			$html.="				</tbody>
@@ -528,7 +913,8 @@
 	}
 	
 	// Eliminar publicación en el lightbox de la orden
-	if($_POST['consulta']=='delordenpub'){
+	function delordenpub()
+	{
 		$sql="DELETE FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]' AND publicacion = '$_POST[publicacion]'";
 		if(!mysqli_query($con, $sql)){
 		   echo 0;
@@ -538,7 +924,8 @@
 	}
 	
 	// Enviar muestra de producto
-	if($_POST['consulta']=='descargaMuestra'){
+	function descargaMuestra()
+	{	
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 		$url=NOTIFICACION;
@@ -566,7 +953,8 @@
 	}
 	
 	// Obtener descripción de la obra
-	if($_POST['consulta']=='descripcion'){
+	function descripcion()
+	{
 		$sql="SELECT * FROM publicaciones WHERE id = '$_POST[publicacion]'";
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
@@ -575,7 +963,8 @@
 	}
 	
 	// Newsletter
-	if($_POST['consulta']=='newsletter'){
+	function newsletter()
+	{
 		if(!mysqli_query($con, "
 			INSERT INTO
 				newsletter (
@@ -593,7 +982,8 @@
 	}
 	
 	// Cerrar sesión
-	if($_POST['consulta']=='cerrarSesion'){
+	function cerrarSesion()
+	{
 		unset($_SESSION['id']);
 		unset($_SESSION['perfil']);
 		unset($_SESSION['sesion']);
@@ -604,7 +994,8 @@
 	}
 	
 	// Completa los datos del registro
-	if($_POST['consulta']=='finRegistro'){
+	function finRegistro()
+	{
 		if(!mysqli_query($con, "
 		   UPDATE
 		   	usuarios
@@ -626,7 +1017,8 @@
 		}
 	}
 	
-	if($_POST['consulta']=='verificaEmail'){
+	function verificaEmail()
+	{
 		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[emailRegistro]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
@@ -636,7 +1028,8 @@
 		}
 	}
 	
-	if($_POST['consulta']=='verificaEmailRegistro'){
+	function verificaEmailRegistro()
+	{
 		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
@@ -647,7 +1040,8 @@
 	}
 	
 	// Finalizar registro Facebook
-	if($_POST['consulta']=='emailFacebook'){
+	function emailFacebook()
+	{
 		$sql="SELECT * FROM usuarios WHERE email = '$_POST[email]'";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -713,8 +1107,8 @@
 	}
 	
 	// Iniciar sesión FB
-	if($_POST['consulta']=='iniciaFb'){
-		
+	function iniciaFb()
+	{
 		$sql = "SELECT id FROM usuarios WHERE fbId = '$_POST[fbId]'";
 		$q = mysqli_query($con, $sql);
 		$n = mysqli_num_rows($q);
@@ -746,11 +1140,12 @@
 				echo 1;
 			}
 		}
-	
 	}
 	
 	// Actualizar label de # de productos
-	if($_POST['consulta']=='publicacionesPedido'){
+	function publicacionesPedido()
+	{
+		global $con;
 		if(isset($_COOKIE['pedido'])){
 			$q=mysqli_query($con, "SELECT * FROM publicacionesxpedido WHERE pedido = '$_COOKIE[pedido]'");
 			$n=mysqli_num_rows($q);
@@ -759,7 +1154,8 @@
 	}
 	
 	// Detalle del pedido
-	if($_POST['consulta']=='detallesPedido'){
+	function detallesPedido($value='')
+	{
 		$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]'";
 		$q=mysqli_query($con, $sql);
 		$html="<table class='table table-bordered table-striped'><thead><tr><th>Publicación</th><th>Valor</th></tr></thead><tbody>";
@@ -776,8 +1172,8 @@
 	}
 	
 	// Procesamiento de Paquetes
-	if($_POST['consulta']=='procesaPaquete'){
-		
+	function procesaPaquete()
+	{		
 		if($_POST['estado']=='PENDING'){
 			$estado=1;
 		}
@@ -851,16 +1247,13 @@
 					}
 				}
 			}
-			
-			echo 1;
-			
+			echo 1;	
 		}
-		
 	}
 	
 	// CREACION DE ORDEN EN LOS PAQUETES
-	if($_POST['consulta']=='crearOrdenPaquete'){
-		
+	function crearOrdenPaquete()
+	{		
 		// Datos mínimos para la orden
 		$codigoPaquete = $_POST['codigoPaquete'];
 		$codigoUsuario = $_SESSION['id'];
@@ -906,15 +1299,11 @@
 				
 				if(!$q){
 					$codigoOrden = 0;
-				}
-				
+				}	
 			}
-			
 			// Devolvemos el número de la orden generada
-			echo $codigoOrden;
-			
+			echo $codigoOrden;	
 		}
-		
 	}
 
 	/////////////////////////////////////////////////////////////////////////
@@ -923,37 +1312,37 @@
 	
 	/////////////////////////////////////////////////////////////////////////
 	
-		// Recuperar contraseña
-		if($_POST['consulta']=='recuperar-contrasena'){
+	// Recuperar contraseña
+	function recuperarContrasena()
+	{
+		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
+		$n=mysqli_num_rows($q);
+		
+		if($n<1){
+			echo "Lo sentimos, no se ha encontrado una cuenta con esa dirección de correo electrónico";
+		}else{
 			
-			$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
-			$n=mysqli_num_rows($q);
+			$data=mysqli_fetch_array($q);
 			
-			if($n<1){
-				echo "Lo sentimos, no se ha encontrado una cuenta con esa dirección de correo electrónico";
+			$email=$data['email'];
+			$asunto="Enlace para la recuperación de tu contraseña";
+			$mensaje="
+				<p><b>Hola $data[nombre]!</b></p>
+				<p>Según lo solicitaste te estamos enviando el enlace para la recuperación de tu contraseña:</p>
+				<p><a href='".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]'>".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]</a></p>
+				<p>Por favor haga click en el enlace o copie y pegue la dirección en su navegador para completar el procedimiento.</p>
+				
+			";
+			
+			$notificar = notificar($email,$asunto,$mensaje);
+			
+			if($notificar==0){
+				echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
 			}else{
-				
-				$data=mysqli_fetch_array($q);
-				
-				$email=$data['email'];
-				$asunto="Enlace para la recuperación de tu contraseña";
-				$mensaje="
-					<p><b>Hola $data[nombre]!</b></p>
-					<p>Según lo solicitaste te estamos enviando el enlace para la recuperación de tu contraseña:</p>
-					<p><a href='".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]'>".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]</a></p>
-					<p>Por favor haga click en el enlace o copie y pegue la dirección en su navegador para completar el procedimiento.</p>
-					
-				";
-				
-				$notificar = notificar($email,$asunto,$mensaje);
-				
-				if($notificar==0){
-					echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
-				}else{
-					echo "Hemos enviado un enlace para la recuperación de su contraseña a la dirección de correo electrónico relacionada. En caso de no recibirlo por favor revise su bandeja de correo no deseado.";
-				}
+				echo "Hemos enviado un enlace para la recuperación de su contraseña a la dirección de correo electrónico relacionada. En caso de no recibirlo por favor revise su bandeja de correo no deseado.";
 			}
 		}
+	}
 	
 	
 	/////////////////////////////////////////////////////////////////////////
@@ -962,87 +1351,90 @@
 	
 	/////////////////////////////////////////////////////////////////////////
 	
-		// GENERAR EL DETALLE DEL PEDIDO
-		if($_POST['consulta'] == 'detalleDelPedido'){
-			$pedido = $_POST['pedido'];
-			$q = mysqli_query($con, "
-				SELECT
-					*
-				FROM
-					publicacionesxpedido
-				WHERE
-					pedido = '$pedido'
-			");
-			$n = mysqli_num_rows($q);
-			if($n < 1){
-				$html = ""; 
-				$html .= "<tr><td colspan='3' class='text-center'>";
-				$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
-				$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
-				$html .= "</td></tr>";
-				mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
-				echo $html;
-			}else{
-				$total = 0;
-				while($row = mysqli_fetch_assoc($q)){
-					$html .= "<tr id='codigo$row[publicacion]'>";
-					$html .= "	<td>".getNombrePublicacion($row['publicacion'])."</td>";
-					$html .= "	<td class='text-center'>USD ".getPrecioPublicacion($row['publicacion'])."</td>";
-					$html .= "	<td>";
-					$html .= "		<p class='text-center'>";
-					$html .= "			<button class='btn btn-default eliminarItem$row[publicacion]' codigo='$row[publicacion]'>";
-					$html .= "				<i class='fa fa-trash'></i>";
-					$html .= "			</button>";
-					$html .= "		</p>";
-					$html .= "	</td>";
-					$html .= "</tr>";
-					$html .= "<script>";
-					$html .= "	$('.eliminarItem$row[publicacion]').click(function(){";
-					$html .= "		cargar();";
-					$html .= "		$.post('/includes/php.php',{ consulta: 'eliminaDelPedido', item: '$row[publicacion]', pedido: $.cookie('pedido') })";
-					$html .= "		.done(function(data){";
-					$html .= "			if( data == 0 ){";
-					$html .= "				alert('Se ha presentado un error. Por favor intente de nuevo');";
-					$html .= "				descargar();";
-					$html .= "			} else {";
-					$html .= "				contenidoDelPedido();";
-					$html .= "				labelProductos();";
-					$html .= "				descargar();";
-					$html .= "			}";
-					$html .= "		})";
-					$html .= "	})";
-					$html .= "</script>";
-					$total += getPrecioPublicacion($row['publicacion']);
-				}
-				$html .= "<tr>";
-				$html .= "	<td class='text-right'><b>TOTAL A PAGAR</b></td>";
-				$html .= "	<td colspan='2' class='text-center'><b>USD ".number_format($total,2)."</b></td>";
+	// GENERAR EL DETALLE DEL PEDIDO
+	function detalleDelPedido()
+	{
+		$pedido = $_POST['pedido'];
+		$q = mysqli_query($con, "
+			SELECT
+				*
+			FROM
+				publicacionesxpedido
+			WHERE
+				pedido = '$pedido'
+		");
+		$n = mysqli_num_rows($q);
+		if($n < 1){
+			$html = ""; 
+			$html .= "<tr><td colspan='3' class='text-center'>";
+			$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
+			$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
+			$html .= "</td></tr>";
+			mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
+			echo $html;
+		}else{
+			$total = 0;
+			while($row = mysqli_fetch_assoc($q)){
+				$html .= "<tr id='codigo$row[publicacion]'>";
+				$html .= "	<td>".getNombrePublicacion($row['publicacion'])."</td>";
+				$html .= "	<td class='text-center'>USD ".getPrecioPublicacion($row['publicacion'])."</td>";
+				$html .= "	<td>";
+				$html .= "		<p class='text-center'>";
+				$html .= "			<button class='btn btn-default eliminarItem$row[publicacion]' codigo='$row[publicacion]'>";
+				$html .= "				<i class='fa fa-trash'></i>";
+				$html .= "			</button>";
+				$html .= "		</p>";
+				$html .= "	</td>";
 				$html .= "</tr>";
-				mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$pedido'");
-				echo $html;
+				$html .= "<script>";
+				$html .= "	$('.eliminarItem$row[publicacion]').click(function(){";
+				$html .= "		cargar();";
+				$html .= "		$.post('/includes/php.php',{ consulta: 'eliminaDelPedido', item: '$row[publicacion]', pedido: $.cookie('pedido') })";
+				$html .= "		.done(function(data){";
+				$html .= "			if( data == 0 ){";
+				$html .= "				alert('Se ha presentado un error. Por favor intente de nuevo');";
+				$html .= "				descargar();";
+				$html .= "			} else {";
+				$html .= "				contenidoDelPedido();";
+				$html .= "				labelProductos();";
+				$html .= "				descargar();";
+				$html .= "			}";
+				$html .= "		})";
+				$html .= "	})";
+				$html .= "</script>";
+				$total += getPrecioPublicacion($row['publicacion']);
 			}
+			$html .= "<tr>";
+			$html .= "	<td class='text-right'><b>TOTAL A PAGAR</b></td>";
+			$html .= "	<td colspan='2' class='text-center'><b>USD ".number_format($total,2)."</b></td>";
+			$html .= "</tr>";
+			mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$pedido'");
+			echo $html;
 		}
+	}
 		
-		if($_POST['consulta'] == 'eliminaDelPedido'){
-			$item = $_POST['item'];
-			$pedido = $_POST['pedido'];
-			if(!mysqli_query($con, "
-				DELETE FROM
-					publicacionesxpedido
-				WHERE
-					pedido = '$pedido'
-				AND
-					publicacion = '$item'
-			")){
-				echo 0;
-			}else{
-				echo 1;
-			}
+	function eliminaDelPedido()
+	{
+		$item = $_POST['item'];
+		$pedido = $_POST['pedido'];
+		if(!mysqli_query($con, "
+			DELETE FROM
+				publicacionesxpedido
+			WHERE
+				pedido = '$pedido'
+			AND
+				publicacion = '$item'
+		")){
+			echo 0;
+		}else{
+			echo 1;
 		}
-		
-		if($_POST['consulta']=='valorDelPedido'){
-			echo getValorDeLaOrden($_POST['orden']);
-		}
+	}
+
+	function valorDelPedido()
+	{
+		echo getValorDeLaOrden($_POST['orden']);
+	}		
 	
 	/////////////////////////////////////////////////////////////////////////
 	
@@ -1050,28 +1442,29 @@
 	
 	/////////////////////////////////////////////////////////////////////////
 	
-		// OBTENER MEDIOS DE PAGO
-		if( $_POST['consulta'] == 'obtenerMediosDePago' ){
-			
-			$pais = $_POST['pais'];
-			
-			$html = "";
-			$html .= "<option value=''>Selecciona tu medio de pago preferido ...</option>";
-			$html .= "<option value='1'>Tarjeta de Crédito</option>";
-			$html .= "<option value='2'>Paypal</option>";
-			if( $pais == 'CO' ){
-				$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
-				$html .= "<option value='4'>Puntos VIA Baloto</option>";
-			}elseif( $pais == 'MX' ){
-				$html .= "<option value='5'>OXXO</option>";
-			}elseif( $pais == 'PE' ){
-				$html .= "<option value='6'>Banco de Crédito - BCP</option>";
-			}
-			echo $html;
-			
-		}
+	// OBTENER MEDIOS DE PAGO
+	function obtenerMediosDePago()
+	{		
+		$pais = $_POST['pais'];
 		
-		// PROCESAMIENTO DE PAGOS VÍA PAYPAL
+		$html = "";
+		$html .= "<option value=''>Selecciona tu medio de pago preferido ...</option>";
+		$html .= "<option value='1'>Tarjeta de Crédito</option>";
+		$html .= "<option value='2'>Paypal</option>";
+		if( $pais == 'CO' ){
+			$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
+			$html .= "<option value='4'>Puntos VIA Baloto</option>";
+		}elseif( $pais == 'MX' ){
+			$html .= "<option value='5'>OXXO</option>";
+		}elseif( $pais == 'PE' ){
+			$html .= "<option value='6'>Banco de Crédito - BCP</option>";
+		}
+		echo $html;
+	}
+		
+	// PROCESAMIENTO DE PAGOS VÍA PAYPAL
+	function pagarConPaypal2()
+	{
 		if($_REQUEST['consulta']=='pagarConPaypal'){
 			
 			$orden = $_REQUEST['orden'];
@@ -1080,1051 +1473,889 @@
 			pagarConPaypal($orden,$urlCancela);
 			
 		}
+	}
 		
-		// OBTENER FORMULARIOS DE PAGO
-		if( $_POST['consulta'] == 'obtenerFormularioDePago' ){
+	// OBTENER FORMULARIOS DE PAGO
+	function obtenerFormularioDePago()
+	{		
+		$metodo = $_POST['metodo'];
+		
+		$valor = "9.99";
+
+		$today = date("Y-m-d H:i:s");
+		$date = "2015-06-30 00:00:00";
+		
+		if($today > $date){
 			
-			$metodo = $_POST['metodo'];
+			$valor = "15.99";
 			
-			$valor = "9.99";
+		}
+		
+		/*echo $precio;*/
+		
+		// Proceso de pago con tarjeta de crédito
+		if( $metodo == 1 ){
+			ob_start();
+            require "MetodosDePago/tarjeta-de-credito.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
+		}
+		
+		// Proceso de pago vía Paypal
+		if( $metodo == 2 ){
+			
+			/*$urlCancela = URL . '/inscripcion-conferencia';
+			
+			$data=array(
+				'merchant_email'=>'pfhurtado@phronesisvirtual.com',
+				'product_name'=>'Compra en elartedesabervivir.com',
+				'amount'=>$valor,
+				'currency_code'=>'USD',
+				'thanks_page'=>URL.'includes/php.php?consulta=almacenaInscripcion&usuario='.$_SESSION['id'].'&metodo=2&estado=1',
+				'notify_url'=>URL,
+				'cancel_url'=>URL.'includes/php.php?consulta=almacenaInscripcion&usuario='.$_SESSION['id'].'&metodo=2&estado=0&url='.$urlCancela,
+				'paypal_mode'=>false,
+			);
+
+			define( 'SSL_URL', 'https://www.paypal.com/cgi-bin/webscr' );
+			define( 'SSL_SAND_URL', 'https://www.sandbox.paypal.com/cgi-bin/webscr' );
 	
-			$today = date("Y-m-d H:i:s");
-			$date = "2015-06-30 00:00:00";
 			
-			if($today > $date){
-				
-				$valor = "15.99";
-				
-			}
-			
-			echo $precio;
-			
-			// Proceso de pago con tarjeta de crédito
-			if( $metodo == 1 ){
-				$tipopago = "pagoTarjetaDeCredito";
-				$titulo = "<i class='fa fa-credit-card'></i> Pagar con tarjeta de crédito";
-				$titulo .= '<a href="http://www.payulatam.com/logos/pol.php?l=150&c=556df33bef3cd" target="_blank"><img class="pull-right" src="http://www.payulatam.com/logos/logo.php?l=150&c=556df33bef3cd" height="30" alt="PayU Latam" border="0" /></a>';
-				$mensaje = "";
-				$mensaje .= "	<div class='row'>";
-				$mensaje .= "		<div class='col-md-3 form-group'>";
-				$mensaje .= "			<select class='form-control' name='tipoTarjeta' id='tipoTarjeta' required >";
-				$mensaje .= "				<option value=''>Tipo de tarjeta ...</option>";
-				$mensaje .= "				<option value='VISA'>VISA</option>";
-				$mensaje .= "				<option value='MASTERCARD'>MASTERCARD</option>";
-				$mensaje .= "				<option value='AMEX'>AMEX</option>";
-				$mensaje .= "				<option value='DINERS'>DINERS</option>";
-				$mensaje .= "			</select>";
-				$mensaje .= "		</div>";
-				$mensaje .= "		<div class='col-md-4 form-group'>";
-				$mensaje .= "			<input type='text' class='form-control' name='noTarjeta' id='noTarjeta' placeholder='Número de tarjeta' required />";
-				$mensaje .= "		</div>";
-				$mensaje .= "		<div class='col-md-5 form-group'>";
-				$mensaje .= "			<input type='text' class='form-control' name='nombreTarjeta' id='nombreTarjeta' placeholder='Nombre tarjeta' required />";
-				$mensaje .= "		</div>";
-				$mensaje .= "	</div>";
-				$mensaje .= "	<div class='row'>";
-				$mensaje .= "		<div class='col-md-4 form-group'>";
-				$mensaje .= "			<select class='form-control' name='mesTarjeta' id='mesTarjeta' required >";
-				$mensaje .= "				<option value=''>Mes vencimiento</option>";
-				$mensaje .= "				<option value='01'>01</option>";
-				$mensaje .= "				<option value='02'>02</option>";
-				$mensaje .= "				<option value='03'>03</option>";
-				$mensaje .= "				<option value='04'>04</option>";
-				$mensaje .= "				<option value='05'>05</option>";
-				$mensaje .= "				<option value='06'>06</option>";
-				$mensaje .= "				<option value='07'>07</option>";
-				$mensaje .= "				<option value='08'>08</option>";
-				$mensaje .= "				<option value='09'>09</option>";
-				$mensaje .= "				<option value='10'>10</option>";
-				$mensaje .= "				<option value='11'>11</option>";
-				$mensaje .= "				<option value='12'>12</option>";
-				$mensaje .= "			</select>";
-				$mensaje .= "		</div>";
-				$mensaje .= "		<div class='col-md-4 form-group'>";
-				$mensaje .= "			<select class='form-control' name='yearTarjeta' id='yearTarjeta' required >";
-				$mensaje .= "				<option value=''>Año vencimiento</option>";
-				$mensaje .= "				<option value='2015'>2015</option>";
-				$mensaje .= "				<option value='2016'>2016</option>";
-				$mensaje .= "				<option value='2017'>2017</option>";
-				$mensaje .= "				<option value='2018'>2018</option>";
-				$mensaje .= "				<option value='2019'>2019</option>";
-				$mensaje .= "				<option value='2020'>2020</option>";
-				$mensaje .= "				<option value='2021'>2021</option>";
-				$mensaje .= "				<option value='2022'>2022</option>";
-				$mensaje .= "				<option value='2023'>2023</option>";
-				$mensaje .= "				<option value='2024'>2024</option>";
-				$mensaje .= "				<option value='2025'>2025</option>";
-				$mensaje .= "			</select>";
-				$mensaje .= "		</div>";
-				$mensaje .= "		<div class='col-md-4 form-group'>";
-				$mensaje .= "			<input type='text' class='form-control' name='codigoSeguridad' id='codigoSeguridad' placeholder='Código de seguridad' required />";
-				$mensaje .= "		</div>";
-				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='".$valor."' />";
-				$mensaje .= "		<input type='hidden' name='pedido' id='pedido' value='CF".$_SESSION['id']."' />";
-				$mensaje .= "		<input type='hidden' name='email' id='email' value='".getEmailUsuario($_SESSION['id'])."' />";
-				$mensaje .= "		<input type='hidden' name='ciudad' id='ciudad' value='".getCiudadUsuario($_SESSION['id'])."' />";
-				$mensaje .= "		<input type='hidden' name='cuotas' id='cuotas' value='1' />";
-				$mensaje .= "	</div>";
-				$mensaje .= "<script type='text/javascript'>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			$('#myNuevoModal').modal('hide');";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/payu/loadTarjetasDeCredito.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				procesaInscripcionConferencia(
-											$_SESSION[id],
-											$metodo,
-											response.transactionResponse.transactionId,
-											response.transactionResponse.state,
-											$valor
-										);";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
-				$mensaje .= "</script>";
-				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-credit-card'></i> Pagar</button>";
-			}
-			
-			// Proceso de pago vía Paypal
-			if( $metodo == 2 ){
-				
-				$tipopago = "pagoPaypal";
-				$titulo = "<i class='fa fa-paypal'></i> Pagar con Paypal";
-				$mensaje = "";
-				
-				$urlCancela = URL . '/inscripcion-conferencia';
-				
-				$data=array(
-					'merchant_email'=>'pfhurtado@phronesisvirtual.com',
-					'product_name'=>'Compra en elartedesabervivir.com',
-					'amount'=>$valor,
-					'currency_code'=>'USD',
-					'thanks_page'=>URL.'includes/php.php?consulta=almacenaInscripcion&usuario='.$_SESSION['id'].'&metodo=2&estado=1',
-					'notify_url'=>URL,
-					'cancel_url'=>URL.'includes/php.php?consulta=almacenaInscripcion&usuario='.$_SESSION['id'].'&metodo=2&estado=0&url='.$urlCancela,
-					'paypal_mode'=>false,
-				);
-	
-				define( 'SSL_URL', 'https://www.paypal.com/cgi-bin/webscr' );
-				define( 'SSL_SAND_URL', 'https://www.sandbox.paypal.com/cgi-bin/webscr' );
+			$action = ($data['paypal_mode']) ? SSL_SAND_URL : SSL_URL;*/
+
+			/*require 'PayPal-PHP-SDK/paypal/rest-api-sdk-php/sample/payments/CreatePaymentUsingPayPal.php';*/
+
+
+			ob_start();
+            require "MetodosDePago/paypal.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;	
+		}
 		
-				$action = '';
-				$action = ($data['paypal_mode']) ? SSL_SAND_URL : SSL_URL;
+		// Proceso de pago PSE
+		if( $metodo == 3 ){
+			
+			require_once('payu/PayU.php');
+
+			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+			Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+			Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+			
+			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+			PayU::$isTest = true; //Dejarlo True cuando sean pruebas.
+			
+			$parameters = array(
+				PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
+				PayUParameters::COUNTRY => PayUCountries::CO,
+			);
+			$array=PayUPayments::getPSEBanks($parameters);
+			$banks=$array->banks;
+			
+			ob_start();
+            require "MetodosDePago/pago-pse.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;			
+		}
 		
-				$mensaje .= '<input type="hidden" name="business" value="' . $data['merchant_email'] . '" />';
-				$mensaje .= '<input type="hidden" name="notify_url" value="' . $data['notify_url'] . '" />';
-				$mensaje .= '<input type="hidden" name="cancel_return" value="' . $data['cancel_url'] . '" />';
-				$mensaje .= '<input type="hidden" name="return" value="' . $data['thanks_page'] . '" />';
-				$mensaje .= '<input type="hidden" name="rm" value="2" />';
-				$mensaje .= '<input type="hidden" name="lc" value="" />';
-				$mensaje .= '<input type="hidden" name="no_shipping" value="1" />';
-				$mensaje .= '<input type="hidden" name="no_note" value="1" />';
-				$mensaje .= '<input type="hidden" name="currency_code" value="' . $data['currency_code'] . '" />';
-				$mensaje .= '<input type="hidden" name="page_style" value="paypal" />';
-				$mensaje .= '<input type="hidden" name="charset" value="utf-8" />';
-				$mensaje .= '<input type="hidden" name="item_name" value="' . $data['product_name'] . '" />';
-				$mensaje .= '<input type="hidden" value="_xclick" name="cmd"/>';
-				$mensaje .= '<input type="hidden" name="amount" value="' . $data['amount'] . '" />';
-				$mensaje .= '<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>';
-				
-				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-paypal'></i> Continuar</button>";
-				
+		// Proceso de pago VIA Baloto
+		if( $metodo == 4 ){
+			
+			ob_start();
+            require "MetodosDePago/pago-baloto.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
+			
+		}
+		
+		if( $metodo == 5 ){
+			ob_start();
+            require "MetodosDePago/pago-oxxo.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;			
+		}
+		
+		if( $metodo == 6 ){
+			ob_start();
+            require "MetodosDePago/pago-bcp.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
+		}
+	}
+		
+	// REQUEST DE PSE
+	function pseRequest()
+	{		
+		require_once('payu/PayU.php');
+
+    	$reference = $_POST['pedido'];
+		$value = $_POST['vrPedido'];
+		
+		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+		
+	     //Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
+		PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+		PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+		PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+		$accountId = "501716";
+		
+		$parameters = array(
+			
+			PayUParameters::ACCOUNT_ID => $accountId,
+			PayUParameters::REFERENCE_CODE => $reference,
+			PayUParameters::DESCRIPTION => "Tu compra en Phronesis, el arte de saber vivir.",
+			
+			PayUParameters::VALUE => $value,
+			PayUParameters::CURRENCY => "USD",
+			
+			PayUParameters::BUYER_EMAIL => $_POST['email'],
+			PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
+			PayUParameters::PAYER_EMAIL => $_POST['email'],
+			PayUParameters::PAYER_CONTACT_PHONE=> $_POST['telefonoDiurno'],
+				   
+			PayUParameters::PSE_FINANCIAL_INSTITUTION_CODE => $_POST['bancos'],
+			PayUParameters::PAYER_PERSON_TYPE => $_POST['tipoPersona'],
+			PayUParameters::PAYER_DNI => $_POST['noIdentificacion'],
+			PayUParameters::PAYER_DOCUMENT_TYPE => 'N',
+		
+			PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
+		   
+			PayUParameters::COUNTRY => PayUCountries::CO,
+			
+			PayUParameters::IP_ADDRESS => "127.0.0.1",
+			PayUParameters::PAYER_COOKIE=>"pt1t38347bs6jc9ruv2ecpv7o2",
+			PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
+		   
+		);
+			
+		$response = PayUPayments::doAuthorizationAndCapture($parameters);
+		
+		if($response){
+			$response->transactionResponse->orderId;
+			$response->transactionResponse->transactionId;
+			$response->transactionResponse->state;
+			if($response->transactionResponse->state)
+			if($response->transactionResponse->state=="PENDING"){
+				$response->transactionResponse->pendingReason;
+				$response->transactionResponse->extraParameters->BANK_URL;		
+			}
+			$response->transactionResponse->responseCode;		  
+		}
+		
+		echo json_encode($response);
+	}
+
+	function requestPayPal()
+	{
+		require_once 'rest-api-sample-app-php/app/bootstrap.php';
+		$data = array(
+						'estado' => 1, //pendiente
+						'metodo' => 2,
+						'idtransaccion' => 'Paypal',
+						'valor' => $_POST['amount']
+					);
+
+		$orderId = crearOrden($data);
+		if ( is_null($orderId) ) {
+			echo "null";
+			return;
+		}
+		$result['orderId'] = $orderId;
+		/*$orderId = addOrder(getSignedInUser(), NULL, NULL, $order['amount'], $order['description']);*/
+		// Create the payment and redirect buyer to paypal for payment approval. 
+		$baseUrl = URL . "index.php?orderPaypalId=$orderId";
+		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],
+				$baseUrl."&success=true", $baseUrl."&success=false");
+		actualizarOrden($orderId, $payment->getState(), $payment->getId());
+		$result['error'] = 1;
+		/*$result['link'] = getLink($payment->getLinks(), "approval_url");*/
+		/*echo json_encode($result);
+		return;	*/
+		header("Location: " . getLink($payment->getLinks(), "approval_url") );
+		exit;	
+	}
+
+	function crearOrden($array='')
+	{
+		global $con;
+		if (!empty($array)) {
+			extract($array);
+			if ( 
+				isset($_SESSION['id']) && !empty($_SESSION['id']) 
+				&& isset($estado) && !empty($estado) 
+				&& isset($metodo) && !empty($metodo) 
+				&& isset($idtransaccion) && !empty($idtransaccion) 
+				&& isset($valor) && !empty($valor) 
+			) {
+				if(!mysqli_query($con, "
+				   INSERT INTO
+				   	inscritos_conferencia (
+				   		usuario_id,
+				   		estado_inscripcion,
+				   		metodo_pago,
+				   		transaction_id,
+				   		valor_inscripcion
+				   	) VALUES (
+				   		'$_SESSION[id]',
+				   		'$estado',
+				   		'$metodo',
+				   		'$idtransaccion',
+				   		'$valor'
+				   	)
+				")){
+				   return mysqli_error($con);
+				}else{
+				   return mysqli_insert_id($con);
+				}
+			}
+		}
+	}
+
+	function obtenerOrden($orderId)
+	{
+		global $con;
+		$query = "SELECT * FROM inscritos_conferencia WHERE id_inscripcion = '$orderId'";
+		$result = mysqli_query($con, $query);
+		if(!$result) {
+			$errMsg = "Error retrieving order: " . mysqli_error($con);
+			mysqli_close($con);
+			throw new Exception($errMsg);
+		}
+
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+	function actualizarOrden($orderId, $estado, $transaction_id)
+	{
+		global $con;
+
+		if ( $estado == 'approved' ) {
+			$estado = 2;
+		}
+		else if ( $estado == 'failed' || $estado == 'canceled' || $estado == 'expired' ) {
+			$estado = 3;
+		}else{
+			$estado = 1;
+		}
+
+		if(!mysqli_query($con, "
+			UPDATE 
+				`inscritos_conferencia`
+			SET
+				`estado_inscripcion` = '$estado',
+				`transaction_id` = '$transaction_id'
+			WHERE
+				`id_inscripcion` = '$orderId'
+		")){
+			return false;
+		}else{
+			return true;
+		}
+	}
+		
+	// Almacenar pago inscripcion PSE
+	function almacenaPendientePSE()
+	{	
+		global $con;
+		if(!mysqli_query($con, "
+		   INSERT INTO
+		   	inscritos_conferencia (
+		   		usuario_id,
+		   		estado_inscripcion,
+		   		metodo_pago,
+		   		transaction_id,
+		   		valor_inscripcion
+		   	) VALUES (
+		   		'$_SESSION[id]',
+		   		'$_POST[estado]',
+		   		'$_POST[metodo]',
+		   		'$_POST[idtransaccion]',
+		   		'$_POST[valor]'
+		   	)
+		")){
+		   echo mysqli_error($con);
+		}else{
+		   echo 1;
+		}
+	}
+		
+	// REQUEST DE BALOTO
+	function requestBaloto()
+	{		
+		require_once('payu/PayU.php');
+		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+		
+		PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+		PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+		PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+			
+		$reference = $_POST['noPedido'];
+		$value = $_POST['vrPedido'];
+		
+		$parameters = array(
+			PayUParameters::ACCOUNT_ID => "501716",
+			PayUParameters::REFERENCE_CODE => $reference,
+			PayUParameters::DESCRIPTION => "Tu compra en Phronesis | El arte de saber vivir",
+			PayUParameters::VALUE => $value,
+			PayUParameters::CURRENCY => "USD",
+			PayUParameters::BUYER_EMAIL => $_POST['email'],
+			PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
+			PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],
+			PayUParameters::PAYMENT_METHOD => PaymentMethods::BALOTO,
+			PayUParameters::COUNTRY => PayUCountries::CO,
+			PayUParameters::EXPIRATION_DATE => "2015-09-26T00:00:00",
+			PayUParameters::IP_ADDRESS => "127.0.0.1",   
+		);
+			
+		$response = PayUPayments::doAuthorizationAndCapture($parameters);
+		
+		if($response){
+			$response->transactionResponse->orderId;
+			$response->transactionResponse->transactionId;
+			$response->transactionResponse->state;
+			if($response->transactionResponse->state=="PENDING"){
+				$response->transactionResponse->pendingReason;
+				$response->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_HTML;
+				$response->transactionResponse->extraParameters->REFERENCE;
+			}
+			$response->transactionResponse->responseCode;		  
+		} 
+		
+		print json_encode($response);
+	}
+		
+	// REQUEST DE OXXO - 7 ELEVEN
+	function oxxoRequest()
+	{
+		require_once('payu/PayU.php');
+		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+		
+		PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+		PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+		PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+		
+		$reference = $_POST['noPedido'];
+		$value = $_POST['vrPedido'];
+		
+		$parameters = array(
+		
+			PayUParameters::ACCOUNT_ID => "501789",
+			PayUParameters::REFERENCE_CODE => $reference,
+			PayUParameters::DESCRIPTION => "Tu compra en Phronesis | El arte de saber vivir",
+			
+			PayUParameters::VALUE => $value,
+			PayUParameters::CURRENCY => "USD",
+			
+			PayUParameters::BUYER_EMAIL => $_POST['emailOxxo'],
+			PayUParameters::PAYER_NAME => $_POST['nombreOxxo'],
+			PayUParameters::PAYER_DNI=> $_POST['noDocumentoOxxo'],
+			
+			PayUParameters::PAYMENT_METHOD => PaymentMethods::OXXO,
+			
+			PayUParameters::COUNTRY => PayUCountries::MX,
+			
+			PayUParameters::EXPIRATION_DATE => "2015-09-27T00:00:00",
+			PayUParameters::IP_ADDRESS => "127.0.0.1",
+		
+		);
+		
+		$response = PayUPayments::doAuthorizationAndCapture($parameters);
+		
+		if($response){
+			
+			$response->transactionResponse->orderId;
+			$response->transactionResponse->transactionId;
+			$response->transactionResponse->state;
+			
+			if($response->transactionResponse->state=="PENDING"){
+				$response->transactionResponse->pendingReason;
+				$response->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_HTML;
+				$response->transactionResponse->extraParameters->REFERENCE;
 			}
 			
-			// Proceso de pago PSE
-			if( $metodo == 3 ){
-				
-				$tipopago = "pagoConPSE";
-				$titulo = "<i class='fa fa-university'></i> Pagar con Transferencia Bancaria PSE";
+			$response->transactionResponse->responseCode;		  
+		
+		} 
+		
+		print json_encode($response);
+	}
+		
+	// BCP REQUEST
+	function bcpRequest()
+	{
+		require_once('payu/PayU.php');
+		
+		//Quitar estas variables de entorno para poder pasar a producccion
+		//Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi"); 
+		//Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi"); 
+		//Environment::setSubscriptionsCustomUrl("https://stg.api.payulatam.com/payments-api/rest/v4.3/"); 
+		//Fin variables de Entorno
+		
+		// Variables de producción
+		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+		// Fin variables de producción
+		
+		//Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
+		PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+		PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+		PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+		
+		$reference = $_POST['noPedido'];
+		$value = $_POST['vrPedido'];
+		
+		$parameters = array(
+		//Ingrese aquí el identificador de la cuenta.
+		PayUParameters::ACCOUNT_ID => "501790",
+		//Ingrese aquí el código de referencia.
+		PayUParameters::REFERENCE_CODE => $reference,
+		//Ingrese aquí la descripción.
+		PayUParameters::DESCRIPTION => "Tu compra en Phronesis | El arte de saber vivir",
+		
+		// -- Valores --
+		//Ingrese aquí el valor.        
+		PayUParameters::VALUE => $value,
+		//Ingrese aquí la moneda.
+		PayUParameters::CURRENCY => "USD",
+		
+		//Ingrese aquí el email del comprador.
+		PayUParameters::BUYER_EMAIL => $_POST['emailBcp'],
+		//Ingrese aquí el nombre del pagador.
+		PayUParameters::PAYER_NAME => $_POST['nombreBcp'],
+		//Ingrese aquí el documento de contacto del pagador.
+		PayUParameters::PAYER_DNI=> $_POST['noDocumentoBcp'],
+		
+		//Ingrese aquí el nombre del método de pago
+		PayUParameters::PAYMENT_METHOD => PaymentMethods::BCP,
+		
+		//Ingrese aquí el nombre del pais.
+		PayUParameters::COUNTRY => PayUCountries::PE,
+		
+		//Ingrese aquí la fecha de expiración.
+		PayUParameters::EXPIRATION_DATE => "2015-10-02T04:00:00",
+		//IP del pagadador
+		PayUParameters::IP_ADDRESS => "127.0.0.1",
+		
+		);
+		
+		$response = PayUPayments::doAuthorizationAndCapture($parameters);
+		
+		if($response){
+			$response->transactionResponse->orderId;
+			$response->transactionResponse->transactionId;
+			$response->transactionResponse->state;
+			if($response->transactionResponse->state=="PENDING"){
+				$response->transactionResponse->pendingReason;
+				$response->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_HTML;
+				$response->transactionResponse->extraParameters->REFERENCE;
+				$response->transactionResponse->extraParameters->EXPIRATION_DATE;      
+			}
+			$response->transactionResponse->responseCode;		  
+		}   
+		
+		print json_encode($response);	
+	}
+		
+	// ALMACENAR PAGOS
+	function almacenaInscripcion()
+	{
+		if($_REQUEST['metodo']==2){
+			$metodo=2;
+		}else{
+			$metodo=$_POST['metodo'];
+		}
+		
+		if( $metodo == 2 ){
+			$usuario = $_REQUEST['usuario'];
+			$idtransaccion=0;
+			$estadotransaccion=$_REQUEST['estado'];
+		}else{
+			$usuario = $_POST['usuario'];
+			$idtransaccion = $_POST['idtransaccion'];
+			$estadotransaccion = $_POST['estadotransaccion'];	
+		}
+		
+		$valor = $_POST['valor'];
+		
+		$estados = array(
+			'PENDING'=>'2',
+			'APPROVED'=>'1',
+			'DECLINED'=>'0'
+		);
+		
+		if( $metodo != 2 ){
+			$estado = $estados[$_POST['estadotransaccion']];
+		}else{
+			$estado = $_REQUEST['estado'];
+		}
+		
+		$displayEstado = array(
+			'0'=>'DECLINADO/CANCELADO',
+			'1'=>'APROBADO',
+			'2'=>'PENDIENTE'
+		);
+		
+		if(!mysqli_query($con, "
+			INSERT INTO `inscritos_conferencia`(`usuario_id`, `estado_inscripcion`, `metodo_pago`, `transaction_id`, `valor_inscripcion`) VALUES ('$usuario','$estado','$metodo','$idtransaccion','$valor')
+		")){
+			echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. ".mysqli_error($con).".</p>";
+		}else{
+			
+			$mensaje = "";
+			$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
+			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
+			if( $estado == 1 ){
+				$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
+			}elseif( $estado == 0 ){
+				$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
+			}elseif( $estado == 2 ){
+				$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
+			}
+			
+			$notificar = notificar(getEmailUsuario($usuario),"Acerca de tu proceso de inscripción",$mensaje);
+			
+			if($notificar == 0){
+				echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. (msg)</p>";
+			}else{
+				if( $metodo == 2 ){
+					header('Location: ' . URL . '/inscripcion-conferencia');
+				}else{
+					echo $mensaje;
+				}
+			}
+		}
+	}
+		
+	// ACTUALIZA PAGOS INSCRIPCIONES
+	function actualizaInscripcion()
+	{
+		global $con;
+		if($_REQUEST['metodo']==2){
+			$metodo=2;
+		}else{
+			$metodo=$_POST['metodo'];
+		}
+		
+		if( $metodo == 2 ){
+			$usuario = $_REQUEST['usuario'];
+			$idtransaccion=0;
+			$estadotransaccion=$_REQUEST['estado'];
+		}else{
+			$usuario = $_POST['usuario'];
+			$idtransaccion = $_POST['idtransaccion'];
+			$estadotransaccion = $_POST['estadotransaccion'];	
+		}
+		
+		$valor = $_POST['valor'];
+		
+		$estados = array(
+			'PENDING'=>'2',
+			'APPROVED'=>'1',
+			'DECLINED'=>'0'
+		);
+		
+		if( $metodo != 2 ){
+			$estado = $estados[$_POST['estadotransaccion']];
+		}else{
+			$estado = $_REQUEST['estado'];
+		}
+		
+		$displayEstado = array(
+			'0'=>'DECLINADO/CANCELADO',
+			'1'=>'APROBADO',
+			'2'=>'PENDIENTE'
+		);
+		
+		if(!mysqli_query($con, "
+			UPDATE 
+				`inscritos_conferencia`
+			SET
+				`estado_inscripcion` = '$estado'
+			WHERE
+				`transaction_id` = '$idtransaccion'
+		")){
+			echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. ".mysqli_error($con).".</p>";
+		}else{
+			
+			$mensaje = "";
+			$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
+			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
+			if( $estado == 1 ){
+				$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
+			}elseif( $estado == 0 ){
+				$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
+			}elseif( $estado == 2 ){
+				$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
+			}
+			
+			$notificar = notificar(getEmailUsuario($usuario),"Acerca de tu proceso de inscripción",$mensaje);
+			
+			if($notificar == 0){
+				echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. (msg)</p>";
+			}else{
+				if( $metodo == 2 ){
+					header('Location: ' . URL . '/inscripcion-conferencia');
+				}else{
+					echo $mensaje;
+				}
+			}
+		}
+	}
+		
+	// PROCESAR INSCRIPCIONES PENDIENTES
+	function inscripcionesPendientes()
+	{		
+		$sql="SELECT * FROM inscritos_conferencia WHERE estado_inscripcion = 2";
+		$q=mysqli_query($con, $sql);
+		$n=mysqli_num_rows($q);
+		if($n>0){
+			
+			while($p=mysqli_fetch_assoc($q)){
 				
 				require_once('payu/PayU.php');
-
+		
 				Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
 				Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-				Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-				
+				Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/');
+			
 				PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
 				PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
 				PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
 				PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-				PayU::$isTest = true; //Dejarlo True cuando sean pruebas.
+				PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+				$accountId = "501716";
+			
+				$parameters = array(PayUParameters::TRANSACTION_ID => "$p[transaction_id]");
+			
+				$response = PayUReports::getTransactionResponse($parameters);
 				
-				$parameters = array(
-					PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
-					PayUParameters::COUNTRY => PayUCountries::CO,
-				);
-				$array=PayUPayments::getPSEBanks($parameters);
-				$banks=$array->banks;
-				
-				$html="<option value=''>Seleccione banco...</option>";
-				
-				foreach ($banks as $bank) {
-					$html.="<option value='".$bank->pseCode."'>".$bank->description."</option>";
+				if ($response) {
+					$response->state;
+					$response->trazabilityCode;
+					$response->authorizationCode;
+					$response->responseCode;
+					$response->operationDate;
 				}
 				
-				$mensaje = "";
-				$mensaje .= "<div class='row'>";
-				$mensaje .= "	<div class='col-md-6 form-group'>";
-				$mensaje .= "		<select class='form-control' name='bancos' id='bancos' required >";
-				$mensaje .= $html;
-				$mensaje .= "		</select>";
-				$mensaje .= "	</div>";
-				$mensaje .= "	<div class='col-md-6 form-group'>";
-				$mensaje .= "		<input type='text' class='form-control' name='noIdentificacion' id='noIdentificacion' placeholder='No. Identificacion' required />";
-				$mensaje .= "	</div>";
-				$mensaje .= "</div>";
-				
-				$mensaje .= "<input type='hidden' name='tipoPersona' id='tipoPersona' value='N' />";
-				$mensaje .= "<input type='hidden' name='nombreCompleto' id='nombreCompleto' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
-				$mensaje .= "<input type='hidden' name='emailPSE' id='emailPSE' value='".getEmailUsuario($_SESSION['id'])."' />";
-				$mensaje .= "<input type='hidden' name='telefonoDiurno' id='telefonoDiurno' value='5717442384' />";
-				$mensaje .= "<input type='hidden' name='pedido' id='pedido' value='CONF".$_SESSION['id']."' />";
-				$mensaje .= "<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
-				$mensaje .= "<input type='hidden' name='consulta' id='consulta' value='pseRequest' />";
-				$mensaje .= "<input type='hidden' name='email' id='email' value='".getEmailUsuario($_SESSION['id'])."' />";
-				
-				$mensaje .= "<script>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			$('#myNuevoModal').modal('hide');";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/php.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				almacenaPendientePSE(";
-				$mensaje .= "					'$_SESSION[id]',";
-				$mensaje .= "					'2',";
-				$mensaje .= "					'$metodo',";
-				$mensaje .= "					response.transactionResponse.transactionId,";
-				$mensaje .= "					'$valor',";
-				$mensaje .= "					response.transactionResponse.extraParameters.BANK_URL";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
-				$mensaje .= "</script>";
-				
-				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
-				
-			}
-			
-			// Proceso de pago VIA Baloto
-			if( $metodo == 4 ){
-				
-				$tipopago = "pagoConBaloto";
-				$titulo = "<i class='fa fa-money'></i> Pagos en puntos VIA Baloto";
-				
-				$mensaje = "";
-				$mensaje .= "<div class='row'>";
-				$mensaje .= "	<div class='col-md-12'>";
-				$mensaje .= "		<p>A continuación efectuaremos el procedimiento de generación de su recibo para pago en efectivo a través de puntos VIA Baloto</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
-				$mensaje .= "	</div>";
-				$mensaje .= "</div>";
-				
-				$mensaje .= "<input type='hidden' name='noDocumentoBaloto' id='noDocumentoBaloto' value='900476732' />";
-				$mensaje .= "<input type='hidden' name='noPedido' id='noPedido' value='CONF".$_SESSION['id']."' />";
-				$mensaje .= "<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
-				$mensaje .= "<input type='hidden' name='email' id='email' value='".getEmailUsuario($_SESSION['id'])."' />";
-				$mensaje .= "<input type='hidden' name='nombreCompleto' id='nombreCompleto' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
-				$mensaje .= "<input type='hidden' name='consulta' id='consulta' value='requestBaloto' />";
-				
-				$mensaje .= "<script>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/php.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				almacenaPendientePSE(";
-				$mensaje .= "					'$_SESSION[id]',";
-				$mensaje .= "					'2',";
-				$mensaje .= "					'$metodo',";
-				$mensaje .= "					response.transactionResponse.transactionId,";
-				$mensaje .= "					'$valor',";
-				$mensaje .= "					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
-				$mensaje .= "</script>";
-				
-				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
-				
-			}
-			
-			if( $metodo == 5 ){
-				
-				$tipopago = "pagoConOxxo";
-				$titulo = "<i class='fa fa-money'></i> Pagos en puntos OXXO - 7 Eleven";
-				
-				$mensaje = "";
-				$mensaje .= "<div class='row'>";
-				$mensaje .= "	<div class='col-md-12'>";
-				$mensaje .= "		<p>A continuación efectuaremos en procedimiento de generación de su recibo para pago en efectivo a través de puntos OXXO.</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
-				$mensaje .= "		<input type='hidden' name='noDocumentoOxxo' id='noDocumentoOxxo' value='900476732' />";
-				$mensaje .= "		<input type='hidden' name='noPedido' id='noPedido' value='CONF$_SESSION[id]' />";
-				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
-				$mensaje .= "		<input type='hidden' name='consulta' id='consulta' value='oxxoRequest' />";
-				$mensaje .= "		<input type='hidden' name='nombreOxxo' id='nombreOxxo' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
-				$mensaje .= "	</div>";
-				$mensaje .= "</div>";
-				
-				$mensaje .= "<script>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/php.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				//$mensaje .= "					alert(data);";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				almacenaPendientePSE(";
-				$mensaje .= "					'$_SESSION[id]',";
-				$mensaje .= "					'2',";
-				$mensaje .= "					'$metodo',";
-				$mensaje .= "					response.transactionResponse.transactionId,";
-				$mensaje .= "					'$valor',";
-				$mensaje .= "					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
-				$mensaje .= "</script>";
-				
-				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
-				
-			}
-			
-			if( $metodo == 6 ){
-				
-				$tipopago = "pagoConBcp";
-				$titulo = "<i class='fa fa-money'></i> Pagos en Banco de Crédito - BCP";
-				
-				$mensaje = "";
-				$mensaje .= "<div class='row'>";
-				$mensaje .= "	<div class='col-md-12'>";
-				$mensaje .= "		<p>A continuación efectuaremos en procedimiento de generación de su recibo para pago en efectivo a través de BCP.</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
-				$mensaje .= "		<input type='hidden' name='noDocumentoBcp' id='noDocumentoBcp' value='900476732' />";
-				$mensaje .= "		<input type='hidden' name='noPedido' id='noPedido' value='CONF$_SESSION[id]' />";
-				$mensaje .= "		<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
-				$mensaje .= "		<input type='hidden' name='consulta' id='consulta' value='bcpRequest' />";
-				$mensaje .= "		<input type='hidden' name='nombreBcp' id='nombreBcp' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
-				$mensaje .= "	</div>";
-				$mensaje .= "</div>";
-				
-				$mensaje .= "<script>";
-				$mensaje .= "	$('#$tipopago').validate({";
-				$mensaje .= "		submitHandler: function(form){";
-				$mensaje .= "			cargar();";
-				$mensaje .= "			$.post('/includes/php.php',$('#$tipopago').serialize())";
-				$mensaje .= "			.done(function(data){";
-				//$mensaje .= "					alert(data);";
-				$mensaje .= "				var response = JSON.parse(data);";
-				$mensaje .= "				almacenaPendientePSE(";
-				$mensaje .= "					'$_SESSION[id]',";
-				$mensaje .= "					'2',";
-				$mensaje .= "					'$metodo',";
-				$mensaje .= "					response.transactionResponse.transactionId,";
-				$mensaje .= "					'$valor',";
-				$mensaje .= "					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
-				$mensaje .= "		}";
-				$mensaje .= "	})";
-				$mensaje .= "</script>";
-				
-				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
-				
-			}
-			
-			$html = "";
-			
-			if($metodo == 2){
-				$html .= '<form name="'.$tipopago.'" action="' . SSL_URL . '" method="post">';
-			}else{
-				$html .= "<form id='$tipopago'>";
-			}
-			
-			$html .= "<div class='modal-header'>";
-			$html .= "	<h4>".$titulo."</h4>";
-			$html .= "</div>";
-			$html .= "<div class='modal-body'>";
-			$mensaje .= "<hr><div class='row'><div class='col-md-12'><p class='lead pull-right'>Valor a pagar: USD ".number_format($valor,2)."</p></div></div>";
-			$html .= $mensaje;
-			$html .= "</div>";
-			$html .= "<div class='modal-footer'>";
-			$html .= $envio;
-			$html .= "</div>";
-			$html .= "</form>";
-			echo $html;
-			
-		}
-		
-		// REQUEST DE PSE
-		if( $_POST['consulta'] == 'pseRequest' ){
-			
-			require_once('payu/PayU.php');
-
-		    	$reference = $_POST['pedido'];
-			$value = $_POST['vrPedido'];
-			
-			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-			Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-			Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-			
-		     //Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
-			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-			PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-			$accountId = "501716";
-			
-			$parameters = array(
-				
-				PayUParameters::ACCOUNT_ID => $accountId,
-				PayUParameters::REFERENCE_CODE => $reference,
-				PayUParameters::DESCRIPTION => "Tu compra en Phronesis, el arte de saber vivir.",
-				
-				PayUParameters::VALUE => $value,
-				PayUParameters::CURRENCY => "USD",
-				
-				PayUParameters::BUYER_EMAIL => $_POST['email'],
-				PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
-				PayUParameters::PAYER_EMAIL => $_POST['email'],
-				PayUParameters::PAYER_CONTACT_PHONE=> $_POST['telefonoDiurno'],
-					   
-				PayUParameters::PSE_FINANCIAL_INSTITUTION_CODE => $_POST['bancos'],
-				PayUParameters::PAYER_PERSON_TYPE => $_POST['tipoPersona'],
-				PayUParameters::PAYER_DNI => $_POST['noIdentificacion'],
-				PayUParameters::PAYER_DOCUMENT_TYPE => 'N',
-			
-				PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
-			   
-				PayUParameters::COUNTRY => PayUCountries::CO,
-				
-				PayUParameters::IP_ADDRESS => "127.0.0.1",
-				PayUParameters::PAYER_COOKIE=>"pt1t38347bs6jc9ruv2ecpv7o2",
-				PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
-			   
-			);
-				
-			$response = PayUPayments::doAuthorizationAndCapture($parameters);
-			
-			if($response){
-				$response->transactionResponse->orderId;
-				$response->transactionResponse->transactionId;
-				$response->transactionResponse->state;
-				if($response->transactionResponse->state)
-				if($response->transactionResponse->state=="PENDING"){
-					$response->transactionResponse->pendingReason;
-					$response->transactionResponse->extraParameters->BANK_URL;		
-				}
-				$response->transactionResponse->responseCode;		  
-			}
-			
-			echo json_encode($response);	
-			
-		}
-		
-		// Almacenar pago inscripcion PSE
-		if( $_POST['consulta'] == 'almacenaPendientePSE' ){
-			if(!mysqli_query($con, "
-			   INSERT INTO
-			   	inscritos_conferencia (
-			   		usuario_id,
-			   		estado_inscripcion,
-			   		metodo_pago,
-			   		transaction_id,
-			   		valor_inscripcion
-			   	) VALUES (
-			   		'$_SESSION[id]',
-			   		'$_POST[estado]',
-			   		'$_POST[metodo]',
-			   		'$_POST[idtransaccion]',
-			   		'$_POST[valor]'
-			   	)
-			")){
-			   echo mysqli_error($con);
-			}else{
-			   echo 1;
-			}
-		}
-		
-		// REQUEST DE BALOTO
-		if( $_POST['consulta'] == 'requestBaloto' ){
-			
-			require_once('payu/PayU.php');
-			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-			Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-			Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-			
-			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-			PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-				
-			$reference = $_POST['noPedido'];
-			$value = $_POST['vrPedido'];
-			
-			$parameters = array(
-				PayUParameters::ACCOUNT_ID => "501716",
-				PayUParameters::REFERENCE_CODE => $reference,
-				PayUParameters::DESCRIPTION => "Tu compra en Phronesis | El arte de saber vivir",
-				PayUParameters::VALUE => $value,
-				PayUParameters::CURRENCY => "USD",
-				PayUParameters::BUYER_EMAIL => $_POST['email'],
-				PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
-				PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],
-				PayUParameters::PAYMENT_METHOD => PaymentMethods::BALOTO,
-				PayUParameters::COUNTRY => PayUCountries::CO,
-				PayUParameters::EXPIRATION_DATE => "2015-09-26T00:00:00",
-				PayUParameters::IP_ADDRESS => "127.0.0.1",   
-			);
-				
-			$response = PayUPayments::doAuthorizationAndCapture($parameters);
-			
-			if($response){
-				$response->transactionResponse->orderId;
-				$response->transactionResponse->transactionId;
-				$response->transactionResponse->state;
-				if($response->transactionResponse->state=="PENDING"){
-					$response->transactionResponse->pendingReason;
-					$response->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_HTML;
-					$response->transactionResponse->extraParameters->REFERENCE;
-				}
-				$response->transactionResponse->responseCode;		  
-			} 
-			
-			print json_encode($response);
-			
-		}
-		
-		// REQUEST DE OXXO - 7 ELEVEN
-		if( $_POST['consulta'] == 'oxxoRequest' ){
-			
-			require_once('payu/PayU.php');
-			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-			Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-			Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-			
-			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-			PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-			
-			$reference = $_POST['noPedido'];
-			$value = $_POST['vrPedido'];
-			
-			$parameters = array(
-			
-				PayUParameters::ACCOUNT_ID => "501789",
-				PayUParameters::REFERENCE_CODE => $reference,
-				PayUParameters::DESCRIPTION => "Tu compra en Phronesis | El arte de saber vivir",
-				
-				PayUParameters::VALUE => $value,
-				PayUParameters::CURRENCY => "USD",
-				
-				PayUParameters::BUYER_EMAIL => $_POST['emailOxxo'],
-				PayUParameters::PAYER_NAME => $_POST['nombreOxxo'],
-				PayUParameters::PAYER_DNI=> $_POST['noDocumentoOxxo'],
-				
-				PayUParameters::PAYMENT_METHOD => PaymentMethods::OXXO,
-				
-				PayUParameters::COUNTRY => PayUCountries::MX,
-				
-				PayUParameters::EXPIRATION_DATE => "2015-09-27T00:00:00",
-				PayUParameters::IP_ADDRESS => "127.0.0.1",
-			
-			);
-			
-			$response = PayUPayments::doAuthorizationAndCapture($parameters);
-			
-			if($response){
-				
-				$response->transactionResponse->orderId;
-				$response->transactionResponse->transactionId;
-				$response->transactionResponse->state;
-				
-				if($response->transactionResponse->state=="PENDING"){
-					$response->transactionResponse->pendingReason;
-					$response->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_HTML;
-					$response->transactionResponse->extraParameters->REFERENCE;
-				}
-				
-				$response->transactionResponse->responseCode;		  
-			
-			} 
-			
-			print json_encode($response);
-			
-		}
-		
-		// BCP REQUEST
-		if( $_POST['consulta'] == 'bcpRequest' ){
-			
-			require_once('payu/PayU.php');
-			
-			//Quitar estas variables de entorno para poder pasar a producccion
-			//Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi"); 
-			//Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi"); 
-			//Environment::setSubscriptionsCustomUrl("https://stg.api.payulatam.com/payments-api/rest/v4.3/"); 
-			//Fin variables de Entorno
-			
-			// Variables de producción
-			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-			Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-			Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-			// Fin variables de producción
-			
-			//Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
-			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-			PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-			
-			$reference = $_POST['noPedido'];
-			$value = $_POST['vrPedido'];
-			
-			$parameters = array(
-			//Ingrese aquí el identificador de la cuenta.
-			PayUParameters::ACCOUNT_ID => "501790",
-			//Ingrese aquí el código de referencia.
-			PayUParameters::REFERENCE_CODE => $reference,
-			//Ingrese aquí la descripción.
-			PayUParameters::DESCRIPTION => "Tu compra en Phronesis | El arte de saber vivir",
-			
-			// -- Valores --
-			//Ingrese aquí el valor.        
-			PayUParameters::VALUE => $value,
-			//Ingrese aquí la moneda.
-			PayUParameters::CURRENCY => "USD",
-			
-			//Ingrese aquí el email del comprador.
-			PayUParameters::BUYER_EMAIL => $_POST['emailBcp'],
-			//Ingrese aquí el nombre del pagador.
-			PayUParameters::PAYER_NAME => $_POST['nombreBcp'],
-			//Ingrese aquí el documento de contacto del pagador.
-			PayUParameters::PAYER_DNI=> $_POST['noDocumentoBcp'],
-			
-			//Ingrese aquí el nombre del método de pago
-			PayUParameters::PAYMENT_METHOD => PaymentMethods::BCP,
-			
-			//Ingrese aquí el nombre del pais.
-			PayUParameters::COUNTRY => PayUCountries::PE,
-			
-			//Ingrese aquí la fecha de expiración.
-			PayUParameters::EXPIRATION_DATE => "2015-10-02T04:00:00",
-			//IP del pagadador
-			PayUParameters::IP_ADDRESS => "127.0.0.1",
-			
-			);
-			
-			$response = PayUPayments::doAuthorizationAndCapture($parameters);
-			
-			if($response){
-				$response->transactionResponse->orderId;
-				$response->transactionResponse->transactionId;
-				$response->transactionResponse->state;
-				if($response->transactionResponse->state=="PENDING"){
-					$response->transactionResponse->pendingReason;
-					$response->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_HTML;
-					$response->transactionResponse->extraParameters->REFERENCE;
-					$response->transactionResponse->extraParameters->EXPIRATION_DATE;      
-				}
-				$response->transactionResponse->responseCode;		  
-			}   
-			
-			print json_encode($response);
-			
-		}
-		
-		// ALMACENAR PAGOS
-		if( 
-			($_POST['consulta'] == 'almacenaInscripcion') || 
-			($_REQUEST['consulta'] == 'almacenaInscripcion' )
-		){
-			if($_REQUEST['metodo']==2){
-				$metodo=2;
-			}else{
-				$metodo=$_POST['metodo'];
-			}
-			
-			if( $metodo == 2 ){
-				$usuario = $_REQUEST['usuario'];
-				$idtransaccion=0;
-				$estadotransaccion=$_REQUEST['estado'];
-			}else{
-				$usuario = $_POST['usuario'];
-				$idtransaccion = $_POST['idtransaccion'];
-				$estadotransaccion = $_POST['estadotransaccion'];	
-			}
-			
-			$valor = $_POST['valor'];
-			
-			$estados = array(
-				'PENDING'=>'2',
-				'APPROVED'=>'1',
-				'DECLINED'=>'0'
-			);
-			
-			if( $metodo != 2 ){
-				$estado = $estados[$_POST['estadotransaccion']];
-			}else{
-				$estado = $_REQUEST['estado'];
-			}
-			
-			$displayEstado = array(
-				'0'=>'DECLINADO/CANCELADO',
-				'1'=>'APROBADO',
-				'2'=>'PENDIENTE'
-			);
-			
-			if(!mysqli_query($con, "
-				INSERT INTO `inscritos_conferencia`(`usuario_id`, `estado_inscripcion`, `metodo_pago`, `transaction_id`, `valor_inscripcion`) VALUES ('$usuario','$estado','$metodo','$idtransaccion','$valor')
-			")){
-				echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. ".mysqli_error($con).".</p>";
-			}else{
-				
-				$mensaje = "";
-				$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
-				$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
-				if( $estado == 1 ){
-					$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
-				}elseif( $estado == 0 ){
-					$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
-				}elseif( $estado == 2 ){
-					$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
-				}
-				
-				$notificar = notificar(getEmailUsuario($usuario),"Acerca de tu proceso de inscripción",$mensaje);
-				
-				if($notificar == 0){
-					echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. (msg)</p>";
-				}else{
-					if( $metodo == 2 ){
-						header('Location: ' . URL . '/inscripcion-conferencia');
+				if( $response->state != 'PENDING' ){
+					
+					$status = 0;
+					if( $response->state == 'APPROVED' ){
+						$status = 1;
+					}
+					
+					if(!mysqli_query($con, "UPDATE inscritos_conferencia SET estado_inscripcion = '$status' WHERE transaction_id = '$p[transaction_id]'")){
+						
+						echo 0;
+					
 					}else{
-						echo $mensaje;
-					}
-				}
-			}
-		}
-		
-		// ACTUALIZA PAGOS INSCRIPCIONES
-		if( 
-			($_POST['consulta'] == 'actualizaInscripcion')
-		){
-			if($_REQUEST['metodo']==2){
-				$metodo=2;
-			}else{
-				$metodo=$_POST['metodo'];
-			}
-			
-			if( $metodo == 2 ){
-				$usuario = $_REQUEST['usuario'];
-				$idtransaccion=0;
-				$estadotransaccion=$_REQUEST['estado'];
-			}else{
-				$usuario = $_POST['usuario'];
-				$idtransaccion = $_POST['idtransaccion'];
-				$estadotransaccion = $_POST['estadotransaccion'];	
-			}
-			
-			$valor = $_POST['valor'];
-			
-			$estados = array(
-				'PENDING'=>'2',
-				'APPROVED'=>'1',
-				'DECLINED'=>'0'
-			);
-			
-			if( $metodo != 2 ){
-				$estado = $estados[$_POST['estadotransaccion']];
-			}else{
-				$estado = $_REQUEST['estado'];
-			}
-			
-			$displayEstado = array(
-				'0'=>'DECLINADO/CANCELADO',
-				'1'=>'APROBADO',
-				'2'=>'PENDIENTE'
-			);
-			
-			if(!mysqli_query($con, "
-				UPDATE 
-					`inscritos_conferencia`
-				SET
-					`estado_inscripcion` = '$estado'
-				WHERE
-					`transaction_id` = '$idtransaccion'
-			")){
-				echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. ".mysqli_error($con).".</p>";
-			}else{
-				
-				$mensaje = "";
-				$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
-				$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
-				if( $estado == 1 ){
-					$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
-				}elseif( $estado == 0 ){
-					$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
-				}elseif( $estado == 2 ){
-					$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
-				}
-				
-				$notificar = notificar(getEmailUsuario($usuario),"Acerca de tu proceso de inscripción",$mensaje);
-				
-				if($notificar == 0){
-					echo "<p>Lo sentimos, se ha presentado un error. Por favor intente de nuevo. (msg)</p>";
-				}else{
-					if( $metodo == 2 ){
-						header('Location: ' . URL . '/inscripcion-conferencia');
-					}else{
-						echo $mensaje;
-					}
-				}
-			}
-		}
-		
-		// PROCESAR INSCRIPCIONES PENDIENTES
-		if($_GET['consulta']=='inscripcionesPendientes'){
-			
-			$sql="SELECT * FROM inscritos_conferencia WHERE estado_inscripcion = 2";
-			$q=mysqli_query($con, $sql);
-			$n=mysqli_num_rows($q);
-			if($n>0){
-				
-				while($p=mysqli_fetch_assoc($q)){
 					
-					require_once('payu/PayU.php');
-			
-					Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-					Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-					Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/');
-				
-					PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-					PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-					PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-					PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-					PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-					$accountId = "501716";
-				
-					$parameters = array(PayUParameters::TRANSACTION_ID => "$p[transaction_id]");
-				
-					$response = PayUReports::getTransactionResponse($parameters);
-					
-					if ($response) {
-						$response->state;
-						$response->trazabilityCode;
-						$response->authorizationCode;
-						$response->responseCode;
-						$response->operationDate;
-					}
-					
-					if( $response->state != 'PENDING' ){
-						
-						$status = 0;
-						if( $response->state == 'APPROVED' ){
-							$status = 1;
-						}
-						
-						if(!mysqli_query($con, "UPDATE inscritos_conferencia SET estado_inscripcion = '$status' WHERE transaction_id = '$p[transaction_id]'")){
-							
-							echo 0;
-						
+						$estado = array(
+							'1'=>'Aprobado',
+							'0'=>'Declinado/Cancelado'
+						);
+						$mensaje = "";
+						$mensaje .= "<p>Hola ".getNombreUsuario($p['usuario_id']).",</p>";
+						$mensaje .= "<p>Queremos informarle que el estado del pago de su inscripción a nuestra conferencia virtual es: $estado[$status].</p>";
+						if( $status = 0 ){
+							$mensaje .= "<p>Por favor intente nuevamente su inscripción utilizando otro medio de pago.</p>";
 						}else{
-						
-							$estado = array(
-								'1'=>'Aprobado',
-								'0'=>'Declinado/Cancelado'
-							);
-							$mensaje = "";
-							$mensaje .= "<p>Hola ".getNombreUsuario($p['usuario_id']).",</p>";
-							$mensaje .= "<p>Queremos informarle que el estado del pago de su inscripción a nuestra conferencia virtual es: $estado[$status].</p>";
-							if( $status = 0 ){
-								$mensaje .= "<p>Por favor intente nuevamente su inscripción utilizando otro medio de pago.</p>";
-							}else{
-								$mensaje .= "<p>Pronto estaremos enviándole la información correspondiente para su acceso a la conferencia virtual.</p>";
-							}
-							
-							$notificar = notificar(getEmailUsuario($p['usuario_id']),'Estado de pago de su inscripción a la conferencia virtual',$mensaje);
-							if($notificar==1){
-								echo "1";
-							}else{
-								echo "0";
-							}
+							$mensaje .= "<p>Pronto estaremos enviándole la información correspondiente para su acceso a la conferencia virtual.</p>";
 						}
 						
+						$notificar = notificar(getEmailUsuario($p['usuario_id']),'Estado de pago de su inscripción a la conferencia virtual',$mensaje);
+						if($notificar==1){
+							echo "1";
+						}else{
+							echo "0";
+						}
 					}
 					
 				}
+				
+			}
+		}
+	}
+		
+	// EJECUCIÓN DE PAGOS
+	function ejecutarPago()
+	{		
+		$orden = $_REQUEST['orden'];
+		$formaDePago = $_REQUEST['formaDePago'];
+		$estado = $_REQUEST['estado'];
+		
+		// Actualizar la información de la orden
+		$q=mysqli_query($con, "
+			UPDATE
+				pedidos
+			SET
+				status = '$estado',
+				formaPago = '$formaDePago'
+			WHERE
+				id = '$orden'
+		");
+		
+		if(!$q){
+			
+			echo('<script>alert("Lo sentimos, se ha presentado un error. Por favor consúltenos a través del formulario de contacto acerca del estado de su orden.");</script>');
+			echo('<script>window.location.href="'.URL.'";</script>');
+		
+		}else{
+			
+			if($estado==3){
+				
+				echo('<meta http-equiv="refresh" content="0;url='.$_REQUEST['url'].'" />');
+				
 			}
 			
-		}
-		
-		// EJECUCIÓN DE PAGOS
-		if($_REQUEST['consulta']=='ejecutarPago'){
-			
-			$orden = $_REQUEST['orden'];
-			$formaDePago = $_REQUEST['formaDePago'];
-			$estado = $_REQUEST['estado'];
-			
-			// Actualizar la información de la orden
-			$q=mysqli_query($con, "
-				UPDATE
-					pedidos
-				SET
-					status = '$estado',
-					formaPago = '$formaDePago'
-				WHERE
-					id = '$orden'
-			");
-			
-			if(!$q){
+			if($estado==2){
 				
-				echo('<script>alert("Lo sentimos, se ha presentado un error. Por favor consúltenos a través del formulario de contacto acerca del estado de su orden.");</script>');
-				echo('<script>window.location.href="'.URL.'";</script>');
+				// Si la orden fué aprobada, entregamos el pedido
+				$entrega = entregarPedido($orden);
+				
+				if($entrega == 0){
 			
-			}else{
-				
-				if($estado==3){
+					echo('<script>alert("Lo sentimos, se ha presentado un error. Por favor consúltenos a través del formulario de contacto acerca del estado de su orden. (1)");</script>');
+					echo('<script>window.location.href="'.URL.'";</script>');
 					
-					echo('<meta http-equiv="refresh" content="0;url='.$_REQUEST['url'].'" />');
+				}else{
 					
-				}
-				
-				if($estado==2){
+					$notifica = notificarOrden($orden,$estado);
 					
-					// Si la orden fué aprobada, entregamos el pedido
-					$entrega = entregarPedido($orden);
-					
-					if($entrega == 0){
-				
-						echo('<script>alert("Lo sentimos, se ha presentado un error. Por favor consúltenos a través del formulario de contacto acerca del estado de su orden. (1)");</script>');
-						echo('<script>window.location.href="'.URL.'";</script>');
+					if($notifica == 0){
 						
+						echo('<script>alert("Lo sentimos, se ha presentado un error. Por favor consúltenos a través del formulario de contacto acerca del estado de su orden. (2)");</script>');
+						
+						echo('<script>window.location.href="'.URL.'";</script>');	
+					
 					}else{
 						
-						$notifica = notificarOrden($orden,$estado);
+						echo('<meta http-equiv="refresh" content="0;url='.URL.'mi-cuenta/mis-publicaciones" />');
 						
-						if($notifica == 0){
-							
-							echo('<script>alert("Lo sentimos, se ha presentado un error. Por favor consúltenos a través del formulario de contacto acerca del estado de su orden. (2)");</script>');
-							
-							echo('<script>window.location.href="'.URL.'";</script>');	
-						
-						}else{
-							
-							echo('<meta http-equiv="refresh" content="0;url='.URL.'mi-cuenta/mis-publicaciones" />');
-							
-						}
-						
-					}
-					
-				}
-				
+					}	
+				}	
 			}
-			
+		}	
+	}
+		
+	// ENVIAR NOTIFICACIONES CON COMPROBANTE DE PAGO
+	function notificaComprobante()
+	{
+		$mensaje = "";
+		$mensaje .= "<p>Estimado(a) ".getNombreUsuario($_POST['usuario']).",</p>";
+		$mensaje .= "<p>A continuación encontrará el enlace para la generación del comprobante de su pago en efectivo en caso tal de que llegue a requerirlo nuevamente.</p>";
+		$mensaje .= "<h1><a href='$_POST[url]'>Haga click aquí para generar el comprobante</a></h1>";
+		
+		if( $_POST['metodo'] == 6 ){
+			$mensaje .= "
+				<p><b>NOTA IMPORTANTE PARA PAGOS EN BCP</b></p>
+				<ul>
+					<li>Dirígete a partir de mañana a las 12:00 PM a cualquier banco de crédito del Perú (BCP) y realiza el pago con el recibo que generarás a través del enlace.</li>
+					<li>Una vez realizado el pago no olvides enviarnos escaneado o en una foto clara el comprobante del pago a info@phronesisvirtual.com.</li>
+					<li>Ten presente que el pago va dirigido a la compañía PagosOnline no a Editorial Phronesis. Es importante que guardes el certificado de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
+				</ul>
+			";
 		}
 		
-		// ENVIAR NOTIFICACIONES CON COMPROBANTE DE PAGO
-		if($_POST['consulta']=='notificaComprobante'){
-			$mensaje = "";
-			$mensaje .= "<p>Estimado(a) ".getNombreUsuario($_POST['usuario']).",</p>";
-			$mensaje .= "<p>A continuación encontrará el enlace para la generación del comprobante de su pago en efectivo en caso tal de que llegue a requerirlo nuevamente.</p>";
-			$mensaje .= "<h1><a href='$_POST[url]'>Haga click aquí para generar el comprobante</a></h1>";
-			
-			if( $_POST['metodo'] == 6 ){
-				$mensaje .= "
-					<p><b>NOTA IMPORTANTE PARA PAGOS EN BCP</b></p>
-					<ul>
-						<li>Dirígete a partir de mañana a las 12:00 PM a cualquier banco de crédito del Perú (BCP) y realiza el pago con el recibo que generarás a través del enlace.</li>
-						<li>Una vez realizado el pago no olvides enviarnos escaneado o en una foto clara el comprobante del pago a info@phronesisvirtual.com.</li>
-						<li>Ten presente que el pago va dirigido a la compañía PagosOnline no a Editorial Phronesis.
-Es importante que guardes el certificado de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
-					</ul>
-				";
-			}
-			
-			if( $_POST['metodo'] == 5 ){
-				$mensaje .= "
-					<p><b>NOTA IMPORTANTE PARA PAGOS EN OXXO</b></p>
-					<ul>
-						<li>Imprime el recibo con el enlace que te estamos enviando en una impresora láser y preséntalo en cualquier tienda OXXO del país.</li>
-						<li>Si por algún motivo el código de barras no puede ser leído solicita al cajero que digite los números que se encuentran debajo del código.</li>
-						<li>Una vez realizado el pago no olvides enviarnos escaneado o en una foto clara el comprobante del pago.</li>
-						<li>Ten presente que el pago va dirigido a la compañía PagosOnline o PayuLatam y no a Editorial Phronesis.</li>
-						<li>Es importante que guardes el certificado de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
-					</ul>
-				";
-			}
-			
-			if( $_POST['metodo'] == 4 ){
-				$mensaje .= "
-					<p><b>NOTA IMPORTANTE PARA PAGOS EN BALOTO</b></p>
-					<ul>
-						<li>Para realizar el pago dirígete a cualquier punto Vía Baloto del país con los datos que encontrarás en el recibo que te estamos enviando adjunto. Una vez realizado el pago recibirás un email con las instrucciones para acceder a los productos adquiridos.</li>
-						<li>Es importante que guardes el recibo de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
-					</ul>
-				";
-			}
-			
-			$mensaje .= "<p>Gracias por tu interés en nuestra conferencia virtual.</p>";
-			notificar(getEmailUsuario($_POST['usuario']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+		if( $_POST['metodo'] == 5 ){
+			$mensaje .= "
+				<p><b>NOTA IMPORTANTE PARA PAGOS EN OXXO</b></p>
+				<ul>
+					<li>Imprime el recibo con el enlace que te estamos enviando en una impresora láser y preséntalo en cualquier tienda OXXO del país.</li>
+					<li>Si por algún motivo el código de barras no puede ser leído solicita al cajero que digite los números que se encuentran debajo del código.</li>
+					<li>Una vez realizado el pago no olvides enviarnos escaneado o en una foto clara el comprobante del pago.</li>
+					<li>Ten presente que el pago va dirigido a la compañía PagosOnline o PayuLatam y no a Editorial Phronesis.</li>
+					<li>Es importante que guardes el certificado de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
+				</ul>
+			";
 		}
+		
+		if( $_POST['metodo'] == 4 ){
+			$mensaje .= "
+				<p><b>NOTA IMPORTANTE PARA PAGOS EN BALOTO</b></p>
+				<ul>
+					<li>Para realizar el pago dirígete a cualquier punto Vía Baloto del país con los datos que encontrarás en el recibo que te estamos enviando adjunto. Una vez realizado el pago recibirás un email con las instrucciones para acceder a los productos adquiridos.</li>
+					<li>Es importante que guardes el recibo de pago para cualquier reclamación o inconsistencia que se pueda presentar.</li>
+				</ul>
+			";
+		}
+		
+		$mensaje .= "<p>Gracias por tu interés en nuestra conferencia virtual.</p>";
+		notificar(getEmailUsuario($_POST['usuario']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+	}
 		
 	/////////////////////////////////////////////////////////////////////////
 	
 	// GESTIÓN DE ARTÍCULOS
 	
 	/////////////////////////////////////////////////////////////////////////
-	
-		if($_POST['consulta']=='cargarArticulos'){
-			$load=htmlentities(strip_tags($_POST['load'])) * 8;
-			$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 ";
-			if($_POST['categoria']>0){
-				$sql.="AND categoria LIKE '%$_POST[categoria]%'";
-			}
-			$sql.=" ORDER BY fecha_publicacion DESC LIMIT ".$load.",8";
-			$q=mysqli_query($con, $sql);
-			while($row=mysqli_fetch_assoc($q)){
-				echo getArticuloCategoria($row['id']);
+	function cargarArticulos()
+	{
+		$load=htmlentities(strip_tags($_POST['load'])) * 8;
+		$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 ";
+		if($_POST['categoria']>0){
+			$sql.="AND categoria LIKE '%$_POST[categoria]%'";
+		}
+		$sql.=" ORDER BY fecha_publicacion DESC LIMIT ".$load.",8";
+		$q=mysqli_query($con, $sql);
+		while($row=mysqli_fetch_assoc($q)){
+			echo getArticuloCategoria($row['id']);
+		}
+	}
+		
+	// Buscador de artículos
+	function buscarArticulos()
+	{
+		$q = mysqli_query($con, "
+			(SELECT id, titulo, contenido FROM articulos WHERE titulo LIKE '%" . 
+	           $_POST['buscarArticulo'] . "%' OR contenido LIKE '%" . $_POST['buscarArticulo'] ."%')
+		");
+		if(!$q){
+			echo 0;
+		}else{
+			$n = mysqli_num_rows($q);
+			if($n < 1){
+				echo "<p>Lo sentimos, no se han encontrado coincidencias.</p>";
+			} else {
+				$html.="";
+				$html.="<p class='pull-right'><b>$n resultados encontrados.</b></p>";
+				while($r = mysqli_fetch_assoc($q)){
+					$html .= "<div class='row busquedaResultado'>";
+					$html .= "<div class='col-md-12'>";
+					$html .= "<p><b><a href='index.php?content=articulo&id=$r[id]'>$r[titulo]</a></b></p>";
+					$html .= "<p>".limit_words(strip_tags($r['contenido']),15)."</p>";
+					$html .= "<p><a href='index.php?content=articulo&id=$r[id]'>Leer artículo...</a></p>";
+					$html .= "</div>";
+					$html .= "</div>";
+				}
+				echo $html;
 			}
 		}
-		
-		// Buscador de artículos
-		if($_POST['consulta'] == 'buscarArticulos'){
-			$q = mysqli_query($con, "
-				(SELECT id, titulo, contenido FROM articulos WHERE titulo LIKE '%" . 
-		           $_POST['buscarArticulo'] . "%' OR contenido LIKE '%" . $_POST['buscarArticulo'] ."%')
-			");
-			if(!$q){
-				echo 0;
-			}else{
-				$n = mysqli_num_rows($q);
-				if($n < 1){
-					echo "<p>Lo sentimos, no se han encontrado coincidencias.</p>";
-				} else {
-					$html.="";
-					$html.="<p class='pull-right'><b>$n resultados encontrados.</b></p>";
-					while($r = mysqli_fetch_assoc($q)){
-						$html .= "<div class='row busquedaResultado'>";
-						$html .= "<div class='col-md-12'>";
-						$html .= "<p><b><a href='index.php?content=articulo&id=$r[id]'>$r[titulo]</a></b></p>";
-						$html .= "<p>".limit_words(strip_tags($r['contenido']),15)."</p>";
-						$html .= "<p><a href='index.php?content=articulo&id=$r[id]'>Leer artículo...</a></p>";
-						$html .= "</div>";
-						$html .= "</div>";
-					}
-					echo $html;
-				}
-			}
-		} 
+	}
 		
 	/////////////////////////////////////////////////////////////////////////
 	

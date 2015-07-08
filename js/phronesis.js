@@ -6,12 +6,12 @@ window.sr = new scrollReveal( config );
 
 // Descargar el cargador
 $(document).ready(function(){
-	
+
 	$('.load').fadeOut('slow');
 	$( ".datepicker" ).datepicker({
 		dateFormat: "yy-mm-dd",
 		changeYear: true, yearRange : '-100:+0'
-	})
+	});
 	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
 		disableOn: 700,
 		type: 'iframe',
@@ -23,8 +23,8 @@ $(document).ready(function(){
     $('#nombreTarjeta').keyup(function() {
             this.value = this.value.toLocaleUpperCase();
     });
-    
-})
+
+});
 
 // Funciones
 	// Cargar cargador
@@ -42,14 +42,14 @@ $(document).ready(function(){
 		$('#myModalVacioContenido').html(contenido);
 		$('#myModalVacio').modal('show');
 	}
-	
+
 	// General modal vacio
 	function nuevoModal(contenido){
 		descargar();
 		$('#myNuevoModalContenido').html(contenido);
 		$('#myNuevoModal').modal('show');
 	}
-	
+
 	// Limpiar campos
 	function limpiarCampos(){
 		$('.form-control').val('');
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			$('.loaderPedido').html("<tr><td colspan='3' class='text-center'>¿Aún no tienes publicaciones en tu pedido?<br />Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a></td></tr>");
 		}
 	}
-	
+
 	// Obtener formulario de pago
 	function obtenerFormularioDePago(metodo){
 		cargar();
@@ -93,9 +93,21 @@ $(document).ready(function(){
 		}).done(function(data){
 			descargar();
 			nuevoModal(data);
-		})
+		});
 	}
-	
+	function obtenerFormularioDePago2(metodo, pagina){
+		cargar();
+		logActividades("Llama formulario de pago para el metodo " + metodo);
+		$.post('/includes/php.php',{
+			consulta: "obtenerFormularioDePago",
+			metodo: metodo,
+			pagina: pagina
+		}).done(function(data){
+			descargar();
+			nuevoModal(data);
+		});
+	}
+
 	function procesaInscripcionConferencia(usuario,metodo,idtransaccion,estadotransaccion,valor){
 		$.post('/includes/php.php',{
 			consulta: "almacenaInscripcion",
@@ -106,7 +118,7 @@ $(document).ready(function(){
 			valor: valor
 		}).done(function(data){
 			descargar();
-			if( 
+			if(
 				(metodo == 1) &&
 				(estadotransaccion == 'APPROVED')
 			 ){
@@ -116,7 +128,7 @@ $(document).ready(function(){
 			}
 		})
 	}
-	
+
 	function actualizaInscripcionConferencia(usuario,metodo,idtransaccion,estadotransaccion,valor){
 		cargar();
 		$.post('/includes/php.php',{
@@ -131,7 +143,7 @@ $(document).ready(function(){
 			modal("Proceso de inscripción",data);
 		})
 	}
-	
+
 	// Almacenar pendientes PSE
 	function almacenaPendientePSE( usuario,estado,metodo,idtransaccion,valor,url ){
 		$.post('/includes/php.php',{
@@ -143,24 +155,24 @@ $(document).ready(function(){
 			valor: valor
 		}).done(function(msg){
 			if( msg == 1 ){
-				
+
 				if(metodo == 3){
 					window.location.href = url;
 				}
-				
+
 				if( (metodo > 3) && (metodo < 7) ){
 				   notificaComprobante(usuario,url,metodo);
 				   $('#myNuevoModal').modal('hide');
 				   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p><b>Importante:</b> Te hemos enviado a tu correo un mensaje que contiene algunas recomendaciones que debes tener en cuenta para poder realizar tu pago, así mismo como un enlace para que puedas generar tu recibo en caso de requerirlo nuevamente.</p>")
 				}
-				
+
 			} else {
 				alert(msg);
 				descargar();
 			}
 		})
 	}
-	
+
 	// Comprobantes de pago via email
 	function notificaComprobante(usuario,url,metodo){
 		$.post('/includes/php.php',{
@@ -170,18 +182,18 @@ $(document).ready(function(){
 			metodo: metodo
 		})
 	}
-	
+
 	// Modal Expectativa Evento
 	function modalEx(){
 		modal('Proximamente...','<p><a href="index.php?content=conferencia-virtual"><img src="/img/popup.jpg" class="img img-responsive" /></a></p>');
 	}
-	
+
 	// Scroll a anchor point
 	function scrollToAnchor(aid){
 	    var aTag = $("a[name='"+ aid +"']");
 	    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
 	}
-	
+
 	// Log de actividades
 	function logActividades(actividad){
 		$.post('/includes/php.php',{
@@ -327,7 +339,7 @@ $('#contacto').validate({
 		var mensaje = $('#mensaje-contacto').val();
 		$.post('/includes/php.php',{
 			consulta: "contacto",
-			nombre: nombre, 
+			nombre: nombre,
 			apellido: apellido,
 			email: email,
 			motivo: motivo,
@@ -388,7 +400,7 @@ $('.btnFavoritos').click(function(){
 			bootbox.alert("Se ha presentado un error. Por favor refresque la página e intente de nuevo.", function() {console.log("Alert Callback");})
 			return false;
 		}
-		
+
 		$.post('/includes/php.php',{
 			consulta: "agregarFavoritos",
 			usuario: usuario,
@@ -396,7 +408,7 @@ $('.btnFavoritos').click(function(){
 		}).done(function(msg){
 			bootbox.alert(msg, function() {console.log("Alert Callback");})
 		})
-		
+
 	}
 })
 
@@ -534,10 +546,32 @@ $('.btnDescripcion').click(function(){
 
 // Botón para seleccionar país para el pago
 $('#paisPago').change(function(){
+	$('.selectFormaPago').fadeOut();
 	var pais = $(this).val();
+	var html = '<option value="">Seleccione...</option>';
+	var htmlTarjet = '<option value="1">Tarjeta de Crédito</option>';
+	var htmlTransf = '<option class="co" value="3">Transferencia Bancaria - PSE</option>';
+	var htmlBaloto = '<option class="co" value="4">Puntos VIA Baloto</option>';
+	var htmloxxoel = '<option class="mx" value="5">OXXO - 7 Eleven</option>';
+	var htmlbanbcp = '<option class="pe" value="6">Banco de Crédito - BCP</option>';
+
 	$('.tarjetaCredito').fadeOut();
-	$('#formaPago').prop('selectedIndex',0);
-	if(pais==""){
+	/*$('#formaPago').prop('selectedIndex',0);*/
+	if(pais == "CO"){
+		html += htmlTarjet+htmlTransf+htmlBaloto;
+	}else if(pais == "MX"){
+		html += htmlTarjet+htmloxxoel;
+	}else if(pais == "PE"){
+		html += htmlTarjet+htmlbanbcp;
+	}else{
+		html += htmlTarjet;
+	}
+	$('#formaPago').empty();
+	$('#formaPago').append(html);
+	$('.selectFormaPago').fadeIn();
+
+
+	/*if(pais==""){
 		$('.selectFormaPago').fadeOut();
 	} else {
 		$('.selectFormaPago').fadeIn();
@@ -556,11 +590,12 @@ $('#paisPago').change(function(){
 		$('.pe').show();
 	} else {
 		$('.pe').hide();
-	}
+	}*/
+
 })
 
 $('#formaPago').change(function(){
-	
+
 	// Pagos con tarjeta de credito
 	var formaPago = $(this).val();
 	if(formaPago==1){
@@ -568,14 +603,14 @@ $('#formaPago').change(function(){
 	} else {
 		$('.tarjetaCredito').fadeOut();
 	}
-	
+
 	// Pagos con Paypal
 	if(formaPago==2){
 		$('.btnPaypal').fadeIn();
 	} else {
 		$('.btnPaypal').fadeOut();
 	}
-	
+
 	// Pagos con PSE - Parte 1
 	if(formaPago==3){
 		$('.load').fadeIn();
@@ -590,26 +625,26 @@ $('#formaPago').change(function(){
 	} else {
 		$('.pagosPSE').fadeOut();
 	}
-	
+
 	// Pagos Baloto
 	if(formaPago==4){
 		$('.pagosBaloto').fadeIn();
 	} else {
 		$('.pagosBaloto').fadeOut();
 	}
-	
+
 	if(formaPago==5){
 		$('.pagosOxxo').fadeIn();
 	} else {
 		$('.pagosOxxo').fadeOut();
 	}
-	
+
 	if(formaPago==6){
 		$('.pagosBcp').fadeIn();
 	} else {
 		$('.pagosBcp').fadeOut();
 	}
-	
+
 });
 
 // Pagos con BCP
@@ -699,7 +734,7 @@ $('#formFinalizaRegistro').validate({
  * Autor: Creative Tim
  * Web-autor: creative.tim
  * Web script: http://creative-tim.com
- * 
+ *
  */
 function showRegisterForm(){
     $('.loginBox').fadeOut('fast',function(){
@@ -708,28 +743,28 @@ function showRegisterForm(){
             $('.register-footer').fadeIn('fast');
         });
         $('.modal-title').html('Registrarse con');
-    }); 
+    });
     $('.error').removeClass('alert alert-danger').html('');
-       
+
 }
 function showLoginForm(){
     $('#loginModal .registerBox').fadeOut('fast',function(){
         $('.loginBox').fadeIn('fast');
         $('.register-footer').fadeOut('fast',function(){
-            $('.login-footer').fadeIn('fast');    
+            $('.login-footer').fadeIn('fast');
         });
-        
+
         $('.modal-title').html('Entrar con');
-    });       
-     $('.error').removeClass('alert alert-danger').html(''); 
+    });
+     $('.error').removeClass('alert alert-danger').html('');
 }
 
 function openLoginModal(){
     showLoginForm();
     setTimeout(function(){
-        $('#loginModal').modal('show');    
+        $('#loginModal').modal('show');
     }, 230);
-    
+
 }
 
 $('.muestraLogin').click(function(){
@@ -739,47 +774,86 @@ $('.muestraLogin').click(function(){
 function openRegisterModal(){
     showRegisterForm();
     setTimeout(function(){
-        $('#loginModal').modal('show');    
+        $('#loginModal').modal('show');
     }, 230);
-    
+
 }
 
 function loginAjax(){
-	$.post('/includes/php.php',{
+	var data = {
 		consulta: "login",
 		usuario: $('#emailLogin').val(),
 		password: $('#passwordLogin').val(),
 		url: $('#currentUrl').val()
-	}).done(function(data){
-		if( data > 0 ){
+	};
+	$.ajax({
+		url: '/includes/php.php',
+		type: 'POST',
+		dataType: 'json',
+		data: data,
+	})
+	.done(function(data) {
+		if( data.error == 1 ){
 		    $.cookie('session',data);
 		    location.reload();
 		} else {
 		    shakeModal();
 		}
-	})     
+		/*console.log("success");*/
+	})
+	.fail(function() {
+		/*console.log("error");*/
+	})
+	.always(function() {
+		/*console.log("complete");*/
+	});
+	
+	/*$.post('/includes/php.php',{
+		consulta: "login",
+		usuario: $('#emailLogin').val(),
+		password: $('#passwordLogin').val(),
+		url: $('#currentUrl').val()
+	}).done(function(data){
+		if( data.error == 1 ){
+		    $.cookie('session',data);
+		    location.reload();
+		} else {
+		    shakeModal();
+		}
+	})*/
 }
 
 function registroAjax(){
-	
+
 	$('.error').addClass('alert alert-danger').html("Mmm");
 	shakeModalRegistro();
-	
+
 }
 
 $('#loginInscripcion').validate({
 	submitHandler: function(form){
 		cargar();
-		$.post('/includes/php.php',$('#loginInscripcion').serialize())
-		.done(function(data){
-		    if( data > 0 ){
+		$.ajax({
+			url: '/includes/php.php',
+			type: 'POST',
+			dataType: 'json',
+			data: $('#loginInscripcion').serialize(),
+		})
+		.done(function(data) {
+			if( data.error == 1 ){
 			    $.cookie('session',data);
 			    location.reload();
 		    } else {
 			    alert('Nombre de usuario y/o contraseña inválido');
-			    descargar();
 		    }
-	    })	
+		})
+		.fail(function(data) {
+			console.log("error");
+		})
+		.always(function(data) {
+			console.log("complete");
+		    descargar();
+		});
 	}
 });
 
@@ -822,7 +896,7 @@ $('#registroUsuarios').validate({
 				location.reload();
 			}
 		})
-		
+
 	}
 });
 
@@ -858,7 +932,7 @@ $('#registroInscripcion').validate({
 				location.reload();
 			}
 		})
-		
+
 	}
 });
 
@@ -866,16 +940,16 @@ function shakeModal(){
     $('#loginModal .modal-dialog').addClass('shake');
              $('.error').addClass('alert alert-danger').html("Nombre de usuario o contraseña inválidos");
              $('input[type="password"]').val('');
-             setTimeout( function(){ 
-                $('#loginModal .modal-dialog').removeClass('shake'); 
-    }, 1000 ); 
+             setTimeout( function(){
+                $('#loginModal .modal-dialog').removeClass('shake');
+    }, 1000 );
 }
 
 function shakeModalRegistro(){
     $('#loginModal .modal-dialog').addClass('shake');
-        setTimeout( function(){ 
-           $('#loginModal .modal-dialog').removeClass('shake'); 
-    }, 1000 ); 
+        setTimeout( function(){
+           $('#loginModal .modal-dialog').removeClass('shake');
+    }, 1000 );
 }
 
 // Cerrar el modal de muestra y ver el formulario de registro
@@ -997,15 +1071,89 @@ $('#paisConferencia').change(function(){
 	$.post('includes/php.php',{
 		consulta: 'obtenerMediosDePago',
 		pais: $('#paisConferencia').val()
-	}).done(function(data){
+	}).done(function (data, status, jqxhr){
 		$('#formaDePagoConferencia').html(data);
 		descargar();
+	}).fail(function (data, status, jqxhr) {
+		/*var r = confirm('Ha ocurrido un error con la pasarela de pago. \nDesea intentarlo nuevamente?');*/
+		modal("Lo sentimos","<p>Se ha presentado un error, por favor intente de nuevo.</p>");
+		if ( r == true ) {
+			location.reload(true);
+		}else{
+			window.location = 'https://www.elartedesabervivir.com/';
+		}
+	})
+})
+// Medios de pago para la conferencia
+$('#paisConferencia2').change(function(){
+	cargar();
+	logActividades('Selecciona pais conferencia');
+	$.post('includes/php.php',{
+		consulta: 'obtenerMediosDePago',
+		pais: $('#paisConferencia2').val()
+	}).done(function (data, status, jqxhr){
+		$('#formaDePagoConferencia').html(data);
+		descargar();
+	}).fail(function (data, status, jqxhr) {
+		/*var r = confirm('Ha ocurrido un error con la pasarela de pago. \nDesea intentarlo nuevamente?');*/
+		/*modal("Lo sentimos","<p>Se ha presentado un error, por favor intente de nuevo.</p>");*/
+		descargar();
+		bootbox.alert("Se ha presentado un error, por favor intente de nuevo.", function(){
+			console.log("se ha cerrado");
+			location.reload(true);
+		});
+		/*if ( r == true ) {
+			location.reload(true);
+		}else{
+			window.location = 'https://www.elartedesabervivir.com/';
+		}*/
 	})
 })
 
 // Inscripcion en la conferencia
 $('#inscripcionConferencia').validate({
 	submitHandler: function(form){
-		obtenerFormularioDePago($('#formaDePagoConferencia').val());
+		if ( $('#pagina').length > 0 ) {
+			obtenerFormularioDePago2($('#formaDePagoConferencia').val(), $('#pagina').val());
+		}else{
+			obtenerFormularioDePago($('#formaDePagoConferencia').val());
+		}
 	}
+});
+
+
+/*===================================================
+=            Validar código de descuento            =
+===================================================*/
+$('body').on('click', '#validarDecuento', function(event) {
+	event.preventDefault();
+	var data = {
+		codigo : $('#codigoDescuento').val(),
+		consulta : 'validar-codigo-descuento'
+	};
+	$.ajax({
+		url: '/includes/php.php',
+		type: 'POST',
+		dataType: 'json',
+		data: data,
+	})
+	.done(function(data) {
+		if (data.error == 0){
+			$('#descuentoMensaje').empty();
+			$('#descuentoMensaje').append('El código de descuento está errado');
+			$('#vrPedido').val(data.valor);
+			$('#valorConferencia').text(data.valor);
+		}else{
+			$('#descuentoMensaje').empty();
+			$('#descuentoMensaje').append('Descuento aplicado');
+			$('#vrPedido').val(data.valor);
+			$('#valorConferencia').text(data.valor);
+		}
+	})
+	.fail(function() {
+		console.log('error');
+	})
+	.always(function() {
+		console.log('complete');
+	});
 });
