@@ -64,6 +64,8 @@
 			require_once('blocks/migracion.php');
 		}elseif($_REQUEST['content']=='migracion_passwords'){
 			require_once('blocks/migracion_passwords.php');
+		}elseif($_REQUEST['content']=='conferencia-amar-sin-apegos'){
+			require_once('blocks/inscripcion-conferencia-v5.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}
@@ -128,7 +130,73 @@
 		}
 		
 	?>
-	
+	<?php
+	if(isset($_GET['success'])) {
+		require_once 'includes/rest-api-sample-app-php/app/bootstrap.php';
+		require_once('includes/php.php');
+
+		// We were redirected here from PayPal after the buyer approved/cancelled
+		// the payment
+		
+		if($_GET['success'] == 'true' && isset($_GET['PayerID']) && isset($_GET['orderPaypalId'])) {
+			$orderId = $_GET['orderPaypalId'];
+			try {
+				$order = obtenerOrden($orderId);
+				$payment = executePayment($order['transaction_id'], $_GET['PayerID']);
+				actualizarOrden($orderId, $payment->getState(), $order['transaction_id']);
+				if ( $payment->getState() == 'approved' ) {
+					$estado = 2;
+					$estadoTexto = 'Aprovada';
+				}
+				else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
+					$estado = 3;
+					$estadoTexto = 'Fallida';
+				}else{
+					$estado = 1;
+					$estadoTexto = 'Pendiente';
+				}
+				$messageType = "success";
+				$message = "Your payment was successful. Your order id is $orderId.";
+
+				$mensaje = "";
+				$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
+				$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$estadoTexto."</p>";
+				if( $estado == 1 ){
+					$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
+				}elseif( $estado == 0 ){
+					$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
+				}elseif( $estado == 2 ){
+					$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
+				}
+				
+				$notificar = notificar(getEmailUsuario($_SESSION['id']),"Acerca de tu proceso de inscripción",$mensaje);
+				
+				
+				?>
+						<script>
+							$(document).ready(function(){
+								descargar();
+								modal("Proceso de inscripción","<?php echo $mensaje; ?>");
+							});
+						</script>
+				<?php
+			} catch (\PayPal\Exception\PPConnectionException $ex) {
+				$message = parseApiError($ex->getData());
+				$messageType = "error";
+			} catch (Exception $ex) {
+				$message = $ex->getMessage();
+				$messageType = "error";
+			}
+			
+		} else {
+			$orderId = $_GET['orderPaypalId'];
+			$order = obtenerOrden($orderId);
+			actualizarOrden($orderId, 3, $order['transaction_id']);
+			$messageType = "error";
+			$message = "Your payment was cancelled.";
+		}
+	}
+	?>
 	<?php
 		if(
 			(!isset($_REQUEST['content'])) ||
@@ -160,5 +228,4 @@
 			<?php
 		}
 	?>
-	
 </html>
