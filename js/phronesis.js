@@ -93,7 +93,19 @@ $(document).ready(function(){
 		}).done(function(data){
 			descargar();
 			nuevoModal(data);
-		})
+		});
+	}
+	function obtenerFormularioDePago2(metodo, pagina){
+		cargar();
+		logActividades("Llama formulario de pago para el metodo " + metodo);
+		$.post('/includes/php.php',{
+			consulta: "obtenerFormularioDePago",
+			metodo: metodo,
+			pagina: pagina
+		}).done(function(data){
+			descargar();
+			nuevoModal(data);
+		});
 	}
 
 	function procesaInscripcionConferencia(usuario,metodo,idtransaccion,estadotransaccion,valor){
@@ -1062,6 +1074,10 @@ $('#paisConferencia2').change(function(){
 // Inscripcion en la conferencia
 $('#inscripcionConferencia').validate({
 	submitHandler: function(form){
-		obtenerFormularioDePago($('#formaDePagoConferencia').val());
+		if ( $('#pagina').length > 0 ) {
+			obtenerFormularioDePago2($('#formaDePagoConferencia').val(), $('#pagina').val());
+		}else{
+			obtenerFormularioDePago($('#formaDePagoConferencia').val());
+		}
 	}
 });;

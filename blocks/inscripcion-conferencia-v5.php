@@ -130,6 +130,7 @@
 										<p>Una vez realices el pago recibirás un email de notificación. Así mismo te estaremos enviando recordatorios e instrucciones para acceder a la conferencia días antes al evento.</p>
 									</div>
 								</div>
+								<input type="hidden" id="pagina" value="<?php echo $_REQUEST['content']; ?>">
 							</form>
 							<?php
 						}

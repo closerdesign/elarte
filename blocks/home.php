@@ -268,7 +268,7 @@
 		</div>
 		<hr>
 		<div class="row">
-			<div class="col-md-4 col-sm-4">
+			<div class="col-md-3">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -304,7 +304,7 @@
 				<!-- end card-container -->
 			</div>
 			<!-- end col sm 3 -->
-			<div class="col-md-4 col-sm-4">
+			<div class="col-md-3">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -340,7 +340,7 @@
 				<!-- end card-container -->
 			</div>
 			<!-- end col sm 3 -->
-			<div class="col-md-4 col-sm-4">
+			<div class="col-md-3">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -366,6 +366,41 @@
 								<div class="main">
 									<p>Esta columna pretende analizar las motivaciones humanas a la luz de algunos principios científicos acerca del proceso motivacional, mirando este proceso desde una perspectiva teórica de corte cognitivo.</p>
 									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/angeles-caidos-o-antropoides-erguidos">Ir al programa</a></p>
+								</div>
+							</div>
+						</div>
+						<!-- end back panel -->
+					</div>
+					<!-- end card -->
+				</div>
+				<!-- end card-container -->
+			</div>
+			<div class="col-md-3">
+				<div class="card-container">
+					<div class="card">
+						<div class="front">
+							<div class="cover">
+								<img src="/images/rotating_card_thumb2.png"/>
+							</div>
+							<div class="user">
+								<img class="img-circle" src="/img/Nancy_Castrillon.png"/>
+							</div>
+							<div class="content">
+								<div class="main">
+									<h3 class="name">El arte y la virtud del cuidado</h3>
+									<p class="profession">Nancy Castrillón</p>
+								</div>
+							</div>
+						</div>
+						<!-- end front panel -->
+						<div class="back">
+							<div class="header">
+								<h5 class="motto">El arte y la virtud del cuidado</h5>
+							</div>
+							<div class="content">
+								<div class="main">
+									<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros</p>
+									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado">Ir al programa</a></p>
 								</div>
 							</div>
 						</div>

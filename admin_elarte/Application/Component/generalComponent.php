@@ -1,5 +1,13 @@
 <?php
 
+
+function ValidarSession()
+{
+	if($_SESSION['user_bbm_s']=="")
+		header("Location: ../index.php?Session=2");
+}
+
+
 function mostrarCabeceraPrincipal()
 {
 	

@@ -2,7 +2,7 @@
 	require_once('../conn.php');
 	require_once('../functions.php');
 	require_once('../php.php');
-	$sql="SELECT * FROM pedidos WHERE status = 1 AND formaPago != 2";
+	$sql="SELECT * FROM pedidos WHERE status = 1 AND formaPago != 2 AND transactionId != ''";
 	$q=mysqli_query($con, $sql);
 	$n=mysqli_num_rows($q);
 	if($n>0){
@@ -34,11 +34,13 @@
 				$response->operationDate;
 			}
 			
-			if( ($response->state == 'APPROVED') || ($response->state == 'DECLINED') ){
+			if( ($response->state != 'PENDING') ){
 				$status=0;
 				if($response->state=='APPROVED'){
 					$status=2;
 				}elseif($response->state=='DECLINED'){
+					$status=3;
+				}elseif($response->state=='EXPIRED'){
 					$status=3;
 				}
 				$sql1="UPDATE pedidos SET status = '$status', state = '".$response->state."', pendingReason = '', responseCode = '".$response->responseCode."' WHERE transactionId = '$p[transactionId]'";

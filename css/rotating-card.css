@@ -102,10 +102,12 @@
 }
 .card .content .main {}
 .card .back .content .main {
+	line-height: 1;
+	font-size: 0.9em;
 }
 .card .name {
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 1;
     margin: 10px 0 0;
     text-align: center;
 }

@@ -333,10 +333,11 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 divArticulos">
 								<?php
-									$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 ";
+									$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1";
 									if(isset($_REQUEST['categoria'])){
-										$sql.="AND categoria LIKE '%$_REQUEST[categoria]%'";
+										$sql.=" AND categoria LIKE '%$_REQUEST[categoria]%'";
 									}
+									$sql.=" AND programas_especiales < 1";
 									$sql.=" ORDER BY fecha_publicacion DESC LIMIT 8";
 									$q=mysqli_query($con, $sql);
 									$n=mysqli_num_rows($q);

@@ -267,6 +267,26 @@
 				</div>
 			</div>
 		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-12">
+				<p class="lead text-center">Medios de pago aceptados:</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="/img/pagos1.jpg" class="img-responsive img-rounded" />
+			</div>
+			<div class="col-md-3">
+				<img src="/img/pagos2.jpg" class="img-responsive img-rounded" />
+			</div>
+			<div class="col-md-3">
+				<img src="/img/pagos3.jpg" class="img-responsive img-rounded" />
+			</div>
+			<div class="col-md-3">
+				<img src="/img/pagos4.jpg" class="img-responsive img-rounded" />
+			</div>
+		</div>
 	</div>
 </div>
 

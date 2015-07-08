@@ -1,15 +1,5 @@
 <?php
 	
-	/////////////////////////////////////////////////////////////////////////
-	
-	// GESTION DEL USUARIO
-	// GESTIÓN DE PAGOS
-	// GESTIÓN DE ARTÍCULOS
-	// CRON JOBS
-	// VARIOS
-	
-	/////////////////////////////////////////////////////////////////////////
-	
 	session_start();
 	
 	require_once('config.php');
@@ -17,6 +7,36 @@
 	require_once('phpmailer.php');
 	require_once('functions.php');
 	
+	//validar descuento
+	if ( $_POST['consulta'] == 'validar-codigo-descuento' ) {
+		extract($_POST);
+		if (isset($codigo) && !empty($codigo)) {
+			$codigo_valido = 'AYKL23';
+			$valor_descuento = 9.99;
+			$valor_normal = 15.99;
+
+			if ( $codigo_valido == $codigo ) {
+				$result['error'] = 1;
+				$result['message'] = 'Código correcto';
+				$result['valor'] = $valor_descuento;
+				echo json_encode($result);
+				return;
+			}else{
+				$result['error'] = 0;
+				$result['message'] = 'Error código incorrecto';
+				$result['valor'] = $valor_normal;
+				echo json_encode($result);
+				return;
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = 'Error no se enviaron los parámetros.';
+			$result['valor'] = $valor_normal;
+			echo json_encode($result);
+			return;
+		}
+	}
+
 	// Registro de usuarios
 	if($_POST['consulta']=='registro'){
 		if(!mysqli_query($con, "
@@ -938,45 +958,38 @@
 		
 	}
 
-	/////////////////////////////////////////////////////////////////////////
-	
-	// GESTIÓN DEL USUARIO
-	
-	/////////////////////////////////////////////////////////////////////////
-	
-		// Recuperar contraseña
-		if($_POST['consulta']=='recuperar-contrasena'){
+	// Recuperar contraseña
+	if($_POST['consulta']=='recuperar-contrasena'){
+		
+		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
+		$n=mysqli_num_rows($q);
+		
+		if($n<1){
+			echo "Lo sentimos, no se ha encontrado una cuenta con esa dirección de correo electrónico";
+		}else{
 			
-			$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
-			$n=mysqli_num_rows($q);
+			$data=mysqli_fetch_array($q);
 			
-			if($n<1){
-				echo "Lo sentimos, no se ha encontrado una cuenta con esa dirección de correo electrónico";
+			$email=$data['email'];
+			$asunto="Enlace para la recuperación de tu contraseña";
+			$mensaje="
+				<p><b>Hola $data[nombre]!</b></p>
+				<p>Según lo solicitaste te estamos enviando el enlace para la recuperación de tu contraseña:</p>
+				<p><a href='".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]'>".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]</a></p>
+				<p>Por favor haga click en el enlace o copie y pegue la dirección en su navegador para completar el procedimiento.</p>
+				
+			";
+			
+			$notificar = notificar($email,$asunto,$mensaje);
+			
+			if($notificar==0){
+				echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
 			}else{
-				
-				$data=mysqli_fetch_array($q);
-				
-				$email=$data['email'];
-				$asunto="Enlace para la recuperación de tu contraseña";
-				$mensaje="
-					<p><b>Hola $data[nombre]!</b></p>
-					<p>Según lo solicitaste te estamos enviando el enlace para la recuperación de tu contraseña:</p>
-					<p><a href='".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]'>".URL."index.php?content=recuperar-contrasena&val=$data[id]&token=$data[password]</a></p>
-					<p>Por favor haga click en el enlace o copie y pegue la dirección en su navegador para completar el procedimiento.</p>
-					
-				";
-				
-				$notificar = notificar($email,$asunto,$mensaje);
-				
-				if($notificar==0){
-					echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
-				}else{
-					echo "Hemos enviado un enlace para la recuperación de su contraseña a la dirección de correo electrónico relacionada. En caso de no recibirlo por favor revise su bandeja de correo no deseado.";
-				}
+				echo "Hemos enviado un enlace para la recuperación de su contraseña a la dirección de correo electrónico relacionada. En caso de no recibirlo por favor revise su bandeja de correo no deseado.";
 			}
 		}
-	
-	
+	}
+
 	/////////////////////////////////////////////////////////////////////////
 	
 	// GESTIÓN DE PEDIDOS
@@ -1177,6 +1190,20 @@
 				$mensaje .= "		<input type='hidden' name='ciudad' id='ciudad' value='".getCiudadUsuario($_SESSION['id'])."' />";
 				$mensaje .= "		<input type='hidden' name='cuotas' id='cuotas' value='1' />";
 				$mensaje .= "	</div>";
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<script type='text/javascript'>";
 				$mensaje .= "	$('#$tipopago').validate({";
 				$mensaje .= "		submitHandler: function(form){";
@@ -1186,16 +1213,54 @@
 				$mensaje .= "			.done(function(data){";
 				$mensaje .= "				var response = JSON.parse(data);";
 				$mensaje .= "				procesaInscripcionConferencia(
-											$_SESSION[id],
-											$metodo,
-											response.transactionResponse.transactionId,
-											response.transactionResponse.state,
-											$valor
-										);";
-				$mensaje .= "			})";
+												$_SESSION[id],
+												$metodo,
+												response.transactionResponse.transactionId,
+												response.transactionResponse.state,
+												$valor
+											);";
+				$mensaje .= "			});";
 				$mensaje .= "		}";
-				$mensaje .= "	})";
+				$mensaje .= "	});";
 				$mensaje .= "</script>";
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "
+								<script>
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});
+								</script>
+								";
+				}
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-credit-card'></i> Pagar</button>";
 			}
 			
@@ -1236,10 +1301,58 @@
 				$mensaje .= '<input type="hidden" name="currency_code" value="' . $data['currency_code'] . '" />';
 				$mensaje .= '<input type="hidden" name="page_style" value="paypal" />';
 				$mensaje .= '<input type="hidden" name="charset" value="utf-8" />';
-				$mensaje .= '<input type="hidden" name="item_name" value="' . $data['product_name'] . '" />';
-				$mensaje .= '<input type="hidden" value="_xclick" name="cmd"/>';
-				$mensaje .= '<input type="hidden" name="amount" value="' . $data['amount'] . '" />';
+				$mensaje .= '<input type="hidden" name="item_name" value="' . $data['product_name'] . '" />'; 
 				$mensaje .= '<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>';
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				$mensaje .= "
+							<script>
+								$('body').on('click', '#validarDecuento', function(event) {
+									event.preventDefault();
+									var data = {
+										codigo : $('#codigoDescuento').val(),
+										consulta : 'validar-codigo-descuento'
+									};
+									$.ajax({
+										url: '/includes/php.php',
+										type: 'POST',
+										dataType: 'json',
+										data: data,
+									})
+									.done(function(data) {
+										if (data.error == 0){
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('El código de descuento está errado');
+											$('#PaypalvrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}else{
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('Descuento aplicado');
+											$('#PaypalvrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}
+									})
+									.fail(function() {
+										console.log('error');
+									})
+									.always(function() {
+										console.log('complete');
+									});
+								});
+							</script>
+							";
+				}
 				
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-paypal'></i> Continuar</button>";
 				
@@ -1287,7 +1400,20 @@
 				$mensaje .= "		<input type='text' class='form-control' name='noIdentificacion' id='noIdentificacion' placeholder='No. Identificacion' required />";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<input type='hidden' name='tipoPersona' id='tipoPersona' value='N' />";
 				$mensaje .= "<input type='hidden' name='nombreCompleto' id='nombreCompleto' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
 				$mensaje .= "<input type='hidden' name='emailPSE' id='emailPSE' value='".getEmailUsuario($_SESSION['id'])."' />";
@@ -1312,10 +1438,45 @@
 				$mensaje .= "					response.transactionResponse.transactionId,";
 				$mensaje .= "					'$valor',";
 				$mensaje .= "					response.transactionResponse.extraParameters.BANK_URL";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
+				$mensaje .= "				);";
+				$mensaje .= "			});";
 				$mensaje .= "		}";
-				$mensaje .= "	})";
+				$mensaje .= "	});";
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});";
+				}
 				$mensaje .= "</script>";
 				
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
@@ -1334,7 +1495,20 @@
 				$mensaje .= "		<p>A continuación efectuaremos el procedimiento de generación de su recibo para pago en efectivo a través de puntos VIA Baloto</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta ".getEmailUsuario($_SESSION['id'])." para evitar inconvenientes en su proceso de pago.</p>";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<input type='hidden' name='noDocumentoBaloto' id='noDocumentoBaloto' value='900476732' />";
 				$mensaje .= "<input type='hidden' name='noPedido' id='noPedido' value='CONF".$_SESSION['id']."' />";
 				$mensaje .= "<input type='hidden' name='vrPedido' id='vrPedido' value='$valor' />";
@@ -1356,11 +1530,49 @@
 				$mensaje .= "					response.transactionResponse.transactionId,";
 				$mensaje .= "					'$valor',";
 				$mensaje .= "					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
+				$mensaje .= "				);";
+				$mensaje .= "			});";
 				$mensaje .= "		}";
-				$mensaje .= "	})";
+				$mensaje .= "	});";
 				$mensaje .= "</script>";
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "
+								<script>
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});
+								</script>
+								";
+				}
 				
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
 				
@@ -1382,7 +1594,20 @@
 				$mensaje .= "		<input type='hidden' name='nombreOxxo' id='nombreOxxo' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<script>";
 				$mensaje .= "	$('#$tipopago').validate({";
 				$mensaje .= "		submitHandler: function(form){";
@@ -1398,12 +1623,49 @@
 				$mensaje .= "					response.transactionResponse.transactionId,";
 				$mensaje .= "					'$valor',";
 				$mensaje .= "					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
+				$mensaje .= "				);";
+				$mensaje .= "			});";
 				$mensaje .= "		}";
-				$mensaje .= "	})";
+				$mensaje .= "	});";
 				$mensaje .= "</script>";
-				
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+				$mensaje .= "
+							<script>
+								$('body').on('click', '#validarDecuento', function(event) {
+									event.preventDefault();
+									var data = {
+										codigo : $('#codigoDescuento').val(),
+										consulta : 'validar-codigo-descuento'
+									};
+									$.ajax({
+										url: '/includes/php.php',
+										type: 'POST',
+										dataType: 'json',
+										data: data,
+									})
+									.done(function(data) {
+										if (data.error == 0){
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('El código de descuento está errado');
+											$('#vrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}else{
+											$('#descuentoMensaje').empty();
+											$('#descuentoMensaje').append('Descuento aplicado');
+											$('#vrPedido').val(data.valor);
+											$('#valorConferencia').text(data.valor);
+										}
+									})
+									.fail(function() {
+										console.log('error');
+									})
+									.always(function() {
+										console.log('complete');
+									});
+								});
+							</script>
+							";
+				}
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
 				
 			}
@@ -1424,7 +1686,20 @@
 				$mensaje .= "		<input type='hidden' name='nombreBcp' id='nombreBcp' value='".getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id'])."' />";
 				$mensaje .= "	</div>";
 				$mensaje .= "</div>";
-				
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<h5>Ingrese su código de descuento</h5>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<input type='text' class='form-control' name='codigoDescuento' id='codigoDescuento' />";
+					$mensaje .= "	</div>";
+					$mensaje .= "	<div class='col-md-6 form-group'>";
+					$mensaje .= "		<button id='validarDecuento' type='button' class='btn btn-primary'><i class='fa fa-university'></i> Continuar</button>";
+					$mensaje .= "	</div>";
+					$mensaje .= "</div>";
+					$mensaje .= "<div class='row'>";
+					$mensaje .= "	<span id='descuentoMensaje'></span>";
+					$mensaje .= "</div>";
+				}
 				$mensaje .= "<script>";
 				$mensaje .= "	$('#$tipopago').validate({";
 				$mensaje .= "		submitHandler: function(form){";
@@ -1440,12 +1715,49 @@
 				$mensaje .= "					response.transactionResponse.transactionId,";
 				$mensaje .= "					'$valor',";
 				$mensaje .= "					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML";
-				$mensaje .= "				)";
-				$mensaje .= "			})";
+				$mensaje .= "				);";
+				$mensaje .= "			});";
 				$mensaje .= "		}";
-				$mensaje .= "	})";
+				$mensaje .= "	});";
 				$mensaje .= "</script>";
-				
+				if( isset($_POST['pagina']) && $_POST['pagina']=='prueba-inscripcion' ){
+					$mensaje .= "
+								<script>
+									$('body').on('click', '#validarDecuento', function(event) {
+										event.preventDefault();
+										var data = {
+											codigo : $('#codigoDescuento').val(),
+											consulta : 'validar-codigo-descuento'
+										};
+										$.ajax({
+											url: '/includes/php.php',
+											type: 'POST',
+											dataType: 'json',
+											data: data,
+										})
+										.done(function(data) {
+											if (data.error == 0){
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('El código de descuento está errado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}else{
+												$('#descuentoMensaje').empty();
+												$('#descuentoMensaje').append('Descuento aplicado');
+												$('#vrPedido').val(data.valor);
+												$('#valorConferencia').text(data.valor);
+											}
+										})
+										.fail(function() {
+											console.log('error');
+										})
+										.always(function() {
+											console.log('complete');
+										});
+									});
+								</script>
+								";
+				}
 				$envio = "<button type='submit' class='btn btn-primary'><i class='fa fa-money'></i> Continuar</button>";
 				
 			}
@@ -1462,7 +1774,7 @@
 			$html .= "	<h4>".$titulo."</h4>";
 			$html .= "</div>";
 			$html .= "<div class='modal-body'>";
-			$mensaje .= "<hr><div class='row'><div class='col-md-12'><p class='lead pull-right'>Valor a pagar: USD ".number_format($valor,2)."</p></div></div>";
+			$mensaje .= "<hr><div class='row'><div class='col-md-12'><p class='lead pull-right'>Valor a pagar: USD <span id='valorConferencia'>".number_format($valor,2)."</span></p></div></div>";
 			$html .= $mensaje;
 			$html .= "</div>";
 			$html .= "<div class='modal-footer'>";
@@ -2100,6 +2412,8 @@
 						$status = 0;
 						if( $response->state == 'APPROVED' ){
 							$status = 1;
+						}elseif( $response->state == 'EXPIRED' ){
+							$status = 0;
 						}
 						
 						if(!mysqli_query($con, "UPDATE inscritos_conferencia SET estado_inscripcion = '$status' WHERE transaction_id = '$p[transaction_id]'")){
@@ -2390,7 +2704,7 @@ Es importante que guardes el certificado de pago para cualquier reclamación o i
 			   	) VALUES (
 			   		'1',
 			   		'1',
-			   		'Cierre de Preventa 4 - ".date('Y-m-d')."'
+			   		'Newsletter - ".date('Y-m-d')."'
 			   	)
 			")){
 			   
