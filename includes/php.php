@@ -845,6 +845,7 @@
 	// Lightbox detalle de pedido
 	function detallePedido()
 	{
+		global $con;
 		$html="";
 		$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]'";
 		$q=mysqli_query($con, $sql);
@@ -1144,6 +1145,7 @@
 	// Actualizar label de # de productos
 	function publicacionesPedido()
 	{
+		global $con;
 		if(isset($_COOKIE['pedido'])){
 			$q=mysqli_query($con, "SELECT * FROM publicacionesxpedido WHERE pedido = '$_COOKIE[pedido]'");
 			$n=mysqli_num_rows($q);
