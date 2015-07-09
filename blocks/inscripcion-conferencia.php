@@ -183,6 +183,7 @@
 								<div class="row">
 									<div class="col-md-12 form-group">
 										<input type="hidden" name="consulta" id="consulta" value="login" />
+										<input type="hidden" name="url" id="url" value="<?= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
 										<button class="btn btn-primary pull-right" type="submit"><i class="fa fa-sign-in"></i> Ingresar</button>
 									</div>
 								</div>

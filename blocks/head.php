@@ -3,7 +3,7 @@
 	<?php
 		$title="Phronesis - El Arte de Saber Vivir";
 		$description="Somos una Editorial que promueve 'el arte de saber vivir' por medio de publicaciones en formato electrónico. Todos nuestros productos sólo se publican en formato digital y se entregan a través de Internet.";
-		if( ($_REQUEST['content']=='articulos') && isset($_REQUEST['id']) ){
+		if( isset($_REQUEST['content']) && ($_REQUEST['content']=='articulos') && isset($_REQUEST['id']) ){
 			$title=getTituloArticulo($_REQUEST['id']);
 			$description=getDescripcionArticulo($_REQUEST['id']);
 		}

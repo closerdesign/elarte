@@ -1524,6 +1524,7 @@ img.mfp-img {
 	-o-transition: all .3s ease-in-out 0s;
 	transition: all .3s ease-in-out 0s;
 }
+
 .br-jump{
 	display: none;
 }
@@ -1532,4 +1533,12 @@ img.mfp-img {
 	.br-jump{
 		display: block;
 	}
+}
+
+.displayPublicacion {
+	display: inline-block;
+	float: none;
+	margin: 0 -3px;
+	min-height: 500px;
+	vertical-align: top;
 }

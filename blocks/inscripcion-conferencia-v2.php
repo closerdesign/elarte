@@ -72,7 +72,6 @@
 						if( $n > 0 ){
 							?>
 							<p class="lead text-center">¡Felicitaciones! Ya te ecuentras inscrito(a) a esta conferencia. Te hemos enviado un mensaje de notificación a tu correo, pronto te estaremos informando las instrucciones de acceso al evento.</p>
-							
 							<!-- Google Code for Venta de Entrada Conversion Page -->
 							<script type="text/javascript">
 							/* <![CDATA[ */
@@ -91,7 +90,6 @@
 							<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/947153368/?label=mIY-CNmO_V0Q2NPRwwM&amp;guid=ON&amp;script=0"/>
 							</div>
 							</noscript>
-							
 							<?php
 						}else{
 							?>
@@ -153,6 +151,7 @@
 								<div class="row">
 									<div class="col-md-12 form-group">
 										<input type="hidden" name="consulta" id="consulta" value="login" />
+										<input type="hidden" name="url" id="url" value="<?= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
 										<button class="btn btn-primary pull-right" type="submit"><i class="fa fa-sign-in"></i> Ingresar</button>
 									</div>
 								</div>

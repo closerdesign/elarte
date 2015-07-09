@@ -93,7 +93,20 @@ $(document).ready(function(){
 		}).done(function(data){
 			descargar();
 			nuevoModal(data);
-		})
+		});
+	}
+
+	function obtenerFormularioDePago2(metodo, pagina){
+		cargar();
+		logActividades("Llama formulario de pago para el metodo " + metodo);
+		$.post('/includes/php.php',{
+			consulta: "obtenerFormularioDePago",
+			metodo: metodo,
+			pagina: pagina
+		}).done(function(data){
+			descargar();
+			nuevoModal(data);
+		});
 	}
 
 	function procesaInscripcionConferencia(usuario,metodo,idtransaccion,estadotransaccion,valor){
@@ -768,19 +781,47 @@ function openRegisterModal(){
 }
 
 function loginAjax(){
-	$.post('/includes/php.php',{
+	var data = {
 		consulta: "login",
 		usuario: $('#emailLogin').val(),
 		password: $('#passwordLogin').val(),
 		url: $('#currentUrl').val()
-	}).done(function(data){
-		if( data > 0 ){
+	};
+	$.ajax({
+		url: '/includes/php.php',
+		type: 'POST',
+		dataType: 'json',
+		data: data,
+	})
+	.done(function(data) {
+		if( data.error == 1 ){
 		    $.cookie('session',data);
 		    location.reload();
 		} else {
 		    shakeModal();
 		}
+		/*console.log("success");*/
 	})
+	.fail(function() {
+		/*console.log("error");*/
+	})
+	.always(function() {
+		/*console.log("complete");*/
+	});
+	
+	/*$.post('/includes/php.php',{
+		consulta: "login",
+		usuario: $('#emailLogin').val(),
+		password: $('#passwordLogin').val(),
+		url: $('#currentUrl').val()
+	}).done(function(data){
+		if( data.error == 1 ){
+		    $.cookie('session',data);
+		    location.reload();
+		} else {
+		    shakeModal();
+		}
+	})*/
 }
 
 function registroAjax(){
@@ -793,16 +834,27 @@ function registroAjax(){
 $('#loginInscripcion').validate({
 	submitHandler: function(form){
 		cargar();
-		$.post('/includes/php.php',$('#loginInscripcion').serialize())
-		.done(function(data){
-		    if( data > 0 ){
+		$.ajax({
+			url: '/includes/php.php',
+			type: 'POST',
+			dataType: 'json',
+			data: $('#loginInscripcion').serialize(),
+		})
+		.done(function(data) {
+			if( data.error == 1 ){
 			    $.cookie('session',data);
 			    location.reload();
 		    } else {
 			    alert('Nombre de usuario y/o contraseña inválido');
-			    descargar();
 		    }
-	    })
+		})
+		.fail(function(data) {
+			console.log("error");
+		})
+		.always(function(data) {
+			console.log("complete");
+		    descargar();
+		});
 	}
 });
 
@@ -1062,6 +1114,47 @@ $('#paisConferencia2').change(function(){
 // Inscripcion en la conferencia
 $('#inscripcionConferencia').validate({
 	submitHandler: function(form){
-		obtenerFormularioDePago($('#formaDePagoConferencia').val());
+		if ( $('#pagina').length > 0 ) {
+			obtenerFormularioDePago2($('#formaDePagoConferencia').val(), $('#pagina').val());
+		}else{
+			obtenerFormularioDePago($('#formaDePagoConferencia').val());
+		}
 	}
-});;
+});
+
+
+/*===================================================
+=            Validar código de descuento            =
+===================================================*/
+$('body').on('click', '#validarDecuento', function(event) {
+	event.preventDefault();
+	var data = {
+		codigo : $('#codigoDescuento').val(),
+		consulta : 'validar-codigo-descuento'
+	};
+	$.ajax({
+		url: '/includes/php.php',
+		type: 'POST',
+		dataType: 'json',
+		data: data,
+	})
+	.done(function(data) {
+		if (data.error == 0){
+			$('#descuentoMensaje').empty();
+			$('#descuentoMensaje').append('El código de descuento está errado');
+			$('#vrPedido').val(data.valor);
+			$('#valorConferencia').text(data.valor);
+		}else{
+			$('#descuentoMensaje').empty();
+			$('#descuentoMensaje').append('Descuento aplicado');
+			$('#vrPedido').val(data.valor);
+			$('#valorConferencia').text(data.valor);
+		}
+	})
+	.fail(function() {
+		console.log('error');
+	})
+	.always(function() {
+		console.log('complete');
+	});
+});

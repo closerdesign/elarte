@@ -150,7 +150,8 @@
 		global $con;
 		$btn='<a href="javascript:void(0)" onclick="openRegisterModal()" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Comprar</a>';
 		if(isset($_SESSION['id'])){
-			$q=mysqli_query($con, "SELECT * FROM publicacionesxusuario WHERE usuario = $_SESSION[id] AND publicacion = '$val'");
+			$sql = "SELECT * FROM publicacionesxusuario WHERE usuario = " . $_SESSION['id'] . "  AND publicacion = '" . $val . "'";
+			$q=mysqli_query($con, $sql);
 			$n=mysqli_num_rows($q);
 			$data=mysqli_fetch_array($q);
 			if($n<1){

@@ -20,7 +20,7 @@
 									$q1=mysqli_query($con, $sql1);
 									$n1=mysqli_num_rows($q1);
 									$active="";
-									if($_REQUEST['categoria']==$categorias['id']){
+									if( isset($_REQUEST['categoria']) && $_REQUEST['categoria']==$categorias['id']){
 										$active="active";
 									}
 									if($n1>0){
@@ -322,7 +322,7 @@
 								");
 							}
 						?>
-						<?php if($_REQUEST['categoria']==1){ ?>
+						<?php if( isset($_REQUEST['categoria']) && $_REQUEST['categoria']==1){ ?>
 						<div class="row">
 							<div class="col-md-12">
 								Iris Luna Montaño es médico psiquiatra, Especialista en adicciones y magister en Nutrición Especializado en Sobrepeso y Obesidad. Desde hace quince años trabaja como psicoterapeuta, docente y conferencista. Ha publicado cuatro libros académicos, así como múltiples artículos para revistas científicas sobre temas de psicopatología femenina. Dentro de sus actividades cabe destacar aquellas relacionadas con los temas de salud y prevención en salud mental y trastornos del comportamiento.

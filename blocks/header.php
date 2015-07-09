@@ -18,14 +18,14 @@
 					}
 				?>
 				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>><a href="/"><i class="fa fa-home"></i> Inicio</a></li>
-				<!-- <li<?php if($_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras"><i class="fa fa-align-justify"></i> Guías y Obras Editoriales</a></li> -->
-				<li<?php if($_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=mis-publicaciones"><i class="fa fa-book"></i> Mi Biblioteca</a></li>
-				<li<?php if($_REQUEST['content']=='articulos'){ echo(" class='active' "); } ?>><a href="/?content=articulos"><i class="fa fa-pencil"></i> Artículos</a></li>
-				<li<?php if($_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=articulos-favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a></li>
+				<li<?php if( isset($_REQUEST['content']) && $_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras"><i class="fa fa-align-justify"></i> Guías y Obras Editoriales</a></li>
+				<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=mis-publicaciones"><i class="fa fa-book"></i> Mi Biblioteca</a></li>
+				<li<?php if( isset($_REQUEST['content']) && $_REQUEST['content']=='articulos'){ echo(" class='active' "); } ?>><a href="/?content=articulos"><i class="fa fa-pencil"></i> Artículos</a></li>
+				<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=articulos-favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a></li>
 				<?php
 					if(isset($_SESSION['id'])){
 						?>
-						<!-- <li<?php if($_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
+						<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
 							<a href="/?content=mi-cuenta&task=mi-pedido">
 								<i class="fa fa-shopping-cart"></i> Mi pedido
 								<span class="label label-danger" id="noProductos" style="display:none"></span>
