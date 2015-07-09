@@ -31,7 +31,7 @@
 				<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
 			</div>
 			<div class="col-md-6 form-group">
-				<button id="validarDecuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Verificar</button>
+				<button id="validarDecuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Aplicar código</button>
 			</div>
 		</div>
 		<div class="row">

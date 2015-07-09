@@ -115,13 +115,13 @@
 			})
 			.done(function(data) {
 				console.log('success');
-				var response = JSON.parse(data);
+				var response = data;
 				procesaInscripcionConferencia(
-					$_SESSION[id],
-					$metodo,
+					'<?= $_SESSION[id]; ?>',
+					'<?= $metodo; ?>',
 					response.transactionResponse.transactionId,
 					response.transactionResponse.state,
-					$valor
+					'<?= $valor; ?>'
 					);
 			})
 			.fail(function() {

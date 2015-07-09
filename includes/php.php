@@ -326,6 +326,7 @@
 	// Registro de usuarios
 	function registroDeUsuarios()
 	{
+		global $con;
 		extract($_POST);
 		if ( !empty($email) && !empty($password) ) {
 			if(!mysqli_query($con, "
@@ -470,6 +471,7 @@
 	// Optin
 	function optin()
 	{
+		global $con;
 		$actual = mysqli_fetch_array(mysqli_query($con, "SELECT optin FROM usuarios WHERE id = '$_POST[usuario]'"));
 		$nuevo = $actual['optin'] == 1 ? 0 : 1;
 		if(!mysqli_query($con, "UPDATE usuarios SET optin = '$nuevo' WHERE id = '$_POST[usuario]'")){
@@ -482,6 +484,7 @@
 	// Mi perfil
 	function actualizaPerfil()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 			UPDATE
 				usuarios
@@ -504,6 +507,7 @@
 	// Descarga
 	function descarga()
 	{
+		global $con;
 		if(!mysqli_query($con,"INSERT INTO descargas (usuario,publicacion) VALUES ('$_POST[usuario]','$_POST[publicacion]')")){
 		   echo json_encode(array("0","0"));
 		}else{
@@ -536,7 +540,8 @@
 	
 	// Agregar
 	function agregar()
-	{		
+	{				
+		global $con;
 		if($_POST['pedido']==""){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
@@ -564,6 +569,7 @@
 	// Borrar publicación
 	function borrarPublicacion()
 	{
+		global $con;
 		if(!mysqli_query($con, "DELETE FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]' AND publicacion = '$_POST[publicacion]'")){
 			echo "Lo sentimos, se ha presentado un error. Por favor intente de nuevo.";
 		}else{
@@ -574,6 +580,7 @@
 	// Configurar nueva contraseña
 	function nuevaContrasena()
 	{
+		global $con;
 		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE id = '$_POST[usuario]' AND password = '$_POST[token]'");
 		$n=mysqli_num_rows($q);
 		if($n!=1){
@@ -591,6 +598,7 @@
 	// Cerrar pedido
 	function cerrarPedido()
 	{
+		global $con;
 		if(!mysqli_query($con, "UPDATE pedidos SET valor = '$_POST[valor]', status = '$_POST[status]', formaPago = '$_POST[formaPago]', orderId = '$_POST[orderId]', transactionId = '$_POST[transactionId]', state = '$_POST[state]', responseCode = '$_POST[responseCode]' WHERE id = '$_POST[pedido]'")){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
@@ -645,6 +653,7 @@
 	// Pedido Pendiente
 	function pedidoPendiente()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 			UPDATE
 				pedidos
@@ -671,6 +680,7 @@
 	// Formulario de contacto
 	function contacto()
 	{
+		global $con;
 		if(!mysqli_query($con, "INSERT INTO contacto (nombre, apellido, email, motivo, mensaje) VALUES ('".strtoupper($_POST['nombre'])."', '".strtoupper($_POST['apellido']."', '".strtolower($_POST['email'])."', '".$_POST['motivo']."', '".$_POST['mensaje']."')"))){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
@@ -708,6 +718,7 @@
 	// Compartir con un amigo
 	function compartirAmigo()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 			INSERT INTO compartir (
 				tuNombre,
@@ -757,6 +768,7 @@
 	// Agregar a favoritos
 	function agregarFavoritos()
 	{
+		global $con;
 		$sql="SELECT * FROM favoritos WHERE usuario = '$_POST[usuario]' AND articulo = '$_POST[articulo]'";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -782,6 +794,7 @@
 	// Eliminar favorito
 	function eliminaFavoritos()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 			DELETE FROM
 				favoritos
@@ -799,6 +812,7 @@
 	// Agregar comentarios
 	function agregarComentarios()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 			INSERT INTO comentarios (
 				usuario,
@@ -915,6 +929,7 @@
 	// Eliminar publicación en el lightbox de la orden
 	function delordenpub()
 	{
+		global $con;
 		$sql="DELETE FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]' AND publicacion = '$_POST[publicacion]'";
 		if(!mysqli_query($con, $sql)){
 		   echo 0;
@@ -955,6 +970,7 @@
 	// Obtener descripción de la obra
 	function descripcion()
 	{
+		global $con;
 		$sql="SELECT * FROM publicaciones WHERE id = '$_POST[publicacion]'";
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
@@ -965,6 +981,7 @@
 	// Newsletter
 	function newsletter()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 			INSERT INTO
 				newsletter (
@@ -996,6 +1013,7 @@
 	// Completa los datos del registro
 	function finRegistro()
 	{
+		global $con;
 		if(!mysqli_query($con, "
 		   UPDATE
 		   	usuarios
@@ -1019,6 +1037,7 @@
 	
 	function verificaEmail()
 	{
+		global $con;
 		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[emailRegistro]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
@@ -1030,6 +1049,7 @@
 	
 	function verificaEmailRegistro()
 	{
+		global $con;
 		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
@@ -1042,6 +1062,7 @@
 	// Finalizar registro Facebook
 	function emailFacebook()
 	{
+		global $con;
 		$sql="SELECT * FROM usuarios WHERE email = '$_POST[email]'";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -1109,6 +1130,7 @@
 	// Iniciar sesión FB
 	function iniciaFb()
 	{
+		global $con;
 		$sql = "SELECT id FROM usuarios WHERE fbId = '$_POST[fbId]'";
 		$q = mysqli_query($con, $sql);
 		$n = mysqli_num_rows($q);
@@ -1156,6 +1178,7 @@
 	// Detalle del pedido
 	function detallesPedido($value='')
 	{
+		global $con;
 		$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_POST[pedido]'";
 		$q=mysqli_query($con, $sql);
 		$html="<table class='table table-bordered table-striped'><thead><tr><th>Publicación</th><th>Valor</th></tr></thead><tbody>";
@@ -1174,6 +1197,7 @@
 	// Procesamiento de Paquetes
 	function procesaPaquete()
 	{		
+		global $con;
 		if($_POST['estado']=='PENDING'){
 			$estado=1;
 		}
@@ -1254,6 +1278,7 @@
 	// CREACION DE ORDEN EN LOS PAQUETES
 	function crearOrdenPaquete()
 	{		
+		global $con;
 		// Datos mínimos para la orden
 		$codigoPaquete = $_POST['codigoPaquete'];
 		$codigoUsuario = $_SESSION['id'];
@@ -1315,6 +1340,7 @@
 	// Recuperar contraseña
 	function recuperarContrasena()
 	{
+		global $con;
 		$q=mysqli_query($con, "SELECT * FROM usuarios WHERE email = '$_POST[email]'");
 		$n=mysqli_num_rows($q);
 		
@@ -1353,7 +1379,8 @@
 	
 	// GENERAR EL DETALLE DEL PEDIDO
 	function detalleDelPedido()
-	{
+	{	
+		global $con;
 		$pedido = $_POST['pedido'];
 		$q = mysqli_query($con, "
 			SELECT
@@ -1415,6 +1442,7 @@
 		
 	function eliminaDelPedido()
 	{
+		global $con;
 		$item = $_POST['item'];
 		$pedido = $_POST['pedido'];
 		if(!mysqli_query($con, "
@@ -1983,6 +2011,7 @@
 	// ALMACENAR PAGOS
 	function almacenaInscripcion()
 	{
+		global $con;
 		if($_REQUEST['metodo']==2){
 			$metodo=2;
 		}else{
@@ -2129,6 +2158,7 @@
 	// PROCESAR INSCRIPCIONES PENDIENTES
 	function inscripcionesPendientes()
 	{		
+		global $con;
 		$sql="SELECT * FROM inscritos_conferencia WHERE estado_inscripcion = 2";
 		$q=mysqli_query($con, $sql);
 		$n=mysqli_num_rows($q);
@@ -2204,6 +2234,7 @@
 	// EJECUCIÓN DE PAGOS
 	function ejecutarPago()
 	{		
+		global $con;
 		$orden = $_REQUEST['orden'];
 		$formaDePago = $_REQUEST['formaDePago'];
 		$estado = $_REQUEST['estado'];
@@ -2315,6 +2346,7 @@
 	/////////////////////////////////////////////////////////////////////////
 	function cargarArticulos()
 	{
+		global $con;
 		$load=htmlentities(strip_tags($_POST['load'])) * 8;
 		$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 ";
 		if($_POST['categoria']>0){
@@ -2330,6 +2362,7 @@
 	// Buscador de artículos
 	function buscarArticulos()
 	{
+		global $con;
 		$q = mysqli_query($con, "
 			(SELECT id, titulo, contenido FROM articulos WHERE titulo LIKE '%" . 
 	           $_POST['buscarArticulo'] . "%' OR contenido LIKE '%" . $_POST['buscarArticulo'] ."%')
@@ -2362,7 +2395,7 @@
 	// CRON JOBS
 	
 	/////////////////////////////////////////////////////////////////////////
-
+		global $con;
 		// Envío del newsletter	
 		if(
 			($_REQUEST['consulta'] == 'newsletter') &&
