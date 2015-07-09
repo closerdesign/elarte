@@ -44,7 +44,7 @@ function getApiContext() {
 	$apiContext->setConfig(array(
 		'http.ConnectionTimeOut' => 70,
 		'http.Retry' => 1,
-		'mode' => 'sandbox',
+		'mode' => 'live',
 		'log.LogEnabled' => true,
 		'log.FileName' => '../PayPal.log',
 		'log.LogLevel' => 'DEBUG'		
