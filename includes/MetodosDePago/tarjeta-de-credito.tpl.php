@@ -17,7 +17,7 @@
 				</select>
 			</div>
 			<div class="col-md-4 form-group">
-				<input type="text" class="form-control" name="noTarjeta" id="noTarjeta" placeholder="Número de tarjeta" required />
+				<input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" name="noTarjeta" id="noTarjeta" placeholder="Número de tarjeta" required />
 			</div>
 			<div class="col-md-5 form-group">
 				<input type="text" class="form-control" name="nombreTarjeta" id="nombreTarjeta" placeholder="Nombre tarjeta" required />
