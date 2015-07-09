@@ -1,7 +1,7 @@
 <?php
 	
 	// Despublicar comentarios
-	if( ($_REQUEST['content']=='unpublish') && (isset($_REQUEST['id'])) ){
+	if( isset($_REQUEST['content']) && ($_REQUEST['content']=='unpublish') && (isset($_REQUEST['id'])) ){
 		if(!mysqli_query($con, "
 			UPDATE comentarios SET status = '0' WHERE idComentarios = '$_REQUEST[id]'
 		")){

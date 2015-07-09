@@ -17,178 +17,183 @@
 	require_once('phpmailer.php');
 	require_once('functions.php');
 
-	switch ($_POST['consulta']) {
-		case 'registro':
-			registroDeUsuarios();
-			break;
-		case 'login':
-			inicioSesion();
-			break;
-		case 'email-registro':
-			verificaEmailCorreo();
-			break;
-		case 'cambiar-contrasena':
-			actualziarContrasena();
-			break;
-		case 'validar-codigo-descuento':
-			validarCodigoDescuento();
-			break;
-		case 'logErroresPagos':
-			logErroresPagos();
-			break;
-		case 'optin':
-			optin();
-			break;
-		case 'actualizaPerfil':
-			actualizaPerfil();
-			break;
-		case 'descarga':
-			descarga();
-			break;
-		case 'agregar':
-			agregar();
-			break;
-		case 'delPub':
-			borrarPublicacion();
-			break;
-		case 'nueva-contrasena':
-			nuevaContrasena();
-			break;
-		case 'cierra-pedido':
-			cerrarPedido();
-			break;
-		case 'pedidoPendiente':
-			pedidoPendiente();
-			break;
-		case 'contacto':
-			contacto();
-			break;
-		case 'compartirAmigo':
-			compartirAmigo();
-			break;
-		case 'agregarFavoritos':
-			agregarFavoritos();
-			break;
-		case 'eliminaFavoritos':
-			eliminaFavoritos();
-			break;
-		case 'agregarComentarios':
-			agregarComentarios();
-			break;
-		case 'detallePedido':
-			detallePedido();
-			break;
-		case 'delordenpub':
-			delordenpub();
-			break;
-		case 'descargaMuestra':
-			descargaMuestra();
-			break;
-		case 'descripcion':
-			descripcion();
-			break;
-		case 'newsletter':
-			newsletter();
-			break;
-		case 'cerrarSesion':
-			cerrarSesion();
-			break;
-		case 'finRegistro':
-			finRegistro();
-			break;
-		case 'verificaEmail':
-			verificaEmail();
-			break;
-		case 'verificaEmailRegistro':
-			verificaEmailRegistro();
-			break;
-		case 'emailFacebook':
-			emailFacebook();
-			break;
-		case 'iniciaFb':
-			iniciaFb();
-			break;
-		case 'publicacionesPedido':
-			publicacionesPedido();
-			break;
-		case 'detallesPedido':
-			detallesPedido();
-			break;
-		case 'procesaPaquete':
-			procesaPaquete();
-			break;
-		case 'crearOrdenPaquete':
-			crearOrdenPaquete();
-			break;
-		case 'recuperar-contrasena':
-			recuperarContrasena();
-			break;
-		case 'detalleDelPedido':
-			detalleDelPedido();
-			break;
-		case 'eliminaDelPedido':
-			eliminaDelPedido();
-			break;
-		case 'valorDelPedido':
-			valorDelPedido();
-			break;
-		case 'obtenerMediosDePago':
-			obtenerMediosDePago();
-			break;
-		case 'obtenerFormularioDePago':
-			obtenerFormularioDePago();
-			break;
-		case 'pseRequest':
-			pseRequest();
-			break;
-		case 'almacenaPendientePSE':
-			almacenaPendientePSE();
-			break;
-		case 'requestBaloto':
-			requestBaloto();
-			break;
-		case 'oxxoRequest':
-			oxxoRequest();
-			break;
-		case 'bcpRequest':
-			bcpRequest();
-			break;
-		case 'almacenaInscripcion':
-			almacenaInscripcion();
-			break;
-		case 'actualizaInscripcion':
-			actualizaInscripcion();
-			break;
-		case 'notificaComprobante':
-			notificaComprobante();
-			break;
-		case 'cargarArticulos':
-			cargarArticulos();
-			break;
-		case 'buscarArticulos':
-			buscarArticulos();
-			break;
-		case 'requestPayPal':
-			requestPayPal();
-			break;
-		default:
-			break;
+	if ( isset($_POST['consulta']) ) {
+		switch ($_POST['consulta']) {
+			case 'registro':
+				registroDeUsuarios();
+				break;
+			case 'login':
+				inicioSesion();
+				break;
+			case 'email-registro':
+				verificaEmailCorreo();
+				break;
+			case 'cambiar-contrasena':
+				actualziarContrasena();
+				break;
+			case 'validar-codigo-descuento':
+				validarCodigoDescuento();
+				break;
+			case 'logErroresPagos':
+				logErroresPagos();
+				break;
+			case 'optin':
+				optin();
+				break;
+			case 'actualizaPerfil':
+				actualizaPerfil();
+				break;
+			case 'descarga':
+				descarga();
+				break;
+			case 'agregar':
+				agregar();
+				break;
+			case 'delPub':
+				borrarPublicacion();
+				break;
+			case 'nueva-contrasena':
+				nuevaContrasena();
+				break;
+			case 'cierra-pedido':
+				cerrarPedido();
+				break;
+			case 'pedidoPendiente':
+				pedidoPendiente();
+				break;
+			case 'contacto':
+				contacto();
+				break;
+			case 'compartirAmigo':
+				compartirAmigo();
+				break;
+			case 'agregarFavoritos':
+				agregarFavoritos();
+				break;
+			case 'eliminaFavoritos':
+				eliminaFavoritos();
+				break;
+			case 'agregarComentarios':
+				agregarComentarios();
+				break;
+			case 'detallePedido':
+				detallePedido();
+				break;
+			case 'delordenpub':
+				delordenpub();
+				break;
+			case 'descargaMuestra':
+				descargaMuestra();
+				break;
+			case 'descripcion':
+				descripcion();
+				break;
+			case 'newsletter':
+				newsletter();
+				break;
+			case 'cerrarSesion':
+				cerrarSesion();
+				break;
+			case 'finRegistro':
+				finRegistro();
+				break;
+			case 'verificaEmail':
+				verificaEmail();
+				break;
+			case 'verificaEmailRegistro':
+				verificaEmailRegistro();
+				break;
+			case 'emailFacebook':
+				emailFacebook();
+				break;
+			case 'iniciaFb':
+				iniciaFb();
+				break;
+			case 'publicacionesPedido':
+				publicacionesPedido();
+				break;
+			case 'detallesPedido':
+				detallesPedido();
+				break;
+			case 'procesaPaquete':
+				procesaPaquete();
+				break;
+			case 'crearOrdenPaquete':
+				crearOrdenPaquete();
+				break;
+			case 'recuperar-contrasena':
+				recuperarContrasena();
+				break;
+			case 'detalleDelPedido':
+				detalleDelPedido();
+				break;
+			case 'eliminaDelPedido':
+				eliminaDelPedido();
+				break;
+			case 'valorDelPedido':
+				valorDelPedido();
+				break;
+			case 'obtenerMediosDePago':
+				obtenerMediosDePago();
+				break;
+			case 'obtenerFormularioDePago':
+				obtenerFormularioDePago();
+				break;
+			case 'pseRequest':
+				pseRequest();
+				break;
+			case 'almacenaPendientePSE':
+				almacenaPendientePSE();
+				break;
+			case 'requestBaloto':
+				requestBaloto();
+				break;
+			case 'oxxoRequest':
+				oxxoRequest();
+				break;
+			case 'bcpRequest':
+				bcpRequest();
+				break;
+			case 'almacenaInscripcion':
+				almacenaInscripcion();
+				break;
+			case 'actualizaInscripcion':
+				actualizaInscripcion();
+				break;
+			case 'notificaComprobante':
+				notificaComprobante();
+				break;
+			case 'cargarArticulos':
+				cargarArticulos();
+				break;
+			case 'buscarArticulos':
+				buscarArticulos();
+				break;
+			case 'requestPayPal':
+				requestPayPal();
+				break;
+			default:
+				break;
+		}
 	}
 
-	switch ($_GET['consulta']) {
-		case 'pagarConPaypal':
-			pagarConPaypal2();
-			break;
-		case 'inscripcionesPendientes':
-			inscripcionesPendientes();
-			break;
-		case 'ejecutarPago':
-			ejecutarPago();
-			break;
-		default:
-			# code...
-			break;
+	if ( isset($_GET['consulta']) ) {
+		switch ($_GET['consulta']) {
+			case 'pagarConPaypal':
+				pagarConPaypal2();
+				break;
+			case 'inscripcionesPendientes':
+				inscripcionesPendientes();
+				break;
+			case 'ejecutarPago':
+				ejecutarPago();
+				break;
+			default:
+				# code...
+				break;
+		}
 	}
+
 	
 	function logErroresPagos()
 	{
@@ -2398,6 +2403,8 @@
 		global $con;
 		// Envío del newsletter	
 		if(
+			isset($_REQUEST['consulta']) &&
+			isset($_REQUEST['id']) &&
 			($_REQUEST['consulta'] == 'newsletter') &&
 			($_REQUEST['id']) == '80234042'
 		){
@@ -2570,7 +2577,7 @@
 	/////////////////////////////////////////////////////////////////////////
 	
 		// INSCRIPCIONES CONFERENCIA VIRTUAL
-		if($_POST['consulta'] == 'conferencia'){
+		if( isset($_POST['consulta']) && $_POST['consulta'] == 'conferencia'){
 			if(!mysqli_query($con, "
 				INSERT INTO
 					conferencia (
@@ -2587,7 +2594,7 @@
 		}
 		
 		// Log de actividades
-		if($_POST['consulta']=='logActividades'){
+		if( isset($_POST['consulta']) && $_POST['consulta']=='logActividades'){
 			logActividades($_SESSION['id'],$_SESSION['sesion'],$_POST['actividad']);
 		}
 

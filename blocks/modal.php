@@ -298,17 +298,17 @@
 						<div class="col-md-12">
 							<p>Por favor completa la información a continuación para finalizar tu proceso de registro.</p>
 						</div>
-						<div class="col-md-6 form-group" <?php if($_SESSION['FIRST_NAME']!=""){echo('style="display:none"');} ?>>
+						<div class="col-md-6 form-group" <?php if(isset($_SESSION['FIRST_NAME']) && $_SESSION['FIRST_NAME']!=""){echo('style="display:none"');} ?>>
 							<label>Nombre</label>
-							<input type="text" class="form-control" name="nombre" id="nombre" value="<?php echo $_SESSION['FIRST_NAME'] ?>" required />
+							<input type="text" class="form-control" name="nombre" id="nombre" value="<?php echo ( isset($_SESSION['FIRST_NAME']) ? $_SESSION['FIRST_NAME'] : '' ) ?>" required />
 						</div>
-						<div class="col-md-6 form-group" <?php if($_SESSION['LAST_NAME']!=""){echo('style="display:none"');} ?>>
+						<div class="col-md-6 form-group" <?php if( isset($_SESSION['LAST_NAME']) && $_SESSION['LAST_NAME']!=""){echo('style="display:none"');} ?>>
 							<label>Apellido</label>
-							<input type="text" class="form-control" name="apellido" id="apellido" value="<?php echo $_SESSION['LAST_NAME'] ?>" required />
+							<input type="text" class="form-control" name="apellido" id="apellido" value="<?php echo ( isset($_SESSION['LAST_NAME']) ? $_SESSION['LAST_NAME'] : '') ?>" required />
 						</div>
-						<div class="col-md-6 form-group" <?php if($_SESSION['EMAIL']!=""){echo('style="display:none"');} ?>>
+						<div class="col-md-6 form-group" <?php if( isset($_SESSION['EMAIL']) && $_SESSION['EMAIL']!=""){echo('style="display:none"');} ?>>
 							<label>Email</label>
-							<input type="email" class="form-control" name="email" id="email" value="<?php echo $_SESSION['EMAIL'] ?>" required />
+							<input type="email" class="form-control" name="email" id="email" value="<?php echo ( isset($_SESSION['EMAIL']) ? $_SESSION['EMAIL'] : '' ); ?>" required />
 						</div>
 						<div class="col-md-6 form-group">
 							<label>Ciudad</label>
@@ -332,7 +332,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<input type="hidden" name="fbid" id="fbid" value="<?php echo $_SESSION['FBID'] ?>" />
+					<input type="hidden" name="fbid" id="fbid" value="<?php echo ( isset($_SESSION['FBID']) ? $_SESSION['FBID'] : ''); ?>" />
 					<input type="hidden" name="consulta" id="consulta" value="emailFacebook" />
 					<button type="submit" class="btn btn-primary">Continuar</button>
 				</div>

@@ -138,7 +138,7 @@
 		// We were redirected here from PayPal after the buyer approved/cancelled
 		// the payment
 		
-		if($_GET['success'] == 'true' && isset($_GET['PayerID']) && isset($_GET['orderPaypalId'])) {
+		if( isset($_GET['success']) && $_GET['success'] == 'true' && isset($_GET['PayerID']) && isset($_GET['orderPaypalId']) ) {
 			$orderId = $_GET['orderPaypalId'];
 			try {
 				$order = obtenerOrden($orderId);
@@ -173,12 +173,12 @@
 				
 				
 				?>
-						<script>
-							$(document).ready(function(){
-								descargar();
-								modal("Proceso de inscripción","<?php echo $mensaje; ?>");
-							});
-						</script>
+					<script>
+						$(document).ready(function(){
+							descargar();
+							modal("Proceso de inscripción","<?= $mensaje; ?>");
+						});
+					</script>
 				<?php
 			} catch (\PayPal\Exception\PPConnectionException $ex) {
 				$message = parseApiError($ex->getData());
@@ -188,12 +188,31 @@
 				$messageType = "error";
 			}
 			
-		} else {
+		} elseif ( isset($_GET['success']) && $_GET['success'] == 'false' ){
 			$orderId = $_GET['orderPaypalId'];
 			$order = obtenerOrden($orderId);
-			actualizarOrden($orderId, 3, $order['transaction_id']);
-			$messageType = "error";
-			$message = "Your payment was cancelled.";
+			$estado = 3;
+			$estadoTexto = 'failed';
+			$estadoTexto2 = 'Fallida';
+			actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);
+			$mensaje = "";
+			$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
+			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$estadoTexto2."</p>";
+			if( $estado == 1 ){
+				$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
+			}elseif( $estado == 0 || $estado == 3 ){
+				$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
+			}elseif( $estado == 2 ){
+				$mensaje .= "<p>Pronto estará recibiendo información adicional acerca del estado de su transacción.</p>";
+			}
+			?>
+				<script>
+					$(document).ready(function(){
+						descargar();
+						modal("Proceso de inscripción","<?php echo $mensaje; ?>");
+					});
+				</script>
+			<?php
 		}
 	}
 	?>
@@ -210,7 +229,7 @@
 					    modal('¡No te la pierdas!...','<p><a href="index.php?content=conferencia-virtual"><img src="/images/popup_conferencia.jpg" class="img img-responsive" /></a></p>');
 					    $.cookie('evento',1);
 					}
-				})
+				});
 			</script>
 			<?php
 		}
@@ -228,4 +247,5 @@
 			<?php
 		}
 	?>
+	<?php echo $_GET['success']; ?>
 </html>
