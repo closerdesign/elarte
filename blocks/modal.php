@@ -489,35 +489,37 @@
 					</div>
 				</div>
 				<?php
+				if ( isset($_SESSION['id']) ) {
 					$sql="SELECT * FROM usuarios WHERE id = '$_SESSION[id]'";
 					$q=mysqli_query($con, $sql);
 					$data=mysqli_fetch_array($q);
+				}
 				?>
-				<div class="row" <?php if($data['email']!=""){echo('style="display:none"');} ?> >
+				<div class="row" <?php if( isset($data['email']) && $data['email']!=""){echo('style="display:none"');} ?> >
 					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 						<label>Email</label>
-						<input type="email" class="form-control" name="frEmail" id="frEmail" value="<?php echo $data['email'] ?>" required />
+						<input type="email" class="form-control" name="frEmail" id="frEmail" value="<?php echo (isset($data['email']) ? $data['email'] : ''); ?>" required />
 					</div>
 				</div>
-				<div class="row" <?php if($data['nombre']!=""){echo('style="display:none"');} ?> >
+				<div class="row" <?php if( isset($data['nombre']) && $data['nombre']!=""){echo('style="display:none"');} ?> >
 					<div class="col-md-12 form-group">
 						<label>Nombre</label>
-						<input type="text" class="form-control" name="frNombre" id="frNombre" value="<?php echo $data['nombre'] ?>" required />
+						<input type="text" class="form-control" name="frNombre" id="frNombre" value="<?php echo (isset($data['nombre']) ? $data['nombre'] : ''); ?>" required />
 					</div>
 				</div>
-				<div class="row" <?php if($data['apellido']!=""){echo('style="display:none"');} ?> >
+				<div class="row" <?php if( isset($data['apellido']) && $data['apellido']!=""){echo('style="display:none"');} ?> >
 					<div class="col-md-12 form-group">
 						<label>Apellido</label>
-						<input type="text" class="form-control" name="frApellido" id="frApellido" value="<?php echo $data['apellido'] ?>" required />
+						<input type="text" class="form-control" name="frApellido" id="frApellido" value="<?php echo (isset($data['apellido']) ? $data['apellido'] : ''); ?>" required />
 					</div>
 				</div>
-				<div class="row" <?php if($data['ciudad']!=""){echo('style="display:none"');} ?>>
+				<div class="row" <?php if( isset($data['ciudad']) && $data['ciudad']!=""){echo('style="display:none"');} ?>>
 					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 						<label>Ciudad</label>
 						<input type="text" class="form-control" name="frCiudad" id="frCiudad" required />
 					</div>
 				</div>
-				<div class="row" <?php if($data['pais']!=""){echo('style="display:none"');} ?>>
+				<div class="row" <?php if( isset($data['pais']) && $data['pais']!=""){echo('style="display:none"');} ?>>
 					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 						<label>País</label>
 						<select class="form-control" name="frPais" id="frPais" required>
@@ -526,7 +528,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="row" <?php if($data['genero']!=""){echo('style="display:none"');} ?>>
+				<div class="row" <?php if( isset($data['genero']) && $data['genero']!=""){echo('style="display:none"');} ?>>
 					<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 						<label>Género</label>
 						<select class="form-control" name="frGenero" id="frGenero" required >
