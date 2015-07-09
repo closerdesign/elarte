@@ -66,6 +66,8 @@
 			require_once('blocks/migracion_passwords.php');
 		}elseif($_REQUEST['content']=='conferencia-amar-sin-apegos'){
 			require_once('blocks/inscripcion-conferencia-v5.php');
+		}elseif($_REQUEST['content']=='conferencia-walter-riso'){
+			require_once('blocks/inscripcion-conferencia-v5.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}

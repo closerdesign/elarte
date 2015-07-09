@@ -1398,8 +1398,8 @@
 				pedido = '$pedido'
 		");
 		$n = mysqli_num_rows($q);
+		$html = ""; 
 		if($n < 1){
-			$html = ""; 
 			$html .= "<tr><td colspan='3' class='text-center'>";
 			$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
 			$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
