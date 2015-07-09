@@ -889,7 +889,7 @@
 				$html.="
 					<tr id='ordenpub".$p['publicacion']."'>
 						<td>
-							".getNombrePublicacion($p['publicacion'])."<br /><b>".$displayFormatos[getFormatoPublicacion($p['publicacion'])]."</b>
+							".getNombrePublicacion($p['publicacion'])."<br /><b>".$GLOBALS['displayFormatos'][getFormatoPublicacion($p['publicacion'])]."</b>
 						</td>
 						<td class='text-center'>
 							USD ".getPrecioPublicacion($p['publicacion'])."
@@ -902,23 +902,25 @@
 							</p>
 						</td>
 					</tr>
-					$('.delordenpub".$p['publicacion']."').click(function(){
-						$('.load').fadeIn();
-						$.post('/includes/php.php',{
-							consulta: 'delordenpub',
-							publicacion: $(this).attr('publicacion'),
-							pedido: $.cookie('pedido')
-						}).done(function(data){
-							if(data==1){
-								$('#ordenpub".$p['publicacion']."').fadeOut();
-								labelProductos();
-							}
-							if(data===0){
-								alert('Se ha presentado un error. Por favor intente de nuevo.');
-							}
-							$('.load').fadeOut();
+					<script>
+						$('.delordenpub".$p['publicacion']."').click(function(){
+							$('.load').fadeIn();
+							$.post('/includes/php.php',{
+								consulta: 'delordenpub',
+								publicacion: $(this).attr('publicacion'),
+								pedido: $.cookie('pedido')
+							}).done(function(data){
+								if(data==1){
+									$('#ordenpub".$p['publicacion']."').fadeOut();
+									labelProductos();
+								}
+								if(data===0){
+									alert('Se ha presentado un error. Por favor intente de nuevo.');
+								}
+								$('.load').fadeOut();
+							});
 						});
-					});
+					</script>
 				";
 			}					
 			$html.="				</tbody>
