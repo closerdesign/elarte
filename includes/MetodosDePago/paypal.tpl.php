@@ -23,7 +23,7 @@
 		<input type="hidden" id="vrPedido" name="amount" value="15.99" />
 		<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>
 		<?php
-		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos') {
+		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos' || $_POST['pagina'] == 'conferencia-walter-riso') {
 		?>
 		<div class="row">
 			<h5>Ingrese su código de descuento</h5>

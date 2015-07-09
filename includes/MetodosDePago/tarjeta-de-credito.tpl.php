@@ -70,7 +70,7 @@
 			<input type="hidden" name="cuotas" id="cuotas" value="1" />
 		</div>
 		<?php
-		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos') {
+		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos' || $_POST['pagina'] == 'conferencia-walter-riso') {
 		?>
 		<div class="row">
 			<h5>Ingrese su código de descuento</h5>
