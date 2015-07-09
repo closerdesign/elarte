@@ -31,9 +31,13 @@
 					}else{
 						echo("<div class='row'>");
 						while($pub=mysqli_fetch_array($q)){
-							$sql1="SELECT * FROM publicacionesxusuario WHERE usuario = '$_SESSION[id]' AND publicacion = '$pub[id]'";
-							$q1=mysqli_query($con, $sql1);
-							$n1=mysqli_num_rows($q1);
+							if ( isset($_SESSION['id']) ) {
+								$sql1="SELECT * FROM publicacionesxusuario WHERE usuario = '$_SESSION[id]' AND publicacion = '$pub[id]'";
+								$q1=mysqli_query($con, $sql1);
+								$n1=mysqli_num_rows($q1);
+							}else{
+								$n1 = 0;
+							}
 							if($n1<1){
 							?>
 							<div class="col-lg-4 col-md-4 col-sm-4 displayPublicacion displayIdioma<?php echo $pub['idioma'] ?> displayFormato<?php echo $pub['formato'] ?>">
