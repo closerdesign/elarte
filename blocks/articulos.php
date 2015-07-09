@@ -362,7 +362,10 @@
 
 <?php
 	if(
-		($_REQUEST['content']=='articulos') &&
+		(
+			isset($_REQUEST['categoria']) &&
+			isset($_REQUEST['content']) &&
+			$_REQUEST['content']=='articulos') &&
 		(!isset($_REQUEST['id']))
 	){
 		?>

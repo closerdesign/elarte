@@ -1388,23 +1388,30 @@
 	function detalleDelPedido()
 	{	
 		global $con;
-		$pedido = $_POST['pedido'];
-		$q = mysqli_query($con, "
-			SELECT
-				*
-			FROM
-				publicacionesxpedido
-			WHERE
-				pedido = '$pedido'
-		");
-		$n = mysqli_num_rows($q);
+		
+		if ( isset($_POST['pedido']) ) {
+			$pedido = $_POST['pedido'];
+			$q = mysqli_query($con, "
+				SELECT
+					*
+				FROM
+					publicacionesxpedido
+				WHERE
+					pedido = '$pedido'
+			");
+			$n = mysqli_num_rows($q);
+		}else{
+			$n = 0;
+		}
 		$html = ""; 
 		if($n < 1){
 			$html .= "<tr><td colspan='3' class='text-center'>";
 			$html .= "¿Aún no tienes publicaciones en tu pedido?<br />";
 			$html .= "Visita nuestras <a href='/obras'><b>Guias y Obras Editoriales</b></a>";
 			$html .= "</td></tr>";
-			mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
+			if ( isset($pedido) ) {
+				mysqli_query($con, "UPDATE pedidos SET valor = '0' WHERE id = '$pedido'");
+			}
 			echo $html;
 		}else{
 			$total = 0;

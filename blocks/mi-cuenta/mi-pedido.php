@@ -306,8 +306,8 @@
 							<input type="hidden" name="emailBcp" id="emailBcp" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="nombreBcp" id="nombreBcp" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="noDocumentoBcp" id="noDocumentoBcp" value="900476732" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
-							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo $_COOKIE['pedido'] ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>" />
+							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : ''); ?>" />
 							<button class="btn btn-primary">Generar desprendible de pago</button>
 						</div>
 					</div>
@@ -330,7 +330,7 @@
 							$.post('/includes/php.php',{
 								consulta: "pedidoPendiente",
 								pedido: $.cookie('pedido'),
-								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
+								valor: "<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>",
 								formaPago: "6",
 								orderId: response.transactionResponse.orderId,
 								transactionId: response.transactionResponse.transactionId,
@@ -377,8 +377,8 @@
 							<input type="hidden" name="emailOxxo" id="emailOxxo" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="nombreOxxo" id="nombreOxxo" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="noDocumentoOxxo" id="noDocumentoOxxo" value="900307622" />
-							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo $_COOKIE['pedido'] ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
+							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : ''); ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>" />
 							<button class="btn btn-primary">Generar desprendible de pago</button>
 						</div>
 					</div>
@@ -395,7 +395,7 @@
 							$.post('/includes/php.php',{
 								consulta: "pedidoPendiente",
 								pedido: $.cookie('pedido'),
-								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
+								valor: "<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>",
 								formaPago: "5",
 								orderId: response.transactionResponse.orderId,
 								transactionId: response.transactionResponse.transactionId,
@@ -430,8 +430,8 @@
 							<input type="hidden" name="noDocumentoBaloto" id="noDocumentoBaloto" value="900307622" />
 							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']) ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
-							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo $_COOKIE['pedido'] ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>" />
+							<input type="hidden" name="noPedido" id="noPedido" value="<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : ''); ?>" />
 							<button type="submit" class="btn btn-primary">Generar desprendible de pago</button>
 						</div>
 					</div>
@@ -448,7 +448,7 @@
 							$.post('/includes/php.php',{
 								consulta: "pedidoPendiente",
 								pedido: $.cookie('pedido'),
-								valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>",
+								valor: "<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>",
 								formaPago: "4",
 								orderId: response.transactionResponse.orderId,
 								transactionId: response.transactionResponse.transactionId,
@@ -537,8 +537,8 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 form-group">
-							<input type="hidden" name="pedido" id="pedido" value="<?php echo $_COOKIE['pedido'] ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']) ?>" />
+							<input type="hidden" name="pedido" id="pedido" value="<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : ''); ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>" />
 							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']); ?>" />
 							<input type="hidden" name="consulta" id="consulta" value="pseRequestTienda" />
 							<button id="ButtonPSEPayment" class="btn btn-primary">Pagar</button>
@@ -645,7 +645,7 @@
 						<p>
 							<a 
 								class="btn btn-primary"
-								href="/includes/php.php?consulta=pagarConPaypal&orden=<?php echo $_COOKIE['pedido'] ?>&urlCancela=<?php echo URL."mi-cuenta/mis-publicaciones" ?>">
+								href="/includes/php.php?consulta=pagarConPaypal&orden=<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : ''); ?>&urlCancela=<?php echo URL."mi-cuenta/mis-publicaciones" ?>">
 								<i class="fa fa-paypal"></i> Pagar con Paypal
 							</a>
 						</p>
@@ -724,8 +724,8 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12 form-group">
 							<input type="hidden" class="form-control" name="cuotas" id="cuotas" value="1" />
-							<input type="hidden" name="pedido" id="pedido" value="<?php echo $_COOKIE['pedido'] ?>" />
-							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo getValorDeLaOrden($_COOKIE['pedido']); ?>" />
+							<input type="hidden" name="pedido" id="pedido" value="<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : '') ; ?>" />
+							<input type="hidden" name="vrPedido" id="vrPedido" value="<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : '') ; ?>" />
 							<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?php echo getNombreUsuario($_SESSION['id'])." ".getApellidoUsuario($_SESSION['id']); ?>" />
 							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
 							<input type="hidden" name="ciudad" id="ciudad" value="<?php echo getCiudadUsuario($_SESSION['id']) ?>" />
@@ -757,7 +757,7 @@
 									consulta: "cierra-pedido",
 									pedido: $.cookie('pedido'),
 									usuario: "<?php echo $_SESSION['id']; ?>",
-									valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']); ?>",
+									valor: "<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>",
 									status: "2",
 									formaPago: "1",
 									orderId: response.transactionResponse.orderId,
@@ -787,7 +787,7 @@
 								$.post('/includes/php.php',{
 									consulta: "pedidoPendiente",
 									pedido: $.cookie('pedido'),
-									valor: "<?php echo getValorDeLaOrden($_COOKIE['pedido']); ?>",
+									valor: "<?php echo (isset($_COOKIE['pedido']) ? getValorDeLaOrden($_COOKIE['pedido']) : ''); ?>",
 									status: "1",
 									formaPago: "1",
 									orderId: response.transactionResponse.orderId,
