@@ -95,7 +95,7 @@ $(document).ready(function(){
 			nuevoModal(data);
 		});
 	}
-
+	
 	function obtenerFormularioDePago2(metodo, pagina){
 		cargar();
 		logActividades("Llama formulario de pago para el metodo " + metodo);

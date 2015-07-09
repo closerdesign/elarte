@@ -40,6 +40,8 @@
 					$status=2;
 				}elseif($response->state=='DECLINED'){
 					$status=3;
+				}elseif($response->state=='EXPIRED'){
+					$status=3;
 				}
 				$sql1="UPDATE pedidos SET status = '$status', state = '".$response->state."', pendingReason = '', responseCode = '".$response->responseCode."' WHERE transactionId = '$p[transactionId]'";
 				$q1=mysqli_query($con, $sql1);

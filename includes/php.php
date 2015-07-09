@@ -521,10 +521,10 @@
 		   $url=NOTIFICACION;
 		   $html=file_get_contents($url);
 		   $contenido='
-			<p><b>Hola '.getNombreUsuario($_POST['usuario']).'</b>,</p>
-			<p>De acuerdo con tu solicitud adjunto te estamos entregando nuestra publicacion <b>"'.getNombrePublicacion($_POST['publicacion']).'"</b>.</p>
-			<p>Gracias por preferirnos!</p>
-			<p><b>El equipo de Phronesis | El arte de saber vivir</b></p>
+		   	<p><b>Hola '.getNombreUsuario($_POST['usuario']).'</b>,</p>
+		   	<p>De acuerdo con tu solicitud adjunto te estamos entregando nuestra publicacion <b>"'.getNombrePublicacion($_POST['publicacion']).'"</b>.</p>
+		   	<p>Gracias por preferirnos!</p>
+		   	<p><b>El equipo de Phronesis | El arte de saber vivir</b></p>
 		   ';
 		   $html=str_replace("{{contenido}}",$contenido,$html);         
 		   $mail = new PHPMailer();
@@ -536,9 +536,9 @@
 		   $mail->AddAddress(getEmailUsuario($_POST['usuario']));
 		   $mail->AddAttachment('../admin/_lib/file/docdescargables/'.getArchivoPublicacion($_POST['publicacion']));
 		   if(!$sent_mail= $mail->Send()){
-			echo json_encode(array("0","0"));
+		   	echo json_encode(array("0","0"));
 		   }else{
-			echo json_encode(array("1",getArchivoPublicacion($_POST['publicacion'])));
+		   	echo json_encode(array("1",getArchivoPublicacion($_POST['publicacion'])));
 		   }
 		}
 	}
@@ -675,27 +675,11 @@
 				reference = '$_POST[reference]'
 			WHERE id = '".$_POST['pedido']."'
 		")){
-			if ( isset($_POST['json']) && $_POST['json'] == "true" ) {
-				$response['code'] = 0;
-				$response['error'] = mysqli_error($con);
-				echo json_encode($response);
-			}else{
-				echo 0;
-				echo mysqli_error($con);
-			}
+			echo 0;
+			echo mysqli_error($con);
 		}else{
-			if ( isset($_POST['json']) && $_POST['json'] == "true" ) {
-				unset($_COOKIE['pedido']);
-				setcookie('pedido', null, -1, '/');
-				$response['code'] = 1;
-				$response['error'] = mysqli_error($con);
-				echo json_encode($response);
-			}else{
-				unset($_COOKIE['pedido']);
-				echo 1;		
-			}
+			echo 1;
 		}
-		return;
 	}
 	
 	// Formulario de contacto
@@ -705,24 +689,34 @@
 		if(!mysqli_query($con, "INSERT INTO contacto (nombre, apellido, email, motivo, mensaje) VALUES ('".strtoupper($_POST['nombre'])."', '".strtoupper($_POST['apellido']."', '".strtolower($_POST['email'])."', '".$_POST['motivo']."', '".$_POST['mensaje']."')"))){
 			echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 		}else{
-			
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+			$url=NOTIFICACION;
+			$html=file_get_contents($url);
 			$contenido='
 				<p>A continuación la información relacionada:</p>
 				<p><b>Nombre:</b><br />'.$_POST['nombre'].'</p>
 				<p><b>Apellido:</b><br />'.$_POST['apellido'].'</p>
 				<p><b>Email:</b><br />'.$_POST['email'].'</p>
+				<p><b>Motivo:</b><br />'.$_POST['motivo'].'</p>
 				<p><b>Mensaje:</b><br />'.$_POST['mensaje'].'</p>
 			';
-			
-			$notificacion = notificar(NOTIFICACIONES,'Consulta: '.$_POST['motivo'],$contenido);
-			
-			if($notificacion==1){
+			$html=str_replace("{{contenido}}",$contenido,$html);         
+			$mail = new PHPMailer();
+			$mail->From = 'no-reply@phronesisvirtual.com';
+			$mail->FromName = 'Phronesis | El arte de saber vivir';
+			$mail->Subject = utf8_decode('Nuevo mensaje desde el sitio web: '.$_POST['motivo']);
+			$mail->Body = utf8_decode($html);
+			$mail->IsHTML(true);
+			$mail->AddAddress(NOTIFICACIONES);
+			//$mail->AddBCC('juanc@closerdesign.co');
+			$mail->AddReplyTo($_POST['email']);
+			if(!$sent_mail= $mail->Send()){
+				echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
+			}else{
 				agregaListaNewsletter($_POST['email']);
 				echo "Gracias por escribirnos, hemos recibido su mensaje y pronto estaremos en contacto.";
-			}else{
-				echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
 			}
-			
 		}
 	}
 	
@@ -947,22 +941,7 @@
 		if(!mysqli_query($con, $sql)){
 		   echo 0;
 		}else{
-			$sql2 = "SELECT SUM(pub.precio) total
-						FROM publicacionesxpedido pubped
-						INNER JOIN publicaciones pub ON pubped.publicacion = pub.id
-						WHERE pubped.pedido =  '$_POST[pedido]'";
-			$query = mysqli_query($con, $sql2);
-			if(!$query){
-				echo 0;
-			}else{
-				$result = mysqli_fetch_array($query);
-				$total = $result['total'];
-				if(!mysqli_query($con, "UPDATE pedidos SET valor = '$total' WHERE id = '$_POST[pedido]'")){
-					echo 0;
-				}else{
-					echo 1;
-				}
-			}
+		   echo 1;
 		}
 	}
 	
@@ -1044,17 +1023,17 @@
 		global $con;
 		if(!mysqli_query($con, "
 		   UPDATE
-			usuarios
+		   	usuarios
 		   SET
-			email = '$_POST[frEmail]',
-			nombreCompleto = '$_POST[frNombre] $_POST[frApellido]',
-			nombre = '$_POST[frNombre]',
-			apellido = '$_POST[frApellido]',
-			ciudad = '$_POST[frCiudad]',
-			pais = '$_POST[frPais]',
-			genero = '$_POST[frGenero]'
+		   	email = '$_POST[frEmail]',
+		   	nombreCompleto = '$_POST[frNombre] $_POST[frApellido]',
+		   	nombre = '$_POST[frNombre]',
+		   	apellido = '$_POST[frApellido]',
+		   	ciudad = '$_POST[frCiudad]',
+		   	pais = '$_POST[frPais]',
+		   	genero = '$_POST[frGenero]'
 		   WHERE
-			id = '$_SESSION[id]'
+		   	id = '$_SESSION[id]'
 		")){
 		   mysqli_error($con);
 		}else{
@@ -1552,10 +1531,10 @@
 		// Proceso de pago con tarjeta de crédito
 		if( $metodo == 1 ){
 			ob_start();
-			require "MetodosDePago/tarjeta-de-credito.tpl.php";
-			$tpl_content = ob_get_clean();
-			echo $tpl_content;
-			return;
+            require "MetodosDePago/tarjeta-de-credito.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
 		}
 		
 		// Proceso de pago vía Paypal
@@ -1584,10 +1563,10 @@
 
 
 			ob_start();
-			require "MetodosDePago/paypal.tpl.php";
-			$tpl_content = ob_get_clean();
-			echo $tpl_content;
-			return;	
+            require "MetodosDePago/paypal.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;	
 		}
 		
 		// Proceso de pago PSE
@@ -1613,181 +1592,37 @@
 			$banks=$array->banks;
 			
 			ob_start();
-			require "MetodosDePago/pago-pse.tpl.php";
-			$tpl_content = ob_get_clean();
-			echo $tpl_content;
-			return;			
+            require "MetodosDePago/pago-pse.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;			
 		}
 		
 		// Proceso de pago VIA Baloto
 		if( $metodo == 4 ){
+			
 			ob_start();
-			require "MetodosDePago/pago-baloto.tpl.php";
-			$tpl_content = ob_get_clean();
-			echo $tpl_content;
-			return;
+            require "MetodosDePago/pago-baloto.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
 			
-			 //Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
-			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-			PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-			$accountId = "501716";
-			
-			$parameters = array(
-				
-				PayUParameters::ACCOUNT_ID => $accountId,
-				PayUParameters::REFERENCE_CODE => $reference,
-				PayUParameters::DESCRIPTION => "Tu compra en Phronesis, el arte de saber vivir.",
-				
-				PayUParameters::VALUE => $value,
-				PayUParameters::CURRENCY => "USD",
-				
-				PayUParameters::BUYER_EMAIL => $_POST['email'],
-				PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
-				PayUParameters::PAYER_EMAIL => $_POST['email'],
-				PayUParameters::PAYER_CONTACT_PHONE=> $_POST['telefonoDiurno'],
-					   
-				PayUParameters::PSE_FINANCIAL_INSTITUTION_CODE => $_POST['bancos'],
-				PayUParameters::PAYER_PERSON_TYPE => $_POST['tipoPersona'],
-				PayUParameters::PAYER_DNI => $_POST['noIdentificacion'],
-				PayUParameters::PAYER_DOCUMENT_TYPE => 'N',
-			
-				PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
-			   
-				PayUParameters::COUNTRY => PayUCountries::CO,
-				
-				PayUParameters::IP_ADDRESS => "127.0.0.1",
-				PayUParameters::PAYER_COOKIE=>"pt1t38347bs6jc9ruv2ecpv7o2",
-				PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
-			   
-			);
-				
-			$ping = PayUPayments::doPing(null);
-			if ($ping->code === 'SUCCESS') {
-				$response = PayUPayments::doAuthorizationAndCapture($parameters);
-				if($response){
-					$response->transactionResponse->orderId;
-					$response->transactionResponse->transactionId;
-					$response->transactionResponse->state;
-					if($response->transactionResponse->state)
-					if($response->transactionResponse->state=="PENDING"){
-						$response->transactionResponse->pendingReason;
-						$response->transactionResponse->extraParameters->BANK_URL;		
-					}
-					$response->transactionResponse->responseCode;		  
-				}
-				echo json_encode($response);
-			}else{
-				$res['error'] = 'Error';
-				$res['message'] = 'Error al conectarse a payu';
-				echo json_encode($res);
-			}
-		}
-
-		// REQUEST DE PSE
-		if( $_POST['consulta'] == 'pseRequestTienda' ){
-			
-			require_once('payu/PayU.php');
-
-				$reference = $_POST['pedido'];
-				$value = $_POST['vrPedido'];	    		
-				
-				// PRODUCCIÓN
-				// Variables de producción
-				Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
-				Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
-				Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
-				// Fin variables de producción
-				
-				 //Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
-				PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
-				PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
-				PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
-				PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-				PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
-				$accountId = "501716";
-				
-				$parameters = array(
-					//Ingrese aquí el identificador de la cuenta.
-					PayUParameters::ACCOUNT_ID => $accountId,
-					//Ingrese aquí el código de referencia.
-					PayUParameters::REFERENCE_CODE => $reference,
-					//Ingrese aquí la descripción.
-					PayUParameters::DESCRIPTION => "Tu compra en Phronesis, el arte de saber vivir.",
-					
-					// -- Valores --
-					//Ingrese aquí el valor.        
-					PayUParameters::VALUE => $value,
-					//Ingrese aquí la moneda.
-					PayUParameters::CURRENCY => "USD",
-					
-					//Ingrese aquí el email del comprador.
-					PayUParameters::BUYER_EMAIL => $_POST['email'],
-					//Ingrese aquí el nombre del pagador.
-					PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
-					//Ingrese aquí el email del pagador.
-					PayUParameters::PAYER_EMAIL => $_POST['email'],
-					//Ingrese aquí el teléfono de contacto del pagador.
-					PayUParameters::PAYER_CONTACT_PHONE=> $_POST['telefonoDiurno'],
-						   
-					// -- infarmación obligatoria para PSE --
-					//Ingrese aquí el código pse del banco.
-					PayUParameters::PSE_FINANCIAL_INSTITUTION_CODE => $_POST['bancos'],
-					//Ingrese aquí el tipo de persona (N natural o J jurídica)
-					PayUParameters::PAYER_PERSON_TYPE => $_POST['tipoPersona'],
-					//Ingrese aquí el documento de contacto del pagador.
-					PayUParameters::PAYER_DNI => $_POST['noIdentificacion'],
-					//Ingrese aquí el tipo de documento del pagador: CC, CE, NIT, TI, PP,IDC, CEL, RC, DE.
-					PayUParameters::PAYER_DOCUMENT_TYPE => $_POST['tipoDocumento'],
-				
-					//Ingrese aquí el nombre del método de pago
-					PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
-				   
-					//Ingrese aquí el nombre del pais.
-					PayUParameters::COUNTRY => PayUCountries::CO,
-					
-					//IP del pagadador
-					PayUParameters::IP_ADDRESS => "127.0.0.1",
-					//Cookie de la sesión actual.
-					PayUParameters::PAYER_COOKIE=>"pt1t38347bs6jc9ruv2ecpv7o2",
-					//Cookie de la sesión actual.        
-					PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
-				   
-				);
-						
-			$response = PayUPayments::doAuthorizationAndCapture($parameters);
-			
-			if($response){
-				$response->transactionResponse->orderId;
-				$response->transactionResponse->transactionId;
-				$response->transactionResponse->state;
-				if($response->transactionResponse->state)
-				if($response->transactionResponse->state=="PENDING"){
-					$response->transactionResponse->pendingReason;
-					$response->transactionResponse->extraParameters->BANK_URL;		
-				}
-				$response->transactionResponse->responseCode;		  
-			}			
-			echo json_encode($response);	
-			return;
 		}
 		
 		if( $metodo == 5 ){
 			ob_start();
-			require "MetodosDePago/pago-oxxo.tpl.php";
-			$tpl_content = ob_get_clean();
-			echo $tpl_content;
-			return;			
+            require "MetodosDePago/pago-oxxo.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;			
 		}
 		
 		if( $metodo == 6 ){
 			ob_start();
-			require "MetodosDePago/pago-bcp.tpl.php";
-			$tpl_content = ob_get_clean();
-			echo $tpl_content;
-			return;
+            require "MetodosDePago/pago-bcp.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
 		}
 	}
 		
@@ -1796,14 +1631,14 @@
 	{		
 		require_once('payu/PayU.php');
 
-		$reference = $_POST['pedido'];
+    	$reference = $_POST['pedido'];
 		$value = $_POST['vrPedido'];
 		
 		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
 		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
 		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
 		
-		 //Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
+	     //Estos Datos son para hacer pruebas.. cuando pase a produccion toca colocar aca los datos del cliente
 		PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
 		PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
 		PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
@@ -1901,19 +1736,19 @@
 			) {
 				if(!mysqli_query($con, "
 				   INSERT INTO
-					inscritos_conferencia (
-						usuario_id,
-						estado_inscripcion,
-						metodo_pago,
-						transaction_id,
-						valor_inscripcion
-					) VALUES (
-						'$_SESSION[id]',
-						'$estado',
-						'$metodo',
-						'$idtransaccion',
-						'$valor'
-					)
+				   	inscritos_conferencia (
+				   		usuario_id,
+				   		estado_inscripcion,
+				   		metodo_pago,
+				   		transaction_id,
+				   		valor_inscripcion
+				   	) VALUES (
+				   		'$_SESSION[id]',
+				   		'$estado',
+				   		'$metodo',
+				   		'$idtransaccion',
+				   		'$valor'
+				   	)
 				")){
 				   return mysqli_error($con);
 				}else{
@@ -1972,19 +1807,19 @@
 		global $con;
 		if(!mysqli_query($con, "
 		   INSERT INTO
-			inscritos_conferencia (
-				usuario_id,
-				estado_inscripcion,
-				metodo_pago,
-				transaction_id,
-				valor_inscripcion
-			) VALUES (
-				'$_SESSION[id]',
-				'$_POST[estado]',
-				'$_POST[metodo]',
-				'$_POST[idtransaccion]',
-				'$_POST[valor]'
-			)
+		   	inscritos_conferencia (
+		   		usuario_id,
+		   		estado_inscripcion,
+		   		metodo_pago,
+		   		transaction_id,
+		   		valor_inscripcion
+		   	) VALUES (
+		   		'$_SESSION[id]',
+		   		'$_POST[estado]',
+		   		'$_POST[metodo]',
+		   		'$_POST[idtransaccion]',
+		   		'$_POST[valor]'
+		   	)
 		")){
 		   echo mysqli_error($con);
 		}else{
@@ -2537,7 +2372,7 @@
 		global $con;
 		$q = mysqli_query($con, "
 			(SELECT id, titulo, contenido FROM articulos WHERE titulo LIKE '%" . 
-			   $_POST['buscarArticulo'] . "%' OR contenido LIKE '%" . $_POST['buscarArticulo'] ."%')
+	           $_POST['buscarArticulo'] . "%' OR contenido LIKE '%" . $_POST['buscarArticulo'] ."%')
 		");
 		if(!$q){
 			echo 0;
@@ -2603,45 +2438,45 @@
 			
 			while($a = mysqli_fetch_assoc($q_msg)){
 			   $msg .= "
-				<table align='center'>
-					<tr>
-						<td style='border-bottom: solid 5px #6A127A'>
-							<p style='font-size: 18px'>
-								<a 
-									href='".URL."/articulos/$a[id]' 
-									target='_blank'
-									style='text-decoration: none; color: #6A127A'
-								>
-									$a[titulo]
-								</a>
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td style='border-bottom: solid 1px #6A127A'>
-							<p>
-								<a
-									href='".URL."/articulos/$a[id]'
-									target='_blank'
-									>
-									<img 
-										width='240'
-										style='float:left; margin: 10px 10px 10px 0; max-width: 40%'
-										src='".URL."/admin/_lib/file/imgarticulos/$a[imagen]' 
-									/>
-								</a>
-								".strip_tags(getFirstPara($a['contenido']))."
-							</p>
-							<p>
-								<a 
-									href='".URL."/articulos/$a[id]'
-									target='_blank'>
-									Leer más...
-								</a>
-							</p>
-						</td>
-					</tr>
-				</table>
+			   	<table align='center'>
+			   		<tr>
+			   			<td style='border-bottom: solid 5px #6A127A'>
+			   				<p style='font-size: 18px'>
+			   					<a 
+			   						href='".URL."/articulos/$a[id]' 
+			   						target='_blank'
+			   						style='text-decoration: none; color: #6A127A'
+			   					>
+			   						$a[titulo]
+			   					</a>
+			   				</p>
+			   			</td>
+			   		</tr>
+			   		<tr>
+			   			<td style='border-bottom: solid 1px #6A127A'>
+			   				<p>
+			   					<a
+			   						href='".URL."/articulos/$a[id]'
+			   						target='_blank'
+			   						>
+			   						<img 
+			   							width='240'
+			   							style='float:left; margin: 10px 10px 10px 0; max-width: 40%'
+			   							src='".URL."/admin/_lib/file/imgarticulos/$a[imagen]' 
+			   						/>
+			   					</a>
+			   					".strip_tags(getFirstPara($a['contenido']))."
+			   				</p>
+			   				<p>
+			   					<a 
+			   						href='".URL."/articulos/$a[id]'
+			   						target='_blank'>
+			   						Leer más...
+			   					</a>
+			   				</p>
+			   			</td>
+			   		</tr>
+			   	</table>
 			   ";
 			}
 			
@@ -2652,15 +2487,15 @@
 			// CREAR LISTA DE ENVIO EN SENDY
 			if(!mysqli_query($con_sendy, "
 			   INSERT INTO
-				lists (
-					app,
-					userID,
-					name
-				) VALUES (
-					'1',
-					'1',
-					'Cierre de Preventa 4 - ".date('Y-m-d')."'
-				)
+			   	lists (
+			   		app,
+			   		userID,
+			   		name
+			   	) VALUES (
+			   		'1',
+			   		'1',
+			   		'Conferencia Global 2 - ".date('Y-m-d')."'
+			   	)
 			")){
 			   
 			   echo('<p>No se pudo crear la lista de envio</p>');
@@ -2671,64 +2506,64 @@
 			   
 			   // CREACION DE LOS SUSCRIPTORES EN LA LISTA
 			   //$q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT ".$limit_query);
-			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 100000 OFFSET 400000");
+			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 200000 OFFSET 400000");
 			   $n = mysqli_num_rows($q);
 			   
 			   if($n > 0){
 			
 				   while( $s = mysqli_fetch_assoc($q) ){
-					if(!mysqli_query($con_sendy, "
-						INSERT INTO
-							subscribers (
-								userID,
-								name,
-								email,
-								list,
-								confirmed
-							) VALUES (
-								'1',
-								'1',
-								'$s[email]',
-								'$id_lista',
-								'1'
-							)
-					")){
-						echo("<p>No se pudo migrar el registro: $s[email]</p>");
-					}else{
-						echo("<p>$s[email] ha sido migrado exitosamente.</p>");
-					}
+				   	if(!mysqli_query($con_sendy, "
+				   		INSERT INTO
+				   			subscribers (
+				   				userID,
+				   				name,
+				   				email,
+				   				list,
+				   				confirmed
+				   			) VALUES (
+				   				'1',
+				   				'1',
+				   				'$s[email]',
+				   				'$id_lista',
+				   				'1'
+				   			)
+				   	")){
+				   		echo("<p>No se pudo migrar el registro: $s[email]</p>");
+				   	}else{
+				   		echo("<p>$s[email] ha sido migrado exitosamente.</p>");
+				   	}
 				   }
 				   
 				   // CREACIÓN DE LA CAMPAÑA
 				   if(!mysqli_query($con_sendy, "
-					INSERT INTO
-						campaigns (
-							userID,
-							app,
-							from_name,
-							from_email,
-							reply_to,
-							title,
-							html_text,
-							to_send_lists,
-							bounce_setup,
-							complaint_setup
-						) VALUES (
-							'1',
-							'1',
-							'Editorial Phronesis',
-							'info@phronesisvirtual.com',
-							'info@phronesisvirtual.com',
-							'Esta semana en elartedesabervivir.com',
-							'".mysqli_real_escape_string($con_sendy, $html)."',
-							'$id_lista',
-							'1',
-							'1'
-						)
+				   	INSERT INTO
+				   		campaigns (
+				   			userID,
+				   			app,
+				   			from_name,
+				   			from_email,
+				   			reply_to,
+				   			title,
+				   			html_text,
+				   			to_send_lists,
+				   			bounce_setup,
+				   			complaint_setup
+				   		) VALUES (
+				   			'1',
+				   			'1',
+				   			'Editorial Phronesis',
+				   			'info@phronesisvirtual.com',
+				   			'info@phronesisvirtual.com',
+				   			'Esta semana en elartedesabervivir.com',
+				   			'".mysqli_real_escape_string($con_sendy, $html)."',
+				   			'$id_lista',
+				   			'1',
+				   			'1'
+				   		)
 				   ")){
-					echo "<p>No se pudo crear la campana. ".mysqli_error($con_sendy)."</p>";
+				   	echo "<p>No se pudo crear la campana. ".mysqli_error($con_sendy)."</p>";
 				   }else{
-					echo "Campaña creada en forma exitosa";
+				   	echo "Campaña creada en forma exitosa";
 				   }
 			   
 			   }
