@@ -6,7 +6,7 @@
 	$value = $_POST['vrPedido'];
 	$expiration = $_POST['yearTarjeta']."/".$_POST['mesTarjeta'];
 
-    if ( _TESTING_ ) {
+   /* if ( _TESTING_ ) {
     	Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi");
     	Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi");
     	Environment::setSubscriptionsCustomUrl("https://stg.api.payulatam.com/payments-api/rest/v4.3/");
@@ -17,7 +17,7 @@
     	PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
     	PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
     	$accountId = "500538";
-    }else{
+    }else{*/
 		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
 		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
 		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
@@ -28,7 +28,7 @@
 		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
 		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
 		$accountId = "501716";
-    }
+    /*}*/
 
 	$parameters = array(
 	//Ingrese aquí el identificador de la cuenta.
