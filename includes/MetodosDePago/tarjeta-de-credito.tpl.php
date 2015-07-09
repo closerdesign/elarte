@@ -78,7 +78,7 @@
 				<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
 			</div>
 			<div class="col-md-6 form-group">
-				<button id="validarDecuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Verificar</button>
+				<button id="validarDecuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Aplicar código</button>
 			</div>
 		</div>
 		<div class="row">
@@ -117,7 +117,7 @@
 				console.log('success');
 				var response = data;
 				procesaInscripcionConferencia(
-					'<?= $_SESSION[id]; ?>',
+					'<?= $_SESSION["id"]; ?>',
 					'<?= $metodo; ?>',
 					response.transactionResponse.transactionId,
 					response.transactionResponse.state,
@@ -127,7 +127,7 @@
 			.fail(function() {
 				if ( data.statusText === 'timeout' ) {
 					var info = {
-						id_usuario: '<?= $_SESSION[id]; ?>',
+						id_usuario: '<?= $_SESSION["id"]; ?>',
 						url: window.location.href,
 						metodo: '<?= $metodo; ?>',
 						consulta: 'logErroresPagos'
