@@ -30,7 +30,7 @@
 								<i class="fa fa-shopping-cart"></i> Mi pedido
 								<span class="label label-danger" id="noProductos" style="display:none"></span>
 							</a>
-						</li> -->
+						</li>
 						<?php
 					}
 				?>
