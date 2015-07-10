@@ -1785,12 +1785,12 @@
 		global $con;
 
 		if ( $estado == 'approved' ) {
-			$estado = 2;
+			$estado = 1;
 		}
 		else if ( $estado == 'failed' || $estado == 'canceled' || $estado == 'expired' ) {
-			$estado = 3;
+			$estado = 0;
 		}else{
-			$estado = 1;
+			$estado = 2;
 		}
 
 		if(!mysqli_query($con, "

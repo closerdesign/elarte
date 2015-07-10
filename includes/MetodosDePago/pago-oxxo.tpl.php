@@ -63,7 +63,7 @@
 					'2',
 					'<?= $metodo; ?>',
 					response.transactionResponse.transactionId,
-					'<?= $valor; ?>',
+					$('#vrPedido').val(),
 					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML
 				);
 			})

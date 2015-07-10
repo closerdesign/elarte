@@ -121,7 +121,7 @@
 					'<?= $metodo; ?>',
 					response.transactionResponse.transactionId,
 					response.transactionResponse.state,
-					'<?= $valor; ?>'
+					$('#vrPedido').val()
 					);
 			})
 			.fail(function() {
