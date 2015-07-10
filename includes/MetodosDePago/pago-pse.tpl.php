@@ -80,7 +80,7 @@
 							'2',
 							'<?= $metodo; ?>',
 							data.transactionResponse.transactionId,
-							'<?= $valor; ?>',
+							$('#vrPedido').val(),
 							data.transactionResponse.extraParameters.BANK_URL
 						);
 					})
