@@ -399,7 +399,7 @@
 							</div>
 							<div class="content">
 								<div class="main">
-									<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros</p>
+									<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros".</p>
 									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado">Ir al programa</a></p>
 								</div>
 							</div>
