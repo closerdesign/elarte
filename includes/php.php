@@ -1703,7 +1703,7 @@
 	{
 		require_once 'rest-api-sample-app-php/app/bootstrap.php';
 		$data = array(
-						'estado' => 1, //pendiente
+						'estado' => 2, //pendiente
 						'metodo' => 2,
 						'idtransaccion' => 'Paypal',
 						'valor' => $_POST['amount']

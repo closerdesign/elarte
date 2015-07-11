@@ -2,7 +2,7 @@
 <script>
 	$(document).ready(function(){
 		if( $('html,body').scrollTop() != 150 ){
-		    $('html,body').animate({scrollTop: $(window).scrollTop() + 2000},'slow');
+		    $('html,body').animate({scrollTop: $(".table-responsive").offset().top },'slow');
 		}
 	})	
 </script>
