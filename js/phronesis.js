@@ -551,6 +551,7 @@ $('#paisPago').change(function(){
 	var pais = $(this).val();
 	var html = '<option value="">Seleccione...</option>';
 	var htmlTarjet = '<option value="1">Tarjeta de Crédito</option>';
+	var htmlPaypal = '<option value="2">Paypal</option>';
 	var htmlTransf = '<option class="co" value="3">Transferencia Bancaria - PSE</option>';
 	var htmlBaloto = '<option class="co" value="4">Puntos VIA Baloto</option>';
 	var htmloxxoel = '<option class="mx" value="5">OXXO - 7 Eleven</option>';
@@ -559,13 +560,13 @@ $('#paisPago').change(function(){
 	$('.tarjetaCredito').fadeOut();
 	/*$('#formaPago').prop('selectedIndex',0);*/
 	if(pais == "CO"){
-		html += htmlTarjet+htmlTransf+htmlBaloto;
+		html += htmlTarjet+htmlPaypal+htmlTransf+htmlBaloto;
 	}else if(pais == "MX"){
-		html += htmlTarjet+htmloxxoel;
+		html += htmlTarjet+htmlPaypal+htmloxxoel;
 	}else if(pais == "PE"){
-		html += htmlTarjet+htmlbanbcp;
+		html += htmlTarjet+htmlPaypal+htmlbanbcp;
 	}else{
-		html += htmlTarjet;
+		html += htmlTarjet+htmlPaypal;
 	}
 	$('#formaPago').empty();
 	$('#formaPago').append(html);
