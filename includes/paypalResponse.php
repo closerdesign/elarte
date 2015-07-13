@@ -55,7 +55,13 @@
 						$(document).ready(function(){
 							descargar();
 							modal("Proceso de compra","<?= $mensaje; ?>");
+							<?php 
+							if ($estado == 1 || $estado == 2) {
+							?>
 							$.removeCookie('pedido');
+							<?php 
+							} 
+							?>
 						});
 					</script>
 				<?php
