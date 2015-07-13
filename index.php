@@ -3,7 +3,7 @@
 <?php require_once('includes/conn.php'); ?>
 <?php require_once('includes/session.php'); ?>
 <?php require_once('includes/functions.php'); ?>
-
+<?php require_once('includes/paypalResponse.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 	
