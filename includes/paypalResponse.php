@@ -39,7 +39,7 @@
 
 				$mensaje = "";
 				$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
-				$mensaje .= "<p>Queremos informarle que el pago de orden ha sido: ".$estadoTexto."</p>";
+				$mensaje .= "<p>Queremos informarle que el estado de su orden es: ".$estadoTexto."</p>";
 				if( $estado == 1 ){
 					$mensaje .= "<p>Ya puede disfrutar de sus obras en esta sección.</p>";
 				}elseif( $estado == 0 ){
