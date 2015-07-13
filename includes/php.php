@@ -172,6 +172,9 @@
 			case 'requestPayPal':
 				requestPayPal();
 				break;
+			case 'requestPayPalTradicional':
+				requestPayPalTradicional();
+				break;
 			default:
 				break;
 		}
@@ -547,7 +550,8 @@
 	function agregar()
 	{				
 		global $con;
-		if($_POST['pedido']==""){
+
+		if( empty($_POST['pedido']) ){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
 		}else{
@@ -1702,31 +1706,86 @@
 	function requestPayPal()
 	{
 		require_once 'rest-api-sample-app-php/app/bootstrap.php';
+
 		$data = array(
-						'estado' => 1, //pendiente
+						'estado' => 2, //pendiente
 						'metodo' => 2,
 						'idtransaccion' => 'Paypal',
 						'valor' => $_POST['amount']
 					);
-
+		
 		$orderId = crearOrden($data);
 		if ( is_null($orderId) ) {
 			echo "null";
 			return;
 		}
 		$result['orderId'] = $orderId;
-		/*$orderId = addOrder(getSignedInUser(), NULL, NULL, $order['amount'], $order['description']);*/
+		
 		// Create the payment and redirect buyer to paypal for payment approval. 
 		$baseUrl = URL . "index.php?orderPaypalId=$orderId";
-		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],
-				$baseUrl."&success=true", $baseUrl."&success=false");
+		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],$baseUrl."&success=true", $baseUrl."&success=false");
 		actualizarOrden($orderId, $payment->getState(), $payment->getId());
 		$result['error'] = 1;
-		/*$result['link'] = getLink($payment->getLinks(), "approval_url");*/
-		/*echo json_encode($result);
-		return;	*/
+		
 		header("Location: " . getLink($payment->getLinks(), "approval_url") );
 		exit;	
+	}
+
+	function requestPayPalTradicional()
+	{
+		require_once 'rest-api-sample-app-php/app/bootstrap.php';
+
+		if ( !empty($_COOKIE['pedido']) ) {
+			$orderId = $_COOKIE['pedido'];
+			$productos = getProductosPorOrden($orderId);
+			$total = getValorDeLaOrden($orderId);
+
+			if ( !empty($productos) ) {
+				$data = array(
+								'estado' => 2, //pendiente
+								'metodo' => 2,
+								'idtransaccion' => 'Paypal',
+								'valor' => $total
+							);
+				if ( is_null($orderId) ) {
+					echo "null";
+					return;
+				}
+				$result['orderId'] = $orderId;
+				
+				// Create the payment and redirect buyer to paypal for payment approval. 
+				$baseUrlSuccess = URL . "index.php?content=mi-cuenta&task=mis-publicaciones&orderPaypalId=$orderId";
+				$baseUrlFailed = URL . "index.php?content=mi-cuenta&task=mi-pedido&orderPaypalId=$orderId";
+				
+				$payment = makePaymentUsingPayPalByItems($productos, $total, 'USD',$baseUrlSuccess."&success=true", $baseUrlFailed."&success=false");
+
+				actualizarOrden($orderId, $payment->getState(), $payment->getId());
+				$result['error'] = 1;
+				
+				header("Location: " . getLink($payment->getLinks(), "approval_url") );
+				exit;	
+			}
+		}
+	}
+
+	function getProductosPorOrden($orderId)
+	{
+		global $con;
+		if ( !empty($orderId) ) {
+			$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$orderId'";
+			$q=mysqli_query($con, $sql);
+			$productos = array();
+			$i = 0;
+			while( $p=mysqli_fetch_assoc($q) ){
+				$productos[$i]['id'] = $p['publicacion'];
+				$productos[$i]['nombre'] = getNombrePublicacion($p['publicacion']);
+				$productos[$i]['formato'] = $GLOBALS['displayFormatos'][getFormatoPublicacion($p['publicacion'])];
+				$productos[$i]['precio'] = getPrecioPublicacion($p['publicacion']);
+				$i++;
+			}
+			return $productos;
+		}
+		return array();
 	}
 
 	function crearOrden($array='')
