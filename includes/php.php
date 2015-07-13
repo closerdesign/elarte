@@ -1754,8 +1754,8 @@
 				$result['orderId'] = $orderId;
 				
 				// Create the payment and redirect buyer to paypal for payment approval. 
-				$baseUrlSuccess = URL . "index.php?content=mi-cuenta&task=mis-publicaciones&orderPaypalId=$orderId";
-				$baseUrlFailed = URL . "index.php?content=mi-cuenta&task=mi-pedido&orderPaypalId=$orderId";
+				$baseUrlSuccess = URL . "index.php?content=mi-cuenta&task=mis-publicaciones&orderPaypalId=$orderId&pagina=obras";
+				$baseUrlFailed = URL . "index.php?content=mi-cuenta&task=mi-pedido&orderPaypalId=$orderId&pagina=obras";
 				
 				$payment = makePaymentUsingPayPalByItems($productos, $total, 'USD',$baseUrlSuccess."&success=true", $baseUrlFailed."&success=false");
 
