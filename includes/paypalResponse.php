@@ -55,6 +55,7 @@
 						$(document).ready(function(){
 							descargar();
 							modal("Proceso de compra","<?= $mensaje; ?>");
+							$.removeCookie('pedido');
 						});
 					</script>
 				<?php
