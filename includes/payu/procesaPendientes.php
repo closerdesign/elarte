@@ -38,6 +38,9 @@
 				$status=0;
 				if($response->state=='APPROVED'){
 					$status=2;
+					$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
+					notificar(getEmailUsuario($p["usuario"]),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+					crearInscripcionFromPaquete($p['id'], $p["usuario"], 1, 7, $p["transactionId"], 15.99);
 				}elseif($response->state=='DECLINED'){
 					$status=3;
 				}elseif($response->state=='EXPIRED'){
