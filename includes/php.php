@@ -1292,6 +1292,7 @@
 	
 	function crearInscripcionFromPaquete($id_pedido, $usuario_id, $estado_inscripcion, $metodo_pago, $transaction_id, $valor_inscripcion)
 	{
+		global $con;
 		$sql = 'INSERT INTO 
 					inscritos_conferencia (
 						id_pedido,
