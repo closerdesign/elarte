@@ -1270,9 +1270,9 @@
 			if ( $estado == 2 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ) {
 				$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
 				notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
-				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 15.99);
+				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 0);
 			}elseif( $estado == 1 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ){
-				crearInscripcionFromPaquete($id, $_POST["usuario"], 2, 7, $_POST["transactionId"], 15.99);
+				crearInscripcionFromPaquete($id, $_POST["usuario"], 2, 7, $_POST["transactionId"], 0);
 			}
 
 			if($estado==2){
@@ -1396,7 +1396,7 @@
 					$codigoOrden = 0;
 				}	
 			}
-			crearInscripcionFromPaquete($codigoOrden, $_SESSION["id"], 2, 7, $codigoOrden, 15.99);
+			crearInscripcionFromPaquete($codigoOrden, $_SESSION["id"], 2, 7, $codigoOrden, 0);
 			// Devolvemos el número de la orden generada
 			echo $codigoOrden;	
 		}
