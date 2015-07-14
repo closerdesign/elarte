@@ -152,7 +152,7 @@
 				actualizarOrden($orderId, $payment->getState(), $order['transaction_id']);
 				if ( $payment->getState() == 'approved' ) {
 					$estado = 2;
-					$estadoTexto = 'Aprovada';
+					$estadoTexto = 'Aprobada';
 				}
 				else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
 					$estado = 3;

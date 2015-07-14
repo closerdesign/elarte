@@ -239,7 +239,21 @@ function conciliarPaypalConElArtes()
     $q = new ConecteMysql();
 
 
-	$query = "(SELECT pedidos.id, pedidos.usuario, pedidos.creado, usuarios.email, pedidos.valor, pedidos.status FROM `pedidos` LEFT JOIN usuarios ON pedidos.usuario = usuarios.id WHERE pedidos.formaPago = 2) UNION (SELECT inscritos_conferencia.id_inscripcion,  inscritos_conferencia.usuario_id, inscritos_conferencia.creado, usuarios.email, inscritos_conferencia.valor_inscripcion, inscritos_conferencia.estado_inscripcion FROM `inscritos_conferencia` LEFT JOIN usuarios ON inscritos_conferencia.usuario_id = usuarios.id WHERE inscritos_conferencia.metodo_pago = 2) order by creado DESC";
+	$query = "(SELECT pedidos.id pedido_id, pedidos.usuario, pedidos.creado, usuarios.email, pedidos.valor, pedidos.status, admin_pedidos_aprobados.*  FROM `pedidos` 
+		LEFT JOIN usuarios ON pedidos.usuario = usuarios.id
+		LEFT JOIN admin_pedidos_aprobados ON pedidos.id = admin_pedidos_aprobados.id_pedido
+		WHERE pedidos.formaPago = 2) 
+		
+        UNION 
+		
+		(SELECT inscritos_conferencia.id_inscripcion,  inscritos_conferencia.usuario_id, inscritos_conferencia.creado, usuarios.email, inscritos_conferencia.valor_inscripcion, inscritos_conferencia.estado_inscripcion, admin_pedidos_aprobados.* FROM `inscritos_conferencia` 
+ 		LEFT JOIN usuarios ON inscritos_conferencia.usuario_id = usuarios.id 
+        LEFT JOIN admin_pedidos_aprobados ON inscritos_conferencia.id_inscripcion = admin_pedidos_aprobados.id_pedido
+        WHERE inscritos_conferencia.metodo_pago = 2) 
+        ORDER BY creado DESC";
+		
+		
+		
 	$q->ejecutar($query, "");
 	
 	
@@ -262,10 +276,6 @@ function conciliarPaypalConElArtes()
 		
 		
 		
-		
-		
-		
-		
 		$fecha = date($q->dato('creado'));
 		
 		$fecha2 = strtotime ( '-2 hour', strtotime ( $fecha ) ) ;
@@ -275,9 +285,9 @@ function conciliarPaypalConElArtes()
 		
 		$pedidos_el_arte[$i][4] = $fecha2;
 		
-		$pedidos_el_arte[$i][5] = $q->dato('id');
+		$pedidos_el_arte[$i][5] = $q->dato('pedido_id');
 		
-		if($q->dato('id') > 100000)
+		if($q->dato('pedido_id') > 100000)
 		{
 			$pedidos_el_arte[$i][6] = "pedidos";
 			$pedidos_el_arte[$i][7] = $estados_pedidos[$q->dato('status')];
@@ -290,6 +300,20 @@ function conciliarPaypalConElArtes()
 			
 			
 				
+		}
+		
+		$pedidos_el_arte[$i][8] = $q->dato('num_factura');
+		$pedidos_el_arte[$i][9] = $q->dato('fecha_factura');
+		
+		
+		if($q->dato('num_factura') == "")
+			$pedidos_el_arte[$i][10] = "";
+		else
+		{
+			if($q->dato('Estado_factura') == 0)
+			$pedidos_el_arte[$i][10] = "Cancelada";
+		elseif($q->dato('Estado_factura') == 1)
+			$pedidos_el_arte[$i][10] = "Emitida";
 		}
 		
 		
@@ -308,11 +332,22 @@ function conciliarPaypalConElArtes()
 					<td>Fecha El arte</td>
 					<td>Email</td>
 					<td>Fecha Paypal</td>
+					<td>Num factura</td>
+					<td>Fecha factura</td>
+					<td>Estado factura</td>
 				</tr>
 	";
 	
+	
+
+	
 	for($i=0; $i<count($pedidos_el_arte); $i++)
 	{
+		
+		if($pedidos_el_arte[$i][7] == "Aprobado" && $pedidos_el_arte[$i][10] <> "Emitida")
+			$estadoFacturaAlerta = "bgcolor='red'";	
+		else
+			$estadoFacturaAlerta = "";
 		
 		
 		echo "
@@ -324,6 +359,9 @@ function conciliarPaypalConElArtes()
 			<td>".$pedidos_el_arte[$i][1]."</td>
 			<td>".$pedidos_el_arte[$i][2]."</td>
 			<td>".$pedidos_el_arte[$i][4]."</td>
+			<td>".$pedidos_el_arte[$i][8]."</td>
+			<td>".$pedidos_el_arte[$i][9]."</td>
+			<td $estadoFacturaAlerta>".$pedidos_el_arte[$i][10]."</td>
 		
 		</tr>
 		";
@@ -344,15 +382,15 @@ function conciliarPaypalConElArtes()
 function ConciliarPaypalRespectoPrestashop() 
 {
 	
-	require_once "../Application/Model/FuncionesSQL_Prestashop.php";
+	require_once "../Application/Model/FuncionesSQL.php";
     $q = new ConecteMysql();
 
 
-	$query = "SELECT ps_orders.*, ps_order_state_lang.name, ps_paypal_order.id_transaction
-	FROM ps_orders 
-	INNER JOIN ps_order_state_lang ON ps_order_state_lang.id_order_state = ps_orders.current_state 
-	LEFT JOIN ps_paypal_order ON ps_paypal_order.id_order = ps_orders.id_order 
-	WHERE payment = 'PayPal' AND ps_order_state_lang.id_lang = 4 AND ps_orders.date_add >= '2015-05-01 00:00:00'";
+	$query = "SELECT admin_ps_paypal_order.id_transaction, admin_pedidos_aprobados.*
+	FROM admin_ps_orders 
+	INNER JOIN admin_ps_paypal_order ON admin_ps_paypal_order.id_order = admin_ps_orders.id_order
+	LEFT JOIN admin_pedidos_aprobados ON admin_ps_orders.id_order = admin_pedidos_aprobados.id_pedido
+	WHERE admin_ps_orders.payment = 'PayPal' AND admin_ps_orders.date_add >= '2015-05-15 00:00:00' AND admin_ps_orders.date_add < '2015-07-01 00:00:00'";
 	
 	
 	$q->ejecutar($query, "");
@@ -369,6 +407,21 @@ function ConciliarPaypalRespectoPrestashop()
 	{	
 		
 		$pedidos_prestashop[$i][0] = $q->dato('id_transaction');
+		$pedidos_prestashop[$i][1] = $q->dato('num_factura');
+		$pedidos_prestashop[$i][2] = $q->dato('fecha_factura');
+		
+		
+		if($q->dato('num_factura') == "")
+			$pedidos_prestashop[$i][3] = "";
+		else
+		{
+			if($q->dato('Estado_factura') == 0)
+			$pedidos_prestashop[$i][3] = "Cancelada";
+		elseif($q->dato('Estado_factura') == 1)
+			$pedidos_prestashop[$i][3] = "Emitida";
+		}
+		
+		$pedidos_prestashop[$i][4] = $q->dato('id_pedido');
 		
 		$i++;	
 	
@@ -387,7 +440,13 @@ function ConciliarPaypalRespectoPrestashop()
 			
 			<td>Valor Paypal</td>
 			<td>Fecha Paypal</td>
-			<td></td>
+			<td>Num factura</td>
+			<td>Fecha factura</td>
+			<td>Estado factura</td>
+			<td>ID Pedido</td>
+			<td>Encontrado en prestashop</td>
+			
+			
 		
 		</tr>
 	
@@ -399,6 +458,13 @@ function ConciliarPaypalRespectoPrestashop()
 		
 		
 		$encontrado_en_el_arte = "NO ENCONTRADO EN EL ARTE";
+		$num_factura = "";
+		$fecha_factura = "";
+		$estado_factura = "";
+		$estadoFacturaAlerta = "";
+		$estadoFechaFacturaAlerta = "";
+		
+		
 		//$boton_arreglar = "<span class='link1'>Arreglar</span>";
 		
 		for($j=0; $j<count($pedidos_prestashop); $j++)
@@ -406,11 +472,31 @@ function ConciliarPaypalRespectoPrestashop()
 			if($tabla_paypal[$i][12] == $pedidos_prestashop[$j][0])
 			{
 				$encontrado_en_el_arte = "OK";	
+				
+				$num_factura = $pedidos_prestashop[$j][1];
+				$fecha_factura = $pedidos_prestashop[$j][2];
+				$estado_factura = $pedidos_prestashop[$j][3];
+				$id_pedido = $pedidos_prestashop[$j][4];
+				
 				$boton_arreglar = "";
 				break;
 			}
 			
 		}
+		
+		
+		if($tabla_paypal[$i][5] == "Completado" && $estado_factura <> "Emitida")
+			$estadoFacturaAlerta = "bgcolor='red'";	
+			
+		$fecha_factura_separada = split(" ", $fecha_factura);
+		$fecha_paypal_separada = split("/",$tabla_paypal[$i][0]);
+		$fecha_paypal_formateada = $fecha_paypal_separada[2]."-".$fecha_paypal_separada[1]."-".$fecha_paypal_separada[0];
+		
+		
+		if($fecha_factura_separada[0] <> "" && ($fecha_factura_separada[0] <> $fecha_paypal_formateada))
+			$estadoFechaFacturaAlerta = "bgcolor='yellow'";
+			
+		
 		
 			
 		
@@ -423,7 +509,11 @@ function ConciliarPaypalRespectoPrestashop()
 			<td>".$tabla_paypal[$i][5]."</td>
 			
 			<td>".$tabla_paypal[$i][7]."</td>
-			<td>".$tabla_paypal[$i][0]." ".$tabla_paypal[$i][1]."</td>
+			<td>".$fecha_paypal_formateada." ".$tabla_paypal[$i][1]."</td>
+			<td>".$num_factura."</td>
+			<td $estadoFechaFacturaAlerta>".$fecha_factura."</td>
+			<td $estadoFacturaAlerta>".$estado_factura."</td>
+			<td>$id_pedido</td>
 			<td>$encontrado_en_el_arte</td>
 		
 		</tr>";
@@ -597,24 +687,18 @@ function conciliarPrestashopRespectoPaypal()
 }
 
 
-
-
-
-
-
-
 function ConciliarPayuRespectoPrestashop() 
 {
 	
-	require_once "../Application/Model/FuncionesSQL_Prestashop.php";
+	require_once "../Application/Model/FuncionesSQL.php";
     $q = new ConecteMysql();
 
 
-	$query = "SELECT ps_orders.*, ps_order_state_lang.name, ps_owd_payuapi_transaction.id_transaction_payu 
-	FROM ps_orders 
-	INNER JOIN ps_order_state_lang ON ps_order_state_lang.id_order_state = ps_orders.current_state 
-	LEFT JOIN ps_owd_payuapi_transaction ON ps_owd_payuapi_transaction.id_order = ps_orders.id_order 
-	WHERE payment <> 'PayPal' AND ps_order_state_lang.id_lang = 4 AND ps_orders.date_add >= '2015-06-01 00:00:00'";
+	$query = "SELECT admin_ps_owd_payuapi_transaction.id_transaction_payu, admin_pedidos_aprobados.* 
+	FROM admin_ps_orders  
+	LEFT JOIN admin_ps_owd_payuapi_transaction ON admin_ps_owd_payuapi_transaction.id_order = admin_ps_orders.id_order
+	LEFT JOIN admin_pedidos_aprobados ON admin_ps_orders.id_order = admin_pedidos_aprobados.id_pedido
+	WHERE admin_ps_orders.payment <> 'PayPal' AND admin_ps_orders.date_add >= '2015-05-15 00:00:00'";
 	
 	
 	$q->ejecutar($query, "");
@@ -631,6 +715,19 @@ function ConciliarPayuRespectoPrestashop()
 	{	
 		
 		$pedidos_prestashop[$i][0] = $q->dato('id_transaction_payu');
+		$pedidos_prestashop[$i][1] = $q->dato('num_factura');
+		$pedidos_prestashop[$i][2] = $q->dato('fecha_factura');
+		
+		
+		if($q->dato('num_factura') == "")
+			$pedidos_prestashop[$i][3] = "";
+		else
+		{
+			if($q->dato('Estado_factura') == 0)
+			$pedidos_prestashop[$i][3] = "Cancelada";
+		elseif($q->dato('Estado_factura') == 1)
+			$pedidos_prestashop[$i][3] = "Emitida";
+		}
 		
 		$i++;	
 	
@@ -643,12 +740,16 @@ function ConciliarPayuRespectoPrestashop()
 		<tr class='tabla1_cabecera'>
 			<td>Num</td>
 			<td>ID PAYU</td>
+			<td>Usuario</td>
 			<td>Referencia Payu</td>
 			<td>Estado Payu</td>
 			<td>Forma de pago Payu</td>
 			<td>Valor Payu</td>
 			<td>Fecha Payu</td>
-			<td></td>
+			<td>Num factura</td>
+			<td>Fecha factura</td>
+			<td>Estado factura</td>
+			<td>Encontrado en Prestashop</td>
 		
 		</tr>
 	
@@ -662,16 +763,36 @@ function ConciliarPayuRespectoPrestashop()
 		$encontrado_en_el_arte = "NO ENCONTRADO EN EL ARTE";
 		//$boton_arreglar = "<span class='link1'>Arreglar</span>";
 		
+		
+		
+		$num_factura = "";
+		$fecha_factura = "";
+		$estado_factura = "";
+		$estadoFacturaAlerta = "";
+		$estadoFechaFacturaAlerta = "";
+		
+		$fecha_creado = split(" ", $tabla_payu[$i][14]);
+		
+		
 		for($j=0; $j<count($pedidos_prestashop); $j++)
 		{
 			if($tabla_payu[$i][0] == $pedidos_prestashop[$j][0])
 			{
 				$encontrado_en_el_arte = "OK";	
+				
+				$num_factura = $pedidos_prestashop[$j][1];
+				$fecha_factura = $pedidos_prestashop[$j][2];
+				$estado_factura = $pedidos_prestashop[$j][3];
+				
 				$boton_arreglar = "";
 				break;
 			}
 			
 		}
+		
+		
+		
+		
 		
 		if($tabla_payu[$i][5] == "APPROVED" && $encontrado_en_el_arte == "NO ENCONTRADO EN EL ARTE")
 			$no_encontrado_alerta = "bgcolor='red'";
@@ -680,16 +801,30 @@ function ConciliarPayuRespectoPrestashop()
 		else
 			$no_encontrado_alerta = "";
 			
+			
+		
+		if($tabla_payu[$i][5] == "APPROVED" && $estado_factura <> "Emitida")
+			$estadoFacturaAlerta = "bgcolor='red'";	
+			
+		$fecha_factura_separada = split(" ", $fecha_factura);
+		
+		if($fecha_factura_separada[0] <> "" && ($fecha_factura_separada[0] <> $fecha_creado[0]))
+			$estadoFechaFacturaAlerta = "bgcolor='yellow'";
+			
 		
 		echo "
 		<tr bgcolor='#FFFFFF'>
 			<td>$i</td>
 			<td>".$tabla_payu[$i][0]."</td>
+			<td></td>
 			<td>".$tabla_payu[$i][2]."</td>
 			<td $no_encontrado_alerta>".$tabla_payu[$i][5]."</td>
 			<td>".$tabla_payu[$i][7]."</td>
 			<td>".$tabla_payu[$i][3]."</td>
 			<td>".$tabla_payu[$i][14]."</td>
+			<td>".$num_factura."</td>
+			<td $estadoFechaFacturaAlerta>".$fecha_factura."</td>
+			<td $estadoFacturaAlerta>".$estado_factura."</td>
 			<td $no_encontrado_alerta>$encontrado_en_el_arte $boton_arreglar</td>
 		
 		</tr>";
@@ -917,7 +1052,12 @@ function ConciliarPayuRespectoElArtePEDIDOS($orden)
     $q = new ConecteMysql();
 
 
-	$query = "select * from pedidos where transactionId <> ''";
+	$query = "select * from pedidos 
+		LEFT JOIN admin_pedidos_aprobados ON pedidos.id = admin_pedidos_aprobados.id_pedido
+		WHERE pedidos.transactionId <> ''";
+	
+	
+	
 	$q->ejecutar($query, "");
 	
 	$i=0;
@@ -934,7 +1074,21 @@ function ConciliarPayuRespectoElArtePEDIDOS($orden)
 		$pedidos_el_arte[$i][0] = $q->dato('transactionId');
 		$pedidos_el_arte[$i][1] = $q->dato('id');
 		$pedidos_el_arte[$i][2] = $q->dato('usuario');
-		$pedidos_el_arte[$i][9] = $q->dato('creado');
+		$pedidos_el_arte[$i][3] = $q->dato('creado');
+		
+		$pedidos_el_arte[$i][4] = $q->dato('num_factura');
+		$pedidos_el_arte[$i][5] = $q->dato('fecha_factura');
+		
+		
+		if($q->dato('num_factura') == "")
+			$pedidos_el_arte[$i][6] = "";
+		else
+		{
+			if($q->dato('Estado_factura') == 0)
+			$pedidos_el_arte[$i][6] = "Cancelada";
+		elseif($q->dato('Estado_factura') == 1)
+			$pedidos_el_arte[$i][6] = "Emitida";
+		}
 		
 		$i++;	
 	
@@ -948,12 +1102,16 @@ function ConciliarPayuRespectoElArtePEDIDOS($orden)
 		<tr class='tabla1_cabecera'>
 			<td>Num</td>
 			<td>ID PAYU</td>
+			<td>Usuario ID</td>
 			<td>Referencia</td>
 			<td>Estado</td>
 			<td>Forma de pago</td>
 			<td>Valor</td>
 			<td>Fecha</td>
-			<td></td>
+			<td>Num factura</td>
+			<td>Fecha factura</td>
+			<td>Estado factura</td>
+			<td>Encontrado en el arte</td>
 		
 		</tr>
 	
@@ -967,11 +1125,26 @@ function ConciliarPayuRespectoElArtePEDIDOS($orden)
 		$encontrado_en_el_arte = "NO ENCONTRADO EN EL ARTE";
 		//$boton_arreglar = "<span class='link1'>Arreglar</span>";
 		
+		
+		$num_factura = "";
+		$fecha_factura = "";
+		$estado_factura = "";
+		$estadoFacturaAlerta = "";
+		$estadoFechaFacturaAlerta = "";
+		$usuario_id = "";
+		
+		$fecha_creado = split(" ", $tabla_payu[$i][14]);
+		
+		
 		for($j=0; $j<count($pedidos_el_arte); $j++)
 		{
 			if($tabla_payu[$i][0] == $pedidos_el_arte[$j][0])
 			{
 				$encontrado_en_el_arte = "OK";	
+				$num_factura = $pedidos_el_arte[$j][4];
+				$fecha_factura = $pedidos_el_arte[$j][5];
+				$estado_factura = $pedidos_el_arte[$j][6];
+				$usuario_id = $pedidos_el_arte[$j][2];
 				$boton_arreglar = "";
 				break;
 			}
@@ -986,15 +1159,30 @@ function ConciliarPayuRespectoElArtePEDIDOS($orden)
 			$no_encontrado_alerta = "";
 			
 		
+		if($tabla_payu[$i][5] == "APPROVED" && $estado_factura <> "Emitida")
+			$estadoFacturaAlerta = "bgcolor='red'";	
+			
+		$fecha_factura_separada = split(" ", $fecha_factura);
+		
+		if($fecha_factura_separada[0] <> "" && ($fecha_factura_separada[0] <> $fecha_creado[0]))
+			$estadoFechaFacturaAlerta = "bgcolor='yellow'";
+			
+		
+			
+		
 		echo "
 		<tr bgcolor='#FFFFFF'>
 			<td>$i</td>
 			<td>".$tabla_payu[$i][0]."</td>
+			<td>$usuario_id</td>
 			<td>".$tabla_payu[$i][2]."</td>
 			<td $no_encontrado_alerta>".$tabla_payu[$i][5]."</td>
 			<td>".$tabla_payu[$i][7]."</td>
 			<td>".$tabla_payu[$i][3]."</td>
 			<td>".$tabla_payu[$i][14]."</td>
+			<td>".$num_factura."</td>
+			<td $estadoFechaFacturaAlerta>".$fecha_factura."</td>
+			<td $estadoFacturaAlerta>".$estado_factura."</td>
 			<td $no_encontrado_alerta>$encontrado_en_el_arte $boton_arreglar</td>
 		
 		</tr>";
@@ -1021,11 +1209,11 @@ function ConciliarPayuRespectoElArte($orden) //CONCILIACION DE INSCRITOS AL EVEN
 	
 	$inscritos_el_arte = array();
 
-	$query = "select * from inscritos_conferencia $ordenar";
+	$query = "select * from inscritos_conferencia 
+		LEFT JOIN admin_pedidos_aprobados ON inscritos_conferencia.id_inscripcion = admin_pedidos_aprobados.id_pedido";
 	$q->ejecutar($query, "");
 	
 	$i=0;
-	
 	
 		$estados = array("Rechazado", "Aprobado", "Iniciado");
 		$traduccion_estados_payu = array("APPROVED" => "Aprobado", "DECLINED" => "Rechazado", "EXPIRED" => "Rechazado", "ERROR" => "Rechazado", "PENDING" => "Iniciado");
@@ -1049,6 +1237,21 @@ function ConciliarPayuRespectoElArte($orden) //CONCILIACION DE INSCRITOS AL EVEN
 		$inscritos_el_arte[$i][7] = $metodos_pago[$metodo_pago];
 		$inscritos_el_arte[$i][8] = $q->dato('valor_inscripcion');
 		$inscritos_el_arte[$i][9] = $q->dato('creado');
+		$inscritos_el_arte[$i][10] = $q->dato('num_factura');
+		$inscritos_el_arte[$i][11] = $q->dato('fecha_factura');
+		
+		
+		if($q->dato('num_factura') == "")
+			$inscritos_el_arte[$i][12] = "";
+		else
+		{
+			if($q->dato('Estado_factura') == 0)
+			$inscritos_el_arte[$i][12] = "Cancelada";
+		elseif($q->dato('Estado_factura') == 1)
+			$inscritos_el_arte[$i][12] = "Emitida";
+		}
+		
+			
 		
 		$i++;	
 	
@@ -1068,7 +1271,10 @@ function ConciliarPayuRespectoElArte($orden) //CONCILIACION DE INSCRITOS AL EVEN
 			<td>Forma de pago</td>
 			<td>Valor</td>
 			<td>Fecha</td>
-			<td></td>
+			<td>Num factura</td>
+			<td>Fecha factura</td>
+			<td>Estado factura</td>
+			<td>Encontrado en el arte</td>
 		
 		</tr>
 	
@@ -1087,6 +1293,11 @@ function ConciliarPayuRespectoElArte($orden) //CONCILIACION DE INSCRITOS AL EVEN
 			$usuario_id = substr($tabla_payu[$i][2], 4);
 		
 		$encontrado_en_el_arte = "NO ENCONTRADO EN EL ARTE";
+		$num_factura = "";
+		$fecha_factura = "";
+		$estado_factura = "";
+		$estadoFacturaAlerta = "";
+		$estadoFechaFacturaAlerta = "";
 		
 		//$usuario_id,".$traduccion_estados_payu_a_id[$tabla_payu[$i][5]].","..",'".."','".."','".$tabla_payu[$i][14]."'
 		
@@ -1102,11 +1313,27 @@ function ConciliarPayuRespectoElArte($orden) //CONCILIACION DE INSCRITOS AL EVEN
 			if($tabla_payu[$i][0] == $inscritos_el_arte[$j][0])
 			{
 				$encontrado_en_el_arte = "OK";	
+				$num_factura = $inscritos_el_arte[$j][10];
+				$fecha_factura = $inscritos_el_arte[$j][11];
+				$estado_factura = $inscritos_el_arte[$j][12];
 				$boton_arreglar = "";
 				break;
 			}
 			
+				
+			
 		}
+		
+		
+		if($tabla_payu[$i][5] == "APPROVED" && $estado_factura <> "Emitida")
+			$estadoFacturaAlerta = "bgcolor='red'";
+			
+		$fecha_factura_separada = split(" ", $fecha_factura);
+		
+		if($fecha_factura_separada[0] <> "" && ($fecha_factura_separada[0] <> $fecha_creado[0]))
+			$estadoFechaFacturaAlerta = "bgcolor='yellow'";
+		
+			
 		
 		echo "
 		<tr bgcolor='#FFFFFF'>
@@ -1118,6 +1345,9 @@ function ConciliarPayuRespectoElArte($orden) //CONCILIACION DE INSCRITOS AL EVEN
 			<td>".$tabla_payu[$i][7]."</td>
 			<td>".$tabla_payu[$i][3]."</td>
 			<td>".$tabla_payu[$i][14]."</td>
+			<td>".$num_factura."</td>
+			<td $estadoFechaFacturaAlerta>".$fecha_factura."</td>
+			<td $estadoFacturaAlerta>".$estado_factura."</td>
 			<td id='encontrado_payu$i'><span id='encontrado_payu_texto$i'>$encontrado_en_el_arte</span> $boton_arreglar </td>
 		
 		</tr>";

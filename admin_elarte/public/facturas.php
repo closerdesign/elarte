@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 	// get the HTML
     ob_start();
 
@@ -18,6 +16,22 @@
 	$fechaFinal = $_GET['fechaFinal'];
 	
 	
+	//CREAMOS UN VECTOR CON LA LISTA DE REFERENCIAS DE LOS PRODUCTOS PARA EFECTOS DEL INFORME FINAL
+	$query = "Select DISTINCT(reference) from admin_ps_product";
+	$q->ejecutar($query, "");
+	
+	$i=0; 
+	
+	while($q->Cargar())	
+		$listaReferencias[$i++] = $q->dato('reference');
+	
+	$listaReferencias[$i++] = "DCAF001";
+	$listaReferencias[$i] = "DCWR001+CONF";
+	
+	/////////////////////////////////////
+	
+	
+	
 	$query = "Select * from admin_pedidos_aprobados WHERE fecha_factura >= '$fechaInicial' AND fecha_factura < '$fechaFinal' Order By num_factura ASC";
 	$q->ejecutar($query, "");
 	
@@ -27,6 +41,23 @@
 	$Informe_VentasCanceladas = number_format(0, 2, '.', ',');
 	$Informe_Descuentos = number_format(0, 2, '.', ',');
 	$Informe_VerificacionTotal = "";
+	
+	$InformeFormaDePagoSubtotal[1] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoSubtotal[2] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoSubtotal[3] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoSubtotal[4] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoSubtotal[5] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoSubtotal[6] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoSubtotal[7] = number_format(0, 2, '.', ',');
+	
+	$InformeFormaDePagoDescuentos[1] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoDescuentos[2] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoDescuentos[3] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoDescuentos[4] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoDescuentos[5] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoDescuentos[6] = number_format(0, 2, '.', ',');
+	$InformeFormaDePagoDescuentos[7] = number_format(0, 2, '.', ',');
+	
 	
 	$i = 0;
 	
@@ -74,10 +105,15 @@
 				$descripcion[$i][$j] = "Documento Los Caminos Del Perd&oacute;n de Walter Riso en formato PDF + Ingreso a conferencia virtual &quot;El arte de amar sin apegos&quot;"; //Descripcion
 				$referencia[$i][$j] = "DCWR001+CONF"; //Referencia
 				
+				
+				
+				
 				$j++;
 						
 			}
 			
+			
+			$cantidadProductos[$i] = $j;
 			
 		}
 		
@@ -85,10 +121,9 @@
 		if($medio[$i] == 2)
 		{
 					
-			$query = "Select * from pedidos 
+			$query = "Select pedidos.valor valor_pedido, publicaciones.titulo, publicaciones.referencia, pedidos.formaPago,publicacionesxpedido.valor valor_unitario  from pedidos 
 					INNER JOIN publicacionesxpedido ON pedidos.id = publicacionesxpedido.pedido
 					INNER JOIN publicaciones ON publicacionesxpedido.publicacion = publicaciones.id
-					LEFT JOIN admin_ps_product ON admin_ps_product.id_product = publicaciones.codPs
 					WHERE pedidos.id = $id_pedido[$i]";
 					
 			$q2->ejecutar($query, "");
@@ -100,28 +135,18 @@
 			while($q2->Cargar())
 			{
 				
-				////Excepciones
-				if($num_factura[$i] == 20542)
-					$valor_unitario[$i][$j] = 5.99;
-				elseif($num_factura[$i] == 20543)
-					$valor_unitario[$i][$j] = 6.49;
-				elseif($num_factura[$i] == 20544)
-					$valor_unitario[$i][$j] = 8.99;
-				elseif($num_factura[$i] == 21552)
-					$valor_unitario[$i][$j] = 14.19;
-				else
-					$valor_unitario[$i][$j] = number_format($q2->dato('precio'), 2, '.', ',');
+				$valor_unitario[$i][$j] = number_format($q2->dato('valor_unitario'), 2, '.', ',');
 				
 				
 				$cantidad[$i][$j] = 1;
 				$descripcion[$i][$j] = $q2->dato('titulo');
-				$referencia[$i][$j] = $q2->dato('reference');
+				$referencia[$i][$j] = $q2->dato('referencia');
 				$forma_de_pago[$i] = $q2->dato('formaPago');
 						
 				$forma_de_pago_texto[$i] = $formas_de_pago[$forma_de_pago[$i]];	
 						
 				$valor_total[$i][$j] = number_format($valor_unitario[$i][$j]*$cantidad[$i][$j], 2, '.', ',');
-				$precio_final[$i] = number_format($q2->dato('valor'), 2, '.', ',');
+				$precio_final[$i] = number_format($q2->dato('valor_pedido'), 2, '.', ',');
 				$subtotal[$i] += number_format($valor_total[$i][$j], 2, '.', ',');
 		
 						
@@ -130,7 +155,7 @@
 			}
 					
 			$descuento[$i] = number_format($subtotal[$i] - $precio_final[$i], 2, '.', ',');
-
+			$cantidadProductos[$i] = $j;
 					
 		}
 		
@@ -139,7 +164,11 @@
 		if($medio[$i] == 3)
 		{
 					
-			$query = "SELECT * FROM admin_ps_orders, admin_ps_order_detail, admin_ps_product WHERE admin_ps_orders.id_order = admin_ps_order_detail.id_order AND admin_ps_product.id_product = admin_ps_order_detail.product_id AND admin_ps_orders.id_order = $id_pedido[$i]";
+			$query = "SELECT * FROM admin_ps_orders 
+					LEFT JOIN admin_ps_order_detail ON admin_ps_orders.id_order = admin_ps_order_detail.id_order
+					LEFT JOIN admin_ps_product ON admin_ps_product.id_product = admin_ps_order_detail.product_id
+					LEFT JOIN admin_ps_owd_payuapi_transaction ON admin_ps_orders.id_order = admin_ps_owd_payuapi_transaction.id_order
+					WHERE  admin_ps_orders.id_order = $id_pedido[$i]";
 	
 	
 			$q2->ejecutar($query, "");
@@ -169,10 +198,49 @@
 					
 						$cantidad[$i][$j] = 1;
 						$descripcion[$i][$j] = $q2->dato('product_name');
-						$referencia[$i][$j] = $q2->dato('reference');
+						$referencia[$i][$j] = $q2->dato('product_reference');
 						
-						$forma_de_pago_texto[$i] = $q2->dato('payment');
 						
+						switch($q2->dato('paymentmethod'))
+						{
+							case "tc":
+								$forma_de_pago_texto[$i] = "Payulatam Colombia (TC)";
+								$forma_de_pago[$i] = 1;
+								break;
+							
+							case "pse-CO":
+								$forma_de_pago_texto[$i] = "Payulatam Colombia (PSE)";
+								$forma_de_pago[$i] = 3;
+								break;
+								
+							case "baloto-CO":
+								$forma_de_pago_texto[$i] = "Payulatam Colombia (Baloto)";
+								$forma_de_pago[$i] = 4;
+								break;
+								
+							case "oxxo-MX":
+								$forma_de_pago_texto[$i] = "Payulatam M&eacute;xico (Oxxo)";
+								$forma_de_pago[$i] = 5;
+								break;
+								
+							case "bcp-PE":
+								$forma_de_pago_texto[$i] = "Payulatam Per&uacute; (BCP)";
+								$forma_de_pago[$i] = 6;
+								break;
+								
+							case "7eleven-MX":
+								$forma_de_pago_texto[$i] = "Payulatam M&eacute;xico (7-Eleven)";
+								$forma_de_pago[$i] = 7;
+								break;	
+								
+							default:
+								$forma_de_pago_texto[$i] = "Paypal";
+								$forma_de_pago[$i] = 2;
+								break;
+							
+							
+						}
+										
 							
 							
 						$valor_total[$i][$j] = number_format($valor_unitario[$i][$j]*$cantidad[$i][$j], 2, '.', ',');
@@ -186,7 +254,7 @@
 			}
 					
 					$descuento[$i] = number_format($subtotal[$i] - $precio_final[$i], 2, '.', ',');
-						
+					$cantidadProductos[$i] = $j;
 		}
 		
 		
@@ -229,10 +297,37 @@
 		{
 			$Informe_Descuentos  += $descuento[$i];
 			$Informe_TotalVentas2 += $precio_final[$i];
+			
+			$InformeFormaDePagoSubtotal[$forma_de_pago[$i]] += $subtotal[$i];
+			$InformeFormaDePagoDescuentos[$forma_de_pago[$i]] += $descuento[$i];
+			
+			
+			
+			//Este fragmento contabiliza la tabla de ventas por producto del informe 
+		
+			for($j=0; $j< $cantidadProductos[$i]; $j++)	
+			{
+				$InformeReferencia[$referencia[$i][$j]] += $valor_total[$i][$j];
+				$informeReferenciaCant[$referencia[$i][$j]]++;
+			}
+			
+		///////////////////////
+
+			
 		}
+		
 		
 		if($i==0)
 			$Informe_FacInicial = $num_factura[$i];
+		
+		
+		
+		
+	
+			
+			
+	
+		
 		
 		
 		
@@ -311,6 +406,7 @@ for($i=0; $i<count($num_factura); $i++)
 <?php 
 for($j=0; $j<count($cantidad[$i]); $j++)
 {
+	
 
 ?>
     <tr>
@@ -482,7 +578,7 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     <br>
     <h4>Detalle de los registros</h4>
     
-    <table style="width:100%; border-style:solid; border-width:1px; border-color:#000; text-align:right">
+    <table style="width:100%; border-style:solid; border-width:1px; border-color:#000; text-align:center">
 	<col style="width: 25%">
 	<col style="width: 25%">
     <col style="width: 25%">
@@ -497,7 +593,7 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     	<td>Documento equivalente</td>
         <td><?php echo $Informe_FacInicial;?></td>
         <td><?php echo $Informe_FacFinal;?></td>
-        <td><?php echo $Informe_FacInicial - $Informe_FacInicial;?></td>
+        <td><?php echo $Informe_FacFinal - $Informe_FacInicial + 1;?></td>
     </tr>
     </table>
     
@@ -505,10 +601,157 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     
     
     
+    <br>
+    <h4>Ventas por Formas de Pago</h4>
+    
+    <table style="width:100%; border-style:solid; border-width:1px; border-color:#000;">
+	<col style="width: 25%">
+	<col style="width: 25%">
+    <col style="width: 25%">
+    <col style="width: 25%">
+	<tr bgcolor="#CCCCCC">
+		<td align="center"><b>Forma de Pago</b></td>
+		<td align="center"><b>V/r Pago</b></td>
+		<td align="center"><b>Descuento</b></td>
+        <td align="center"><b>Pago Neto</b></td>
+	</tr>
+    <tr>       
+    	<td align="left">Payu Latam Colombia (TC)</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[1];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[1];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[1] - $InformeFormaDePagoDescuentos[1];?></td>
+    </tr>
+    <tr>       
+    	<td align="left">Payu Latam Colombia (PSE)</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[3];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[3];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[3] - $InformeFormaDePagoDescuentos[3];?></td>
+    </tr>
+    <tr>       
+    	<td align="left">Payu Latam Colombia (Baloto)</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[4];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[4];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[4] - $InformeFormaDePagoDescuentos[4];?></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">       
+    	<td align="left"><b>Total Payu Latam Colombia</b></td>
+        <?php 
+			$totalPayuColombiaSubtotal = $InformeFormaDePagoSubtotal[1]+$InformeFormaDePagoSubtotal[3]+$InformeFormaDePagoSubtotal[4];
+			$totalPayuColombiaDescuentos = $InformeFormaDePagoDescuentos[1]+$InformeFormaDePagoDescuentos[3]+$InformeFormaDePagoDescuentos[4];
+			$toalPayuColombia = $totalPayuColombiaSubtotal - $totalPayuColombiaDescuentos;
+		?>
+        <td align="right">$ <?php echo $totalPayuColombiaSubtotal;?></td>
+        <td align="right">$ <?php echo $totalPayuColombiaDescuentos;?></td>
+        <td align="right">$ <?php echo $toalPayuColombia;?></td>
+    </tr>
+    <tr>       
+    	<td align="left">Payu Latam Mexico (Oxxo)</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[5];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[5];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[5] - $InformeFormaDePagoDescuentos[5];?></td>
+    </tr>
+    <tr>       
+    	<td align="left">Payu Latam Mexico (7-Eleven)</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[7];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[7];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[7] - $InformeFormaDePagoDescuentos[7];?></td>
+    </tr>
+    	<tr  bgcolor="#CCCCCC">       
+    	<td align="left"><b>Total Payu Latam Mexico</b></td>
+        <?php 
+			$totalPayuMexicoSubtotal = $InformeFormaDePagoSubtotal[5]+$InformeFormaDePagoSubtotal[7];
+			$totalPayuMexicoDescuentos = $InformeFormaDePagoDescuentos[5]+$InformeFormaDePagoDescuentos[7];
+			$toalPayuMexico = $totalPayuMexicoSubtotal - $totalPayuMexicoDescuentos;
+		?>
+        <td align="right">$ <?php echo $totalPayuMexicoSubtotal;?></td>
+        <td align="right">$ <?php echo $totalPayuMexicoDescuentos;?></td>
+        <td align="right">$ <?php echo $toalPayuMexico;?></td>
+    </tr>
+    <tr  bgcolor="#CCCCCC">       
+    	<td align="left">Total Payu Latam Peru (BCP)</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[6];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[6];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[6] - $InformeFormaDePagoDescuentos[6];?></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">       
+    	<td align="left">Total Paypal</td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[2];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[2];?></td>
+        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[2] - $InformeFormaDePagoDescuentos[2];?></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">
+    	<td align="right" colspan="3"><b>GRAN TOTAL</b></td>
+        <td align="right">$ <?php echo $toalPayuColombia+$toalPayuMexico+($InformeFormaDePagoSubtotal[6] - $InformeFormaDePagoDescuentos[6]+$InformeFormaDePagoSubtotal[2] - $InformeFormaDePagoDescuentos[2]);?> </td>
+    </tr>
+    
+    </table>
+    
+    
+  
+  
+  	<br>
+    <h4>Ventas por Producto</h4>
+    
+    <table style="width:100%; border-style:solid; border-width:1px; border-color:#000; text-align:center">
+	<col style="width: 33%">
+    <col style="width: 33%">
+    <col style="width: 33%">
+	<tr bgcolor="#CCCCCC">
+		<td align="center"><b>Referencia</b></td>
+		<td align="center"><b>Cantidad</b></td>
+		<td align="center"><b>Valor</b></td>
+	</tr>
+    <?php 
+	$cont = 0;
+	for($i=0; $i<count($listaReferencias); $i++)
+	{
+		if($InformeReferencia[$listaReferencias[$i]] <> "")
+		{	
+			if($cont++==0)
+				$colorFila = "#FFFFFF'";
+			else
+			{
+				$cont = 0;
+				$colorFila = "#ECE9E9";
+			}
+			
+			$InformeTotalPorProducto += $InformeReferencia[$listaReferencias[$i]];
+			$InformeTotalPorProductoCant += $informeReferenciaCant[$listaReferencias[$i]];
+	?>
+    <tr bgcolor="<? echo $colorFila; ?>">       
+    	
+        <td align="left"><?php echo $listaReferencias[$i];?></td>
+        <td align="center"><?php echo $informeReferenciaCant[$listaReferencias[$i]];?></td>
+        <td align="right">$ <?php echo $InformeReferencia[$listaReferencias[$i]];?></td>
+    </tr>
+    <?php 
+		}
+	} ?>
+    <tr bgcolor="#CCCCCC">
+    	<td align="right"><b>Total por producto</b></td>
+        <td><b><?php echo $InformeTotalPorProductoCant;?></b></td>
+        <td align="right"><b>$ <?php echo $InformeTotalPorProducto;?></b></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">
+    	<td align="right"><b>Total descuentos</b></td>
+        <td></td>
+        <td align="right"><b>$ <?php echo $Informe_Descuentos;?></b></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">
+    	<td align="right"><b>Total IVA</b></td>
+        <td></td>
+        <td align="right"><b>$ 0.00</b></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">
+    	<td align="right"><b>Total por producto más IVA</b></td>
+        <td></td>
+        <td align="right"><b>$ <?php echo $InformeTotalPorProducto - $Informe_Descuentos;?></b></td>
+    </tr>
+    </table>
+    
     
 
 </page>   
-    
     
     
     
@@ -545,7 +788,6 @@ for($j=0; $j<count($cantidad[$i]); $j++)
         echo $e;
         exit;
     }
-	
 	
 
 
