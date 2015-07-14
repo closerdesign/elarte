@@ -1,44 +1,46 @@
 RewriteEngine on
-
 RewriteBase /
-
 RewriteCond %{HTTP_HOST} ^elartedesabervivir\.com
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R=permanent,L]
 
+#RewriteEngine On 
 #RewriteCond %{SERVER_PORT} 80 
 #RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} inscripcion-conferencia
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} conferencia-virtual
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
- 
+
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} amar-sin-apegos
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
- 
+
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} colecciones/([^/]+)
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} paquetes/([^/]+)
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} coleccion/([^/]+)
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
+RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} mi-cuenta
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
-
-RewriteCond %{SERVER_PORT} 443
-RewriteCond %{REQUEST_URI} /articulos/
-RewriteRule ^(.*)$ http://www.elartedesabervivir.com/$1 [R,L]
 
 # CONTENIDO BÁSICO
 RewriteCond %{THE_REQUEST} \?content=([^&\ ]+)($|\ )
@@ -49,9 +51,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^/]+)$ /index.php?content=$1 [L]
 
 # ARTÍCULOS
-
 RewriteCond %{THE_REQUEST} \?content=articulos&id=([^&\ ]+)($|\ )
-RewriteRule ^ http://www.elartedesabervivir.com/articulos/%1? [L,R=301]
+RewriteRule ^ /articulos/%1? [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

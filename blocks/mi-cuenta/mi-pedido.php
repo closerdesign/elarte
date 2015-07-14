@@ -643,11 +643,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<p>
-							<a 
-								class="btn btn-primary"
-								href="/includes/php.php?consulta=pagarConPaypal&orden=<?php echo (isset($_COOKIE['pedido']) ? $_COOKIE['pedido'] : ''); ?>&urlCancela=<?php echo URL."mi-cuenta/mis-publicaciones" ?>">
-								<i class="fa fa-paypal"></i> Pagar con Paypal
-							</a>
+							<form name="pagoPaypal" id="pagoPaypal" action="../includes/php.php" method="POST">
+								<input type="hidden" name="consulta" value="requestPayPalTradicional" />
+								<button class="btn btn-primary">
+									<i class="fa fa-paypal"></i> Pagar con Paypal
+								</button>
+							</form>
 						</p>
 					</div>
 				</div>
