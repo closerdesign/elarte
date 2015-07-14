@@ -155,17 +155,16 @@
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-md-12">
-							<p class="lead text-center">Con Paypal</p>
-							<p class="text-center"><center><button class="btn btn-default" id="btnPaypalPaquetes" codigoPaquete=<?php echo $_REQUEST['id'] ?> formaDePago="2" >
+							<p><button class="btn btn-default pull-right" id="btnPaypalPaquetes" codigoPaquete=<?php echo $_REQUEST['id'] ?> formaDePago="2" >
 								<i class="fa fa-paypal"></i> Pagar con Paypal
-							</button></center></p>
+							</button></p>
 						</div>
 					</div>
 					<hr>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">
-								<p class="lead text-center">Con tarjeta de crédito</p>
+								<p class="lead text-center">Pagar con tarjeta de crédito</p>
 							</div>
 							<div class="row">
 								<div class="col-md-6 form-group">
