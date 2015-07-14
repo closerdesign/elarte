@@ -1042,8 +1042,12 @@
 		   mysqli_error($con);
 		}else{
 		   entregaObsequiosTienda($_SESSION['id']);
-		   echo "1";
+		   $result['error'] = 1;
+		   echo json_encode($result);
+		   return;
 		}
+		$result['error'] = 0;
+		echo json_encode($result);
 	}
 	
 	function verificaEmail()

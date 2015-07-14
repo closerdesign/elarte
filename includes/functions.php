@@ -610,7 +610,14 @@
 			
 			$mail->Subject    = utf8_decode($asunto);
 			
-			$html=file_get_contents(NOTIFICACION);
+			$arrContextOptions=array(
+			    "ssl"=>array(
+			        "verify_peer"=>false,
+			        "verify_peer_name"=>false,
+			    ),
+			);
+
+			$html=file_get_contents(NOTIFICACION, false, stream_context_create($arrContextOptions));
 			
 			$html=str_replace("{{contenido}}",$mensaje,$html);
 			$html=str_replace("{{email}}",$email,$html);
@@ -790,7 +797,7 @@
 	
 			$form = '';
 	
-			$form .= '<form name="frm_payment_method" action="' . SSL_URL . '" method="post">';
+			$form .= '<form name="frm_payment_method" action="' . $action . '" method="post">';
 			$form .= '<input type="hidden" name="business" value="' . $data['merchant_email'] . '" />';
 			
 			// Instant Payment Notification & Return Page Details /

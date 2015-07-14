@@ -718,7 +718,28 @@ $('#formFinalizaRegistro').validate({
 	submitHandler: function(form){
 		$('.finRegistro').fadeOut();
 		$('.load').fadeIn();
-		$.post('/includes/php.php',$('#formFinalizaRegistro').serialize())
+		$.ajax({
+			url: '/includes/php.php',
+			type: 'POST',
+			dataType: 'json',
+			data: $('#formFinalizaRegistro').serialize(),
+		})
+		.done(function(data) {
+			if(data.error !=1){
+				alert('Se presentó un error. Por favor intente de nuevo');
+				location.reload();
+			} else {
+				location.reload();
+			}
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+		/*$.post('/includes/php.php',$('#formFinalizaRegistro').serialize())
 		.done(function(data){
 			if(data!=1){
 				alert('Se presentó un error. Por favor intente de nuevo');
@@ -726,7 +747,7 @@ $('#formFinalizaRegistro').validate({
 			} else {
 				location.reload();
 			}
-		})
+		})*/
 	}
 });
 
