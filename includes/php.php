@@ -2382,7 +2382,7 @@
 			}
 			
 			if($estado==2){
-				crearInscripcionFromPaquete($orden, $_SESSION["id"], 1, 7, $_GET["paymentId"], 15.99);
+				crearInscripcionFromPaquete($orden, $_SESSION["id"], 1, 7, $orden, 15.99);
 				// Si la orden fué aprobada, entregamos el pedido
 				$entrega = entregarPedido($orden);
 				

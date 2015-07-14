@@ -774,7 +774,7 @@
 	
 		// Proceso de pagos Paypal
 		function pagarConPaypal($orden,$urlCancela, $paquete_id = null){
-	
+
 			$data=array(
 				'merchant_email'=>'pfhurtado@phronesisvirtual.com',
 				'product_name'=>'Compra en elartedesabervivir.com',
