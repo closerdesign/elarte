@@ -1315,7 +1315,7 @@
 						'.$usuario_id.',
 						'.$estado_inscripcion.',
 						'.$metodo_pago.',
-						'.$transaction_id.',
+						"'.$transaction_id.'",
 						'.$valor_inscripcion.',
 						CURRENT_TIMESTAMP
 					);';
