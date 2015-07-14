@@ -2501,7 +2501,7 @@
 			   	) VALUES (
 			   		'1',
 			   		'1',
-			   		'Conferencia Global 2 - ".date('Y-m-d')."'
+			   		'Promo Paquetes mas Conferencia 3 - ".date('Y-m-d')."'
 			   	)
 			")){
 			   
