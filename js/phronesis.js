@@ -708,6 +708,7 @@ $('.cerrarSesion').click(function(){
 	}).done(function(msg){
 		$.removeCookie('pedido');
 		$.removeCookie('session');
+		$.removeCookie('modal');
 		$.removeCookie('e');
 		location.reload();
 	})

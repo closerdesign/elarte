@@ -31,20 +31,40 @@ function getApiContext() {
         define("PP_CONFIG_PATH", dirname(__DIR__));
     }
 
-	$apiContext = new ApiContext(new OAuthTokenCredential(
+    // Produccion
+	/*$apiContext = new ApiContext(new OAuthTokenCredential(
 		'AaYcH5C5po5JzpEmYQtkzAtpT6Zr0XfbEcT-hwXkLAp7YSlIurguZ1Gc8Cb1o0glE-X2qIfsHj63Kg8A',
 		'EE-BMK6xECpomSV2D7r3kukeKQSqzVEiLcMgX02gOs0-ysyV0tYbvwjpNIysHcKWubf4IVyQOeyJyq3j'
-	));
+	));*/
+
+	// Desarrollo
+	$apiContext = new ApiContext(
+		new OAuthTokenCredential(
+			'AUakaP5mJUXlBNuHc2NmGmIAvySNL10ySPfOwceRLd4FglRyBukTTm5-j7PtjyGzROZquDnjjW89uS0O',
+			'EBAsNM7Kqdztgt0Q0VkrZdEXCie8r_BiV8gZzY14F_88q56B0ArNU-inAqaC0bLX6PF7trHx4vGNMoJp'
+		)
+	);
 
 	
 	// Alternatively pass in the configuration via a hashmap.
 	// The hashmap can contain any key that is allowed in
 	// sdk_config.ini	
 	
-	$apiContext->setConfig(array(
+	// Producción
+	/*$apiContext->setConfig(array(
 		'http.ConnectionTimeOut' => 70,
 		'http.Retry' => 1,
 		'mode' => 'live',
+		'log.LogEnabled' => true,
+		'log.FileName' => '../PayPal.log',
+		'log.LogLevel' => 'DEBUG'		
+	));*/
+
+	// Desarrollo
+	$apiContext->setConfig(array(
+		'http.ConnectionTimeOut' => 70,
+		'http.Retry' => 1,
+		'mode' => 'sandbox',
 		'log.LogEnabled' => true,
 		'log.FileName' => '../PayPal.log',
 		'log.LogLevel' => 'DEBUG'		
