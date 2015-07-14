@@ -1267,10 +1267,12 @@
 				}
 			}
 			
-			if ( $estado == 1 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ) {
+			if ( $estado == 2 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ) {
 				$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
 				notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
 				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 15.99);
+			}elseif( $estado == 1 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ){
+				crearInscripcionFromPaquete($id, $_POST["usuario"], 2, 7, $_POST["transactionId"], 15.99);
 			}
 
 			if($estado==2){
@@ -1318,6 +1320,24 @@
 						CURRENT_TIMESTAMP
 					);';
 
+		if( !mysqli_query($con, $sql) ){
+			return 0;
+		}else{
+			return 1;
+		}
+	}
+
+	function actualizarInscripcionFromPaquete($id_pedido, $usuario_id, $estado_inscripcion, $metodo_pago, $transaction_id, $valor_inscripcion)
+	{
+		global $con;
+		$sql = 'UPDATE 
+					inscritos_conferencia 
+				SET
+					estado_inscripcion = ' . $estado_inscripcion . ',
+					transaction_id = "' . $transaction_id . '"
+				WHERE
+					id_pedido = ' . $id_pedido . '
+					;';
 		if( !mysqli_query($con, $sql) ){
 			return 0;
 		}else{
@@ -1376,6 +1396,7 @@
 					$codigoOrden = 0;
 				}	
 			}
+			crearInscripcionFromPaquete($codigoOrden, $_SESSION["id"], 2, 7, $codigoOrden, 15.99);
 			// Devolvemos el número de la orden generada
 			echo $codigoOrden;	
 		}
@@ -2384,9 +2405,11 @@
 			}
 			
 			if($estado==2){
-				crearInscripcionFromPaquete($orden, $_SESSION["id"], 1, 7, $orden, 15.99);
-				$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
-				notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+				if ( $_GET['paquete_id'] == 1 || $_GET['paquete_id'] == 3 ) {
+					actualizarInscripcionFromPaquete($orden, $_SESSION["id"], 1, 7, $orden, 15.99);
+					$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
+					notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+				}
 				// Si la orden fué aprobada, entregamos el pedido
 				$entrega = entregarPedido($orden);
 				
