@@ -766,16 +766,16 @@
 	/////////////////////////////////////////////////////////////////////////
 	
 		// Proceso de pagos Paypal
-		function pagarConPaypal($orden,$urlCancela){
+		function pagarConPaypal($orden,$urlCancela, $paquete_id = null){
 	
 			$data=array(
 				'merchant_email'=>'pfhurtado@phronesisvirtual.com',
 				'product_name'=>'Compra en elartedesabervivir.com',
 				'amount'=>getValorDeLaOrden($orden),
 				'currency_code'=>'USD',
-				'thanks_page'=>URL.'includes/php.php?consulta=ejecutarPago&orden='.$orden."&formaDePago=2&estado=2",
+				'thanks_page'=>URL.'includes/php.php?consulta=ejecutarPago&orden='.$orden.'&formaDePago=2&estado=2'.( !empty( $paquete_id ) ? '&paquete_id='.$paquete_id : '' ),
 				'notify_url'=>URL,
-				'cancel_url'=>URL.'includes/php.php?consulta=ejecutarPago&orden='.$orden.'&formaDePago=3&estado=3&url='.$urlCancela,
+				'cancel_url'=>URL.'includes/php.php?consulta=ejecutarPago&orden='.$orden.'&formaDePago=3&estado=3'. ( !empty( $paquete_id ) ? '&paquete_id='.$paquete_id : '' ) .'&url='.$urlCancela,
 				'paypal_mode'=>true,
 			);
 	

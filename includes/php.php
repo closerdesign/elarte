@@ -1263,6 +1263,10 @@
 				}
 			}
 			
+			if ( $estado == 1 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ) {
+				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 15.99);
+			}
+
 			if($estado==2){
 				$publicaciones=explode(',',getPublicacionesPaquete($_POST['paquete']));
 				foreach($publicaciones as $pub){
@@ -1286,6 +1290,34 @@
 		}
 	}
 	
+	function crearInscripcionFromPaquete($id_pedido, $usuario_id, $estado_inscripcion, $metodo_pago, $transaction_id, $valor_inscripcion)
+	{
+		$sql = 'INSERT INTO 
+					inscritos_conferencia (
+						id_pedido,
+						usuario_id,
+						estado_inscripcion,
+						metodo_pago,
+						transaction_id,
+						valor_inscripcion,
+						creado
+					) VALUES (
+						'.$id_pedido.',
+						'.$usuario_id.',
+						'.$estado_inscripcion.',
+						'.$metodo_pago.',
+						'.$transaction_id.',
+						'.$valor_inscripcion.',
+						CURRENT_TIMESTAMP
+					);';
+
+		if( !mysqli_query($con, $sql) ){
+			return 0;
+		}else{
+			return 1;
+		}
+	}
+
 	// CREACION DE ORDEN EN LOS PAQUETES
 	function crearOrdenPaquete()
 	{		
@@ -1515,9 +1547,11 @@
 			
 			$orden = $_REQUEST['orden'];
 			$urlCancela = $_REQUEST['urlCancela'];
-			
-			pagarConPaypal($orden,$urlCancela);
-			
+			if ( !empty( $_REQUEST['codigoPaquete'] ) ) {
+				pagarConPaypal($orden, $urlCancela, $_REQUEST['codigoPaquete']);
+			}else{
+				pagarConPaypal($orden,$urlCancela);
+			}			
 		}
 	}
 		
@@ -1766,6 +1800,12 @@
 				exit;	
 			}
 		}
+	}
+
+	function updateOrden($orderId)
+	{
+		global $con;
+
 	}
 
 	function getProductosPorOrden($orderId)
@@ -2337,7 +2377,7 @@
 			}
 			
 			if($estado==2){
-				
+				crearInscripcionFromPaquete($orden, $_SESSION["id"], 1, 7, $_GET["paymentId"], 15.99);
 				// Si la orden fué aprobada, entregamos el pedido
 				$entrega = entregarPedido($orden);
 				
