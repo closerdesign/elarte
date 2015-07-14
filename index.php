@@ -3,12 +3,12 @@
 <?php require_once('includes/conn.php'); ?>
 <?php require_once('includes/session.php'); ?>
 <?php require_once('includes/functions.php'); ?>
-
 <!DOCTYPE html>
 <html lang="es">
 	
 	<?php require_once('blocks/head.php'); ?>
 	<body class="body">
+	<?php require_once('includes/paypalResponse.php'); ?>
 	<?php
 		echo validatePSEResponseTransferencia();
 	?>

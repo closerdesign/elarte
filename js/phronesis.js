@@ -551,6 +551,7 @@ $('#paisPago').change(function(){
 	var pais = $(this).val();
 	var html = '<option value="">Seleccione...</option>';
 	var htmlTarjet = '<option value="1">Tarjeta de Crédito</option>';
+	var htmlPaypal = '<option value="2">Paypal</option>';
 	var htmlTransf = '<option class="co" value="3">Transferencia Bancaria - PSE</option>';
 	var htmlBaloto = '<option class="co" value="4">Puntos VIA Baloto</option>';
 	var htmloxxoel = '<option class="mx" value="5">OXXO - 7 Eleven</option>';
@@ -559,13 +560,13 @@ $('#paisPago').change(function(){
 	$('.tarjetaCredito').fadeOut();
 	/*$('#formaPago').prop('selectedIndex',0);*/
 	if(pais == "CO"){
-		html += htmlTarjet+htmlTransf+htmlBaloto;
+		html += htmlTarjet+htmlPaypal+htmlTransf+htmlBaloto;
 	}else if(pais == "MX"){
-		html += htmlTarjet+htmloxxoel;
+		html += htmlTarjet+htmlPaypal+htmloxxoel;
 	}else if(pais == "PE"){
-		html += htmlTarjet+htmlbanbcp;
+		html += htmlTarjet+htmlPaypal+htmlbanbcp;
 	}else{
-		html += htmlTarjet;
+		html += htmlTarjet+htmlPaypal;
 	}
 	$('#formaPago').empty();
 	$('#formaPago').append(html);
@@ -707,6 +708,7 @@ $('.cerrarSesion').click(function(){
 	}).done(function(msg){
 		$.removeCookie('pedido');
 		$.removeCookie('session');
+		$.removeCookie('modal');
 		$.removeCookie('e');
 		location.reload();
 	})
@@ -715,9 +717,31 @@ $('.cerrarSesion').click(function(){
 // Finalizar proceso de registro
 $('#formFinalizaRegistro').validate({
 	submitHandler: function(form){
+		$.removeCookie('modal');
 		$('.finRegistro').fadeOut();
 		$('.load').fadeIn();
-		$.post('/includes/php.php',$('#formFinalizaRegistro').serialize())
+		$.ajax({
+			url: '/includes/php.php',
+			type: 'POST',
+			dataType: 'json',
+			data: $('#formFinalizaRegistro').serialize(),
+		})
+		.done(function(data) {
+			if(data.error !=1){
+				alert('Se presentó un error. Por favor intente de nuevo');
+				location.reload();
+			} else {
+				location.reload();
+			}
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+		/*$.post('/includes/php.php',$('#formFinalizaRegistro').serialize())
 		.done(function(data){
 			if(data!=1){
 				alert('Se presentó un error. Por favor intente de nuevo');
@@ -725,7 +749,7 @@ $('#formFinalizaRegistro').validate({
 			} else {
 				location.reload();
 			}
-		})
+		})*/
 	}
 });
 
@@ -894,6 +918,7 @@ $('#registroUsuarios').validate({
 			if(data == 0){
 				shakeModalRegistro();
 			}else{
+				$.cookie('modal',1);
 				location.reload();
 			}
 		})

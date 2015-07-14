@@ -172,6 +172,9 @@
 			case 'requestPayPal':
 				requestPayPal();
 				break;
+			case 'requestPayPalTradicional':
+				requestPayPalTradicional();
+				break;
 			default:
 				break;
 		}
@@ -547,7 +550,8 @@
 	function agregar()
 	{				
 		global $con;
-		if($_POST['pedido']==""){
+
+		if( empty($_POST['pedido']) ){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
 		}else{
@@ -1038,8 +1042,12 @@
 		   mysqli_error($con);
 		}else{
 		   entregaObsequiosTienda($_SESSION['id']);
-		   echo "1";
+		   $result['error'] = 1;
+		   echo json_encode($result);
+		   return;
 		}
+		$result['error'] = 0;
+		echo json_encode($result);
 	}
 	
 	function verificaEmail()
@@ -1259,6 +1267,14 @@
 				}
 			}
 			
+			if ( $estado == 2 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ) {
+				$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
+				notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 0);
+			}elseif( $estado == 1 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ){
+				crearInscripcionFromPaquete($id, $_POST["usuario"], 2, 7, $_POST["transactionId"], 0);
+			}
+
 			if($estado==2){
 				$publicaciones=explode(',',getPublicacionesPaquete($_POST['paquete']));
 				foreach($publicaciones as $pub){
@@ -1282,6 +1298,53 @@
 		}
 	}
 	
+	function crearInscripcionFromPaquete($id_pedido, $usuario_id, $estado_inscripcion, $metodo_pago, $transaction_id, $valor_inscripcion)
+	{
+		global $con;
+		$sql = 'INSERT INTO 
+					inscritos_conferencia (
+						id_pedido,
+						usuario_id,
+						estado_inscripcion,
+						metodo_pago,
+						transaction_id,
+						valor_inscripcion,
+						creado
+					) VALUES (
+						'.$id_pedido.',
+						'.$usuario_id.',
+						'.$estado_inscripcion.',
+						'.$metodo_pago.',
+						"'.$transaction_id.'",
+						'.$valor_inscripcion.',
+						CURRENT_TIMESTAMP
+					);';
+
+		if( !mysqli_query($con, $sql) ){
+			return 0;
+		}else{
+			return 1;
+		}
+	}
+
+	function actualizarInscripcionFromPaquete($id_pedido, $usuario_id, $estado_inscripcion, $metodo_pago, $transaction_id, $valor_inscripcion)
+	{
+		global $con;
+		$sql = 'UPDATE 
+					inscritos_conferencia 
+				SET
+					estado_inscripcion = ' . $estado_inscripcion . ',
+					transaction_id = "' . $transaction_id . '"
+				WHERE
+					id_pedido = ' . $id_pedido . '
+					;';
+		if( !mysqli_query($con, $sql) ){
+			return 0;
+		}else{
+			return 1;
+		}
+	}
+
 	// CREACION DE ORDEN EN LOS PAQUETES
 	function crearOrdenPaquete()
 	{		
@@ -1333,6 +1396,7 @@
 					$codigoOrden = 0;
 				}	
 			}
+			crearInscripcionFromPaquete($codigoOrden, $_SESSION["id"], 2, 7, $codigoOrden, 0);
 			// Devolvemos el número de la orden generada
 			echo $codigoOrden;	
 		}
@@ -1511,9 +1575,11 @@
 			
 			$orden = $_REQUEST['orden'];
 			$urlCancela = $_REQUEST['urlCancela'];
-			
-			pagarConPaypal($orden,$urlCancela);
-			
+			if ( !empty( $_REQUEST['codigoPaquete'] ) ) {
+				pagarConPaypal($orden, $urlCancela, $_REQUEST['codigoPaquete']);
+			}else{
+				pagarConPaypal($orden,$urlCancela);
+			}			
 		}
 	}
 		
@@ -1702,31 +1768,92 @@
 	function requestPayPal()
 	{
 		require_once 'rest-api-sample-app-php/app/bootstrap.php';
+
 		$data = array(
-						'estado' => 1, //pendiente
+						'estado' => 2, //pendiente
 						'metodo' => 2,
 						'idtransaccion' => 'Paypal',
 						'valor' => $_POST['amount']
 					);
-
+		
 		$orderId = crearOrden($data);
 		if ( is_null($orderId) ) {
 			echo "null";
 			return;
 		}
 		$result['orderId'] = $orderId;
-		/*$orderId = addOrder(getSignedInUser(), NULL, NULL, $order['amount'], $order['description']);*/
+		
 		// Create the payment and redirect buyer to paypal for payment approval. 
 		$baseUrl = URL . "index.php?orderPaypalId=$orderId";
-		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],
-				$baseUrl."&success=true", $baseUrl."&success=false");
+		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],$baseUrl."&success=true", $baseUrl."&success=false");
 		actualizarOrden($orderId, $payment->getState(), $payment->getId());
 		$result['error'] = 1;
-		/*$result['link'] = getLink($payment->getLinks(), "approval_url");*/
-		/*echo json_encode($result);
-		return;	*/
+		
 		header("Location: " . getLink($payment->getLinks(), "approval_url") );
 		exit;	
+	}
+
+	function requestPayPalTradicional()
+	{
+		require_once 'rest-api-sample-app-php/app/bootstrap.php';
+
+		if ( !empty($_COOKIE['pedido']) ) {
+			$orderId = $_COOKIE['pedido'];
+			$productos = getProductosPorOrden($orderId);
+			$total = getValorDeLaOrden($orderId);
+
+			if ( !empty($productos) ) {
+				$data = array(
+								'estado' => 2, //pendiente
+								'metodo' => 2,
+								'idtransaccion' => 'Paypal',
+								'valor' => $total
+							);
+				if ( is_null($orderId) ) {
+					echo "null";
+					return;
+				}
+				$result['orderId'] = $orderId;
+				
+				// Create the payment and redirect buyer to paypal for payment approval. 
+				$baseUrlSuccess = URL . "index.php?content=mi-cuenta&task=mis-publicaciones&orderPaypalId=$orderId&pagina=obras";
+				$baseUrlFailed = URL . "index.php?content=mi-cuenta&task=mi-pedido&orderPaypalId=$orderId&pagina=obras";
+				
+				$payment = makePaymentUsingPayPalByItems($productos, $total, 'USD',$baseUrlSuccess."&success=true", $baseUrlFailed."&success=false");
+
+				actualizarOrden($orderId, $payment->getState(), $payment->getId());
+				$result['error'] = 1;
+				
+				header("Location: " . getLink($payment->getLinks(), "approval_url") );
+				exit;	
+			}
+		}
+	}
+
+	function updateOrden($orderId)
+	{
+		global $con;
+
+	}
+
+	function getProductosPorOrden($orderId)
+	{
+		global $con;
+		if ( !empty($orderId) ) {
+			$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$orderId'";
+			$q=mysqli_query($con, $sql);
+			$productos = array();
+			$i = 0;
+			while( $p=mysqli_fetch_assoc($q) ){
+				$productos[$i]['id'] = $p['publicacion'];
+				$productos[$i]['nombre'] = getNombrePublicacion($p['publicacion']);
+				$productos[$i]['formato'] = $GLOBALS['displayFormatos'][getFormatoPublicacion($p['publicacion'])];
+				$productos[$i]['precio'] = getPrecioPublicacion($p['publicacion']);
+				$i++;
+			}
+			return $productos;
+		}
+		return array();
 	}
 
 	function crearOrden($array='')
@@ -2278,7 +2405,11 @@
 			}
 			
 			if($estado==2){
-				
+				if ( $_GET['paquete_id'] == 1 || $_GET['paquete_id'] == 3 ) {
+					actualizarInscripcionFromPaquete($orden, $_SESSION["id"], 1, 7, $orden, 15.99);
+					$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
+					notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+				}
 				// Si la orden fué aprobada, entregamos el pedido
 				$entrega = entregarPedido($orden);
 				

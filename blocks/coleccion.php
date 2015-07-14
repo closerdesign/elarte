@@ -3,6 +3,20 @@
 	$q=mysqli_query($con, $sql);
 	$data=mysqli_fetch_array($q);
 ?>
+<?php
+	if( (isset($_SESSION['id']) && (!isset($_COOKIE['modal'])) ))
+	{
+		?>
+		<script>
+			$(document).ready(function(){
+				$('#myModalPagoPaquetes').modal('show');
+				$.cookie('modal',1);	
+			})
+			
+		</script>
+		<?php
+	}
+?>
 <div class="row top">
 	<div class="container">
 		<div class="row">
@@ -140,67 +154,84 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-md-12 form-group">
-							<select class="form-control" name="tipo" id="tipo" required >
-								<option value="">Tipo de tarjeta</option>
-								<option value="VISA">VISA</option>
-								<option value="MASTERCARD">MASTERCARD</option>
-								<option value="AMEX">AMERICAN EXPRESS</option>
-								<option value="DINERS">DINERS</option>
-							</select>
+						<div class="col-md-12">
+							<p><button class="btn btn-default pull-right" id="btnPaypalPaquetes" codigoPaquete=<?php echo $_REQUEST['id'] ?> formaDePago="2" >
+								<i class="fa fa-paypal"></i> Pagar con Paypal
+							</button></p>
 						</div>
 					</div>
+					<hr>
 					<div class="row">
-						<div class="col-md-6 form-group">
-							<label>Número de tarjeta</label>
-							<input type="text" class="form-control" name="numero" id="numero" required />
-						</div>
-						<div class="col-md-6 form-group">
-							<label>Nombre que figura en la tarjeta</label>
-							<input type="text" class="form-control" name="nombre" id="nombre" required />
+						<div class="col-md-12">
+							<div class="row">
+								<p class="lead text-center">Pagar con tarjeta de crédito</p>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label>Tipo</label>
+									<select class="form-control" name="tipo" id="tipo" required >
+										<option value="">Seleccione...</option>
+										<option value="VISA">VISA</option>
+										<option value="MASTERCARD">MASTERCARD</option>
+										<option value="AMEX">AMERICAN EXPRESS</option>
+										<option value="DINERS">DINERS</option>
+									</select>
+								</div>
+								<div class="col-md-6 form-group">
+									<label>Número de tarjeta</label>
+									<input type="text" class="form-control" name="numero" id="numero" required />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label>Nombre que figura en la tarjeta</label>
+									<input type="text" class="form-control" name="nombre" id="nombre" required />
+								</div>
+								<div class="col-md-6 form-group">
+									<label>Mes vencimiento</label>
+									<select class="form-control" name="mes" id="mes" required >
+										<option value="">Seleccione...</option>
+										<option value="01">01</option>
+										<option value="02">02</option>
+										<option value="03">03</option>
+										<option value="04">04</option>
+										<option value="05">05</option>
+										<option value="06">06</option>
+										<option value="07">07</option>
+										<option value="08">08</option>
+										<option value="09">09</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-group">
+									<label>Año vencimiento</label>
+									<select class="form-control" name="ano" id="ano" required >
+										<option value="">Seleccione...</option>
+										<option value='2015'>15</option>
+										<option value='2016'>16</option>
+										<option value='2017'>17</option>
+										<option value='2018'>18</option>
+										<option value='2019'>19</option>
+										<option value='2020'>20</option>
+										<option value='2021'>21</option>
+										<option value='2022'>22</option>
+										<option value='2023'>23</option>
+										<option value='2024'>24</option>
+										<option value='2025'>25</option>
+									</select>
+								</div>
+								<div class="col-md-6 form-group">
+									<label>Código de Seguridad</label>
+									<input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required />
+								</div>
+							</div>		
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-4 form-group">
-							<label>Mes vencimiento</label>
-							<select class="form-control" name="mes" id="mes" required >
-								<option value="">Seleccione...</option>
-								<option value="01">01</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-								<option value="07">07</option>
-								<option value="08">08</option>
-								<option value="09">09</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select>
-						</div>
-						<div class="col-md-4 form-group">
-							<label>Año vencimiento</label>
-							<select class="form-control" name="ano" id="ano" required >
-								<option value="">Seleccione...</option>
-								<option value='2015'>15</option>
-								<option value='2016'>16</option>
-								<option value='2017'>17</option>
-								<option value='2018'>18</option>
-								<option value='2019'>19</option>
-								<option value='2020'>20</option>
-								<option value='2021'>21</option>
-								<option value='2022'>22</option>
-								<option value='2023'>23</option>
-								<option value='2024'>24</option>
-								<option value='2025'>25</option>
-							</select>
-						</div>
-						<div class="col-md-4 form-group">
-							<label>Código de Seguridad</label>
-							<input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required />
-						</div>
-					</div>
+					
 				</div>
 				<div class="modal-footer">
 					<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
@@ -209,10 +240,7 @@
 					<input type="hidden" name="pais" id="pais" value="<?php echo getPaisUsuario($_SESSION['id']) ?>" />
 					<input type="hidden" name="descripcion" id="descripcion" value="<?php echo $data['nombre'] ?>" />
 					<input type="hidden" name="referencia" id="referencia" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
-					<button class="btn btn-default" id="btnPaypalPaquetes" codigoPaquete=<?php echo $_REQUEST['id'] ?> formaDePago="2" >
-						<i class="fa fa-paypal"></i> Pagar con Paypal
-					</button>
-					<button type="submit" class="btn btn-primary">Comprar</button>
+					<button type="submit" class="btn btn-primary"><i class="fa fa-credit-card"></i> Comprar</button>
 				</div>
 			</form>
 		</div>
@@ -265,7 +293,7 @@
 								$('#myModalVacio').modal('show');
 							}
 							if( (msg==1) && (response.transactionResponse.state=='APPROVED') ){
-								alert('Transacción Aprobada. Ahora ya puedes descargar las publicaciones de "Mi Biblioteca"');
+								alert('Transacción Aprobada. Ahora ya puedes descargar las publicaciones de "Mi Biblioteca". Pronto recibirás nuestras instrucciones para acceder a la Conferencia Virtual.');
 								window.location.href="index.php?content=mi-cuenta&task=mis-publicaciones";
 							}
 						})

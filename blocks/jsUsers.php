@@ -107,13 +107,35 @@
 	$('#btnPaypalPaquetes').click(function(){
 		$('#myModalPagoPaquetes').modal('hide');
 		$('.load').fadeIn();
-		$.post('/includes/php.php',{
+		var data = {
 			consulta: "crearOrdenPaquete",
 			codigoPaquete: $(this).attr('codigoPaquete'),
 			formaDePago: $(this).attr('formaDePago')
-		}).done(function(data){
-			window.location.href = "/includes/php.php?consulta=pagarConPaypal&orden=" + data + "&urlCancela=<?php echo getUrlActual(); ?>";
+		};
+		$.ajax({
+			url: '/includes/php.php',
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+			context: this
 		})
+		.done(function(data) {
+			window.location.href = "/includes/php.php?consulta=pagarConPaypal&codigoPaquete="+$(this).attr('codigoPaquete')+"&orden=" + data + "&urlCancela=<?php echo getUrlActual(); ?>";
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+		/*$.post('/includes/php.php',{
+			consulta: "crearOrdenPaquete",
+			codigoPaquete: $(this).attr('codigoPaquete'),
+			formaDePago: $(this).attr('formaDePago'),
+			context: this
+		}).done(function(data){
+		})*/
 	})
 	
 </script>

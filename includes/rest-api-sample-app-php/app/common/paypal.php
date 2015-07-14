@@ -7,11 +7,14 @@ use PayPal\Api\PaymentExecution;
 use PayPal\Api\Amount;
 use PayPal\Api\CreditCard;
 use PayPal\Api\CreditCardToken;
+use PayPal\Api\Details;
 use PayPal\Api\FundingInstrument;
+use PayPal\Api\Item;
+use PayPal\Api\ItemList;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
-use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
+use PayPal\Api\Transaction;
 
 /**
  * Save a credit card with paypal
@@ -138,9 +141,50 @@ function makePaymentUsingPayPal($total, $currency, $paymentDesc, $returnUrl, $ca
 	$payment->setTransactions(array($transaction));
 	
 	$payment->create(getApiContext());
-  return $payment;
+  	return $payment;
 }
 
+function makePaymentUsingPayPalByItems($products, $total, $currency, $returnUrl, $cancelUrl)
+{
+	$payer = new Payer();
+	$payer->setPaymentMethod("paypal");
+
+	foreach ($products as $key => $product) {
+		$item[$key] = new Item();
+		$item[$key]->setName($product['nombre'])
+		->setCurrency($currency)
+		->setQuantity(1)
+		->setSku($product['id']) // Similar to `item_number` in Classic API
+		->setPrice($product['precio']);
+	}
+
+	$itemList = new ItemList();
+	$itemList->setItems($item);
+
+	$amount = new Amount();
+	$amount->setCurrency($currency)
+	    ->setTotal($total);
+
+    $transaction = new Transaction();
+	$transaction->setAmount($amount)
+	    ->setItemList($itemList)
+	    ->setDescription("Phronesis Obras")
+	    ->setInvoiceNumber(uniqid());
+
+	$baseUrl = getBaseUrl();
+	$redirectUrls = new RedirectUrls();
+	$redirectUrls->setReturnUrl("$returnUrl")
+				->setCancelUrl("$cancelUrl");
+
+	$payment = new Payment();
+	$payment->setIntent("sale")
+	    ->setPayer($payer)
+	    ->setRedirectUrls($redirectUrls)
+	    ->setTransactions(array($transaction));
+	
+	$payment->create(getApiContext());
+  	return $payment;
+}
 
 /**
  * Completes the payment once buyer approval has been
