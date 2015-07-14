@@ -3,6 +3,20 @@
 	$q=mysqli_query($con, $sql);
 	$data=mysqli_fetch_array($q);
 ?>
+<?php
+	if( (isset($_SESSION['id']) && (!isset($_COOKIE['modal'])) ))
+	{
+		?>
+		<script>
+			$(document).ready(function(){
+				$('#myModalPagoPaquetes').modal('show');
+				$.cookie('modal',1);	
+			})
+			
+		</script>
+		<?php
+	}
+?>
 <div class="row top">
 	<div class="container">
 		<div class="row">
@@ -265,7 +279,7 @@
 								$('#myModalVacio').modal('show');
 							}
 							if( (msg==1) && (response.transactionResponse.state=='APPROVED') ){
-								alert('Transacción Aprobada. Ahora ya puedes descargar las publicaciones de "Mi Biblioteca"');
+								alert('Transacción Aprobada. Ahora ya puedes descargar las publicaciones de "Mi Biblioteca". Pronto recibirás nuestras instrucciones para acceder a la Conferencia Virtual.');
 								window.location.href="index.php?content=mi-cuenta&task=mis-publicaciones";
 							}
 						})

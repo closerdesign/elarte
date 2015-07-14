@@ -708,6 +708,7 @@ $('.cerrarSesion').click(function(){
 	}).done(function(msg){
 		$.removeCookie('pedido');
 		$.removeCookie('session');
+		$.removeCookie('modal');
 		$.removeCookie('e');
 		location.reload();
 	})
@@ -716,6 +717,7 @@ $('.cerrarSesion').click(function(){
 // Finalizar proceso de registro
 $('#formFinalizaRegistro').validate({
 	submitHandler: function(form){
+		$.removeCookie('modal');
 		$('.finRegistro').fadeOut();
 		$('.load').fadeIn();
 		$.ajax({
@@ -916,6 +918,7 @@ $('#registroUsuarios').validate({
 			if(data == 0){
 				shakeModalRegistro();
 			}else{
+				$.cookie('modal',1);
 				location.reload();
 			}
 		})
