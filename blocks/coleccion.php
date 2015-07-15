@@ -38,7 +38,7 @@
 								($_REQUEST['id']==5)
 							){
 								
-								echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia 'El Arte de Amar sin Apegos' del escritor Walter Riso.</p>");
+								echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia virtual 'El Arte de Amar sin Apegos' que se llevará a cabo el próximo 25 de julio.</p><p class='text-center'><a href='/conferencia-virtual' target='_blank' class='btn btn-default'>Conozca más acerca del evento <i class='fa fa-arrow-right'></i></a></p>");
 							}
 						?>
 						</div>
