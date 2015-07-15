@@ -1355,6 +1355,33 @@
 		}
 	}
 
+	function getPedido($id_pedido)
+	{
+		global $con;
+
+		if ( !empty($id_pedido) ) {
+			$sql = 'SELECT * FROM pedidos WHERE id = '.$id_pedido;
+			$q=mysqli_query($con, $sql);
+			$p=mysqli_fetch_assoc($q);
+
+			$orden['id'] = $p['id'];
+			$orden['usuario'] = $p['usuario'];
+			$orden['valor'] = $p['valor'];
+			$orden['status'] = $p['status'];
+			$orden['formaPago'] = $p['formaPago'];
+			$orden['orderId'] = $p['orderId'];
+			$orden['transactionId'] = $p['transactionId'];
+			$orden['state'] = $p['state'];
+			$orden['pendingReason'] = $p['pendingReason'];
+			$orden['responseCode'] = $p['responseCode'];
+			$orden['urlPaymentReceiptHtml'] = $p['urlPaymentReceiptHtml'];
+			$orden['reference'] = $p['reference'];
+			$orden['creado'] = $p['creado'];				
+			return $p;
+		}
+		return array();
+	}
+
 	function actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode)
 	{
 		global $con;
@@ -1842,6 +1869,9 @@
 		$responseCode = $payment->getState();
 		
 		actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode);
+		if ( $_POST['codigoPaquete'] == 4 || $_POST['codigoPaquete'] == 5 ) {
+			actualizarInscripcionFromPaquete($id_pedido, $_SESSION["id"], 2, 7, $transactionId, 0);	
+		}
 		/*actualizaOrdenPaquete($orderId, $status, $payment->getId(), $payment->getId(), $payment->getState(), $payment->getState() );*/
 		$result['error'] = 1;
 		

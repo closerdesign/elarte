@@ -18,6 +18,8 @@
 				if ( $_GET['pagina'] == 'obras' ) {
 					actualizarOrden($orderId, $payment->getState(), $order['transaction_id']);
 				}else if( $_GET['pagina'] == 'coleccion' ){
+					$pedido = getPedido($orderId);
+
 					if ( $payment->getState() == 'approved' ) {
 						$status = 2;
 					}
@@ -27,6 +29,7 @@
 						$status = 1;
 					}
 					actualizaOrdenPaquete($orderId, $status, null, null, $payment->getState(), $payment->getState());
+					actualizarInscripcionFromPaquete($orderId, null, 1, null, $pedido['transactionId'], null);
 				}
 
 				if ( $payment->getState() == 'approved' ) {
@@ -86,14 +89,16 @@
 			
 		} elseif ( isset($_GET['success']) && $_GET['success'] == 'false' ){
 			$orderId = $_GET['orderPaypalId'];
-			$order = obtenerOrden($orderId);
 			$estado = 3;
 			$estadoTexto = 'failed';
 			$estadoTexto2 = 'Fallida';
 			if ( $_GET['pagina'] == 'obras' ) {
+				$order = obtenerOrden($orderId);
 				actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);
 			}else if( $_GET['pagina'] == 'coleccion' ){
-				actualizaOrdenPaquete($orderId, $estado, $order['transaction_id'], $order['transaction_id'], $estadoTexto, $estadoTexto);
+				$pedido = getPedido($orderId);
+				actualizaOrdenPaquete($orderId, $estado, $pedido['transactionId'], $pedido['transactionId'], $estadoTexto, $estadoTexto);
+				actualizarInscripcionFromPaquete($orderId, null, 0, null, $pedido['transactionId'], null);
 			}
 			/*actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);*/
 			$mensaje = "";
