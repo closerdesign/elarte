@@ -159,7 +159,7 @@
 							<p>
 								<form name="pagoPaypal" id="pagoPaypal" action="../includes/php.php" method="POST">
 									<input type="hidden" name="consulta" value="requestPayPalPaquete" />
-									<input type="hidden" name="description" value="<?php echo $data['nombre']; ?>" />
+									<input type="hidden" name="description" value="<?php echo strip_tags($data['nombre']);; ?>" />
 									<input type="hidden" name="codigoPaquete" value="<?php echo $_REQUEST['id'] ?>">
 									<input type="hidden" name="formaDePago" value="7">
 									<input type="hidden" id="vrPedido" name="amount" value="<?php echo $data['precio']; ?>" />
