@@ -37,7 +37,11 @@ function mostrarFacturacion()
 				echo "<a href='../public/facturas.php?fechaInicial=2015-06-0$dia1&fechaFinal=2015-06-0$dia2' target='_blank'>$dia1 de junio de 2015</a><br>";
 			}
 		
-		echo "</div>
+		echo "
+		
+		<a href='../public/reporte_mensual.php?fechaInicial=2015-06-01&fechaFinal=2015-07-01' target='_blank'>Reporte mensual</a><br>
+		
+		</div>
 	
 	";	
 	

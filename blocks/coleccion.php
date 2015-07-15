@@ -32,6 +32,15 @@
 					<div class="col-md-12">
 						<div class="col-md-12">
 							<h1 class="text-center">¡Una oportunidad que no te puedes perder!</h1>
+							<?php
+							if(
+								($_REQUEST['id']==4) ||
+								($_REQUEST['id']==5)
+							){
+								
+								echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia 'El Arte de Amar sin Apegos' del escritor Walter Riso.</p>");
+							}
+						?>
 						</div>
 					</div>
 				</div>
