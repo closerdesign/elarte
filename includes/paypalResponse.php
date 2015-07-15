@@ -6,7 +6,6 @@
 	use PayPal\Api\PaymentExecution;
 
 	if(isset($_GET['success']) && isset( $_GET['pagina'] ) ) {
-
 		// We were redirected here from PayPal after the buyer approved/cancelled
 		// the payment
 		
@@ -15,8 +14,20 @@
 			try {
 				$order = obtenerOrden($orderId);
 				$payment = executePayment($_GET['paymentId'], $_GET['PayerID']);
-				/*$payment = executePayment($order['transaction_id'], $_GET['PayerID']);*/
-				actualizarOrden($orderId, $payment->getState(), $order['transaction_id']);
+				
+				if ( $_GET['pagina'] == 'obras' ) {
+					actualizarOrden($orderId, $payment->getState(), $order['transaction_id']);
+				}else if( $_GET['pagina'] == 'coleccion' ){
+					if ( $payment->getState() == 'approved' ) {
+						$status = 2;
+					}
+					else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
+						$status = 3;
+					}else{
+						$status = 1;
+					}
+					actualizaOrdenPaquete($orderId, $status, null, null, $payment->getState(), $payment->getState());
+				}
 
 				if ( $payment->getState() == 'approved' ) {
 					$estado = 1;
@@ -79,7 +90,12 @@
 			$estado = 3;
 			$estadoTexto = 'failed';
 			$estadoTexto2 = 'Fallida';
-			actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);
+			if ( $_GET['pagina'] == 'obras' ) {
+				actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);
+			}else if( $_GET['pagina'] == 'coleccion' ){
+				actualizaOrdenPaquete($orderId, $estado, $order['transaction_id'], $order['transaction_id'], $estadoTexto, $estadoTexto);
+			}
+			/*actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);*/
 			$mensaje = "";
 			$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
 			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$estadoTexto2."</p>";

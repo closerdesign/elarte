@@ -175,6 +175,9 @@
 			case 'requestPayPalTradicional':
 				requestPayPalTradicional();
 				break;
+			case 'requestPayPalPaquete':
+				requestPayPalPaquete();
+				break;
 			default:
 				break;
 		}
@@ -1267,11 +1270,11 @@
 				}
 			}
 			
-			if ( $estado == 2 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ) {
+			if ( $estado == 2 && $_POST['paquete'] == 4 || $_POST['paquete'] == 5 ) {
 				$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
 				notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
 				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 0);
-			}elseif( $estado == 1 && $_POST['paquete'] == 1 || $_POST['paquete'] == 3 ){
+			}elseif( $estado == 1 && $_POST['paquete'] == 4 || $_POST['paquete'] == 5 ){
 				crearInscripcionFromPaquete($id, $_POST["usuario"], 2, 7, $_POST["transactionId"], 0);
 			}
 
@@ -1330,18 +1333,55 @@
 	function actualizarInscripcionFromPaquete($id_pedido, $usuario_id, $estado_inscripcion, $metodo_pago, $transaction_id, $valor_inscripcion)
 	{
 		global $con;
-		$sql = 'UPDATE 
-					inscritos_conferencia 
-				SET
-					estado_inscripcion = ' . $estado_inscripcion . ',
-					transaction_id = "' . $transaction_id . '"
-				WHERE
-					id_pedido = ' . $id_pedido . '
-					;';
-		if( !mysqli_query($con, $sql) ){
-			return 0;
-		}else{
-			return 1;
+
+		$check = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$id_pedido;
+		$q=mysqli_query($con, $check);
+		$n=mysqli_num_rows($q);
+		
+		if($n=1){
+			$sql = 'UPDATE 
+						inscritos_conferencia 
+					SET
+						estado_inscripcion = ' . $estado_inscripcion . ',
+						transaction_id = "' . $transaction_id . '"
+					WHERE
+						id_pedido = ' . $id_pedido . '
+						;';
+			if( !mysqli_query($con, $sql) ){
+				return 0;
+			}else{
+				return 1;
+			}
+		}
+	}
+
+	function actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode)
+	{
+		global $con;
+
+		$check = 'SELECT * FROM pedidos WHERE id = '.$id_pedido;
+	
+		$q=mysqli_query($con, $check);
+		$n=mysqli_num_rows($q);
+		
+		if($n=1){
+			$sql = 'UPDATE 
+						pedidos 
+					SET
+						status = ' . $status . ',
+						' . ( !is_null($orderId) ? 'orderId = "' . $orderId . '",' : '' ) . 
+						( !is_null($transactionId) ? 'transactionId = "' . $transactionId . '",' : '' ) . 
+						'state = "' . $state . '",
+						responseCode = "' . $responseCode . '"
+					WHERE
+						id = ' . $id_pedido . '
+						;';
+
+			if( !mysqli_query($con, $sql) ){
+				return 0;
+			}else{
+				return 1;
+			}
 		}
 	}
 
@@ -1370,7 +1410,7 @@
 		");
 		
 		if(!$q){
-			echo 0;
+			return 0;
 		}else{
 			
 			// Obtenemos el código de la orden creada
@@ -1396,9 +1436,11 @@
 					$codigoOrden = 0;
 				}	
 			}
-			crearInscripcionFromPaquete($codigoOrden, $_SESSION["id"], 2, 7, $codigoOrden, 0);
+			if ( $codigoPaquete == 4 || $codigoPaquete == 5 ) {
+				crearInscripcionFromPaquete($codigoOrden, $_SESSION["id"], 2, 7, $codigoOrden, 0);
+			}
 			// Devolvemos el número de la orden generada
-			echo $codigoOrden;	
+			return $codigoOrden;	
 		}
 	}
 
@@ -1763,6 +1805,48 @@
 		}
 		
 		echo json_encode($response);
+	}
+
+	function requestPayPalPaquete()
+	{
+		require_once 'rest-api-sample-app-php/app/bootstrap.php';
+
+		$data = array(
+						'estado' => 2, //pendiente
+						'metodo' => 2,
+						'idtransaccion' => 'Paypal',
+						'valor' => $_POST['amount']
+					);
+		
+		$id_pedido = crearOrdenPaquete();
+		if ( is_null($id_pedido) ) {
+			echo "null";
+			return;
+		}
+		$result['id_pedido'] = $id_pedido;
+		
+		// Create the payment and redirect buyer to paypal for payment approval. 
+		
+		$baseUrlSuccess = URL . "index.php?content=mi-cuenta&task=mis-publicaciones&orderPaypalId=$id_pedido&pagina=coleccion";
+		
+		$baseUrlFailed = URL . "?content=coleccion&id=".$_POST['codigoPaquete']."&orderPaypalId=$id_pedido&pagina=coleccion";
+		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],$baseUrlSuccess."&success=true", $baseUrlFailed."&success=false");
+
+		if ( $payment->getState() == 'created') {
+			$status = 1;
+		}
+
+		$orderId = $payment->getId();
+		$transactionId = $payment->getId();
+		$state = $payment->getState();
+		$responseCode = $payment->getState();
+		
+		actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode);
+		/*actualizaOrdenPaquete($orderId, $status, $payment->getId(), $payment->getId(), $payment->getState(), $payment->getState() );*/
+		$result['error'] = 1;
+		
+		header("Location: " . getLink($payment->getLinks(), "approval_url") );
+		exit;	
 	}
 
 	function requestPayPal()
