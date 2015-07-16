@@ -1951,7 +1951,7 @@
 		global $con;
 		require_once 'rest-api-sample-app-php/app/bootstrap.php';
 
-		$sql = 'SELECT * FROM pedidos WHERE formaPago = 2 AND status != 2';
+		$sql = 'SELECT * FROM pedidos WHERE formaPago = 2 AND status != 2 AND status != 3';
 		$q=mysqli_query($con, $sql);
 		$estado = '';
 		while ( $p=mysqli_fetch_assoc($q) ) {
