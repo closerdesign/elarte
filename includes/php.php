@@ -1390,7 +1390,6 @@
 		global $con;
 
 		$check = 'SELECT * FROM pedidos WHERE id = '.$id_pedido;
-	
 		$q=mysqli_query($con, $check);
 		$n=mysqli_num_rows($q);
 		
@@ -1952,12 +1951,37 @@
 		global $con;
 		require_once 'rest-api-sample-app-php/app/bootstrap.php';
 
-		$sql = 'SELECT * FROM pedidos WHERE formaPago = 7 AND status != 2';
+		$sql = 'SELECT * FROM pedidos WHERE formaPago = 2 AND status != 2';
 		$q=mysqli_query($con, $sql);
-		
+		$estado = '';
 		while ( $p=mysqli_fetch_assoc($q) ) {
 
 			$payment = getPaymentDetails($p['orderId']);
+			echo $p['orderId'].'<br>';
+			if ( isset($payment->name) ) {
+				actualizaOrdenPaquete($p['id'], 3, null, null, 'failed', $payment->name);
+				$estado = 0;
+			}else{
+				if ( $payment->getState() == 'approved' ) {
+					actualizaOrdenPaquete($p['id'], 2, null, null, $payment->getState(), $payment->getState());
+					$estado = 1;
+				}else if( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ){
+					actualizaOrdenPaquete($p['id'], 3, null, null, $payment->getState(), $payment->getState());
+					$estado = 0;
+				}else if( $payment->getState() == 'created' ){
+					actualizaOrdenPaquete($p['id'], 1, null, null, $payment->getState(), $payment->getState());
+					$estado = 2;
+				}
+			}
+			
+			$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
+			$result = mysqli_query($con, $query);
+			if($result) {
+				actualizarOrden($p['id'], $estado, null);
+			}
+			
+		}
+	/*	$payment = getPaymentDetails('PAY-76C05577WN522352PKWT6ZLA');
 			if ( isset($payment->name) ) {
 				echo "<pre>";
 				var_dump($payment);
@@ -1966,16 +1990,8 @@
 				echo "<pre>";
 				var_dump($payment);
 				echo "</pre>";
-			}
-		}
-
-		/*echo "<pre>";
-		print_r($payment->getState());
-		echo "</pre>";
-		echo "<pre>";
-		print_r($payment);
-		echo "</pre>";*/
-
+			}*/
+		
 		/*return $payment;*/
 	}
 
@@ -2067,9 +2083,9 @@
 			UPDATE 
 				`inscritos_conferencia`
 			SET
-				`estado_inscripcion` = '$estado',
-				`transaction_id` = '$transaction_id'
-			WHERE
+				`estado_inscripcion` = '$estado'
+				" . ( !is_null( $transaction_id ) ? ",`transaction_id` = '$transaction_id'" : "" ) . 
+			"WHERE
 				`id_inscripcion` = '$orderId'
 		")){
 			return false;

@@ -54,4 +54,5 @@
 			transaccionPendiente($p['transactionId'],$response->state);	
 		}
 	}
+	validarListaPedidosPendientes();
 ?>
