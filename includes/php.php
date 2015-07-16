@@ -194,6 +194,9 @@
 			case 'ejecutarPago':
 				ejecutarPago();
 				break;
+			case 'validarListaPedidosPendientes':
+				validarListaPedidosPendientes();
+				break;
 			default:
 				# code...
 				break;
@@ -1944,10 +1947,36 @@
 		}
 	}
 
-	function updateOrden($orderId)
+	function validarListaPedidosPendientes()
 	{
 		global $con;
+		require_once 'rest-api-sample-app-php/app/bootstrap.php';
 
+		$sql = 'SELECT * FROM pedidos WHERE formaPago = 7 AND status != 2';
+		$q=mysqli_query($con, $sql);
+		
+		while ( $p=mysqli_fetch_assoc($q) ) {
+
+			$payment = getPaymentDetails($p['orderId']);
+			if ( isset($payment->name) ) {
+				echo "<pre>";
+				var_dump($payment);
+				echo "</pre>";
+			}else{
+				echo "<pre>";
+				var_dump($payment);
+				echo "</pre>";
+			}
+		}
+
+		/*echo "<pre>";
+		print_r($payment->getState());
+		echo "</pre>";
+		echo "<pre>";
+		print_r($payment);
+		echo "</pre>";*/
+
+		/*return $payment;*/
 	}
 
 	function getProductosPorOrden($orderId)
