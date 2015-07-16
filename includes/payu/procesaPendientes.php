@@ -2,11 +2,14 @@
 	require_once('../conn.php');
 	require_once('../functions.php');
 	require_once('../php.php');
+	require_once 'rest-api-sample-app-php/app/bootstrap.php';
+	use PayPal\Api\Payment;
+	
 	$sql="SELECT * FROM pedidos WHERE status = 1 AND formaPago != 2 AND transactionId != ''";
 	$q=mysqli_query($con, $sql);
 	$n=mysqli_num_rows($q);
-	if($n>0){
-		
+	
+	if($n>0){		
 		while($p=mysqli_fetch_assoc($q)){
 			
 			require_once('PayU.php');
@@ -19,8 +22,10 @@
 			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
 			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
 			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
-			PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
+			PayU::$isTest = true; //Dejarlo True cuando sean pruebas.
 			$accountId = "501716";
+
+			/*var_dump($p);*/
 		
 			$parameters = array(PayUParameters::TRANSACTION_ID => "$p[transactionId]");
 		

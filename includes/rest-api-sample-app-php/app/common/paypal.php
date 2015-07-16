@@ -1,7 +1,6 @@
 <?php
 
 // Wrapper methods for all PayPal integration
-
 use PayPal\Api\PaymentExecution;
 
 use PayPal\Api\Amount;
@@ -215,6 +214,11 @@ function executePayment($paymentId, $payerId) {
  * @return Payment
  */
 function getPaymentDetails($paymentId) {
-    $payment = Payment::get($paymentId, getApiContext());
+	try {
+    	$payment = Payment::get($paymentId, getApiContext());
+	} catch (Exception $ex) {
+		return json_decode($ex->getData());
+		exit(1);
+	}
     return $payment;
 }

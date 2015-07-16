@@ -128,14 +128,6 @@
 		.always(function() {
 			console.log("complete");
 		});
-		
-		/*$.post('/includes/php.php',{
-			consulta: "crearOrdenPaquete",
-			codigoPaquete: $(this).attr('codigoPaquete'),
-			formaDePago: $(this).attr('formaDePago'),
-			context: this
-		}).done(function(data){
-		})*/
-	})
+	});
 	
 </script>
