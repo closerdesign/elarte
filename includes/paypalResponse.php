@@ -15,19 +15,20 @@
 				$order = obtenerOrden($orderId);
 				$payment = executePayment($_GET['paymentId'], $_GET['PayerID']);
 				
+				if ( $payment->getState() == 'approved' ) {
+					$status = 2;
+				}
+				else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
+					$status = 3;
+				}else{
+					$status = 1;
+				}
+
 				if ( $_GET['pagina'] == 'obras' ) {
-					actualizarOrden($orderId, $payment->getState(), $order['transaction_id']);
+					actualizaOrdenPaquete($orderId, $status, null, null, $payment->getState(), $payment->getState());
 				}else if( $_GET['pagina'] == 'coleccion' ){
 					$pedido = getPedido($orderId);
 
-					if ( $payment->getState() == 'approved' ) {
-						$status = 2;
-					}
-					else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
-						$status = 3;
-					}else{
-						$status = 1;
-					}
 					actualizaOrdenPaquete($orderId, $status, null, null, $payment->getState(), $payment->getState());
 					actualizarInscripcionFromPaquete($orderId, null, 1, null, $pedido['transactionId'], null);
 				}
