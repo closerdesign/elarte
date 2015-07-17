@@ -1385,7 +1385,7 @@
 		return array();
 	}
 
-	function actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode)
+	function actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode, $formaPago = null)
 	{
 		global $con;
 
@@ -1400,6 +1400,7 @@
 						status = ' . $status . ',
 						' . ( !is_null($orderId) ? 'orderId = "' . $orderId . '",' : '' ) . 
 						( !is_null($transactionId) ? 'transactionId = "' . $transactionId . '",' : '' ) . 
+						( !is_null($formaPago) ? 'formaPago = "' . $formaPago . '",' : '' ) . 
 						'state = "' . $state . '",
 						responseCode = "' . $responseCode . '"
 					WHERE
@@ -1937,9 +1938,17 @@
 				
 				$payment = makePaymentUsingPayPalByItems($productos, $total, 'USD',$baseUrlSuccess."&success=true", $baseUrlFailed."&success=false");
 
-				actualizarOrden($orderId, $payment->getState(), $payment->getId());
+				if ( $payment->getState() == 'approved' ) {
+					$estado = 2;
+				}
+				else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
+					$estado = 3;
+				}else{
+					$estado = 1;
+				}
+
+				actualizaOrdenPaquete($orderId, $estado, $payment->getId(), $payment->getId(), $payment->getState(), $payment->getState(), 2);
 				$result['error'] = 1;
-				
 				header("Location: " . getLink($payment->getLinks(), "approval_url") );
 				exit;	
 			}
@@ -1955,31 +1964,34 @@
 		$q=mysqli_query($con, $sql);
 		$estado = '';
 		while ( $p=mysqli_fetch_assoc($q) ) {
-
-			$payment = getPaymentDetails($p['orderId']);
-			echo $p['orderId'].'<br>';
-			if ( isset($payment->name) ) {
-				actualizaOrdenPaquete($p['id'], 3, null, null, 'failed', $payment->name);
-				$estado = 0;
-			}else{
-				if ( $payment->getState() == 'approved' ) {
-					actualizaOrdenPaquete($p['id'], 2, null, null, $payment->getState(), $payment->getState());
-					$estado = 1;
-				}else if( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ){
-					actualizaOrdenPaquete($p['id'], 3, null, null, $payment->getState(), $payment->getState());
+			if (!empty( $p['orderId'] )) {
+				$payment = getPaymentDetails($p['orderId']);
+				if ( isset($payment->name) ) {
+					actualizaOrdenPaquete($p['id'], 3, null, null, 'failed', $payment->name);
 					$estado = 0;
-				}else if( $payment->getState() == 'created' ){
-					actualizaOrdenPaquete($p['id'], 1, null, null, $payment->getState(), $payment->getState());
-					$estado = 2;
+				}else{
+					if ( $payment->getState() == 'approved' ) {
+						actualizaOrdenPaquete($p['id'], 2, null, null, $payment->getState(), $payment->getState());
+						entregarPedido($p['id']);
+						// Estados de las inscripciones
+						$estado = 1;
+					}else if( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ){
+						actualizaOrdenPaquete($p['id'], 3, null, null, $payment->getState(), $payment->getState());
+						// Estados de las inscripciones
+						$estado = 0;
+					}else if( $payment->getState() == 'created' ){
+						actualizaOrdenPaquete($p['id'], 1, null, null, $payment->getState(), $payment->getState());
+						// Estados de las inscripciones
+						$estado = 2;
+					}
+				}
+				
+				$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
+				$result = mysqli_query($con, $query);
+				if($result) {
+					actualizarOrden($p['id'], $estado, null);
 				}
 			}
-			
-			$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
-			$result = mysqli_query($con, $query);
-			if($result) {
-				actualizarOrden($p['id'], $estado, null);
-			}
-			
 		}
 	/*	$payment = getPaymentDetails('PAY-76C05577WN522352PKWT6ZLA');
 			if ( isset($payment->name) ) {
