@@ -583,3 +583,98 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalInfoConferencia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">El Arte de Amar sin Apegos - Conferencia Virtual</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p>
+							En esta conferencia Walter Riso descifrará las pautas para amar sin apegos y analizará junto al público los vicios que convierten al amor en un enemigo palpable ante la individualidad de cada ser humano. Mostrará las diferencias entre una relación sana y otra carcomida por los abusos y la codependencia.
+						</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="listaInscripcion">
+							<li>La conferencia es en vivo y en directo el sábado 25 de julio de 2015</li>
+							<li>Podrás realizar preguntas</li>
+							<li>Podrás ingresar fácilmente desde tu computadora, tablet o teléfono celular</li>
+							<li>La duración de la conferencia es de 1 hora y 30 minutos.</li>
+							<li>Si por algún motivo no puedes acceder a la conferencia en vivo tendrás 48 horas para ver la grabación.</li>
+							<li>Conferencia dictada <b>EN ESPAÑOL.</b></li>
+						</ul>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-striped table-bordered">
+							<tr><th>Ciudad</th><th>Hora</th></tr>
+							<tr><td>Phoenix, Los Angeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
+							<tr><td>Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>2:00 PM</td></tr>
+							<tr><td>Bogotá, México, Lima, Quito, Panamá, New Orleans</td><td>3:00 PM</td></tr>
+							<tr><td>Caracas</td><td>3:30 PM</td></tr>
+							<tr><td>San Juan, Asunción, La paz, Miami, New York</td><td>4:00 PM</td></tr>
+							<tr><td>Buenos Aires, Sao Paulo, Santiago, Montevideo</td><td>5:00 PM</td></tr>
+							<tr><td>Madrid, Barcelona</td><td>10:00 PM</td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Horarios -->
+<div class="modal fade" id="myModalHorarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Horarios "El Arte de Amar sin Apegos"</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead text-center">Julio 25 de 2015</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!--<div class="table-responsive">-->
+							<table class="table table-striped table-bordered">
+								<tr><th>Ciudad</th><th>Hora</th></tr>
+								<tr><td>Phoenix, Los Angeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
+								<tr><td>Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>2:00 PM</td></tr>
+								<tr><td>Bogotá, México, Lima, Quito, Panamá, New Orleans</td><td>3:00 PM</td></tr>
+								<tr><td>Caracas</td><td>3:30 PM</td></tr>
+								<tr><td>San Juan, Asunción, La paz, Miami, New York</td><td>4:00 PM</td></tr>
+								<tr><td>Buenos Aires, Sao Paulo, Santiago, Montevideo</td><td>5:00 PM</td></tr>
+								<tr><td>Madrid, Barcelona</td><td>10:00 PM</td></tr>
+							</table>
+						<!--</div>-->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead text-center"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30" target="_blank">Consultar más horarios</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>

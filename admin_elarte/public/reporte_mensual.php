@@ -338,140 +338,6 @@
 
 	$Informe_FacFinal = $num_factura[$i-1];
 
-for($i=0; $i<count($num_factura); $i++)
-{
-?>
-
-<page style="font-family:Arial, Helvetica, sans-serif; font-size:13px">
-<table style="width:100%">
-	<col style="width: 50%" class="col1">
-	<col style="width: 50%">
-	<tr>
-		<td>
-        	<img style="width:60mm" src='images/logo.png' /><br><br>
-			Documento equivalente No. <?php echo $num_factura[$i]; ?><br>
-			Fecha: <?php echo $fecha_factura[$i][0]; ?><br>
-        </td>
-		<td align="right">
-			<h4>Phronesis SAS</h4>
-			NIT 900476732-0<br>
-			calle 4 sur 43 a 195 BL c ofi 108<br>
-			info@elartedesabervivir.com<br>
-			Resoluci&oacute;n DIAN No. 320001267235; <br>
-            Fecha 2015/05/06; PACK del No. 20001 al100000<br>
-
-</td>
-
-</tr>
-
-</table>
-<br><br><br>
-<table style="width:100%">
-	<col style="width: 33%">
-	<col style="width: 33%">
-    <col style="width: 33%">
-	<tr>
-		<td>
-			<b>N&uacute;mero de pedido:</b> <br>
-			<?php echo $medio[$i]." - ".$id_pedido[$i]; ?>
-		</td>
-		<td >
-			<b>Fecha de pedido:<br></b>
-			<?php echo $fecha_pedido[$i]; ?>
-		</td>
-		<td>
-			<b>Forma de pago:<br></b>
-			<?php echo $forma_de_pago_texto[$i]; ?>		
-						
-		</td>
-	</tr>
-</table>
-
-<br><br>
-<table style="width:100%; border-style:solid; border-width:1px; border-color:#000">
-	<col style="width: 20%">
-	<col style="width: 40%">
-    <col style="width: 10%">
-    <col style="width: 15%">
-    <col style="width: 15%">
-	<tr bgcolor="#CCCCCC">
-		<td align="center"><b>Referencia</b></td>
-		<td align="center"><b>Descripci&oacute;n</b></td>
-		<td align="center"><b>Cant.</b></td>
-        <td align="center"><b>Valor Uni</b></td>
-        <td align="center"><b>Valor Total</b></td>
-	</tr>
-    
-    
-<?php 
-for($j=0; $j<count($cantidad[$i]); $j++)
-{
-	
-
-?>
-    <tr>
-    	<td align="center"><?php echo $referencia[$i][$j]; ?></td>
-        <td align="center"><?php echo $descripcion[$i][$j]; ?></td>
-        <td align="center"><?php echo $cantidad[$i][$j]; ?></td>
-        <td align="right">USD $<?php echo $valor_unitario[$i][$j]; ?></td>
-        <td align="right">USD $<?php echo $valor_total[$i][$j]; ?></td>
-        
-        
-    </tr>
-<?php } ?> 
-    
-</table>
-
-
-<br><br><br>
-<table style="width:100%">
-	<col style="width: 85%">
-	<col style="width: 15%">
-	<tr>
-		<td align="right">Subtotal</td>
-        <td align="right">USD $<?php echo $subtotal[$i]; ?></td>
-	</tr>
-    <tr>
-		<td align="right">Descuentos</td>
-        <td align="right">USD $<?php echo $descuento[$i]; ?></td>
-	</tr>
-    <tr>
-		<td align="right">IVA</td>
-        <td align="right">USD $00.00</td>
-	</tr>
-    <tr>
-		<td align="right">Total USD</td>
-        <td align="right">USD $<?php echo $precio_final[$i]; ?></td>
-	</tr>
-    <tr>
-		<td align="right">Total pesos Colombianos</td>
-        <td align="right">COP $<?php echo $valor_pesos[$i]; ?></td>
-	</tr>
-    <tr>
-		<td align="right">TRM</td>
-        <td align="right">COP $<?php echo $TRM[$i]; ?></td>
-	</tr>
-</table>
-
-<br><br>
-<?php if($Estado_factura[$i] == 0){
-	
-	
-	
-	?>
-<div style="color:#F00; text-align:center"><H1>DOCUMENTO EQUIVALENTE ANULADO</H1></div>
-<?php } ?>
-
-</page>
-
-<?php
-}
-?>
-    
-
-
-<?php
-
 
 	$Informe_TotalVentas = $Informe_VentasExcluidas - $Informe_VentasCanceladas - $Informe_Descuentos;
 	
@@ -509,11 +375,11 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     </table>
     
     <?php
-	//$fechaFinal = date($fechaFinal);
-    $fechaFinalMostrar = strtotime ( '-1 day' , strtotime ( $fechaFinal ) ) ;
-	$fechaFinalMostrar = date ( 'Y-m-j' , $fechaFinalMostrar );
-    ?>
+		$fechaFinalMostrar = strtotime ( '-1 day' , strtotime ( $fechaFinal ) ) ;
+		$fechaFinalMostrar = date ( 'Y-m-j' , $fechaFinalMostrar );
 	
+	?>
+    
     <div align="center">
     	<h2>Informe de ventas</h2>
     	<h4>Fechas: <?php echo "$fechaInicial - $fechaFinalMostrar";  ?></h4>

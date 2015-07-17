@@ -202,6 +202,10 @@
 				break;
 		}
 	}
+	
+	if ( $argv[1] == 'inscripcionesPendientes' ) {
+		inscripcionesPendientes();
+	}
 
 	
 	function logErroresPagos()

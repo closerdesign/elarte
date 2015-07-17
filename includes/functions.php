@@ -783,7 +783,7 @@
 				'thanks_page'=>URL.'includes/php.php?consulta=ejecutarPago&orden='.$orden.'&formaDePago=2&estado=2'.( !empty( $paquete_id ) ? '&paquete_id='.$paquete_id : '' ),
 				'notify_url'=>URL,
 				'cancel_url'=>URL.'includes/php.php?consulta=ejecutarPago&orden='.$orden.'&formaDePago=3&estado=3'. ( !empty( $paquete_id ) ? '&paquete_id='.$paquete_id : '' ) .'&url='.$urlCancela,
-				'paypal_mode'=>true,
+				'paypal_mode'=>false,
 			);
 	
 			define( 'SSL_URL', 'https://www.paypal.com/cgi-bin/webscr' );

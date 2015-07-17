@@ -32,6 +32,15 @@
 					<div class="col-md-12">
 						<div class="col-md-12">
 							<h1 class="text-center">¡Una oportunidad que no te puedes perder!</h1>
+							<?php
+							if(
+								($_REQUEST['id']==4) ||
+								($_REQUEST['id']==5)
+							){
+								
+								echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia virtual 'El Arte de Amar sin Apegos' que se llevará a cabo el próximo 25 de julio.</p><p class='text-center'><button data-toggle='modal' data-target='#myModalInfoConferencia' class='btn btn-default'>Conozca más acerca del evento <i class='fa fa-arrow-right'></i></button></p>");
+							}
+						?>
 						</div>
 					</div>
 				</div>
@@ -315,3 +324,14 @@
 		}
 	});
 </script>
+<!-- ClickDesk Live Chat Service for websites -->
+<script type='text/javascript'>
+	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
+	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
+	'http://my.clickdesk.com/clickdesk-ui/browser/');
+	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
+	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
+	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+</script>
+<!-- End of ClickDesk -->
