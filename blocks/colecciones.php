@@ -3,6 +3,20 @@
 	$q=mysqli_query($con, $sql);
 	$data=mysqli_fetch_array($q);
 ?>
+<?php
+	if( (isset($_SESSION['id']) && (!isset($_COOKIE['modal'])) ))
+	{
+		?>
+		<script>
+			$(document).ready(function(){
+				$('#myModalPagoPaquetes').modal('show');
+				$.cookie('modal',1);	
+			})
+			
+		</script>
+		<?php
+	}
+?>
 <div class="row top">
 	<div class="container">
 		<div class="row">
@@ -18,6 +32,15 @@
 					<div class="col-md-12">
 						<div class="col-md-12">
 							<h1 class="text-center">¡Una oportunidad que no te puedes perder!</h1>
+							<?php
+								if(
+									($_REQUEST['id']==4) ||
+									($_REQUEST['id']==5)
+								){
+									
+									echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia virtual 'El Arte de Amar sin Apegos' que se llevará a cabo el próximo 25 de julio.</p><p class='text-center'><button data-toggle='modal' data-target='#myModalInfoConferencia' class='btn btn-default'>Conozca más acerca del evento <i class='fa fa-arrow-right'></i></button></p>");
+								}
+							?>
 						</div>
 					</div>
 				</div>
@@ -144,88 +167,113 @@
 <div class="modal fade" id="myModalPagoPaquetes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form id="pagoPaquete">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span>
+					</button>
 					<h4 class="modal-title" id="myModalLabel">Agregar a Mi Biblioteca</h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-md-12 form-group">
-							<select class="form-control" name="tipo" id="tipo" required >
-								<option value="">Tipo de tarjeta</option>
-								<option value="VISA">VISA</option>
-								<option value="MASTERCARD">MASTERCARD</option>
-								<option value="AMEX">AMERICAN EXPRESS</option>
-								<option value="DINERS">DINERS</option>
-							</select>
+						<div class="col-md-12">
+							<p>
+								<form name="pagoPaypal" id="pagoPaypal" action="../includes/php.php" method="POST">
+									<input type="hidden" name="consulta" value="requestPayPalPaquete" />
+									<input type="hidden" name="description" value="<?php echo strip_tags($data['nombre']);; ?>" />
+									<input type="hidden" name="codigoPaquete" value="<?php echo $_REQUEST['id'] ?>">
+									<input type="hidden" name="formaDePago" value="2">
+									<input type="hidden" id="vrPedido" name="amount" value="<?php echo $data['precio']; ?>" />
+									<button class="btn btn-default pull-right" codigoPaquete=<?php echo $_REQUEST['id'] ?> formaDePago="2"  type="submit">
+										<i class="fa fa-paypal"></i> Pagar con Paypal
+									</button>
+								</form>
+							</p>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6 form-group">
-							<label>Número de tarjeta</label>
-							<input type="text" class="form-control" name="numero" id="numero" required />
+					<hr>
+					<form id="pagoPaquete">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<p class="lead text-center">Pagar con tarjeta de crédito</p>
+								</div>
+								<div class="row">
+									<div class="col-md-6 form-group">
+										<label>Tipo</label>
+										<select class="form-control" name="tipo" id="tipo" required >
+											<option value="">Seleccione...</option>
+											<option value="VISA">VISA</option>
+											<option value="MASTERCARD">MASTERCARD</option>
+											<option value="AMEX">AMERICAN EXPRESS</option>
+											<option value="DINERS">DINERS</option>
+										</select>
+									</div>
+									<div class="col-md-6 form-group">
+										<label>Número de tarjeta</label>
+										<input type="text" class="form-control" name="numero" id="numero" required />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 form-group">
+										<label>Nombre que figura en la tarjeta</label>
+										<input type="text" class="form-control" name="nombre" id="nombre" required />
+									</div>
+									<div class="col-md-6 form-group">
+										<label>Mes vencimiento</label>
+										<select class="form-control" name="mes" id="mes" required >
+											<option value="">Seleccione...</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+											<option value="07">07</option>
+											<option value="08">08</option>
+											<option value="09">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 form-group">
+										<label>Año vencimiento</label>
+										<select class="form-control" name="ano" id="ano" required >
+											<option value="">Seleccione...</option>
+											<option value='2015'>15</option>
+											<option value='2016'>16</option>
+											<option value='2017'>17</option>
+											<option value='2018'>18</option>
+											<option value='2019'>19</option>
+											<option value='2020'>20</option>
+											<option value='2021'>21</option>
+											<option value='2022'>22</option>
+											<option value='2023'>23</option>
+											<option value='2024'>24</option>
+											<option value='2025'>25</option>
+										</select>
+									</div>
+									<div class="col-md-6 form-group">
+										<label>Código de Seguridad</label>
+										<input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required />
+									</div>
+								</div>		
+							</div>
 						</div>
-						<div class="col-md-6 form-group">
-							<label>Nombre que figura en la tarjeta</label>
-							<input type="text" class="form-control" name="nombre" id="nombre" required />
+						
+						<div class="modal-footer">
+							<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
+							<input type="hidden" name="ciudad" id="ciudad" value="<?php echo getCiudadUsuario($_SESSION['id']) ?>" />
+							<input type="hidden" name="precio" id="precio" value="<?php echo $data['precio'] ?>" />
+							<input type="hidden" name="pais" id="pais" value="<?php echo getPaisUsuario($_SESSION['id']) ?>" />
+							<input type="hidden" name="descripcion" id="descripcion" value="<?php echo $data['nombre'] ?>" />
+							<input type="hidden" name="referencia" id="referencia" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
+							<button type="submit" class="btn btn-primary"><i class="fa fa-credit-card"></i> Comprar</button>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 form-group">
-							<label>Mes vencimiento</label>
-							<select class="form-control" name="mes" id="mes" required >
-								<option value="">Seleccione...</option>
-								<option value="01">01</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-								<option value="07">07</option>
-								<option value="08">08</option>
-								<option value="09">09</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-							</select>
-						</div>
-						<div class="col-md-4 form-group">
-							<label>Año vencimiento</label>
-							<select class="form-control" name="ano" id="ano" required >
-								<option value="">Seleccione...</option>
-								<option value='2015'>15</option>
-								<option value='2016'>16</option>
-								<option value='2017'>17</option>
-								<option value='2018'>18</option>
-								<option value='2019'>19</option>
-								<option value='2020'>20</option>
-								<option value='2021'>21</option>
-								<option value='2022'>22</option>
-								<option value='2023'>23</option>
-								<option value='2024'>24</option>
-								<option value='2025'>25</option>
-							</select>
-						</div>
-						<div class="col-md-4 form-group">
-							<label>Código de Seguridad</label>
-							<input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required />
-						</div>
-					</div>
+					</form>
 				</div>
-				<div class="modal-footer">
-					<input type="hidden" name="email" id="email" value="<?php echo getEmailUsuario($_SESSION['id']) ?>" />
-					<input type="hidden" name="ciudad" id="ciudad" value="<?php echo getCiudadUsuario($_SESSION['id']) ?>" />
-					<input type="hidden" name="precio" id="precio" value="<?php echo $data['precio'] ?>" />
-					<input type="hidden" name="pais" id="pais" value="<?php echo getPaisUsuario($_SESSION['id']) ?>" />
-					<input type="hidden" name="descripcion" id="descripcion" value="<?php echo $data['nombre'] ?>" />
-					<input type="hidden" name="referencia" id="referencia" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
-					<button class="btn btn-default" id="btnPaypalPaquetes" codigoPaquete=<?php echo $_REQUEST['id'] ?> formaDePago="2" >
-						<i class="fa fa-paypal"></i> Pagar con Paypal
-					</button>
-					<button type="submit" class="btn btn-primary">Comprar</button>
-				</div>
-			</form>
 		</div>
 	</div>
 </div>

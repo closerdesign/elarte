@@ -46,17 +46,14 @@
 									<thead>
 										<tr>
 											<th colspan="2">
-												PRECIOS
+												PRECIO
 											</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>
-												Precio de Lanzamiento
-											</td>
 											<td class="text-center">
-												USD $15.99
+												<span style="text-decoration: line-through">USD $ 15.99</span> <b>HOY USD $ 9.99</b>
 											</td>
 										</tr>
 									</tbody>

@@ -316,7 +316,7 @@
 		extract($_POST);
 		$codigo_valido = 'AYKL23';
 		$valor_descuento = 9.99;
-		$valor_normal = 15.99;
+		$valor_normal = 9.99;
 		if (isset($codigo) && !empty($codigo)) {
 
 			if ( $codigo_valido == $codigo ) {
@@ -1635,11 +1635,11 @@
 		$html .= "<option value='2'>Paypal</option>";
 		if( $pais == 'CO' ){
 			$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
-			$html .= "<option value='4'>Puntos VIA Baloto</option>";
+			$html .= "<!--<option value='4'>Puntos VIA Baloto</option>-->";
 		}elseif( $pais == 'MX' ){
-			$html .= "<option value='5'>OXXO</option>";
+			$html .= "<!--<option value='5'>OXXO</option>-->";
 		}elseif( $pais == 'PE' ){
-			$html .= "<option value='6'>Banco de Crédito - BCP</option>";
+			$html .= "<!--<option value='6'>Banco de Crédito - BCP</option>-->";
 		}
 		echo $html;
 	}
@@ -1671,7 +1671,7 @@
 		
 		if($today > $date){
 			
-			$valor = "15.99";
+			$valor = "9.99";
 			
 		}
 		
@@ -2807,7 +2807,7 @@
 			   	) VALUES (
 			   		'1',
 			   		'1',
-			   		'Promo Paquetes mas Conferencia 3 - ".date('Y-m-d')."'
+			   		'Promo Conferencia 999 (3) - ".date('Y-m-d')."'
 			   	)
 			")){
 			   

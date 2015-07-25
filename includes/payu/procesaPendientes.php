@@ -2,7 +2,7 @@
 	require_once('../conn.php');
 	require_once('../functions.php');
 	require_once('../php.php');
-	require_once 'rest-api-sample-app-php/app/bootstrap.php';
+	require_once '../rest-api-sample-app-php/app/bootstrap.php';
 	use PayPal\Api\Payment;
 	
 	$sql="SELECT * FROM pedidos WHERE status = 1 AND formaPago != 2 AND transactionId != ''";
@@ -62,4 +62,5 @@
 			transaccionPendiente($p['transactionId'],$response->state);	
 		}
 	}
+	validarListaPedidosPendientes();
 ?>

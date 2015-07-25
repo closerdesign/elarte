@@ -20,7 +20,7 @@
 		<input type="hidden" name="charset" value="utf-8" />
 		<input type="hidden" name="item_name" value="<?= $data['product_name']; ?>" />
 		<input type="hidden" value="_xclick" name="cmd"/>
-		<input type="hidden" id="vrPedido" name="amount" value="15.99" />
+		<input type="hidden" id="vrPedido" name="amount" value="9.99" />
 		<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>
 		<?php
 		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos' || $_POST['pagina'] == 'conferencia-walter-riso') {

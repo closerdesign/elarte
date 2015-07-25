@@ -65,6 +65,22 @@ function agregarInscritosConferencia(usuario_id, estado_inscripcion, metodo_pago
 
 
 
+
+
+function conciliarPaypalConElarte()
+{
+	SiguienteAccion = 0
+	
+	divpintar = "PruebaDiv";
+	
+	document.getElementById(divpintar).innerHTML = "<img src='images/carga.gif' width='16' height='16' alt='Loading' /> Loading..."
+	
+	x_conciliarPaypalConElarte(callpintar);
+}
+
+
+
+
 function conciliarPaypalConElArtes()
 {
 	SiguienteAccion = 0

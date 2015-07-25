@@ -1183,3 +1183,11 @@ $('body').on('click', '#validarDecuento', function(event) {
 		console.log('complete');
 	});
 });
+
+/*===================================================
+=            Cerrar franja conferencia            =
+===================================================*/
+$('#cerrarFranja').click(function(){
+	$('.franja-conferencia').fadeOut();
+	$.cookie('franja',1);
+})

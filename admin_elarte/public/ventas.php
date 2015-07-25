@@ -1,8 +1,8 @@
 <?php 
 session_start();
 header('Content-Type: text/html; charset=ISO-8859-1');
-require('../Application/Component/conciliacionComponent.php');
-require('../Application/Services/conciliacionServices.php');
+require('../Application/Component/ventasComponent.php');
+require('../Application/Services/ventasServices.php');
 require('../Application/Component/sajaxconfig.php');
 require('../Application/Component/generalComponent.php');
 
@@ -24,7 +24,7 @@ if($_POST['boton'])
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/estilos.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/conciliacion.js"></script>
+<script type="text/javascript" src="js/ventas.js"></script>
 <title>Documento sin título</title>
 </head>
 <body>
@@ -39,28 +39,8 @@ if($_POST['boton'])
 <input type="submit" name="boton" value="Subir archivo" />
 </form>
 <br />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar El Arte respecto a Payu (INSCRITOS)" onclick="ConciliarElArteRespectoPayu(0)" />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Payu respecto a El arte (INSCRITOS)" onclick="ConciliarPayuRespectoElArte(0)" />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Payu respecto a El arte (PEDIDOS)" onclick="ConciliarPayuRespectoElArtePEDIDOS(0)" />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar El Arte respecto a Payu (PEDIDOS)" onclick="ConciliarElArteRespectoPayuPEDIDOS(0)" />
+<input type="button" name="BotonPrueba" id="BotonPrueba" value="Pedidos (El arte)" onclick="mostrarPedidos()" />
 
-
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Prestashop respecto a Payu (PEDIDOS)" onclick="conciliarPrestashopRespectoPayu()" />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Payu respecto a Prestashop (PEDIDOS)" onclick="ConciliarPayuRespectoPrestashop()" />
-
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Prestashop respecto a Paypal (TODO)" onclick="conciliarPrestashopRespectoPaypal()" />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Paypal respecto a Prestashop (TODO)" onclick="ConciliarPaypalRespectoPrestashop()" />
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Paypal y El arte" onclick="conciliarPaypalConElarte()" />
-
-
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Listar pedidos Paypal en el arte" onclick="conciliarPaypalConElArtes()" />
-
-
-
-
-<!--
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Facturar" onclick="facturar()" />-->
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Facturacion" onclick="mostrarFacturacion()" />
 
 <br /><br />
 

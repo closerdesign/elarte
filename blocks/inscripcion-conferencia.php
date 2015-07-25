@@ -76,17 +76,14 @@
 									<thead>
 										<tr>
 											<th colspan="2">
-												PRECIOS
+												PRECIO
 											</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>
-												Precio de Lanzamiento
-											</td>
 											<td class="text-center">
-												USD $15.99
+												<span style="text-decoration: line-through">USD $ 15.99</span> <b>HOY USD $ 9.99</b>
 											</td>
 										</tr>
 									</tbody>
@@ -286,6 +283,61 @@
 			</div>
 			<div class="col-md-3">
 				<img src="/img/pagos4.jpg" class="img-responsive img-rounded" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ClickDesk Live Chat Service for websites -->
+<script type='text/javascript'>
+	var _glc =_glc || []; _glc.push('all_ag9zfmNsaWNrZGVza2NoYXRyDgsSBXVzZXJzGOKqsw4M');
+	var glcpath = (('https:' == document.location.protocol) ? 'https://my.clickdesk.com/clickdesk-ui/browser/' : 
+	'http://my.clickdesk.com/clickdesk-ui/browser/');
+	var glcp = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+	var glcspt = document.createElement('script'); glcspt.type = 'text/javascript'; 
+	glcspt.async = true; glcspt.src = glcpath + 'livechat-new.js';
+	var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(glcspt, s);
+</script>
+<!-- End of ClickDesk -->
+
+<!-- Modal Horarios -->
+<div class="modal fade" id="myModalHorarios" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Horarios "El Arte de Amar sin Apegos"</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead text-center">Julio 25 de 2015</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!--<div class="table-responsive">-->
+							<table class="table table-striped table-bordered">
+								<tr><th>Ciudad</th><th>Hora</th></tr>
+								<tr><td>Phoenix, Los Angeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
+								<tr><td>Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>2:00 PM</td></tr>
+								<tr><td>Bogotá, México, Lima, Quito, Panamá, New Orleans</td><td>3:00 PM</td></tr>
+								<tr><td>Caracas</td><td>3:30 PM</td></tr>
+								<tr><td>San Juan, Asunción, La paz, Miami, New York</td><td>4:00 PM</td></tr>
+								<tr><td>Buenos Aires, Sao Paulo, Santiago, Montevideo</td><td>5:00 PM</td></tr>
+								<tr><td>Madrid, Barcelona</td><td>10:00 PM</td></tr>
+							</table>
+						<!--</div>-->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead text-center"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30" target="_blank">Consultar más horarios</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 			</div>
 		</div>
 	</div>

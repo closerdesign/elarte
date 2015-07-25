@@ -1545,3 +1545,16 @@ img.mfp-img {
 	min-height: 500px;
 	vertical-align: top;
 }
+
+/**** CONFERENCIA VIRTUAL ****/
+.franja-conferencia{
+	margin-top: 50px;
+	background: red;
+	color: #fff;
+	padding-top: 10px;
+	font-weight: bold;
+}
+
+.franja-conferencia a{
+	color: #F8C71A;
+}

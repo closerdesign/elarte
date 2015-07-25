@@ -33,14 +33,14 @@
 						<div class="col-md-12">
 							<h1 class="text-center">¡Una oportunidad que no te puedes perder!</h1>
 							<?php
-							if(
-								($_REQUEST['id']==4) ||
-								($_REQUEST['id']==5)
-							){
-								
-								echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia virtual 'El Arte de Amar sin Apegos' que se llevará a cabo el próximo 25 de julio.</p><p class='text-center'><button data-toggle='modal' data-target='#myModalInfoConferencia' class='btn btn-default'>Conozca más acerca del evento <i class='fa fa-arrow-right'></i></button></p>");
-							}
-						?>
+								if(
+									($_REQUEST['id']==4) ||
+									($_REQUEST['id']==5)
+								){
+									
+									echo("<p class='lead text-center'>Lleva HOY las 5 guías prácticas de Walter Riso y quedarás inscrito completamente gratis a la conferencia virtual 'El Arte de Amar sin Apegos' que se llevará a cabo el próximo 25 de julio.</p><p class='text-center'><button data-toggle='modal' data-target='#myModalInfoConferencia' class='btn btn-default'>Conozca más acerca del evento <i class='fa fa-arrow-right'></i></button></p>");
+								}
+							?>
 						</div>
 					</div>
 				</div>
@@ -318,7 +318,6 @@
 							}
 						});
 					}
-					
 				}
 			});
 		}

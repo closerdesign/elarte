@@ -1,5 +1,7 @@
 <?php
 	
+	//session_unset();
+	
 	// Despublicar comentarios
 	if( isset($_REQUEST['content']) && ($_REQUEST['content']=='unpublish') && (isset($_REQUEST['id'])) ){
 		if(!mysqli_query($con, "
@@ -12,15 +14,15 @@
 	}
 	
 	// Recuperar la sesión
-	if(
-		(!isset($_SESSION['id'])) &&
-		(isset($_COOKIE['session']))
-	){
-		$_SESSION['id'] = $_COOKIE['session'];
-		$html = "";
-		$html .= "<script>";
-		$html .= "	location.reload();";
-		$html .= "</script>";
-	}
+	//if(
+	//   (!isset($_SESSION['id'])) &&
+	//   (isset($_COOKIE['session']))
+	//){
+	//   $_SESSION['id'] = $_COOKIE['session'];
+	//   $html = "";
+	//   $html .= "<script>";
+	//   $html .= "	location.reload();";
+	//   $html .= "</script>";
+	//}
 	
 ?>

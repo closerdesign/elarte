@@ -7,8 +7,13 @@
 <html lang="es">
 	
 	<?php require_once('blocks/head.php'); ?>
+	
 	<body class="body">
+	
+	<?php require('blocks/franja-conferencia.php'); ?>
+	
 	<?php require_once('includes/paypalResponse.php'); ?>
+	
 	<?php
 		echo validatePSEResponseTransferencia();
 	?>
@@ -221,36 +226,40 @@
 			<?php
 		}
 	}
-	?>
-	<?php
-		if(
-			(!isset($_REQUEST['content'])) ||
-			($_REQUEST['content'] != 'inscripcion-conferencia')
-		){
-			?>
-			<script>
-				$(document).ready(function(){
-					var evento = $.cookie('evento');
-					if(evento != 1){
-					    modal('¡No te la pierdas!...','<p><a href="index.php?content=conferencia-virtual"><img src="/images/popup_conferencia.jpg" class="img img-responsive" /></a></p>');
-					    $.cookie('evento',1);
-					}
-				});
-			</script>
-			<?php
-		}
-	?>
+		
+		
+	if(
+		(!isset($_REQUEST['content'])) ||
+		($_REQUEST['content'] != 'inscripcion-conferencia') ||
+		($_REQUEST['content'] != 'coleccion') ||
+		($_REQUEST['content'] != 'colecciones')
+	){
+		?>
+		<script>
+		//   $(document).ready(function(){
+		//   	var evento = $.cookie('evento');
+		//   	if(evento != 1){
+		//   	    modal('¡No te la pierdas!...','<p><a href="/coleccion/4"><img src="/img/HOY.png" class="img img-responsive" /></a></p>');
+		//   	    $.cookie('evento',1);
+		//   	}
+		//   });
+		</script>
+		<?php
+	}
 	
-	<?php
-		if(
-			(!isset($_REQUEST['content'])) ||
-			($_REQUEST['content']!='conferencia-virtual')
-		){
-			?>
-			<div class="pieEvento">
-				<p class="text-center"><a onclick="modalEx()" href="#">¡No te la pierdas!: <b>Conferencia Virtual por Walter Riso</</b> <i class="fa fa-arrow-circle-right"></i></a></p>
-			</div>
-			<?php
-		}
-	?>	
+	
+	if(
+		(!isset($_REQUEST['content'])) ||
+		($_REQUEST['content']!='conferencia-virtual')
+	){
+		?>
+		<!--
+		<div class="pieEvento">
+			<p class="text-center"><a onclick="modalEx()" href="#">¡No te la pierdas!: <b>Conferencia Virtual por Walter Riso</</b> <i class="fa fa-arrow-circle-right"></i></a></p>
+		</div>
+		-->
+		<?php
+	}
+	
+?>	
 </html><!--  -->

@@ -1,0 +1,1149 @@
+[22-07-2015 03:08:51] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:51] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:08:52] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:52] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:52] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9M566647T5783615MKWXZIHI
+[22-07-2015 03:08:53] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:53] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:53] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:08:53] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:53] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:53] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-3WX01236WX7465147KWU5L2I
+[22-07-2015 03:08:54] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:08:54] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-3WX01236WX7465147KWU5L2I. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"0219537f396db"}
+[22-07-2015 03:08:54] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:54] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1L515236FN5769125KWVDQHQ
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-1L515236FN5769125KWVDQHQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"960ed53a26c13"}
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:55] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:08:56] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:56] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:56] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-55Y42202AB354641HKWVHR4Q
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-55Y42202AB354641HKWVHR4Q. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"39e7fd4827424"}
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:57] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-8LT31205H9782690VKWVHZZI
+[22-07-2015 03:08:58] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:08:58] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-8LT31205H9782690VKWVHZZI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"e50a17c026786"}
+[22-07-2015 03:08:58] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:58] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6ND596029V726320WKWVH2CA
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-6ND596029V726320WKWVH2CA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"5d14513239a4f"}
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:08:59] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:00] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:00] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:00] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-14382136J53588928KWVIWFA
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-14382136J53588928KWVIWFA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"7929c0b3374d6"}
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:01] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7KF92970YS828202DKWVIYWQ
+[22-07-2015 03:09:02] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:02] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-7KF92970YS828202DKWVIYWQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"f37d2d0e3567b"}
+[22-07-2015 03:09:02] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:02] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4P209381VH066130AKWVIYXQ
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-4P209381VH066130AKWVIYXQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"d4fef4c23668c"}
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:03] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:04] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:04] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9GS18067YV8827833KWVJNKI
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-9GS18067YV8827833KWVJNKI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"30ca604836fa0"}
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2JT489525J4937615KWVOGQY
+[22-07-2015 03:09:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2JT489525J4937615KWVOGQY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"2b64b2db345dc"}
+[22-07-2015 03:09:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1Y9200519H0715616KWVR4CI
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-1Y9200519H0715616KWVR4CI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"10a89fde360e3"}
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5SM75844MC811704RKWVSIOI
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5SM75844MC811704RKWVSIOI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"b5736ffa37f1b"}
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0NN97639G8256641AKWVTPFA
+[22-07-2015 03:09:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:10] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0NN97639G8256641AKWVTPFA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"d5cc9afd374c7"}
+[22-07-2015 03:09:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0UU55264JM022951WKWV3JAI
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0UU55264JM022951WKWV3JAI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"a816aeb437397"}
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:12] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-045260347M836344EKWV3KKQ
+[22-07-2015 03:09:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:13] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-045260347M836344EKWV3KKQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"50b3f70836c5a"}
+[22-07-2015 03:09:13] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:13] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-16052716UB047492BKWV3KLQ
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-16052716UB047492BKWV3KLQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"01eba346296cc"}
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:14] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:15] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2PH38462681515056KWV3K7Y
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2PH38462681515056KWV3K7Y. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"75a7753d356c1"}
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:16] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2CJ53034BN1158510KWV4UOI
+[22-07-2015 03:09:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:17] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2CJ53034BN1158510KWV4UOI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"5c1fb81133341"}
+[22-07-2015 03:09:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:17] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9JU888700M998542FKWV5QSI
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-9JU888700M998542FKWV5QSI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"c352a8b32cad1"}
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:18] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:19] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:19] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:19] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4YB589995T870411SKWV5UQI
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-4YB589995T870411SKWV5UQI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"839857572c919"}
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:20] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6XY9185237238071KKWV7KEI
+[22-07-2015 03:09:21] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:21] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-6XY9185237238071KKWV7KEI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"20f12a5a2f17e"}
+[22-07-2015 03:09:21] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:21] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:22] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:22] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:22] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-60065655FD6968154KWV7K5A
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-60065655FD6968154KWV7K5A. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"2e7a286f331a2"}
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:23] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7K1374785M958870EKWWBYUY
+[22-07-2015 03:09:24] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:24] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-7K1374785M958870EKWWBYUY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"c3ddc0a42da43"}
+[22-07-2015 03:09:24] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:24] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:25] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:25] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:25] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-40F547983E942625RKWWCBUI
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-40F547983E942625RKWWCBUI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"ee8eefe931b04"}
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:26] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0MC58525V2700825TKWWC3GA
+[22-07-2015 03:09:27] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:27] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0MC58525V2700825TKWWC3GA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"6dbb410431222"}
+[22-07-2015 03:09:27] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:27] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0DE45125A9727513FKWWEBDQ
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0DE45125A9727513FKWWEBDQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"8b425cac307fd"}
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:28] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:29] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:29] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:29] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-02K989190P3611619KWWFWGA
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-02K989190P3611619KWWFWGA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"af09e6d42fdc8"}
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:30] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2PL41108HJ8856029KWWG3JQ
+[22-07-2015 03:09:31] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:31] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2PL41108HJ8856029KWWG3JQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"a92243053023d"}
+[22-07-2015 03:09:31] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:31] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5SG811701G4267941KWWIB5I
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5SG811701G4267941KWWIB5I. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"a00916be314dc"}
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:32] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:33] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:33] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:33] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2WN28199JL596860JKWWI27Q
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2WN28199JL596860JKWWI27Q. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"25015d64ceaf8"}
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:34] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7MH716778W650080UKWWI36Q
+[22-07-2015 03:09:35] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:35] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-7MH716778W650080UKWWI36Q. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"d2a3b96fcd63c"}
+[22-07-2015 03:09:35] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:35] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:36] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:36] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:36] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5U771704K4784070NKWWI36Y
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5U771704K4784070NKWWI36Y. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"71f8822fd06b0"}
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:37] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4YR25271C8571260YKWWI37Q
+[22-07-2015 03:09:38] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:38] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-4YR25271C8571260YKWWI37Q. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"163af02dd3d7b"}
+[22-07-2015 03:09:38] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:38] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7VB89976T90791706KWWPNMY
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-7VB89976T90791706KWWPNMY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"28a06fc0d33b2"}
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:39] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:40] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:40] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:40] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-28S53564AP647010DKWWTF4Y
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-28S53564AP647010DKWWTF4Y. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"7cc627f3cc101"}
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:41] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-23J45357DU9420140KWWUX3I
+[22-07-2015 03:09:42] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:42] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-23J45357DU9420140KWWUX3I. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"ca9cd5c8cc62f"}
+[22-07-2015 03:09:42] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:42] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:43] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:43] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:43] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4DU9093485902554PKWWUX5I
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-4DU9093485902554PKWWUX5I. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"83f87f3bd3084"}
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:44] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7VM567559V2394831KWWVUFQ
+[22-07-2015 03:09:45] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:45] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-7VM567559V2394831KWWVUFQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"b15913d3cfa07"}
+[22-07-2015 03:09:45] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:45] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-441845126F660271JKWWV4YQ
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-441845126F660271JKWWV4YQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"65b2d787d3125"}
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:46] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:47] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:47] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:47] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-12W473675N228521UKWWW3CA
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-12W473675N228521UKWWW3CA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"f6d9968dd251a"}
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:48] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-84Y966811M973815XKWWZFTQ
+[22-07-2015 03:09:49] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:49] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-84Y966811M973815XKWWZFTQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"409496e8d3034"}
+[22-07-2015 03:09:49] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:49] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0BB82563KU783944GKWW3SRQ
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0BB82563KU783944GKWW3SRQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"8b438413d4b00"}
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:50] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-3TW572860W785952DKWW4VLQ
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-3TW572860W785952DKWW4VLQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"1d31a562d4934"}
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:51] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:52] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:52] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:52] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5W609030PT545342DKWW4VMI
+[22-07-2015 03:09:53] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:53] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5W609030PT545342DKWW4VMI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"73836294d6779"}
+[22-07-2015 03:09:53] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:53] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-71M42169AM036142GKWW5CUI
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-71M42169AM036142GKWW5CUI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"882bc280cb689"}
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:54] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:55] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:55] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:55] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-20263577213714244KWW5G2A
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-20263577213714244KWW5G2A. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"ff87d707d4611"}
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:56] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6TN75428UX905694DKWW6UCA
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-6TN75428UX905694DKWW6UCA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"328cc6c3d5766"}
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"57e29217d694d"}
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:57] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"a626e27fc896c"}
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"05c02b9bc8fcc"}
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:58] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"924cffc5d7968"}
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"43b74957c831f"}
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:09:59] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"0ad3338bc8bae"}
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"b3dfc50ad6561"}
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"06f7a78dc9a48"}
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:00] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"d0994166c92cb"}
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"31b92923c91d1"}
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:01] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"bf0e56b5d765d"}
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"bb70c80cc9714"}
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:02] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"392cdf13c949b"}
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"a32b41fcc8a7b"}
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"5b89bb85d533e"}
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:03] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"f10bb590d4491"}
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"c94b117ed6092"}
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"bb5294acd5a27"}
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"7ae89c8eda626"}
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"e535c2acd810a"}
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"cb491a7fc54a6"}
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"ee3f9958c5e19"}
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"85a666b6c6763"}
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 429
+[22-07-2015 03:10:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 429 when accessing https://api.paypal.com/v1/oauth2/token. {"message":"Too many requests. Blocked due to rate limiting.","informationLink":"https://developer.paypal.com/docs/api/#RATE_LIMIT_REACHED","name":"RATE_LIMIT_REACHED","debugId":"5e62aa3dda33c"}
+[22-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9M566647T5783615MKWXZIHI
+[22-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4HT25261F96058335KWX3KOQ
+[22-07-2015 04:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 05:00:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 05:00:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9M566647T5783615MKWXZIHI
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-9M566647T5783615MKWXZIHI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"d783a040bf69f"}
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4HT25261F96058335KWX3KOQ
+[22-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 06:00:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 06:00:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4HT25261F96058335KWX3KOQ
+[22-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-86C65108H06500715KWX47AI
+[22-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0MD40105UX680654AKWX5N3Y
+[22-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 07:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 07:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4HT25261F96058335KWX3KOQ
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-4HT25261F96058335KWX3KOQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"571bfc0f389d9"}
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-86C65108H06500715KWX47AI
+[22-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2RF09308AL6026300KWX6AUA
+[22-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 08:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 08:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-86C65108H06500715KWX47AI
+[22-07-2015 08:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 08:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 08:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2RF09308AL6026300KWX6AUA
+[22-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 09:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 09:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-86C65108H06500715KWX47AI
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-86C65108H06500715KWX47AI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"a8ee67c3312b4"}
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2RF09308AL6026300KWX6AUA
+[22-07-2015 09:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 09:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 09:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2UU98622NA430161GKWYACIA
+[22-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 10:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 10:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2RF09308AL6026300KWX6AUA
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2RF09308AL6026300KWX6AUA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"08be397035f33"}
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2UU98622NA430161GKWYACIA
+[22-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 11:00:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 11:00:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[22-07-2015 11:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[22-07-2015 11:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[22-07-2015 11:00:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2UU98622NA430161GKWYACIA
+[22-07-2015 11:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 12:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 12:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 12:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 12:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 12:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2UU98622NA430161GKWYACIA
+[23-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2UU98622NA430161GKWYACIA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"b645f1c43d8e2"}
+[23-07-2015 01:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 01:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4J49535642189412AKWYDNEI
+[23-07-2015 01:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 02:00:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 02:00:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 02:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 02:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 02:00:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4J49535642189412AKWYDNEI
+[23-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 02:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 02:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 02:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2MS36464D9760372EKWYD7GY
+[23-07-2015 02:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 02:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 02:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 02:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 02:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 02:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2S602207NT2627345KWYD7IY
+[23-07-2015 02:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 03:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 03:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 03:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 03:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 03:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4J49535642189412AKWYDNEI
+[23-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2MS36464D9760372EKWYD7GY
+[23-07-2015 03:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 03:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 03:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2S602207NT2627345KWYD7IY
+[23-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 04:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-4J49535642189412AKWYDNEI
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-4J49535642189412AKWYDNEI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"ea43b5538ccf8"}
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2MS36464D9760372EKWYD7GY
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2S602207NT2627345KWYD7IY
+[23-07-2015 04:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 05:00:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 05:00:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2MS36464D9760372EKWYD7GY
+[23-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2MS36464D9760372EKWYD7GY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"68fe16050987f"}
+[23-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2S602207NT2627345KWYD7IY
+[23-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2S602207NT2627345KWYD7IY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"9ea1e1c30db57"}
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5WA57635XX685594PKWYQH2Y
+[23-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5WA57635XX685594PKWYQH2Y
+[23-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5WA57635XX685594PKWYQH2Y
+[23-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5WA57635XX685594PKWYQH2Y
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5WA57635XX685594PKWYQH2Y. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"a8331e5ee435a"}
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7BJ174436Y776020EKWYS6WA
+[23-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-23C91709HT436193YKWYTEDI
+[23-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-78H3372002924833TKWYTIAQ
+[23-07-2015 07:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7BJ174436Y776020EKWYS6WA
+[23-07-2015 08:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-23C91709HT436193YKWYTEDI
+[23-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-78H3372002924833TKWYTIAQ
+[23-07-2015 08:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5NY986578T9044525KWYUOIY
+[23-07-2015 08:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:11] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:12] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-8P931943DB315872GKWYUOJQ
+[23-07-2015 08:00:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:13] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:13] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:14] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9JY06765G38112421KWYUO7I
+[23-07-2015 08:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:14] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:15] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5GH08557VP236274DKWYUPKI
+[23-07-2015 08:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:16] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:16] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6AR14589GV6618801KWYUPLA
+[23-07-2015 08:00:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:17] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 08:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 08:00:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 08:00:18] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1U5795838P252633NKWYUPLQ
+[23-07-2015 08:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7BJ174436Y776020EKWYS6WA
+[23-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-23C91709HT436193YKWYTEDI
+[23-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-78H3372002924833TKWYTIAQ
+[23-07-2015 09:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5NY986578T9044525KWYUOIY
+[23-07-2015 09:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:11] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:12] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-8P931943DB315872GKWYUOJQ
+[23-07-2015 09:00:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:13] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:13] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:14] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1LY667171T113582NKWYUYCY
+[23-07-2015 09:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:14] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:15] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5GH08557VP236274DKWYUPKI
+[23-07-2015 09:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:16] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:16] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6AR14589GV6618801KWYUPLA
+[23-07-2015 09:00:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:17] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 09:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 09:00:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 09:00:18] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1U5795838P252633NKWYUPLQ
+[23-07-2015 09:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-7BJ174436Y776020EKWYS6WA
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-7BJ174436Y776020EKWYS6WA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"0cd763d95181e"}
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-23C91709HT436193YKWYTEDI
+[23-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-23C91709HT436193YKWYTEDI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"7e62018c51e4e"}
+[23-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-78H3372002924833TKWYTIAQ
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-78H3372002924833TKWYTIAQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"a91d473150104"}
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5NY986578T9044525KWYUOIY
+[23-07-2015 10:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:12] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:13] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:13] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-8P931943DB315872GKWYUOJQ
+[23-07-2015 10:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:14] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:15] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1LY667171T113582NKWYUYCY
+[23-07-2015 10:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:15] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:16] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5GH08557VP236274DKWYUPKI
+[23-07-2015 10:00:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:17] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:17] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6AR14589GV6618801KWYUPLA
+[23-07-2015 10:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:18] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 10:00:19] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 10:00:19] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 10:00:19] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1U5795838P252633NKWYUPLQ
+[23-07-2015 10:00:19] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:13] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:13] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 11:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:14] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5NY986578T9044525KWYUOIY
+[23-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5NY986578T9044525KWYUOIY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"07cf1d56930c9"}
+[23-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-8P931943DB315872GKWYUOJQ
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-8P931943DB315872GKWYUOJQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"0f39f7c39d644"}
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 11:00:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:17] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1LY667171T113582NKWYUYCY
+[23-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5GH08557VP236274DKWYUPKI
+[23-07-2015 11:00:19] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 11:00:19] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5GH08557VP236274DKWYUPKI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"2415d01399654"}
+[23-07-2015 11:00:19] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:19] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-6AR14589GV6618801KWYUPLA
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-6AR14589GV6618801KWYUPLA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"909ed1d998be7"}
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:20] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[23-07-2015 11:00:21] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[23-07-2015 11:00:21] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[23-07-2015 11:00:21] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1U5795838P252633NKWYUPLQ
+[23-07-2015 11:00:22] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[23-07-2015 11:00:22] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-1U5795838P252633NKWYUPLQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"f69fa6b291c49"}
+[24-07-2015 12:00:36] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 12:00:36] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 12:00:37] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 12:00:37] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 12:00:37] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-1LY667171T113582NKWYUYCY
+[24-07-2015 12:00:37] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 12:00:37] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-1LY667171T113582NKWYUYCY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"ea25bacb02e8d"}
+[24-07-2015 01:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 01:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-53568598X51516520KWYYIQA
+[24-07-2015 01:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 02:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 02:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-53568598X51516520KWYYIQA
+[24-07-2015 02:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 03:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-53568598X51516520KWYYIQA
+[24-07-2015 03:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-53568598X51516520KWYYIQA
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-53568598X51516520KWYYIQA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"bc0fd4119944f"}
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5J12767471404911GKWY2X2A
+[24-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2XE99237N9269331XKWY26AY
+[24-07-2015 04:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 04:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:10] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0JA150240A2887621KWY26BQ
+[24-07-2015 04:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 04:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90F598762T869861GKWY3BWI
+[24-07-2015 04:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5J12767471404911GKWY2X2A
+[24-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2XE99237N9269331XKWY26AY
+[24-07-2015 05:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 05:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:10] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0JA150240A2887621KWY26BQ
+[24-07-2015 05:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 05:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90F598762T869861GKWY3BWI
+[24-07-2015 05:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:12] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 05:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:12] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9CK336453C428600FKWY3TAQ
+[24-07-2015 05:00:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5J12767471404911GKWY2X2A
+[24-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2XE99237N9269331XKWY26AY
+[24-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0JA150240A2887621KWY26BQ
+[24-07-2015 06:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 06:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90F598762T869861GKWY3BWI
+[24-07-2015 06:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:12] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 06:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:12] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9CK336453C428600FKWY3TAQ
+[24-07-2015 06:00:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 07:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5J12767471404911GKWY2X2A
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-5J12767471404911GKWY2X2A. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"9d01896038ca0"}
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-2XE99237N9269331XKWY26AY
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-2XE99237N9269331XKWY26AY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"3a957c813f656"}
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0JA150240A2887621KWY26BQ
+[24-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0JA150240A2887621KWY26BQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"5ba0088b3e69b"}
+[24-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:10] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90F598762T869861GKWY3BWI
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-90F598762T869861GKWY3BWI. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"0f1cc9383d096"}
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 07:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9CK336453C428600FKWY3TAQ
+[24-07-2015 07:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 08:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 08:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-9CK336453C428600FKWY3TAQ
+[24-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 08:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-9CK336453C428600FKWY3TAQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"e8e553f938688"}
+[24-07-2015 03:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 03:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 03:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0DK93122SJ550733LKWZE25A
+[24-07-2015 03:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0DK93122SJ550733LKWZE25A
+[24-07-2015 04:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:04] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:04] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0DK93122SJ550733LKWZE25A
+[24-07-2015 05:00:05] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-0DK93122SJ550733LKWZE25A
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[24-07-2015 06:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-0DK93122SJ550733LKWZE25A. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"c061937115966"}
+[24-07-2015 09:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 09:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 09:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-11T21500SX3863601KWZKKUY
+[24-07-2015 09:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 10:00:05] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 10:00:05] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 10:00:06] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-11T21500SX3863601KWZKKUY
+[24-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 10:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90424444HL5154809KWZKYFA
+[24-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 10:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 10:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-24846397C9847124HKWZLFNQ
+[24-07-2015 10:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:11] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 11:00:12] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:12] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:12] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-11T21500SX3863601KWZKKUY
+[24-07-2015 11:00:13] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:13] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:13] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 11:00:14] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:14] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:14] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90424444HL5154809KWZKYFA
+[24-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:15] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-24846397C9847124HKWZLFNQ
+[24-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:16] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[24-07-2015 11:00:17] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[24-07-2015 11:00:17] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[24-07-2015 11:00:17] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5D8889457H175952MKWZL3XQ
+[24-07-2015 11:00:18] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-11T21500SX3863601KWZKKUY
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-11T21500SX3863601KWZKKUY. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"e0a4ecb177faa"}
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:07] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 12:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:08] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90424444HL5154809KWZKYFA
+[25-07-2015 12:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 12:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-24846397C9847124HKWZLFNQ
+[25-07-2015 12:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:10] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 12:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 12:00:11] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 12:00:11] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5D8889457H175952MKWZL3XQ
+[25-07-2015 12:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 01:00:06] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 01:00:07] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 01:00:07] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 01:00:07] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-90424444HL5154809KWZKYFA
+[25-07-2015 01:00:08] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[25-07-2015 01:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-90424444HL5154809KWZKYFA. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"941fa827f1a14"}
+[25-07-2015 01:00:08] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 01:00:08] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-24846397C9847124HKWZLFNQ
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 400
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Got Http response code 400 when accessing https://api.paypal.com/v1/payments/payment/PAY-24846397C9847124HKWZLFNQ. {"name":"PAYMENT_APPROVAL_EXPIRED","message":"Payment approval has expired","information_link":"https://developer.paypal.com/webapps/developer/docs/api/#PAYMENT_APPROVAL_EXPIRED","debug_id":"e0246d36feb8d"}
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 01:00:09] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[25-07-2015 01:00:10] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[25-07-2015 01:00:10] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[25-07-2015 01:00:10] PayPal\Core\PayPalHttpConnection: INFO	: GET https://api.paypal.com/v1/payments/payment/PAY-5D8889457H175952MKWZL3XQ
+[25-07-2015 01:00:11] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
