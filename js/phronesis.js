@@ -215,6 +215,11 @@ $('.bxslider').bxSlider({
   useCSS: false
 });
 
+$('.bxslider2').bxSlider({
+	auto: true,
+	autoStart: true
+});
+
 // Idioma del validador
 jQuery.extend(jQuery.validator.messages, {
   required: "Este campo es obligatorio.",

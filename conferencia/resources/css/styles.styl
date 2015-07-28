@@ -1,0 +1,176 @@
+@import 'nib'
+morado = #6A1279
+moradoRaro = #7B41A9
+moradoRaro2 = #642D9B
+amarillo = #F8C71A
+amarillo2 = #E4BD37
+rojo = #940000
+
+body
+	padding-top 6rem
+	padding-bottom 70px
+
+.Header
+	border-bottom solid 5px morado
+.Menu
+	margin-bottom 1rem
+.Menu-link
+	color amarillo !important
+.Logo
+	margin-bottom 1rem
+.Title
+	color morado
+	
+	&:after
+		content '\2022'
+		display inline-block
+		font-size 13rem
+		line-height 3rem
+		vertical-align bottom
+		animation-name recording
+		animation-duration 1s
+		animation-timing-function: ease-in-out;
+		animation-iteration-count infinite
+		
+.TextoFooter
+	margin 15px 0
+	color amarillo
+	a
+		color amarillo
+.center-block
+	float none
+	
+.Form-container
+	background #FFF
+	padding 1rem 2.5rem
+	
+	.formTitle
+		color moradoRaro
+		margin-top 0
+
+	&--error
+		background white
+		animation-delay: .5s;
+		animation-direction: alternate;
+		animation-duration 1s
+		animation-iteration-count 3
+		animation-name warningForm
+		animation-timing-function ease-in-out
+		
+
+	.form-control
+		background #fff
+		border-radius 0
+		
+	.form-group:last-child
+		margin-top 3rem
+	
+	.label
+		color #7B41A9
+		padding-left 0
+		font-weight bold
+		font-size 1.5rem
+		
+.FacebookIcon
+	font-size 5rem
+	vertical-align bottom
+	transition all .3s ease-in-out 0s
+	
+	&:hover
+	&:active
+		text-decoration none
+
+.MainLogin
+	background url('../img/fondo-home.jpg')
+	padding 10rem 0
+	
+.UserName
+	padding 1.8rem 2rem
+	.UserName-name
+		color white
+		font-size 3rem
+		text-transform capitalize
+	.UserName-logOut
+		margin-top 5px
+	.UserName-logOut-link
+		border 1px solid #FFF
+		color white
+		font-weight bold
+		padding .8rem 1rem
+		transition all .3s ease-in-out 0s
+		
+		&:hover
+			background #925DC7
+			border 1px solid #5D5D5D
+
+.Countdown
+	background amarillo2
+	padding 1.1rem
+	color white
+	
+	.Countdown-left
+		line-height 8rem
+		font-weight bold
+		font-size 4rem
+	.Countdown-clockTitle
+		font-size 1.5rem
+		font-weight bold
+	.Countdown-clockItem
+		font-size 5rem
+		line-height 5rem
+		margin-top 5px
+
+.Banners
+	border 1px solid #a7a7a7
+	padding 1.5rem 0
+		
+.SubTitle
+	background #a7a7ab
+	color white
+	padding 0.5rem
+	
+.Recovery
+	background #FFF
+	margin-top 1rem
+	padding .6rem 2.5rem
+
+.btn-default
+	background moradoRaro
+	border none
+	border-radius 0
+	box-shadow 0px 0px 0px #000
+	color #FFF
+	transition all .3s ease-in-out 0s
+	width 100%
+
+	&:hover
+		background moradoRaro2
+		color #FFF
+		box-shadow 1px 2px 1px #000
+		
+
+@import 'utilities.styl'
+@import 'animaciones.styl'
+
+@media (max-width: 768px)
+	.MainLogin
+		padding 0
+	.SubTitle
+		margin 0
+		font-size 3rem
+	.Countdown
+		.Countdown-left
+			font-size 2rem
+			line-height 2.5rem
+			text-align center
+@media (max-width: 992px)
+	.MainLogin
+		padding 0
+	.SubTitle
+		margin 0
+		font-size 3rem
+	.Countdown
+		.Countdown-left
+			font-size 2rem
+			line-height 2.5rem
+			text-align center

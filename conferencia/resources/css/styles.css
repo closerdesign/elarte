@@ -1,0 +1,390 @@
+body {
+  padding-top: 6rem;
+  padding-bottom: 70px;
+}
+.Header {
+  border-bottom: solid 5px #6a1279;
+}
+.Menu {
+  margin-bottom: 1rem;
+}
+.Menu-link {
+  color: #f8c71a !important;
+}
+.Logo {
+  margin-bottom: 1rem;
+}
+.Title {
+  color: #6a1279;
+}
+.Title:after {
+  content: '\2022';
+  display: inline-block;
+  font-size: 13rem;
+  line-height: 3rem;
+  vertical-align: bottom;
+  -webkit-animation-name: recording;
+  -moz-animation-name: recording;
+  -o-animation-name: recording;
+  -ms-animation-name: recording;
+  animation-name: recording;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.TextoFooter {
+  margin: 15px 0;
+  color: #f8c71a;
+}
+.TextoFooter a {
+  color: #f8c71a;
+}
+.center-block {
+  float: none;
+}
+.Form-container {
+  background: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+}
+.Form-container .formTitle {
+  color: #7b41a9;
+  margin-top: 0;
+}
+.Form-container--error {
+  background: #fff;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-direction: alternate;
+  -moz-animation-direction: alternate;
+  -o-animation-direction: alternate;
+  -ms-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 3;
+  -moz-animation-iteration-count: 3;
+  -o-animation-iteration-count: 3;
+  -ms-animation-iteration-count: 3;
+  animation-iteration-count: 3;
+  -webkit-animation-name: warningForm;
+  -moz-animation-name: warningForm;
+  -o-animation-name: warningForm;
+  -ms-animation-name: warningForm;
+  animation-name: warningForm;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+.Form-container .form-control {
+  background: #fff;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.Form-container .form-group:last-child {
+  margin-top: 3rem;
+}
+.Form-container .label {
+  color: #7b41a9;
+  padding-left: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.FacebookIcon {
+  font-size: 5rem;
+  vertical-align: bottom;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.FacebookIcon:hover,
+.FacebookIcon:active {
+  text-decoration: none;
+}
+.MainLogin {
+  background: url("../img/fondo-home.jpg");
+  padding: 10rem 0;
+}
+.UserName {
+  padding: 1.8rem 2rem;
+}
+.UserName .UserName-name {
+  color: #fff;
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+.UserName .UserName-logOut {
+  margin-top: 5px;
+}
+.UserName .UserName-logOut-link {
+  border: 1px solid #fff;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.8rem 1rem;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.UserName .UserName-logOut-link:hover {
+  background: #925dc7;
+  border: 1px solid #5d5d5d;
+}
+.Countdown {
+  background: #e4bd37;
+  padding: 1.1rem;
+  color: #fff;
+}
+.Countdown .Countdown-left {
+  line-height: 8rem;
+  font-weight: bold;
+  font-size: 4rem;
+}
+.Countdown .Countdown-clockTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.Countdown .Countdown-clockItem {
+  font-size: 5rem;
+  line-height: 5rem;
+  margin-top: 5px;
+}
+.Banners {
+  border: 1px solid #a7a7a7;
+  padding: 1.5rem 0;
+}
+.SubTitle {
+  background: #a7a7ab;
+  color: #fff;
+  padding: 0.5rem;
+}
+.Recovery {
+  background: #fff;
+  margin-top: 1rem;
+  padding: 0.6rem 2.5rem;
+}
+.btn-default {
+  background: #7b41a9;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px #000;
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  width: 100%;
+}
+.btn-default:hover {
+  background: #642d9b;
+  color: #fff;
+  -webkit-box-shadow: 1px 2px 1px #000;
+  box-shadow: 1px 2px 1px #000;
+}
+.u-noMargin {
+  margin: 0;
+}
+.u-fondoAmarillo {
+  background: #f8c71a;
+}
+.u-fondoMorado {
+  background: #6a1279;
+}
+.u-fondoMoradoRaro {
+  background: #642d9b;
+}
+.u-textoMorado {
+  color: #6a1279;
+}
+.u-textoAmarillo {
+  color: #f8c71a;
+}
+.u-warningMessage {
+  color: #940000;
+  font-size: 1.5rem;
+}
+.u-lineaSuave {
+  border-top: 1px solid #b7b7b7;
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
+}
+.u-marginBottom {
+  margin-bottom: 2rem;
+}
+.u-noPaddingLeft {
+  padding-left: 0;
+}
+.u-square {
+  border: 1px solid #fff;
+  display: block;
+  width: 60px;
+  margin: 0 auto;
+}
+.u-semmiColon {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .u-noPaddingLeft {
+    padding-right: 0;
+  }
+}
+@media (max-width: 992px) {
+  .u-noPaddingLeft {
+    padding-right: 0;
+  }
+}
+@-moz-keyframes recording {
+  from {
+    color: #f00;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  to {
+    color: #6a1279;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-webkit-keyframes recording {
+  from {
+    color: #f00;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  to {
+    color: #6a1279;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-o-keyframes recording {
+  from {
+    color: #f00;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  to {
+    color: #6a1279;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@keyframes recording {
+  from {
+    color: #f00;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  to {
+    color: #6a1279;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-moz-keyframes warningForm {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: #eaeaea;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@-webkit-keyframes warningForm {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: #eaeaea;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@-o-keyframes warningForm {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: #eaeaea;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@keyframes warningForm {
+  0% {
+    background: #fff;
+  }
+  50% {
+    background: #eaeaea;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@media (max-width: 768px) {
+  .MainLogin {
+    padding: 0;
+  }
+  .SubTitle {
+    margin: 0;
+    font-size: 3rem;
+  }
+  .Countdown .Countdown-left {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+  }
+}
+@media (max-width: 992px) {
+  .MainLogin {
+    padding: 0;
+  }
+  .SubTitle {
+    margin: 0;
+    font-size: 3rem;
+  }
+  .Countdown .Countdown-left {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    text-align: center;
+  }
+}

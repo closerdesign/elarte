@@ -56,17 +56,17 @@
 		}elseif($_REQUEST['content']=='darse-de-baja'){
 			require_once('blocks/darse-de-baja.php');
 		}elseif($_REQUEST['content']=='conferencia-virtual'){
-			require_once('blocks/inscripcion-conferencia.php');
+			require_once('blocks/cierre-conferencia.php');
 		}elseif($_REQUEST['content']=='conferencia-virtual-inscripcion'){
-			require_once('blocks/inscripcion-conferencia-v2.php');
+			require_once('blocks/cierre-conferencia.php');
 		}elseif($_REQUEST['content']=='inscripcion-conferencia-elarte'){
-			require_once('blocks/inscripcion-conferencia-v3.php');
+			require_once('blocks/cierre-conferencia.php');
 		}elseif($_REQUEST['content']=='conferencia-inscripcion-elarte'){
-			require_once('blocks/inscripcion-conferencia-v4.php');
+			require_once('blocks/cierre-conferencia.php');
 		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
-			require_once( 'blocks/inscripcion-conferencia.php' );
+			require_once( 'blocks/cierre-conferencia.php' );
 		}elseif( $_REQUEST['content'] == 'amar-sin-apegos' ){
-			require_once( 'blocks/inscripcion-conferencia.php' );
+			require_once( 'blocks/cierre-conferencia.php' );
 		}elseif($_REQUEST['content']=='programas-especiales'){
 			require_once('blocks/programas-especiales.php');
 		}elseif($_REQUEST['content']=='migracion'){
@@ -77,6 +77,8 @@
 			require_once('blocks/inscripcion-conferencia-v5.php');
 		}elseif($_REQUEST['content']=='conferencia-walter-riso'){
 			require_once('blocks/inscripcion-conferencia-v5.php');
+		}elseif($_REQUEST['content']=='cierre-conferencia'){
+			require_once('blocks/cierre-conferencia.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}

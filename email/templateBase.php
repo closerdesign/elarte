@@ -196,8 +196,8 @@
 				</td>
 				<td class="content-block">
 					<div class="editable" style="display: block;">
-						<a target="_blank" href="<?php echo URL; ?>conferencia-virtual">
-							<img src="<?php echo URL; ?>img/banner_conferencia_desktop.jpg" width="100%" alt=""style="display: inline-block;"/>
+						<a target="_blank" href="<?= URL ?>coleccion/1">
+							<img src="<?= URL ?>img/bannerPaqueteDesktop.jpg" width="100%" alt=""style="display: inline-block;"/>
 						</a>
 					</div>
 				</td>

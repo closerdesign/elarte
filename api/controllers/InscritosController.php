@@ -34,6 +34,29 @@ class InscritosController
 						);
 			$users = $db->get('usuarios usu', 100, $cols);
 
+			$db->join("inscritos_conferencia inco", "inco.usuario_id = usu.id", "INNER");
+			$db->where("inco.estado_inscripcion", 2);
+			$db->where("inco.metodo_pago", 1);
+			$db->where ("inco.migrado", NULL, '<=>');
+			$db->groupBy ("usu.id");
+			$db->orderBy("id","asc");
+			$cols = Array (
+							"usu.id", 
+							"usu.nombreCompleto", 
+							"usu.nombre",
+							"usu.apellido",
+							"usu.email",
+							"inco.id_inscripcion",
+							"inco.migrado",
+							"IF(usu.fbId = '', NULL, usu.fbId) fbId",
+							"IF(usu.password = '', NULL, usu.password) password",
+							"NULL",
+							"NULL"
+						);
+			$users2 = $db->get('usuarios usu', 100, $cols);
+
+			$users = array_merge($users, $users2);
+			
 			$subject = 'Accesos para su conferencia: El Arte de Amar sin Apegos.';
 
 			foreach ($users as $key => &$user) {
