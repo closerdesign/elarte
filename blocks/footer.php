@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-md-8 col-sm-8">
-				<p><b>Editorial Phronesis</b> &copy; Todos los derechos reservados. <?php echo date('Y'); ?>. <span class="hidden-xs">Una estrategia de <a href="http://www.agenciadigital.com.co" target="_blank">agenciadigital.com.co</a></span>. <a href="index.php?content=politica-de-privacidad">Política de Privacidad</a>.</p>
+				<p><b>Editorial Phronesis</b> &copy; Todos los derechos reservados. <?php echo date('Y'); ?>. <a href="index.php?content=politica-de-privacidad">Política de Privacidad</a>.</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 hidden-xs">
 				<p class="text-right">

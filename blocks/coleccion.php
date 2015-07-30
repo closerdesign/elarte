@@ -227,7 +227,7 @@
 			value : <?php echo $data['precio']; ?>,
 			coleccion : true,
 			id : <?php echo $_REQUEST['id'] ?>,
-			nombre : '<?= $data['nombre']; ?>'
+			nombre : '<?= $data["nombre"]; ?>'
 		};
 
 		$('#metodoPago').empty();

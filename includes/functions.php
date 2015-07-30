@@ -971,6 +971,7 @@
 				) {
 					$user_message = 'Transacción aprobada';
 					entregarPedido($referenceCode);
+					$message_successs = 'Para acceder a las obras que acabas de adquirir ingresa a <a href="https://www.elartedesabervivir.com/mi-cuenta/mis-publicaciones">tu biblioteca</a>.';
 				}
 
 
@@ -1322,6 +1323,7 @@
 					$user_message = 'Recibo de pago generado. En espera de pago';
 				}
 				
+				$message_fail = 'Haz <a id="message_fail" href="">click aquí</a> para realizar el pago nuevamente o intentar con otro medio de pago.';
 
 				$html = "";
 				$html .= '<div class="modal fade" id="PseResponse" tabindex="-1" role="dialog" aria-labelledby="PseResponseLabel" aria-hidden="false">
@@ -1340,6 +1342,7 @@
 												<blockquote>
 													'. $user_message .'
 												</blockquote>
+												<p>'.( isset($message_successs) ? $message_successs : $message_fail ).'</p>
 											</div>
 										</div>
 									</div>
@@ -1354,6 +1357,9 @@
 							$(window).load(function (){
 								$('#PseResponse').modal('show');
 								console.log('".$consulta."');
+								if ( typeof localStorage.getItem('return_url_pse') != 'undefined' ) {
+									$('#message_fail').prop('href', localStorage.getItem('return_url_pse'));
+								}
 							});
 						";
 				$html .= "</script>";

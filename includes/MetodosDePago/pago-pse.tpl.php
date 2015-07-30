@@ -111,15 +111,9 @@
 									if( msg == 1 ){
 										var metodo = 3;
 										if(metodo == 3){
+											localStorage.setItem('return_url_pse', window.location.href);
 											window.location.href = data.transactionResponse.extraParameters.BANK_URL;
 										}
-
-										if( (metodo > 3) && (metodo < 7) ){
-										   notificaComprobante(usuario,url,metodo);
-										   $('#myNuevoModal').modal('hide');
-										   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p><b>Importante:</b> Te hemos enviado a tu correo un mensaje que contiene algunas recomendaciones que debes tener en cuenta para poder realizar tu pago, así mismo como un enlace para que puedas generar tu recibo en caso de requerirlo nuevamente.</p>");
-										}
-
 									} else {
 										alert(msg);
 										descargar();
@@ -163,7 +157,7 @@
 										if (result === true) {
 											location.reload();
 										}else{
-											window.location = 'http://elarte.desarrollo.closerdesign.co/';
+											window.location = 'http://www.elartedesabervivir.com/';
 										}
 									}); 
 								}
