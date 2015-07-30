@@ -338,7 +338,7 @@
 										$sql.=" AND categoria LIKE '%$_REQUEST[categoria]%'";
 									}
 									$sql.=" AND programas_especiales < 1";
-									$sql.=" ORDER BY fecha_publicacion DESC LIMIT 8";
+									$sql.=" ORDER BY fecha_publicacion DESC";
 									$q=mysqli_query($con, $sql);
 									$n=mysqli_num_rows($q);
 									if($n<1){
