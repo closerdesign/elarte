@@ -166,7 +166,7 @@
 					<div class="col-md-12">
 						<p>
 							<select class="form-control" name="paisMetodo" id="paisMetodo" required>
-								<option value="">Selecciona el país ...</option>
+								<option value="">Selecciona el país desde donde realizarás el pago ...</option>
 								<?php echo selectPaises(); ?>
 							</select>
 						</p>
