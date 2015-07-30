@@ -136,8 +136,14 @@
 			case 'obtenerMediosDePago':
 				obtenerMediosDePago();
 				break;
+			case 'obtenerMediosDePago2':
+				obtenerMediosDePago2();
+				break;
 			case 'obtenerFormularioDePago':
 				obtenerFormularioDePago();
+				break;
+			case 'obtenerFormularioDePago2':
+				obtenerFormularioDePago2();
 				break;
 			case 'pseRequest':
 				pseRequest();
@@ -203,9 +209,9 @@
 		}
 	}
 	
-	if ( $argv[1] == 'inscripcionesPendientes' ) {
+	/*if ( $argv[1] == 'inscripcionesPendientes' ) {
 		inscripcionesPendientes();
-	}
+	}*/
 
 	
 	function logErroresPagos()
@@ -1230,6 +1236,12 @@
 			$estado=2;
 		}
 		
+		if ( isset($_POST['formaPago']) ) {
+			$formaPago = $_POST['formaPago'];
+		}else{
+			$formaPago = 1;
+		}
+
 		// Crea la orden
 		if(!mysqli_query($con, "
 			INSERT INTO
@@ -1247,7 +1259,7 @@
 					'$_POST[usuario]',
 					'".getPrecioPaquete($_POST['paquete'])."',
 					'$estado',
-					'1',
+					'$formaPago',
 					'$_POST[orderId]',
 					'$_POST[transactionId]',
 					'$_POST[estado]',
@@ -1277,13 +1289,13 @@
 				}
 			}
 			
-			if ( $estado == 2 && $_POST['paquete'] == 4 || $_POST['paquete'] == 5 ) {
+			/*if ( $estado == 2 && $_POST['paquete'] == 4 || $_POST['paquete'] == 5 ) {
 				$mensaje = 'Queremos confirmarle que su inscripci&oacute;n a la conferencia ha sido procesada exitosamente. Pronto le estaremos enviando informaci&oacute;n adicional para el acceso al evento.';
 				notificar(getEmailUsuario($_SESSION['id']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
 				crearInscripcionFromPaquete($id, $_POST["usuario"], 1, 7, $_POST["transactionId"], 0);
 			}elseif( $estado == 1 && $_POST['paquete'] == 4 || $_POST['paquete'] == 5 ){
 				crearInscripcionFromPaquete($id, $_POST["usuario"], 2, 7, $_POST["transactionId"], 0);
-			}
+			}*/
 
 			if($estado==2){
 				$publicaciones=explode(',',getPublicacionesPaquete($_POST['paquete']));
@@ -1643,6 +1655,27 @@
 		}
 		echo $html;
 	}
+
+	function obtenerMediosDePago2()
+	{		
+		$pais = $_POST['pais'];
+		
+		$html = "";
+		$html .= "<option value=''>Selecciona tu medio de pago preferido ...</option>";
+		$html .= "<option value='1'>Tarjeta de Crédito</option>";
+		$html .= "<option value='2'>Paypal</option>";
+		if( $pais == 'CO' ){
+			$html .= "<option value='3'>Transferencia Bancaria - PSE</option>";
+			$html .= "<option value='4'>Puntos VIA Baloto</option>";
+		}elseif( $pais == 'MX' ){
+			$html .= "<option value='5'>OXXO</option>";
+		}elseif( $pais == 'PE' ){
+			$html .= "<option value='6'>Banco de Crédito - BCP</option>";
+		}
+		$result['error'] = 1;
+		$result['html']  = $html;
+		echo json_encode($result);
+	}
 		
 	// PROCESAMIENTO DE PAGOS VÍA PAYPAL
 	function pagarConPaypal2()
@@ -1774,6 +1807,87 @@
             return;
 		}
 	}
+
+	function obtenerFormularioDePago2()
+	{		
+		$metodo = $_POST['metodo'];
+		
+		$valor = $_POST['value'];
+
+		// Proceso de pago con tarjeta de crédito
+		if( $metodo == 1 ){
+			ob_start();
+            require "MetodosDePago/tarjeta-de-credito.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
+		}
+		
+		// Proceso de pago vía Paypal
+		if( $metodo == 2 ){
+			ob_start();
+            require "MetodosDePago/paypal.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;	
+		}
+		
+		// Proceso de pago PSE
+		if( $metodo == 3 ){
+			
+			require_once('payu/PayU.php');
+
+			Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
+			Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
+			Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
+			
+			PayU::$apiKey = "7bhsvnos9mpnerq6dofvelbsuo"; //Ingrese aquí su propio apiKey.
+			PayU::$apiLogin = "1450d5486b82225"; //Ingrese aquí su propio apiLogin.
+			PayU::$merchantId = "500968"; //Ingrese aquí su Id de Comercio.
+			PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
+			PayU::$isTest = true; //Dejarlo True cuando sean pruebas.
+			
+			$parameters = array(
+				PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
+				PayUParameters::COUNTRY => PayUCountries::CO,
+			);
+			$array=PayUPayments::getPSEBanks($parameters);
+			$banks=$array->banks;
+			
+			ob_start();
+            require "MetodosDePago/pago-pse.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;			
+		}
+		
+		// Proceso de pago VIA Baloto
+		if( $metodo == 4 ){
+			
+			ob_start();
+            require "MetodosDePago/pago-baloto.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
+			
+		}
+		
+		if( $metodo == 5 ){
+			ob_start();
+            require "MetodosDePago/pago-oxxo.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;			
+		}
+		
+		if( $metodo == 6 ){
+			ob_start();
+            require "MetodosDePago/pago-bcp.tpl.php";
+            $tpl_content = ob_get_clean();
+            echo $tpl_content;
+            return;
+		}
+	}
 		
 	// REQUEST DE PSE
 	function pseRequest()
@@ -1795,6 +1909,14 @@
 		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
 		$accountId = "501716";
 		
+		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+		    $ip = $_SERVER['HTTP_CLIENT_IP'];
+		} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		} else {
+		    $ip = $_SERVER['REMOTE_ADDR'];
+		}
+
 		$parameters = array(
 			
 			PayUParameters::ACCOUNT_ID => $accountId,
@@ -1817,8 +1939,7 @@
 			PayUParameters::PAYMENT_METHOD => PaymentMethods::PSE,
 		   
 			PayUParameters::COUNTRY => PayUCountries::CO,
-			
-			PayUParameters::IP_ADDRESS => "127.0.0.1",
+			PayUParameters::IP_ADDRESS => $ip,
 			PayUParameters::PAYER_COOKIE=>"pt1t38347bs6jc9ruv2ecpv7o2",
 			PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
 		   
@@ -1875,10 +1996,10 @@
 		$state = $payment->getState();
 		$responseCode = $payment->getState();
 		
-		actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode);
-		if ( $_POST['codigoPaquete'] == 4 || $_POST['codigoPaquete'] == 5 ) {
+		actualizaOrdenPaquete($id_pedido, $status, $orderId, $transactionId, $state, $responseCode, 2);
+		/*if ( $_POST['codigoPaquete'] == 4 || $_POST['codigoPaquete'] == 5 ) {
 			actualizarInscripcionFromPaquete($id_pedido, $_SESSION["id"], 2, 7, $transactionId, 0);	
-		}
+		}*/
 		/*actualizaOrdenPaquete($orderId, $status, $payment->getId(), $payment->getId(), $payment->getState(), $payment->getState() );*/
 		$result['error'] = 1;
 		
@@ -2655,8 +2776,8 @@
 			";
 		}
 		
-		$mensaje .= "<p>Gracias por tu interés en nuestra conferencia virtual.</p>";
-		notificar(getEmailUsuario($_POST['usuario']),'Comprobante de pago: Inscripción Conferencia Virtual',$mensaje);
+		/*$mensaje .= "<p>Gracias por tu interés en nuestra conferencia virtual.</p>";*/
+		notificar(getEmailUsuario($_POST['usuario']),'Comprobante de pago',$mensaje);
 	}
 		
 	/////////////////////////////////////////////////////////////////////////
