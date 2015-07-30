@@ -2940,7 +2940,7 @@
 			   
 			   // CREACION DE LOS SUSCRIPTORES EN LA LISTA
 			   //$q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT ".$limit_query);
-			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 400000");
+			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 200000 OFFSET 400000");
 			   $n = mysqli_num_rows($q);
 			   
 			   if($n > 0){
