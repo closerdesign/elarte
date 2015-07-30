@@ -30,7 +30,7 @@
 					$pedido = getPedido($orderId);
 
 					actualizaOrdenPaquete($orderId, $status, null, null, $payment->getState(), $payment->getState());
-					actualizarInscripcionFromPaquete($orderId, null, 1, null, $pedido['transactionId'], null);
+					/*actualizarInscripcionFromPaquete($orderId, null, 1, null, $pedido['transactionId'], null);*/
 				}
 
 				if ( $payment->getState() == 'approved' ) {
@@ -99,7 +99,7 @@
 			}else if( $_GET['pagina'] == 'coleccion' ){
 				$pedido = getPedido($orderId);
 				actualizaOrdenPaquete($orderId, $estado, $pedido['transactionId'], $pedido['transactionId'], $estadoTexto, $estadoTexto);
-				actualizarInscripcionFromPaquete($orderId, null, 0, null, $pedido['transactionId'], null);
+				/*actualizarInscripcionFromPaquete($orderId, null, 0, null, $pedido['transactionId'], null);*/
 			}
 			/*actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);*/
 			$mensaje = "";

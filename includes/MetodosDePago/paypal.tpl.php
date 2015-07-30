@@ -5,22 +5,16 @@
 		</h4>
 	</div>
 	<div class="modal-body">
-		<input type="hidden" name="consulta" value="requestPayPal" />
-		<input type="hidden" name="description" value="Inscripción Conferencia" />
-		<input type="hidden" name="business" value="<?= $data['merchant_email']; ?>" />
-		<input type="hidden" name="notify_url" value="<?= $data['notify_url']; ?>" />
-		<input type="hidden" name="cancel_return" value="<?= $data['cancel_url'] ?>" />
-		<input type="hidden" name="return" value="<?= $data['thanks_page']; ?>" />
-		<input type="hidden" name="rm" value="2" />
-		<input type="hidden" name="lc" value="" />
-		<input type="hidden" name="no_shipping" value="1" />
-		<input type="hidden" name="no_note" value="1" />
+		<input type="hidden" name="consulta" value="<?= ( isset($_POST['coleccion']) ? 'requestPayPalPaquete' : 'requestPayPal' ); ?>" />
+		<input type="hidden" name="description" value="<?= ( isset($_POST['coleccion']) ? strip_tags( $_POST['nombre'] ) : 'inscripcion Conferencia' ); ?>" />	
 		<input type="hidden" name="currency_code" value="<?= $data['currency_code']; ?>" />
 		<input type="hidden" name="page_style" value="paypal" />
 		<input type="hidden" name="charset" value="utf-8" />
-		<input type="hidden" name="item_name" value="<?= $data['product_name']; ?>" />
+		<input type="hidden" name="item_name" value="<?= ( isset($_POST['coleccion']) ? strip_tags( $_POST['nombre'] ) : $data['product_name'] ); ?>" />
 		<input type="hidden" value="_xclick" name="cmd"/>
-		<input type="hidden" id="vrPedido" name="amount" value="9.99" />
+		<input type="hidden" id="vrPedido" name="amount" value="<?= ( isset($_POST['coleccion']) ? $_POST['value'] : '9.99' ) ?>" />
+		<input type="hidden" name="codigoPaquete" value="<?= ( isset($_POST['coleccion']) ? $_REQUEST['id'] : '' ) ?>">
+		<input type="hidden" name="formaDePago" value="<?= ( isset($_POST['coleccion']) ? 2 : '' ) ?>">
 		<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>
 		<?php
 		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos' || $_POST['pagina'] == 'conferencia-walter-riso') {

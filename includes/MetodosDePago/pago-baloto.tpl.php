@@ -64,19 +64,69 @@
 			})
 			.done(function(data) {
 				var response = data;
-				almacenaPendientePSE(
-					'<?= $_SESSION[id]; ?>',
-					'2',
-					'<?= $metodo; ?>',
-					response.transactionResponse.transactionId,
-					$('#vrPedido').val(),
-					response.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML
-				);
+				<?php
+					if ( isset($_POST['coleccion']) ) {
+				?>
+				if(data.transactionResponse.state=='DECLINED'){
+					$('#myModalVacioTitulo').html('Transacción rechazada');
+					$('#myModalVacioContenido').html('<p>El medio de pago que utilizaste ha sido rechazado. Por favor inténtalo con otro medio de pago o comunícate con tu entidad bancaria.</p>');
+					$('.load').fadeOut();
+					$('#myModalVacio').modal('show');
+				} else {
+
+					if(
+						(data.transactionResponse.state=='APPROVED') || 
+						(data.transactionResponse.state=='PENDING') )
+					{
+						$.post('/includes/php.php',{
+							consulta: "procesaPaquete",
+							paquete: "<?php echo $_REQUEST['id'] ?>",
+							usuario: "<?php echo $_SESSION['id'] ?>",
+							formaPago: "4",
+							estado: data.transactionResponse.state,
+							orderId: data.transactionResponse.orderId,
+							transactionId: data.transactionResponse.transactionId,
+							pendingReason: data.transactionResponse.pendingReason,
+							responseCode: data.transactionResponse.responseCode
+						}).done(function(msg){
+							if( msg == 1 ){
+								var metodo = 4;
+								var url = data.transactionResponse.extraParameters.URL_PAYMENT_RECEIPT_HTML;
+								if( (metodo > 3) && (metodo < 7) ){
+								   notificaComprobante('<?= $_SESSION["id"]; ?>',url,metodo);
+								   <?php
+				   						if ( isset($_POST['coleccion']) ) {
+				   					?>
+				   					$('#myModalPagoPaquetes').modal('hide');
+				   					<?php
+				   						}else{
+				   					?>
+				   					$('#myNuevoModal').modal('hide');
+				   					<?php
+				   						}
+				   					?>
+								   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p><b>Importante:</b> Te hemos enviado a tu correo un mensaje que contiene algunas recomendaciones que debes tener en cuenta para poder realizar tu pago, así mismo como un enlace para que puedas generar tu recibo en caso de requerirlo nuevamente.</p>");
+								}
+
+							} else {
+								alert(msg);
+								descargar();
+							}
+						});
+					}
+				}
+				<?php
+					}else{
+				?>
+				
+				<?php
+					}
+				?>
 			})
 			.fail(function(data) {
 				if ( data.statusText === 'timeout' ) {
 					var info = {
-						id_usuario: '<?= $_SESSION[id]; ?>',
+						id_usuario: '<?= $_SESSION["id"]; ?>',
 						url: window.location.href,
 						metodo: '<?= $metodo; ?>',
 						consulta: 'logErroresPagos'

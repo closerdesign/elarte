@@ -104,7 +104,17 @@
 <script type="text/javascript">
 	$('#pagoTarjetaDeCredito').validate({
 		submitHandler: function(form){
+			<?php
+				if ( isset($_POST['coleccion']) ) {
+			?>
+			$('#myModalPagoPaquetes').modal('hide');
+			<?php
+				}else{
+			?>
 			$('#myNuevoModal').modal('hide');
+			<?php
+				}
+			?>
 			cargar();
 			$.ajax({
 				url: '/includes/payu/loadTarjetasDeCredito.php',
@@ -116,13 +126,60 @@
 			.done(function(data) {
 				console.log('success');
 				var response = data;
+				<?php
+					if ( isset($_POST['coleccion']) ) {
+				?>
+				if(response.transactionResponse.state=='DECLINED'){
+					$('#myModalVacioTitulo').html('Transacción rechazada');
+					$('#myModalVacioContenido').html('<p>El medio de pago que utilizaste ha sido rechazado. Por favor inténtalo con otro medio de pago o comunícate con tu entidad bancaria.</p>');
+					$('.load').fadeOut();
+					$('#myModalVacio').modal('show');
+				} else {
+
+					if(
+						(response.transactionResponse.state=='APPROVED') || 
+						(response.transactionResponse.state=='PENDING') )
+					{
+						$.post('/includes/php.php',{
+							consulta: "procesaPaquete",
+							paquete: "<?php echo $_REQUEST['id'] ?>",
+							usuario: "<?php echo $_SESSION['id'] ?>",
+							estado: response.transactionResponse.state,
+							orderId: response.transactionResponse.orderId,
+							transactionId: response.transactionResponse.transactionId,
+							pendingReason: response.transactionResponse.pendingReason,
+							responseCode: response.transactionResponse.responseCode
+						}).done(function(msg){
+							if(msg===0){
+								alert('Lo sentimos, se ha presentado un error. Por favor notificanos acerca de este inconveniente.');
+								$('.load').fadeOut();
+							}
+							if( (msg==1) && (response.transactionResponse.state=='PENDING') ){
+								$('#myModalVacioTitulo').html('Transacción en proceso de verificación');
+								$('#myModalVacioContenido').html('<p>En este momento la transacción se encuentra en proceso de verificación por parte de la entidad bancaria.</p><p>Una vez culmine el proceso, recibirás una notificación por correo electrónico acerca del estado de tu compra.</p>');
+								$('.load').fadeOut();
+								$('#myModalVacio').modal('show');
+							}
+							if( (msg==1) && (response.transactionResponse.state=='APPROVED') ){
+								alert('Transacción Aprobada. Ahora ya puedes descargar las publicaciones de "Mi Biblioteca". Pronto recibirás nuestras instrucciones para acceder a la Conferencia Virtual.');
+								window.location.href="index.php?content=mi-cuenta&task=mis-publicaciones";
+							}
+						});
+					}
+				}
+				<?php
+					}else{
+				?>
 				procesaInscripcionConferencia(
 					'<?= $_SESSION["id"]; ?>',
 					'<?= $metodo; ?>',
 					response.transactionResponse.transactionId,
 					response.transactionResponse.state,
 					$('#vrPedido').val()
-					);
+					);	
+				<?php
+					}
+				?>
 			})
 			.fail(function() {
 				if ( data.statusText === 'timeout' ) {

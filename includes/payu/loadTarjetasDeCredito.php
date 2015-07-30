@@ -95,11 +95,11 @@ if ($response) {
 	if ($response->transactionResponse->state=="PENDING") {
 		$response->transactionResponse->pendingReason;	
 	}
-	$response->transactionResponse->paymentNetworkResponseCode;
-	$response->transactionResponse->paymentNetworkResponseErrorMessage;
-	$response->transactionResponse->trazabilityCode;
+	/*$response->transactionResponse->paymentNetworkResponseCode;*/
+	/*$response->transactionResponse->paymentNetworkResponseErrorMessage;*/
+	/*$response->transactionResponse->trazabilityCode;*/
 	$response->transactionResponse->responseCode;
-	$response->transactionResponse->responseMessage;
+	/*$response->transactionResponse->responseMessage;*/
 	
 	print json_encode($response);
 	
