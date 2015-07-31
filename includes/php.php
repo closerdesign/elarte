@@ -2111,11 +2111,11 @@
 					}
 				}
 				
-				$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
+				/*$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
 				$result = mysqli_query($con, $query);
 				if($result) {
 					actualizarOrden($p['id'], $estado, null);
-				}
+				}*/
 			}
 		}
 	/*	$payment = getPaymentDetails('PAY-76C05577WN522352PKWT6ZLA');
