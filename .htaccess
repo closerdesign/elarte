@@ -113,3 +113,11 @@ RewriteRule ^ /coleccion/%1? [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^coleccion/([^/]+)$ /index.php?content=coleccion&id=$1 [L]
+
+# COLECCION
+RewriteCond %{THE_REQUEST} \?content=promocion&id=([^&\ ]+)($|\ )
+RewriteRule ^ /promocion/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^promocion/([^/]+)$ /index.php?content=promocion&id=$1 [L]

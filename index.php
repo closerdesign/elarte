@@ -51,34 +51,14 @@
 			require_once('blocks/colecciones.php');
 		}elseif($_REQUEST['content']=='coleccion'){
 			require_once('blocks/coleccion.php');
+		}elseif($_REQUEST['content']=='promocion'){
+			require_once('blocks/promocion.php');
 		}elseif($_REQUEST['content']=='politica-de-privacidad'){
 			require_once('blocks/politica-de-privacidad.php');
 		}elseif($_REQUEST['content']=='darse-de-baja'){
 			require_once('blocks/darse-de-baja.php');
-		}elseif($_REQUEST['content']=='conferencia-virtual'){
-			require_once('blocks/cierre-conferencia.php');
-		}elseif($_REQUEST['content']=='conferencia-virtual-inscripcion'){
-			require_once('blocks/cierre-conferencia.php');
-		}elseif($_REQUEST['content']=='inscripcion-conferencia-elarte'){
-			require_once('blocks/cierre-conferencia.php');
-		}elseif($_REQUEST['content']=='conferencia-inscripcion-elarte'){
-			require_once('blocks/cierre-conferencia.php');
-		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
-			require_once( 'blocks/cierre-conferencia.php' );
-		}elseif( $_REQUEST['content'] == 'amar-sin-apegos' ){
-			require_once( 'blocks/cierre-conferencia.php' );
 		}elseif($_REQUEST['content']=='programas-especiales'){
 			require_once('blocks/programas-especiales.php');
-		}elseif($_REQUEST['content']=='migracion'){
-			require_once('blocks/migracion.php');
-		}elseif($_REQUEST['content']=='migracion_passwords'){
-			require_once('blocks/migracion_passwords.php');
-		}elseif($_REQUEST['content']=='conferencia-amar-sin-apegos'){
-			require_once('blocks/inscripcion-conferencia-v5.php');
-		}elseif($_REQUEST['content']=='conferencia-walter-riso'){
-			require_once('blocks/inscripcion-conferencia-v5.php');
-		}elseif($_REQUEST['content']=='cierre-conferencia'){
-			require_once('blocks/cierre-conferencia.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}

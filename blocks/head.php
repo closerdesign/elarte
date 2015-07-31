@@ -6,6 +6,17 @@
 		if( isset($_REQUEST['content']) && ($_REQUEST['content']=='articulos') && isset($_REQUEST['id']) ){
 			$title=getTituloArticulo($_REQUEST['id']);
 			$description=getDescripcionArticulo($_REQUEST['id']);
+		}elseif(
+			isset($_REQUEST['content']) &&
+			(
+				$_REQUEST['content'] == 'paquetes' ||
+				$_REQUEST['content'] == 'colecciones' ||
+				$_REQUEST['content'] == 'coleccion' ||
+				$_REQUEST['content'] == 'promocion'
+			)
+		){
+			$title = getDataPaquete($_REQUEST['id'])['nombre'];
+			$description = strip_tags(getDataPaquete($_REQUEST['id'])['descripcion']);
 		}
 	?>
 	

@@ -2839,3 +2839,9 @@
 [30-07-2015 06:49:28] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
 [30-07-2015 06:49:28] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/payments/payment
 [30-07-2015 06:49:29] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 201
+[30-07-2015 07:38:40] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[30-07-2015 07:38:40] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/oauth2/token
+[30-07-2015 07:38:41] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 200
+[30-07-2015 07:38:41] PayPal\Core\PayPalHttpConnection: ERROR	: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'
+[30-07-2015 07:38:41] PayPal\Core\PayPalHttpConnection: INFO	: POST https://api.paypal.com/v1/payments/payment
+[30-07-2015 07:38:42] PayPal\Core\PayPalHttpConnection: INFO	: Response Status 	: 201

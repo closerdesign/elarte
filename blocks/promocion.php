@@ -28,7 +28,7 @@
 			<hr>
 			<div class="row">
 				
-				<div class="col-md-7">
+				<div class="col-md-6">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="col-md-12">
@@ -54,15 +54,6 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-12">
-							<?php echo $data['descripcion'] ?>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-5">
-					<div class="row">
-						
-						<div class="col-md-12">
 							<p class="lead">Esta colección contiene:</p>
 							<ul>
 								<?php
@@ -73,6 +64,15 @@
 									
 								?>
 							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="row">
+						
+						<div class="col-md-12">
+							<?php echo $data['descripcion'] ?>
 						</div>
 						
 						<div class="col-md-12">
