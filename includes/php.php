@@ -2111,11 +2111,11 @@
 					}
 				}
 				
-				$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
+				/*$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
 				$result = mysqli_query($con, $query);
 				if($result) {
 					actualizarOrden($p['id'], $estado, null);
-				}
+				}*/
 			}
 		}
 	/*	$payment = getPaymentDetails('PAY-76C05577WN522352PKWT6ZLA');
@@ -2940,7 +2940,7 @@
 			   
 			   // CREACION DE LOS SUSCRIPTORES EN LA LISTA
 			   //$q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT ".$limit_query);
-			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 400000");
+			   $q = mysqli_query($con, "SELECT email FROM newsletter WHERE optin = 1 LIMIT 200000 OFFSET 400000");
 			   $n = mysqli_num_rows($q);
 			   
 			   if($n > 0){
