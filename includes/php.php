@@ -2000,7 +2000,7 @@
 		/*if ( $_POST['codigoPaquete'] == 4 || $_POST['codigoPaquete'] == 5 ) {
 			actualizarInscripcionFromPaquete($id_pedido, $_SESSION["id"], 2, 7, $transactionId, 0);	
 		}*/
-		actualizaOrdenPaquete($orderId, $status, $payment->getId(), $payment->getId(), $payment->getState(), $payment->getState() );
+		/*actualizaOrdenPaquete($orderId, $status, $payment->getId(), $payment->getId(), $payment->getState(), $payment->getState() );*/
 		$result['error'] = 1;
 		
 		header("Location: " . getLink($payment->getLinks(), "approval_url") );
