@@ -34,7 +34,8 @@
 						<?php
 					}
 				?>
-				<li><a data-toggle="modal" data-target="#myModalEspeciales" href="javascript:void(0)"><i class="fa fa-star"></i> Programas Especiales</a></li>
+				<!-- <li><a data-toggle="modal" data-target="#myModalEspeciales" href="javascript:void(0)"><i class="fa fa-star"></i> Programas Especiales</a></li> -->
+				<li><a href="/index.php?content=programas-especiales"><i class="fa fa-star"></i> Programas Especiales</a></li>
 				<?php if(!isset($_SESSION['id'])){ ?>
 				<li><a href="/index.php?content=que-es-phronesis"><i class="fa fa-question"></i> ¿Qué es Phronesis?</a></li>
 				<?php } ?>
