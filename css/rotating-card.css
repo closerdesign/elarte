@@ -39,7 +39,7 @@
    -moz-backface-visibility: hidden;
      -o-backface-visibility: hidden;
         backface-visibility: hidden;
-	position: absolute;
+	/* position: absolute; */
 	top: 0;
 	left: 0;
 	background-color: #FFF;
