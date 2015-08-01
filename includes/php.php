@@ -1041,6 +1041,21 @@
 	function finRegistro()
 	{
 		global $con;
+
+		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[frEmail]'");
+		$n=mysqli_num_rows($q);
+		if($n>0){
+			mysqli_query($con, "DELETE FROM usuarios WHERE id = '$_SESSION[id]'");
+			$result['error'] = 3;
+			
+			cerrarSesion();
+			unset($_COOKIE['pedido']);
+		    setcookie('pedido', null, -1, '/');
+			
+			echo json_encode($result);
+			return;
+		}
+
 		if(!mysqli_query($con, "
 		   UPDATE
 		   	usuarios
@@ -1064,6 +1079,7 @@
 		}
 		$result['error'] = 0;
 		echo json_encode($result);
+		return;
 	}
 	
 	function verificaEmail()
