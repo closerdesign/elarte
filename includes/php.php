@@ -1173,6 +1173,19 @@
 		}
 	}
 	
+	function verificarFacebookId($fbId)
+	{
+		global $con;
+		$args = func_get_args();
+		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE fbId = '$fbId'");
+		$n=mysqli_num_rows($q);
+		if($n>0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	// Finalizar registro Facebook
 	function emailFacebook()
 	{

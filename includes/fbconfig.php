@@ -47,7 +47,12 @@ if ( isset( $session ) ) {
 		$_SESSION['FBID'] = $fbid;
 		header( "Location: ".URL );
 	}else{
-		header( "Location: ".URL.'?facebook=error&email='.$femail.'&message=Ya-se-encuentra-registrado-con-el-correo:'.$femail );
+		if ( verificarFacebookId($fbid) ) {
+			$_SESSION['FBID'] = $fbid;
+			header( "Location: ".URL );	
+		}else{
+			header( "Location: ".URL.'?facebook=error&email='.$femail.'&message=Ya-se-encuentra-registrado-con-el-correo:'.$femail );
+		}
 	}
 	/*echo "<pre>";
 	var_dump(URL);
@@ -57,7 +62,7 @@ if ( isset( $session ) ) {
 
 } else {
 	
-	$loginUrl = $helper->getLoginUrl(array('redirect_uri' => $_SERVER['SCRIPT_URI'],'scope' => 'user_about_me'));
+	$loginUrl = $helper->getLoginUrl();
 	header("Location: ".$loginUrl);
 	
 }
