@@ -22,6 +22,9 @@
 			case 'registro':
 				registroDeUsuarios();
 				break;
+			case 'registroDeUsuariosFacebook':
+				registroDeUsuariosFacebook();
+				break;
 			case 'login':
 				inicioSesion();
 				break;
@@ -364,6 +367,52 @@
 					) VALUES (
 						'$email',
 						'".md5($password)."',
+						'0',
+						'1',
+						'0'
+					)
+			")){
+				$result['error'] = 0;
+				$result['message'] = 'Ha ocurrido un error en el registro de usuario.';
+				echo json_encode($result);
+				return;
+			}else{
+				$_SESSION['id']=mysqli_insert_id($con);
+				agregaListaNewsletter($_POST['email']);
+				$result['error'] = 1;
+				$result['message'] = 'Registro exitoso.';
+				echo json_encode($result);
+				return;
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = 'Error. No se ha enviado el correo y el password.';
+			echo json_encode($result);
+			return;
+		}
+	}
+	function registroDeUsuariosFacebook($fbId, $nombreCompleto, $nombre, $apellido, $email)
+	{
+		global $con;
+		
+		if ( !empty($email) && verificaEmailRegistro($email) ) {
+			if(!mysqli_query($con, "
+				INSERT INTO
+					usuarios (
+						fbId,
+						nombreCompleto,
+						nombre,
+						apellido,
+						email,
+						status,
+						optin,
+						perfil
+					) VALUES (
+						'$fbId',
+						'$nombreCompleto',
+						'$nombre',
+						'$apellido',
+						'$email',
 						'0',
 						'1',
 						'0'
@@ -1042,7 +1091,7 @@
 	{
 		global $con;
 
-		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[frEmail]'");
+		/*$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[frEmail]'");
 		$n=mysqli_num_rows($q);
 		if($n>0){
 			mysqli_query($con, "DELETE FROM usuarios WHERE id = '$_SESSION[id]'");
@@ -1054,7 +1103,7 @@
 			
 			echo json_encode($result);
 			return;
-		}
+		}*/
 
 		if(!mysqli_query($con, "
 		   UPDATE
@@ -1097,12 +1146,23 @@
 	function verificaEmailRegistro()
 	{
 		global $con;
-		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
-		$n=mysqli_num_rows($q);
-		if($n>0){
-			echo "false";
+		if (func_num_args() == 1) {
+			$args = func_get_args();
+			$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$args[0]'");
+			$n=mysqli_num_rows($q);
+			if($n>0){
+				return false;
+			}else{
+				return true;
+			}
 		}else{
-			echo "true";
+			$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
+			$n=mysqli_num_rows($q);
+			if($n>0){
+				echo "false";
+			}else{
+				echo "true";
+			}
 		}
 	}
 	
