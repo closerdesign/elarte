@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('config.php');
+require('php.php');
 $url_referrer = urlencode($_REQUEST['url']);
 // added in v4.0.0
 define('FACEBOOK_SDK_V4_SRC_DIR', 'Facebook/');
@@ -43,7 +44,7 @@ if ( isset( $session ) ) {
 
 	/* ---- Session Variables -----*/
 	$_SESSION['FBID'] = $fbid;
-	
+	registroDeUsuariosFacebook($fbid, $fbfullname, $firstName, $lastName, $femail);
 	/* ---- header location after session ----*/
 	header( "Location: $_REQUEST[url]" );
 
