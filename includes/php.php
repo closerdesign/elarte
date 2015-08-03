@@ -394,47 +394,54 @@
 	function registroDeUsuariosFacebook($fbId, $nombreCompleto, $nombre, $apellido, $email)
 	{
 		global $con;
-		
-		if ( !empty($email) && verificaEmailRegistro($email) ) {
-			if(!mysqli_query($con, "
-				INSERT INTO
-					usuarios (
-						fbId,
-						nombreCompleto,
-						nombre,
-						apellido,
-						email,
-						status,
-						optin,
-						perfil
-					) VALUES (
-						'$fbId',
-						'$nombreCompleto',
-						'$nombre',
-						'$apellido',
-						'$email',
-						'0',
-						'1',
-						'0'
-					)
-			")){
-				$result['error'] = 0;
-				$result['message'] = 'Ha ocurrido un error en el registro de usuario.';
-				echo json_encode($result);
-				return;
+
+		if ( !empty($email) ) {
+			if ( verificaEmailRegistro($email) ) {
+				if(!mysqli_query($con, "
+					INSERT INTO
+						usuarios (
+							fbId,
+							nombreCompleto,
+							nombre,
+							apellido,
+							email,
+							status,
+							optin,
+							perfil
+						) VALUES (
+							'$fbId',
+							'$nombreCompleto',
+							'$nombre',
+							'$apellido',
+							'$email',
+							'0',
+							'1',
+							'0'
+						)
+				")){
+					$result['error'] = 0;
+					$result['message'] = 'Ha ocurrido un error en el registro de usuario.';
+					/*echo json_encode($result);*/
+					return false;
+				}else{
+					$_SESSION['id']=mysqli_insert_id($con);
+					agregaListaNewsletter($_POST['email']);
+					$result['error'] = 1;
+					$result['message'] = 'Registro exitoso.';
+					/*echo json_encode($result);*/
+					return true;
+				}
 			}else{
-				$_SESSION['id']=mysqli_insert_id($con);
-				agregaListaNewsletter($_POST['email']);
-				$result['error'] = 1;
-				$result['message'] = 'Registro exitoso.';
-				echo json_encode($result);
-				return;
+				$result['error'] = 0;
+				$result['message'] = 'Error. El correo ya esta registrado.';
+				/*echo json_encode($result);*/
+				return false;	
 			}
 		}else{
 			$result['error'] = 0;
-			$result['message'] = 'Error. No se ha enviado el correo y el password.';
-			echo json_encode($result);
-			return;
+			$result['message'] = 'Error. No se ha enviado el correo.';
+			/*echo json_encode($result);*/
+			return false;
 		}
 	}
 	
