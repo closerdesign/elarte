@@ -80,7 +80,8 @@
 							</div>
 						</div>
 						
-						<?php if(
+						<?php 
+							/*if(
 								($data['programas_especiales']>0) &&
 								(!isset($_SESSION['id']))
 							){
@@ -92,7 +93,7 @@
 									</div>
 								</div>
 								<?php
-							}else{ ?>
+							}else{ */?>
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12 articulo-detalle">
 									
@@ -268,7 +269,7 @@
 									?>
 								</div>
 							</div>		
-							<?php } ?>
+							<?php /*}*/ ?>
 						
 						<!-- INICIO DE BANNER MOVIL CAMPAÑA -->
 						<div class="row">
