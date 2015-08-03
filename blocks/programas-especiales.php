@@ -3,10 +3,12 @@
 		<div class="col-md-12">
 			<?php if(!isset($_REQUEST['alias'])){ ?>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 ProgramasEspeciales">
 					<h2>Programas especiales</h2>
-					<p>Estos programas son espacios dirigidos por especialistas reconocidos en diversas áreas de.</p>
-					<p class="lead">Por favor seleccione uno de nuestros programas:</p>
+					<br>
+					<br>
+					<!-- <p>Estos programas son espacios dirigidos por especialistas reconocidos en diversas áreas de.</p>
+					<p class="lead">Por favor seleccione uno de nuestros programas:</p> -->
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="card">
@@ -44,6 +46,7 @@
 							</div>
 						</div>
 					</div>
+					<br>
 					<br>
 					<div class="row">
 						<div class="col-lg-3">
@@ -83,6 +86,7 @@
 						</div>
 					</div>
 					<br>
+					<br>
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="card">
@@ -120,6 +124,7 @@
 							</div>
 						</div>
 					</div>
+					<br>
 					<br>
 					<div class="row">
 						<div class="col-lg-3">
