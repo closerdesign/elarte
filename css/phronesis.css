@@ -1566,3 +1566,6 @@ img.mfp-img {
 	display: block;
 	margin: 0 0 1rem;
 }
+.ProgramasEspeciales .front{
+	position: relative;
+}
