@@ -243,5 +243,15 @@
 		<?php
 	}
 	
+	if ( !empty($_GET['facebook']) && $_GET['facebook'] == 'error' && !empty( $_GET['message'] ) ) {
+	?>
+	<script type="text/javascript">
+		modal('Error','<p>El correo <?php echo $_GET["email"]; ?> ya está registrado, por favor intente ingresar con su cuenta previamente registrada.</p><p>Si no recuerda los datos de su cuenta puede acceder a la opción recuperar contraseña de la ventana de Iniciar Sesión.</p>');
+		$('#myModalVacio').on('hide.bs.modal', function (e) {
+			location.reload();
+		});
+	</script>
+<?php
+	}
 ?>	
 </html><!--  -->

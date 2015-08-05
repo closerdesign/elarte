@@ -1570,3 +1570,14 @@ img.mfp-img {
 .franja-conferencia a{
 	color: #F8C71A;
 }
+.DescripcionPrograma .DescripcionPrograma-titulo{
+	margin: 0;
+	font-weight: bold;
+}
+.DescripcionPrograma .DescripcionPrograma-subTitulo{
+	display: block;
+	margin: 0 0 1rem;
+}
+.ProgramasEspeciales .front{
+	position: relative;
+}

@@ -22,6 +22,9 @@
 			case 'registro':
 				registroDeUsuarios();
 				break;
+			case 'registroDeUsuariosFacebook':
+				registroDeUsuariosFacebook();
+				break;
 			case 'login':
 				inicioSesion();
 				break;
@@ -386,6 +389,59 @@
 			$result['message'] = 'Error. No se ha enviado el correo y el password.';
 			echo json_encode($result);
 			return;
+		}
+	}
+	function registroDeUsuariosFacebook($fbId, $nombreCompleto, $nombre, $apellido, $email)
+	{
+		global $con;
+
+		if ( !empty($email) ) {
+			if ( verificaEmailRegistro($email) ) {
+				if(!mysqli_query($con, "
+					INSERT INTO
+						usuarios (
+							fbId,
+							nombreCompleto,
+							nombre,
+							apellido,
+							email,
+							status,
+							optin,
+							perfil
+						) VALUES (
+							'$fbId',
+							'$nombreCompleto',
+							'$nombre',
+							'$apellido',
+							'$email',
+							'0',
+							'1',
+							'0'
+						)
+				")){
+					$result['error'] = 0;
+					$result['message'] = 'Ha ocurrido un error en el registro de usuario.';
+					/*echo json_encode($result);*/
+					return false;
+				}else{
+					$_SESSION['id']=mysqli_insert_id($con);
+					agregaListaNewsletter($_POST['email']);
+					$result['error'] = 1;
+					$result['message'] = 'Registro exitoso.';
+					/*echo json_encode($result);*/
+					return true;
+				}
+			}else{
+				$result['error'] = 0;
+				$result['message'] = 'Error. El correo ya esta registrado.';
+				/*echo json_encode($result);*/
+				return false;	
+			}
+		}else{
+			$result['error'] = 0;
+			$result['message'] = 'Error. No se ha enviado el correo.';
+			/*echo json_encode($result);*/
+			return false;
 		}
 	}
 	
@@ -1041,6 +1097,21 @@
 	function finRegistro()
 	{
 		global $con;
+
+		/*$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[frEmail]'");
+		$n=mysqli_num_rows($q);
+		if($n>0){
+			mysqli_query($con, "DELETE FROM usuarios WHERE id = '$_SESSION[id]'");
+			$result['error'] = 3;
+			
+			cerrarSesion();
+			unset($_COOKIE['pedido']);
+		    setcookie('pedido', null, -1, '/');
+			
+			echo json_encode($result);
+			return;
+		}*/
+
 		if(!mysqli_query($con, "
 		   UPDATE
 		   	usuarios
@@ -1064,6 +1135,7 @@
 		}
 		$result['error'] = 0;
 		echo json_encode($result);
+		return;
 	}
 	
 	function verificaEmail()
@@ -1081,15 +1153,39 @@
 	function verificaEmailRegistro()
 	{
 		global $con;
-		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
-		$n=mysqli_num_rows($q);
-		if($n>0){
-			echo "false";
+		if (func_num_args() == 1) {
+			$args = func_get_args();
+			$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$args[0]'");
+			$n=mysqli_num_rows($q);
+			if($n>0){
+				return false;
+			}else{
+				return true;
+			}
 		}else{
-			echo "true";
+			$q=mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$_POST[email]'");
+			$n=mysqli_num_rows($q);
+			if($n>0){
+				echo "false";
+			}else{
+				echo "true";
+			}
 		}
 	}
 	
+	function verificarFacebookId($fbId)
+	{
+		global $con;
+		$args = func_get_args();
+		$q=mysqli_query($con, "SELECT email FROM usuarios WHERE fbId = '$fbId'");
+		$n=mysqli_num_rows($q);
+		if($n>0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	// Finalizar registro Facebook
 	function emailFacebook()
 	{
@@ -2111,11 +2207,11 @@
 					}
 				}
 				
-				$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
+				/*$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
 				$result = mysqli_query($con, $query);
 				if($result) {
 					actualizarOrden($p['id'], $estado, null);
-				}
+				}*/
 			}
 		}
 	/*	$payment = getPaymentDetails('PAY-76C05577WN522352PKWT6ZLA');

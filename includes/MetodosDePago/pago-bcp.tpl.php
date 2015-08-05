@@ -14,7 +14,7 @@
 					Le agradecemos que revise atentamente el email que enviaremos a su cuenta <?= getEmailUsuario($_SESSION['id']); ?> para evitar inconvenientes en su proceso de pago.
 				</p>
 				<input type="hidden" name="noDocumentoBcp" id="noDocumentoBcp" value="900476732" />
-				<input type="hidden" name="noPedido" id="noPedido" value="CONF<?= $_SESSION['id']; ?>" />
+				<input type="hidden" name="noPedido" id="noPedido" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
 				<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor; ?>" />
 				<input type="hidden" name="consulta" id="consulta" value="bcpRequest" />
 				<input type="hidden" name="nombreBcp" id="nombreBcp" value="<?= getNombreUsuario($_SESSION['id']); ?> <?= getApellidoUsuario($_SESSION['id']); ?>" />

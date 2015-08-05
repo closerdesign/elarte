@@ -964,21 +964,32 @@
 				$sql= 'UPDATE
 						pedidos
 					SET
-						' . ( $lapTransactionState == 'PENDING' ? 'status = \'0\' ' : '' ) . '
-						' . ( $lapTransactionState == 'APPROVED' ? 'status = \'1\' ' : '' ) . '
+						' . ( $lapTransactionState == 'PENDING' ? 'status = \'1\' ' : '' ) . '
+						' . ( $lapTransactionState == 'APPROVED' ? 'status = \'2\' ' : '' ) . '
 						' . ( $lapTransactionState == 'DECLINED' ? 'status = \'3\' ' : '' ) . '
-						' . ( $lapTransactionState == 'ERROR' ? 'status = \'4\' ' : '' ) . '
-						' . ( $lapTransactionState == 'EXPIRED' ? 'status = \'5\' ' : '' ) . ',
+						' . ( $lapTransactionState == 'ERROR' ? 'status = \'3\' ' : '' ) . '
+						' . ( $lapTransactionState == 'EXPIRED' ? 'status = \'3\' ' : '' ) . ',
 						state = \'' . $lapTransactionState . '\',
 						pendingReason = \'' . $lapTransactionState . '_' . $lapResponseCode .'\',
 						responseCode = \'' . $lapResponseCode . '\'
-					WHERE id = \'' . $referenceCode . '\'
+					WHERE transactionId = \'' . $transactionId . '\'
 					';
 				if(!mysqli_query($con, $sql)){
 					$consulta = 'no exitosa: ';
 				}else{
 					$consulta = 'exitosa: ';
 				}
+
+				$qRecoge=mysqli_query($con, "
+					SELECT 
+						id
+					FROM 
+						pedidos
+					WHERE 
+						transactionId like '$transactionId'
+				");
+			
+				$p = mysqli_fetch_assoc($qRecoge);
 
 				if ( $lapTransactionState == 'APPROVED' 
 					&& $transactionState == 4
@@ -987,7 +998,7 @@
 					&& $polResponseCode == 1
 				) {
 					$user_message = 'Transacción aprobada';
-					entregarPedido($referenceCode);
+					entregarPedido($p['id']);
 					$message_successs = 'Para acceder a las obras que acabas de adquirir ingresa a <a href="https://www.elartedesabervivir.com/mi-cuenta/mis-publicaciones">tu biblioteca</a>.';
 				}
 

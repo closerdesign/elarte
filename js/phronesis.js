@@ -732,9 +732,19 @@ $('#formFinalizaRegistro').validate({
 			data: $('#formFinalizaRegistro').serialize(),
 		})
 		.done(function(data) {
-			if(data.error !=1){
+			if(data.error === 0){
 				alert('Se presentó un error. Por favor intente de nuevo');
 				location.reload();
+			}else if(data.error === 3){
+				$('#myModalCompletaRegistro').modal('hide');
+				$.removeCookie('pedido');
+				$.removeCookie('session');
+				$.removeCookie('modal');
+				$.removeCookie('e');
+				modal('Error','<p>Este correo ya está registrado, por favor intente ingresar con su cuenta previamente registrada.</p><p>Si no recuerda los datos de su cuenta puede acceder a la opción recuperar contraseña de la ventana de Iniciar Sesión.</p>');
+				$('#myModalVacio').on('hide.bs.modal', function (e) {
+					location.reload();
+				});
 			} else {
 				location.reload();
 			}
@@ -1029,10 +1039,10 @@ function iniciaFb(fbId,url){
 		fbId: fbId,
 		url: url
 	}).done(function(data){
-		if(data === 0){
+		if(parseInt(data) === 0){
 			alert(data);
 		}
-		if(data === 1){
+		if(parseInt(data) === 1){
 			location.reload();
 		}
 	});
@@ -1197,6 +1207,7 @@ $('#cerrarFranja').click(function(){
 	$.cookie('franja',1);
 });
 
-function procesarPagoPaquete (idUsuario, metodo, transactionId, status, value) {
-	
+if (window.location.hash == '#_=_') {
+    window.location.hash = ''; // for older browsers, leaves a # behind
+    history.pushState('', document.title, window.location.pathname); // nice and clean
 }

@@ -1,3 +1,10 @@
+
+<?php if ( isset($_REQUEST['task']) && $_REQUEST['task']=='reflexiones' ) {
+	require_once('blocks/mi-cuenta/reflexiones.php');
+	return;
+} ?>
+
+
 <?php if(!isset($_SESSION['id'])){
 	echo "
 	<div class='row'>

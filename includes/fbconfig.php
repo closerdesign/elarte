@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('config.php');
+require('php.php');
 $url_referrer = urlencode($_REQUEST['url']);
 // added in v4.0.0
 define('FACEBOOK_SDK_V4_SRC_DIR', 'Facebook/');
@@ -42,15 +43,25 @@ if ( isset( $session ) ) {
 	$femail = $graphObject->getProperty('email');    // To Get Facebook email ID
 
 	/* ---- Session Variables -----*/
-	$_SESSION['FBID'] = $fbid;
-	
+	if ( registroDeUsuariosFacebook($fbid, $fbfullname, $firstName, $lastName, $femail) ) {
+		$_SESSION['FBID'] = $fbid;
+		header( "Location: ".URL );
+	}else{
+		if ( verificarFacebookId($fbid) ) {
+			$_SESSION['FBID'] = $fbid;
+			header( "Location: ".URL );	
+		}else{
+			header( "Location: ".URL.'?facebook=error&email='.$femail.'&message=Ya-se-encuentra-registrado-con-el-correo:'.$femail );
+		}
+	}
+	/*echo "<pre>";
+	var_dump(URL);
+	echo "</pre>";
+	die();*/
 	/* ---- header location after session ----*/
-	header( "Location: $_REQUEST[url]" );
 
 } else {
-	
-	$loginUrl = $helper->getLoginUrl();
+	$loginUrl = $helper->getLoginUrl(array('redirect_uri' => $_SERVER['SCRIPT_URI'],'scope' => 'email,public_profile,user_friends'));
 	header("Location: ".$loginUrl);
-	
 }
 ?>
