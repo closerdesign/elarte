@@ -61,9 +61,7 @@ if ( isset( $session ) ) {
 	/* ---- header location after session ----*/
 
 } else {
-	
-	$loginUrl = $helper->getLoginUrl();
+	$loginUrl = $helper->getLoginUrl(array('redirect_uri' => $_SERVER['SCRIPT_URI'],'scope' => 'email,public_profile,user_friends'));
 	header("Location: ".$loginUrl);
-	
 }
 ?>
