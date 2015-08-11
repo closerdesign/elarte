@@ -544,24 +544,45 @@
 			$sql="SELECT * FROM articulos WHERE id = '$val'";
 			$q=mysqli_query($con, $sql);
 			$data=mysqli_fetch_array($q);
+
+			if ( (int)$data['programas_especiales'] > 0 ) {
+				$alias = getProgramaData( (int)$data['programas_especiales'] );
+			}
+			$titulo = $data['titulo'];
+			$titulo = str_replace(' ', '-', $titulo);
+			$unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
+                            'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
+                            'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c',
+                            'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o',
+                            'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
+			$titulo = strtr( $titulo, $unwanted_array );
+			$titulo = preg_replace('/[^A-Za-z0-9\-]/', '', $titulo);
+			
 			$html="";
 			$html.="
 				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s' >
 					<div class='articulos'>
-						<a href='/index.php?content=articulos&id=$data[id]'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$data[imagen]' alt='$data[titulo]' /></a>
+						<a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$data[imagen]' alt='$titulo' /></a>
 						<div class='articulos-inner'>
-							<h4><a href='/index.php?content=articulos&id=$data[id]'>$data[titulo]</a></h4>
+							<h4><a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'>$data[titulo]</a></h4>
 							<p>".custom_echo(strip_tags($data['contenido']))."</p>
 						</div>
 					</div>
 					<div class='cta-blog'>
-						<p><a href='/index.php?content=articulos&id=$data[id]'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
+						<p><a data-programa='".(int)$data['programas_especiales']."' href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
 					</div>
 				</div>
 			";
 			return $html;
 		}
 		
+		function getProgramaData($id)
+		{
+			global $con;
+			$data = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM programas_especiales WHERE id_programa = '$id'"));
+			return $data;
+		}
+
 		// OBTENER EL IDENTIFICADOR DEL PROGRAMA ESPECIAL
 		function getIdPrograma($val){
 			global $con;

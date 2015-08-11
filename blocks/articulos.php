@@ -1,3 +1,4 @@
+<?php if ( !isset($_REQUEST['slug']) ) : ?>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
@@ -13,20 +14,22 @@
 					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<?php
-								$sql="SELECT * FROM categorias WHERE status = 1 AND id != 1 ORDER BY nombre ASC";
-								$q=mysqli_query($con, $sql);
-								while($categorias=mysqli_fetch_assoc($q)){
-									$sql1="SELECT * FROM articulos WHERE categoria LIKE '%$categorias[id]%'";
-									$q1=mysqli_query($con, $sql1);
-									$n1=mysqli_num_rows($q1);
-									$active="";
-									if( isset($_REQUEST['categoria']) && $_REQUEST['categoria']==$categorias['id']){
-										$active="active";
+								
+									$sql="SELECT * FROM categorias WHERE status = 1 AND id != 1 ORDER BY nombre ASC";
+									$q=mysqli_query($con, $sql);
+									while($categorias=mysqli_fetch_assoc($q)){
+										$sql1="SELECT * FROM articulos WHERE categoria LIKE '%$categorias[id]%'";
+										$q1=mysqli_query($con, $sql1);
+										$n1=mysqli_num_rows($q1);
+										$active="";
+										if( isset($_REQUEST['categoria']) && $_REQUEST['categoria']==$categorias['id']){
+											$active="active";
+										}
+										if($n1>0){
+											echo('<li class="'.$active.'"><a href="/index.php?content=articulos&categoria='.$categorias['id'].'">'.$categorias['nombre'].'</a></li>');
+										}
 									}
-									if($n1>0){
-										echo('<li class="'.$active.'"><a href="/index.php?content=articulos&categoria='.$categorias['id'].'">'.$categorias['nombre'].'</a></li>');
-									}
-								}
+								
 							?>
 						</ul>
 					</div>
@@ -37,6 +40,7 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <?php
 	$n=0;
 	if(isset($_REQUEST['id'])===true){
