@@ -1,4 +1,4 @@
-<?php if(!isset($_COOKIE['franja'])){ ?>
+<?php /*if(!isset($_COOKIE['franja'])){ ?>
 <div class="franja-conferencia">
 	<div class="container">
 		<div class="row">
@@ -11,4 +11,4 @@
 		</div>
 	</div>
 </div>
-<?php } ?>
+<?php }*/ ?>
