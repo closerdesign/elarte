@@ -368,18 +368,30 @@
 		return $data['nombre'];
 	}
 	
-	function getDataPaquete($paquete){
-		global $con;
-		$data = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM paquetes WHERE idPaquete = '$paquete'"));
-		return $data;
-	}
-	
 	function getPrecioPaquete($val){
 		global $con;
 		$sql="SELECT precio FROM paquetes WHERE idPaquete = '$val'";
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
 		return $data['precio'];
+	}
+	
+	function getDataPaquete($val){
+		global $con;
+		$sql="SELECT * FROM paquetes WHERE idPaquete = '$val'";
+		$q=mysqli_query($con, $sql);
+		$data=mysqli_fetch_array($q);
+		return $data;
+	}
+	
+	function validaPaquete($val){
+		global $con;
+		$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM paquetes WHERE idPaquete = '$val'"));
+		if( $n != 1 ){
+			return 0;
+		}else{
+			return 1;
+		}
 	}
 	
 	function getPublicacionesPaquete($val){
@@ -468,7 +480,7 @@
 		$mail->Body = utf8_decode($html);
 		$mail->IsHTML(true);
 		$mail->AddAddress(getEmailUsuario($data['usuario']));
-		//$mail->AddBCC('juanc@closerdesign.co');
+		$mail->AddBCC('juanc@closerdesign.co');
 		//$mail->AddReplyTo($_POST['']);
 		if(!$sent_mail= $mail->Send()){
 			echo 'msg';
@@ -538,17 +550,6 @@
 			return "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 		}
 		
-		// VALIDACIÓN DE PAQUETES
-		function validaPaquete($paquete){
-			global $con;
-			$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM paquetes WHERE idPaquete = '$paquete' AND status = 1"));
-			if( $n == 1 ){
-				return 1;
-			}else{
-				return 0;
-			}
-		}
-		
 	/////////////////////////////////////////////////////////////////////////
 	
 	// GESTION DE ARTICULOS
@@ -565,6 +566,7 @@
 			if ( (int)$data['programas_especiales'] > 0 ) {
 				$alias = getProgramaData( (int)$data['programas_especiales'] );
 			}
+
 			$titulo = $data['titulo'];
 			$titulo = str_replace(' ', '-', $titulo);
 			$unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
@@ -574,7 +576,7 @@
                             'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
 			$titulo = strtr( $titulo, $unwanted_array );
 			$titulo = preg_replace('/[^A-Za-z0-9\-]/', '', $titulo);
-			
+
 			$html="";
 			$html.="
 				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s' >
