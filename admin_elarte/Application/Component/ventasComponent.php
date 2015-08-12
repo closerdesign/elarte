@@ -58,6 +58,15 @@ function mostrarPedidos()
 	}
 	
 	
+	$query = "SELECT SUM(pedidos.valor) valor  FROM pedidos WHERE status = 2 AND creado >= '2015/07/01' AND creado < '2015/08/01' AND valor <>  ''";	
+	$q->ejecutar($query, "");
+	if($q->Cargar())
+	{
+		$valor_total_mes_pedidos = $q->dato('valor');
+		$valor_total_mes_pedidos = number_format($valor_total_mes_pedidos, 2, '.', ',');
+	}
+	
+	
 	
 	///////////
 	
@@ -94,6 +103,14 @@ function mostrarPedidos()
 		$valor_total_antesAntesAyer_inscripcion = number_format($valor_total_antesAntesAyer_inscripcion, 2, '.', ',');
 	}
 	
+	$query = "SELECT SUM(valor_inscripcion) valor  FROM inscritos_conferencia WHERE estado_inscripcion = 1 AND creado >= '2015/07/01' AND creado < '2015/08/01' AND valor_inscripcion <>  ''";	
+	$q->ejecutar($query, "");
+	if($q->Cargar())
+	{
+		$valor_total_mes_inscripcion = $q->dato('valor');
+		$valor_total_mes_inscripcion = number_format($valor_total_mes_inscripcion, 2, '.', ',');
+	}
+	
 	
 
 	echo "
@@ -101,13 +118,16 @@ function mostrarPedidos()
 		HOY: $$valor_total_hoy<br>
 		AYER: $$valor_total_ayer<br>
 		ANTES DE AYER: $$valor_total_antes_ayer<br>
-		ANTES ANTES DE AYER: $$valor_total_antes_antes_ayer<br><br><br>
+		ANTES ANTES DE AYER: $$valor_total_antes_antes_ayer<br>
+		MES: $valor_total_mes_pedidos
+		<br><br><br>
 		
 		INSCRIPCIONES:<br>
 		HOY: $$valor_total_hoy_inscripcion<br>
 		AYER: $$valor_total_ayer_inscripcion<br>
 		ANTES DE AYER: $$valor_total_antesAyer_inscripcion<br>
 		ANTES ANTES DE AYER: $$valor_total_antesAntesAyer_inscripcion<br>
+		MES: $valor_total_mes_inscripcion<br>
 	";
 
 

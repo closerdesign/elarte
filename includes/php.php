@@ -206,6 +206,9 @@
 			case 'validarListaPedidosPendientes':
 				validarListaPedidosPendientes();
 				break;
+			case 'aprobarPedidoNum':
+				aprobarPedidoNum();
+				break;
 			default:
 				# code...
 				break;
@@ -216,6 +219,28 @@
 		inscripcionesPendientes();
 	}*/
 
+	function aprobarPedidoNum()
+	{
+		$codigo = 'QazWsx123!';
+
+		if ( !empty($_GET['codigo']) && $_GET['codigo'] == $codigo && !empty($_GET['pedido']) && is_numeric($_GET['pedido']) ) {
+			$pedido_id = $_GET['pedido'];
+			$pedido_array = getPedido($pedido_id);
+			if ( !empty($pedido_array) ) {
+				if ( actualizaOrdenPaquete($pedido_id, 2, null, null, 'APPROVED', 'APPROVED', null) ){
+					if ( entregarPedido($pedido_id) ) {
+						echo "pedido entregado";
+					}else{
+						echo "problema al entregar el pedido";
+					}
+				}else{ 
+					echo "problema al actualizar el pedido";
+				}
+			}
+		}else{
+			echo "error en la consulta";
+		}
+	}
 	
 	function logErroresPagos()
 	{
@@ -719,7 +744,7 @@
 				$mail->IsHTML(true);
 				$usuario=mysqli_fetch_array(mysqli_query($con, "SELECT usuario FROM pedidos WHERE id = '$_POST[pedido]'"));
 				$mail->AddAddress(getEmailUsuario($usuario['usuario']));
-				$mail->AddBCC('juanc@closerdesign.co');
+				//$mail->AddBCC('juanc@closerdesign.co');
 				$mail->AddBCC('pfhurtado@phronesisvirtual.com');
 				//$mail->AddReplyTo($_POST['']);
 				if(!$sent_mail= $mail->Send()){

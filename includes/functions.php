@@ -368,6 +368,12 @@
 		return $data['nombre'];
 	}
 	
+	function getDataPaquete($paquete){
+		global $con;
+		$data = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM paquetes WHERE idPaquete = '$paquete'"));
+		return $data;
+	}
+	
 	function getPrecioPaquete($val){
 		global $con;
 		$sql="SELECT precio FROM paquetes WHERE idPaquete = '$val'";
@@ -462,7 +468,7 @@
 		$mail->Body = utf8_decode($html);
 		$mail->IsHTML(true);
 		$mail->AddAddress(getEmailUsuario($data['usuario']));
-		$mail->AddBCC('juanc@closerdesign.co');
+		//$mail->AddBCC('juanc@closerdesign.co');
 		//$mail->AddReplyTo($_POST['']);
 		if(!$sent_mail= $mail->Send()){
 			echo 'msg';
@@ -530,6 +536,17 @@
 		// OBTENER LA DIRECCIÓN ACTUAL
 		function getUrlActual(){
 			return "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		}
+		
+		// VALIDACIÓN DE PAQUETES
+		function validaPaquete($paquete){
+			global $con;
+			$n = mysqli_num_rows(mysqli_query($con, "SELECT * FROM paquetes WHERE idPaquete = '$paquete' AND status = 1"));
+			if( $n == 1 ){
+				return 1;
+			}else{
+				return 0;
+			}
 		}
 		
 	/////////////////////////////////////////////////////////////////////////
