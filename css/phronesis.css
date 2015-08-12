@@ -1578,6 +1578,9 @@ img.mfp-img {
 	display: block;
 	margin: 0 0 1rem;
 }
+.DescripcionPrograma-autorAbout{
+	text-align: justify;
+}
 .ProgramasEspeciales .front{
 	position: relative;
 }

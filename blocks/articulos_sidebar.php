@@ -21,21 +21,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12">
-			<div class="banner300x250">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Web App - Artículos Categoría Der 1 -->
-				<ins class="adsbygoogle"
-				     style="display:inline-block;width:300px;height:250px"
-				     data-ad-client="ca-pub-5955686545071577"
-				     data-ad-slot="2903925647"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-			</div>
-		</div>
-	</div>
+	
 	<div class="row">
 		<div class="lista-categorias">
 			<ul class="nav nav-pills nav-stacked">
