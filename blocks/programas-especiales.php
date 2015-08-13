@@ -236,12 +236,12 @@
 					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
-								<a href="/index.php?content=programas-especiales&alias=mente-sana-vida-sana">
+								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
 									Articulos
 								</a>
 							</li>
 							<li class="">
-								<a href="#">
+								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
 									Documentos y herramientas de ayuda
 								</a>
 							</li>
@@ -295,13 +295,13 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="active">
-									<a href="/index.php?content=programas-especiales&alias=angeles-caidos-o-antropoides-erguidos">
+								<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
+									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
 										Articulos
 									</a>
 								</li>
 								<li class="">
-									<a href="#">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
 										Documentos y herramientas de ayuda
 									</a>
 								</li>
@@ -356,13 +356,13 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
-									<li class="active">
-										<a href="/index.php?content=programas-especiales&alias=el-arte-y-la-virtud-del-cuidado">
+									<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
+										<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
 											Articulos
 										</a>
 									</li>
 									<li class="">
-										<a href="#">
+										<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
 											Documentos y herramientas de ayuda
 										</a>
 									</li>
