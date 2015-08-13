@@ -240,8 +240,19 @@
 			
 		});
 		
+		
 
 	});
 
-			
+	function indiceMasaCorporal () {
+
+			var string = '<div>';
+				string += '<iframe src="http://widgets.calculatestuff.com/?token=1e3ba18e1113" frameborder="0" width="100%" height="500" scrolling="no" style="border:none;" id="1e3ba18e1113"></iframe>';
+				string += '<script type="text/javascript">';
+				string += '(function() {var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src="http://cdn.calculatestuff.com/resizer.js";(document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(s);})();';
+				string += '</scr'+'ipt>';
+				string += '</div>';
+				
+				modal('prueba', string);
+	}	
 </script>
