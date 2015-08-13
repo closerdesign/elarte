@@ -187,6 +187,12 @@
 			case 'requestPayPalPaquete':
 				requestPayPalPaquete();
 				break;
+			case 'descargarArchivosProgramas':
+				descargarArchivosProgramas();
+				break;
+			case 'validarLoggeo':
+				validarLoggeo();
+				break;
 			default:
 				break;
 		}
@@ -218,6 +224,39 @@
 	/*if ( $argv[1] == 'inscripcionesPendientes' ) {
 		inscripcionesPendientes();
 	}*/
+
+	function descargarArchivosProgramas()
+	{
+		chdir('..');
+
+		$path = getcwd().'/archivos-programas/';
+
+		chdir('includes');
+
+		$fichero = $_POST['file_name'];
+		$alias = $_POST['alias'].'/';
+		$fichero = $path.$alias.$fichero;
+
+		if (class_exists('finfo')) {
+			$finfo = new finfo(FILEINFO_MIME_TYPE);
+			if (is_object($finfo)) {
+				if (file_exists($fichero)) {
+				    header('Content-Description: File Transfer');
+				    header('Content-Type: '.$finfo->file($fichero));
+				    header('Content-Disposition: attachment; filename='.basename($fichero));
+				    header('Expires: 0');
+				    header('Cache-Control: must-revalidate');
+				    header('Pragma: public');
+				    header('Content-Length: ' . filesize($fichero));
+				    readfile($fichero);
+				    exit;
+				}
+			}
+		} else {
+			echo 'fileinfo did not installed';
+		}
+		die('Hay problema con tus archivos.');
+	}
 
 	function aprobarPedidoNum()
 	{
@@ -2951,7 +2990,19 @@
 			}
 		}
 	}
-		
+	
+
+	function validarLoggeo()
+	{
+		if ( empty($_SESSION['id']) ) {
+			$result['error'] = 1;
+		}else{
+			$result['error'] = 0;
+		}
+		echo json_encode($result);
+		return;
+	}
+
 	/////////////////////////////////////////////////////////////////////////
 	
 	// CRON JOBS
