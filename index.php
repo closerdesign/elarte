@@ -59,6 +59,8 @@
 			require_once('blocks/darse-de-baja.php');
 		}elseif($_REQUEST['content']=='programas-especiales'){
 			require_once('blocks/programas-especiales.php');
+		}elseif($_REQUEST['content']=='archivos-programas'){
+			require_once('blocks/archivos-programas.php');
 		}else{
 			require_once('blocks/articulos.php');
 		}
