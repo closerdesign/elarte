@@ -1,5 +1,4 @@
 <?php
-	
 	// NAVEGACIÓN
 	// GESTION DE ARTICULOS
 	// NOTIFICACIONES
@@ -129,17 +128,17 @@
 			           remainingDuration: true,
 			           toggleDuration: true
 			         });	
-			   	})
+			   	});
 			   	$(".btnDemo'.$val.'").click(function(){
 			   		$("#jquery_jplayer_'.$val.'").jPlayer("play");
 			   		$(".btnDemo'.$val.'").hide();
 			   		$(".btnStop'.$val.'").show();
-			   	})
+			   	});
 			   	$(".btnStop'.$val.'").click(function(){
 			   		$("#jquery_jplayer_'.$val.'").jPlayer("stop");
 			   		$(".btnDemo'.$val.'").show();
 			   		$(".btnStop'.$val.'").hide();
-			   	})
+			   	});
 		   </script>
 		   <div id="jquery_jplayer_'.$val.'" class="jp-jplayer"></div>
 		';
@@ -568,6 +567,32 @@
 			$titulo = preg_replace('/[^A-Za-z0-9\-]/', '', $titulo);
 
 			return $titulo;
+		}
+
+		function inject_ad_text_after_n_chars($content) {
+			$enable_length = 1500;
+			$after_character = 1000;
+			if ( (strlen($content) > $enable_length)) {
+				$before_content = substr($content, 0, $after_character);
+				$after_content = substr($content, $after_character);
+				$after_content = explode('</p>', $after_content);
+				$str_to_insert = '<div class="banner300x250" style="float: right; margin-left: 1rem;">
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Web App - Artículos Categoría Der 1 -->
+					<ins class="adsbygoogle"
+					     style="display:inline-block;width:300px;height:250px"
+					     data-ad-client="ca-pub-5955686545071577"
+					     data-ad-slot="2903925647"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>';
+				array_splice($after_content, 1, 0, $str_to_insert);
+				$after_content = implode('</p>', $after_content);
+				return $before_content . $after_content;
+			} else {
+				return $content;
+			}
 		}
 
 		// LLAMAR ARTICULO

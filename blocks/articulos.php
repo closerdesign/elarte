@@ -373,6 +373,8 @@
 
 												$newstr = substr_replace($data['contenido'], $str_to_insert, $length, 0);
 
+												$newstr = inject_ad_text_after_n_chars($data['contenido']);
+
 												echo $newstr;
 											?>
 										</div>
