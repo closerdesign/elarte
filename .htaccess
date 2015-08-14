@@ -42,14 +42,6 @@ RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} mi-cuenta
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
-# ARTICULOS PROGRAMAS ESPECIALES ARCHIVOS
-RewriteCond %{THE_REQUEST} \?content=archivos-programas&alias=([^&\ ]*)&section=([^&\ ]*)? [NC]
-RewriteRule ^ /programas-especiales/%1/%2? [L,R=301]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^programas-especiales/([^&\ ]*)/([^&\ ]*)$ /index.php?content=archivos-programas&alias=$1&section=$2 [L]
-
 # ARTÍCULOS PROGRAMAS ESPECIALES
 RewriteCond %{THE_REQUEST} \?slug=programas-especiales&alias=([^&\ ]*)&content=articulos&titulo=([^&\ ]*)&id=([^&\ ]+)($|\ )
 RewriteRule ^ /programas-especiales/%1/%2-%3? [L,R=301]
@@ -57,6 +49,17 @@ RewriteRule ^ /programas-especiales/%1/%2-%3? [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^programas-especiales/([^&\ ]*)/([^&\ ]*)-([^&\ ]*)$ /index.php?slug=programas-especiales&alias=$1&content=articulos&titulo=$2&id=$3 [L]
+
+# ARTICULOS PROGRAMAS ESPECIALES ARCHIVOS
+# index.php?slug=programas-especiales&alias=mente-sana-vida-sana&content=articulos&titulo=Los-rumiadores-y-el-estado-de-animo&id=728
+# index.php?content=archivos-programas&alias=mente-sana-vida-sana&section=documentos
+
+RewriteCond %{THE_REQUEST} \?content=archivos-programas&alias=([^&\ ]*)&section=([^&\ ]*)? [NC]
+RewriteRule ^ /programas-especiales/%1/%2? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^programas-especiales/([^&\ ]*)/([^&\ ]*)$ /index.php?content=archivos-programas&alias=$1&section=$2 [L]
 
 # CONTENIDO BÁSICO
 RewriteCond %{THE_REQUEST} \?content=([^&\ ]+)($|\ )
