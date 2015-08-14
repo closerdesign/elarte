@@ -2968,6 +2968,7 @@
 			(SELECT id, titulo, contenido FROM articulos WHERE titulo LIKE '%" . 
 	           $_POST['buscarArticulo'] . "%' OR contenido LIKE '%" . $_POST['buscarArticulo'] ."%')
 		");
+		$html = '';
 		if(!$q){
 			echo 0;
 		}else{
@@ -2978,11 +2979,12 @@
 				$html.="";
 				$html.="<p class='pull-right'><b>$n resultados encontrados.</b></p>";
 				while($r = mysqli_fetch_assoc($q)){
+					$titulo = removeUnwantedChars($r['titulo']);
 					$html .= "<div class='row busquedaResultado'>";
 					$html .= "<div class='col-md-12'>";
-					$html .= "<p><b><a href='index.php?content=articulo&id=$r[id]'>$r[titulo]</a></b></p>";
+					$html .= "<p><b><a href='/index.php?content=articulos&titulo=$titulo&id=$r[id]'>$r[titulo]</a></b></p>";
 					$html .= "<p>".limit_words(strip_tags($r['contenido']),15)."</p>";
-					$html .= "<p><a href='index.php?content=articulo&id=$r[id]'>Leer artículo...</a></p>";
+					$html .= "<p><a href='/index.php?content=articulos&titulo=$titulo&id=$r[id]'>Leer artículo...</a></p>";
 					$html .= "</div>";
 					$html .= "</div>";
 				}
