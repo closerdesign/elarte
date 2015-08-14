@@ -191,24 +191,48 @@
 				$files2 = scandir($dir, 1);
 				$files = preg_grep('/^([^.])/', $files2);
 
-				if ( count($files) == 0 ) {
+				$special_links = array();
+				$special_title = array();
 			?>
-			<h4>No hay documentos en estos momentos.</h4>
-			<?php
-				}
 
-			?>
+				
 			<ul>
+			<?php 
+				if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'mente-sana-vida-sana' ) {
+					$special_links[] = 'data-jsfunction="indiceMasaCorporal"';
+					$special_title[] = 'Indice de masa corporal.';
+				}
+			?>
 			<?php
 				foreach ($files as $key => $value) {
 			?>
 				<li>
-					<a href="javascript:;" data-filename="<?php echo $value; ?>" data-alias="<?php echo $_REQUEST['alias']; ?>"><?php echo $value; ?></a>
+					<a href="javascript:;" data-filename="<?php echo $value; ?>" data-alias="<?php echo $_REQUEST['alias']; ?>">
+						<?php echo $value; ?>
+					</a>
+				</li>
+			<?php
+				}
+				foreach ($special_links as $key => $value) {
+			?>
+				<li>
+					<a href="javascript:;" <?php echo $value; ?> data-titulo="<?php echo $special_title[$key]; ?>">
+						<?php echo $special_title[$key]; ?>
+					</a>
 				</li>
 			<?php
 				}
 			?>
 			</ul>
+
+
+			<?php
+				if ( count($files) == 0 && count($special_links) == 0 ) {
+			?>
+				<h4>No hay documentos en estos momentos.</h4>
+			<?php
+				}
+			?>
 		</div>
 	</div>
 </div>
@@ -227,7 +251,7 @@
 			context: this
 		})
 		.done(function(data) {
-			if ( data.error == 0 ) {
+			if ( parseInt(data.error) === 0 ) {
 				$('<form action="http://www.elartedesabervivir.com/includes/php.php" method="POST"><input type="hidden" name="file_name" value="' + $(this).data('filename') + '" /> <input type="hidden" name="alias" value="' + $(this).data('alias') + '" /><input type="hidden" name="consulta" value="descargarArchivosProgramas" /></form>').appendTo('body').submit();
 			}else{
 				modal('Error al descargar el archivo', '<p>Debe estar registrado para poder descargar los documentos.</p>');
@@ -239,12 +263,18 @@
 		.always(function() {
 			
 		});
-		
-		
-
 	});
 
-	function indiceMasaCorporal () {
+	$('body').on('click', 'a[data-jsfunction]', function(event) {
+		event.preventDefault();
+		
+		var fn = window[$(this).data('jsfunction')];
+
+		console.log($(this).data('jsfunction'));
+		fn( $(this).data('titulo') );
+	});
+
+	function indiceMasaCorporal (titulo) {
 
 			var string = '<div>';
 				string += '<iframe src="http://widgets.calculatestuff.com/?token=1e3ba18e1113" frameborder="0" width="100%" height="500" scrolling="no" style="border:none;" id="1e3ba18e1113"></iframe>';
@@ -253,6 +283,6 @@
 				string += '</scr'+'ipt>';
 				string += '</div>';
 				
-				modal('prueba', string);
+				modal(titulo, string);
 	}	
 </script>
