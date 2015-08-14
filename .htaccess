@@ -70,12 +70,12 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^/]+)$ /index.php?content=$1 [L]
 
 # ARTÍCULOS
-RewriteCond %{THE_REQUEST} \?content=articulos&id=([^&\ ]+)($|\ )
-RewriteRule ^ /articulos/%1? [L,R=301]
+RewriteCond %{THE_REQUEST} \?content=articulos&titulo=([^&\ ]*)&id=([^&\ ]+)($|\ )? [NC]
+RewriteRule ^ /articulos/%1-%2? [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^articulos/([^/]+)$ /index.php?content=articulos&id=$1 [L]
+RewriteRule ^articulos/([^/]+)-([^&\ ]+)($|\ )$ /index.php?content=articulos&titulo=$1&id=$2 [L]
 
 # CATEGORÍAS
 RewriteCond %{THE_REQUEST} \?content=articulos&categoria=([^&\ ]+)($|\ )
