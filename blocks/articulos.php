@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h3 class="DescripcionPrograma-titulo">Mente sana, vida sana</h3>
-				<span class="DescripcionPrograma-subTitulo">Por Dra. Iris Luna (Psiquiatra y nutricionista)</span>
+				<span class="DescripcionPrograma-subTitulo">Por Dra. Iris Luna (Psiquiatra)</span>
 				<br>
 				<p>
 					Armonía entre cuerpo y mente. En este espacio la Dra. Iris Luna pretende a través de artículos, documentos, videos y otros materiales poner al alcance de nuestra comunidad herramientas y pautas para alcanzar un balance de bienestar entre cuerpo y mente.
@@ -446,6 +446,68 @@
 										</button>
 									</div>
 								</div>
+								<br>
+								<hr>
+								<div class="row">
+									<h3>Artículos recomedados</h3>
+									<?php
+										$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" ORDER BY RAND() LIMIT 3';
+										$result = mysqli_query($con, $sql_rel);
+										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
+										
+										/*echo "<pre>";
+										var_dump($data['categoria']);
+										echo "</pre>";*/
+										/*echo "<pre>";
+										var_dump(count($related_cat));
+										echo "</pre>";*/
+										$num_articles = mysqli_num_rows($result);
+
+										if ( $num_articles > 0 ) {
+											while($c = mysqli_fetch_assoc($result)){
+												$titulo = removeUnwantedChars($c['titulo']);
+									?>
+									<div class="col-lg-4">
+										<?php
+											if ( $c['programas_especiales'] > 0 ) {
+										?>
+										<a href="/index.php?slug=programas-especiales&alias=<?= $_REQUEST['alias'] ?>&content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>">
+										<?php
+											}else{
+										?>
+										<a href="/index.php?content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>">
+										<?php
+											}
+										?>
+											<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $c['imagen'] ?>" />
+										</a>
+
+										<?php
+											if ( $c['programas_especiales'] > 0 ) {
+										?>
+										<a href="/index.php?slug=programas-especiales&alias=<?= $_REQUEST['alias'] ?>&content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>">
+										<?php
+											}else{
+										?>
+										<a href="/index.php?content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>">
+										<?php
+											}
+										?>
+											<h3>
+												<?= strtok(wordwrap($c['titulo'], 40, "...\n"), "\n") ?>
+											</h3>
+										</a>
+										<p class="text-justify">
+											<?= substr(strip_tags($c['contenido']), 0, 200); ?>...
+										</p>
+									</div>
+									<?php
+											}
+										}
+
+									?>
+								</div>
+								<hr>
 								<br>
 								<div class="col-lg-12 col-md-12 col-sm-12">
 									<p class="lead">Comparte tus comentarios</p>

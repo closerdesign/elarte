@@ -8,7 +8,7 @@
 							<div class="col-lg-12">
 								<p><a class="btn btn-default" href='index.php?content=programas-especiales'><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a></p>
 								<h1 class="DescripcionPrograma-titulo">Mente sana, vida sana</h1>
-								<span class="DescripcionPrograma-subTitulo">Por Dra. Iris Luna (Psiquiatra y nutricionista)</span>
+								<span class="DescripcionPrograma-subTitulo">Por Dra. Iris Luna (Psiquiatra)</span>
 								<br>
 								<p>
 									Armonía entre cuerpo y mente. En este espacio la Dra. Iris Luna pretende a través de artículos, documentos, videos y otros materiales poner al alcance de nuestra comunidad herramientas y pautas para alcanzar un balance de bienestar entre cuerpo y mente.
