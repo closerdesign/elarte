@@ -328,10 +328,30 @@
 										</div>
 									</div>
 									
-									
+									<div class="row SocialMenu">
+										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
+											<?php
+												$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+												$actual_link = urlencode($actual_link);
+											?>
+											<button class="SocialMenu-button facebook" data-title="<?= $data['titulo']; ?>" data-href="https://www.facebook.com/share.php?u=<?= $actual_link ?>&title=<?= $data['titulo']; ?>">
+												<i class="fa fa-facebook"></i> Compartir en Facebook
+											</button>
+										</div>
+										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
+											<button class="SocialMenu-button twitter" data-title="<?= $data['titulo']; ?>" data-href="https://twitter.com/intent/tweet?status=<?= $data['titulo']; ?>+<?= $actual_link; ?>">
+												<i class="fa fa-twitter"></i> Compartir en Twitter
+											</button>
+										</div>
+										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
+											<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>">
+												<i class="fa fa-google"></i> Compartir en Google
+											</button>
+										</div>
+									</div>
 									
 									<div class="row articulos-compartir">
-										<div class="col-lg-4 col-md-4 col-sm-4">
+										<div class="col-lg-6 col-md-6 col-sm-6">
 											<?php
 												$favUser="";
 												if(isset($_SESSION['id'])){
@@ -342,11 +362,8 @@
 												<i class="fa fa-heart"></i> Agregar a favoritos
 											</button>
 										</div>
-										<div class="col-lg-4 col-md-4 col-sm-4">
+										<div class="col-lg-6 col-md-6 col-sm-6">
 											<button class="btn btn-primary compartirAmigo"><i class="fa fa-share-square-o"></i> Compartir con un amigo</button>
-										</div>
-										<div class="col-lg-4 col-md-4 col-sm-4">
-											<button class="btn btn-primary compartirFacebook"><i class="fa fa-facebook"></i> Compartir en Facebook</button>
 										</div>
 									</div>
 									
@@ -412,6 +429,24 @@
 										</script>
 									</div>
 								</div>
+								<div class="row SocialMenu">
+									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
+										<button class="SocialMenu-button facebook" data-title="<?= $data['titulo']; ?>" data-href="https://www.facebook.com/share.php?u=<?= $actual_link ?>&title=<?= $data['titulo']; ?>">
+											<i class="fa fa-facebook"></i> Compartir en Facebook
+										</button>
+									</div>
+									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
+										<button class="SocialMenu-button twitter" data-title="<?= $data['titulo']; ?>" data-href="https://twitter.com/intent/tweet?status=<?= $data['titulo']; ?>+<?= $actual_link; ?>">
+											<i class="fa fa-twitter"></i> Compartir en Twitter
+										</button>
+									</div>
+									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
+										<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>">
+											<i class="fa fa-google"></i> Compartir en Google
+										</button>
+									</div>
+								</div>
+								<br>
 								<div class="col-lg-12 col-md-12 col-sm-12">
 									<p class="lead">Comparte tus comentarios</p>
 									<?php
@@ -603,3 +638,13 @@
 		<?php
 	}
 ?>
+
+<script>
+	$('body').on('click', 'button[data-href]', function(event) {
+		event.preventDefault();
+		var url = $(this).data('href');
+		var title = $(this).data('title');
+		var features = 'scrollbars=yes,width=650,height=500';
+		window.open(url,title,features);
+	});
+</script>
