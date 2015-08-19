@@ -457,9 +457,9 @@
 										$result = mysqli_query($con, $sql_rel);
 										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
 										
-										echo "<pre>";
+										/*echo "<pre>";
 										var_dump($data['categoria']);
-										echo "</pre>";
+										echo "</pre>";*/
 										/*echo "<pre>";
 										var_dump(count($related_cat));
 										echo "</pre>";*/
