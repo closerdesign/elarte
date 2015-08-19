@@ -27,8 +27,8 @@
 	<title><?php echo $title; ?></title>
 	<meta property="og:image" content="<?php echo $img; ?>"/>
 	<meta property="og:title" content="<?php echo $title; ?>"/>
-	<meta property="og:description" content="<?php echo $description; ?>"/>
-	<meta name="description" content="<?php echo $description; ?>">
+	<meta property="og:description" content="<?php echo utf8_decode( str_replace('"',"'",$description) ); ?>"/>
+	<meta name="description" content="<?php echo utf8_decode( str_replace('"',"'",$description) ); ?>">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">

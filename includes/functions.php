@@ -333,7 +333,7 @@
 		$sql = "SELECT imagen FROM articulos WHERE id = $id_articulo";
 		$q = mysqli_query($con, $sql);
 		$data = mysqli_fetch_array($q);
-		$img = '/admin/_lib/file/imgarticulos/'.strip_tags($data['imagen']);
+		$img = 'http://www.elartedesabervivir.com/admin/_lib/file/imgarticulos/'.strip_tags($data['imagen']);
 		return $img;
 	}
 	
