@@ -199,7 +199,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="index.php?content=programas-especiales&alias=infantopsicología" class="btn btn-success btn-lg pull-right">Ingresar</a>
+									<a href="index.php?content=programas-especiales&alias=infantopsicologia" class="btn btn-success btn-lg pull-right">Ingresar</a>
 								</div>
 							</div>
 						</div>
