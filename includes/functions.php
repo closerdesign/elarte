@@ -479,8 +479,6 @@
 		$mail->Body = utf8_decode($html);
 		$mail->IsHTML(true);
 		$mail->AddAddress(getEmailUsuario($data['usuario']));
-		$mail->AddBCC('juanc@closerdesign.co');
-		//$mail->AddReplyTo($_POST['']);
 		if(!$sent_mail= $mail->Send()){
 			echo 'msg';
 		}else{
