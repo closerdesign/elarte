@@ -115,7 +115,7 @@
 							</p>
 							<br>
 							<p>
-								<strong>Sobre Luis Flórez:</strong> Psicólogo, Magister en Análisis Experimental de la Conducta y Doctor en Psicología Experimental. Actualmente es profesor Titular, adscrito al Departamento de Psicología de la Universidad Nacional de Colombia y director de la línea de investigación sobre Modelos Psicosociales en Prevención y Promoción de la Salud, en el grupo de investigación Estilo de Vida y Desarrollo Humano. Director del Centro de Estudios e Investigaciones sobre Adicciones y Violencia (CEIAV) de la Universidad Católica de Colombia.
+								<strong>Sobre Luis Flórez:</strong> Psicólogo, Magister en Análisis Experimental de la Conducta y Doctor en Psicología Experimental. Actualmente es profesor Titular, adscrito al Departamento de Psicología de la Universidad Nacional de Colombia y director de la línea de investigación sobre Modelos Psicosociales en Prevención y Promoción de la Salud, en el grupo de investigación Estilo de Vida y Desarrollo Humano.
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
@@ -276,7 +276,7 @@
 							<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" width="80">
 						</div>
 						<div class="DescripcionPrograma-autorAbout col-lg-11">
-							<strong>Sobre Luis Flórez:</strong> Psicólogo, Magister en Análisis Experimental de la Conducta y Doctor en Psicología Experimental. Actualmente es profesor Titular, adscrito al Departamento de Psicología de la Universidad Nacional de Colombia y director de la línea de investigación sobre Modelos Psicosociales en Prevención y Promoción de la Salud, en el grupo de investigación Estilo de Vida y Desarrollo Humano. Director del Centro de Estudios e Investigaciones sobre Adicciones y Violencia (CEIAV) de la Universidad Católica de Colombia.
+							<strong>Sobre Luis Flórez:</strong> Psicólogo, Magister en Análisis Experimental de la Conducta y Doctor en Psicología Experimental. Actualmente es profesor Titular, adscrito al Departamento de Psicología de la Universidad Nacional de Colombia y director de la línea de investigación sobre Modelos Psicosociales en Prevención y Promoción de la Salud, en el grupo de investigación Estilo de Vida y Desarrollo Humano.
 						</div>
 					</div>
 					<br>
