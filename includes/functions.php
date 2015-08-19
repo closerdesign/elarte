@@ -326,6 +326,16 @@
 		$desc=strip_tags($data['contenido']);
 		return utf8_encode(limit_words($desc, 50));
 	}
+
+	function getUrlImagenArticulo($id_articulo)
+	{
+		global $con;
+		$sql = "SELECT imagen FROM articulos WHERE id = $id_articulo";
+		$q = mysqli_query($con, $sql);
+		$data = mysqli_fetch_array($q);
+		$img = '/admin/_lib/file/imgarticulos/'.strip_tags($data['imagen']);
+		return $img;
+	}
 	
 	function getMetaComentarios($val){
 		global $con;
