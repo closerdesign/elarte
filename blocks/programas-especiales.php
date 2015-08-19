@@ -163,6 +163,47 @@
 							</div>
 						</div>
 					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-lg-3">
+							<div class="card">
+								<div class="front">
+									<div class="cover">
+										<img src="/images/rotating_card_thumb2.png">
+									</div>
+									<div class="user">
+										<img class="img-circle" src="/img/Marcela_Monte.jpg">
+									</div>
+									<div class="content">
+										<div class="main">
+											<h3 class="name"><strong>Infantopsicología</strong></h3>
+											<p class="profession">Marcela Monte</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-9 DescripcionPrograma">
+							<h3 class="DescripcionPrograma-titulo">Infantopsicología</h3>
+							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
+							<br>
+							<p>
+								Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
+								educación de niños y niñas, herramientas y recursos que apoyen un 
+								desarrollo temprano saludable.
+							</p>
+							<br>
+							<p>
+								<strong>Sobre Marcela Monte:</strong> Licenciada en Psicología mención Cognitivo-Integrativa y Diploma de Honor de la Universidad Nacional de San Luis, especializada en Psicoterapia Breve Infantojuvenil. Trabaja actualmente como psicoterapeuta infantil. Se ha desempeñado en Servicios de Neonatología, Pediatría y Obstetricia, en diseño y ejecución de programas de asistencia a futuros padres y madres, recién nacidos sanos y de alto riesgo hospitalizados, bebés y niños en procesos de intervenciones quirúrgicas, y con enfermedades crónicas, talleres de capacitación en prevención y promoción de la salud mental infanto-juvenil para Equipos Interdisciplinarios de Salud y Educación.
+							</p>
+							<div class="row">
+								<div class="col-lg-offset-10 col-lg-2">
+									<a href="index.php?content=programas-especiales&alias=infantopsicología" class="btn btn-success btn-lg pull-right">Ingresar</a>
+								</div>
+							</div>
+						</div>
+					</div>
 					<?php
 					/*	$sql = "
 							SELECT
@@ -197,6 +238,65 @@
 					<?php echo getDescripcionPrograma($id) ?>
 				</div>
 			</div> -->
+
+			<?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'infantopsicologia' ) : ?>
+			<div class="row">
+				<div class="col-lg-12 DescripcionPrograma">
+					<div class="row">
+						<div class="col-lg-12">
+							<p><a class="btn btn-default" href='index.php?content=programas-especiales'><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a></p>
+							<h1 class="DescripcionPrograma-titulo">Infantopsicología</h1>
+							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
+							<br>
+							<p>
+								Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
+								educación de niños y niñas, herramientas y recursos que apoyen un 
+								desarrollo temprano saludable.
+							</p>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="DescripcionPrograma-imgAutor col-lg-1">
+							<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80">			
+						</div>
+						<div class="DescripcionPrograma-autorAbout col-lg-11">
+							<strong>Sobre Marcela Monte:</strong> Licenciada en Psicología mención Cognitivo-Integrativa y Diploma de Honor de la Universidad Nacional de San Luis, especializada en Psicoterapia Breve Infantojuvenil. Trabaja actualmente como psicoterapeuta infantil. Se ha desempeñado en Servicios de Neonatología, Pediatría y Obstetricia, en diseño y ejecución de programas de asistencia a futuros padres y madres, recién nacidos sanos y de alto riesgo hospitalizados, bebés y niños en procesos de intervenciones quirúrgicas, y con enfermedades crónicas, talleres de capacitación en prevención y promoción de la salud mental infanto-juvenil para Equipos Interdisciplinarios de Salud y Educación.
+						</div>
+					</div>
+					<br>
+					<br>
+				</div>
+			</div>
+			<nav class="navbar navbar-inverse" id="nav2">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed btnCategorias" data-toggle="collapse" data-target=".menuArticulos">
+						<span>Secciones  <i class="fa fa-align-justify"></i></span>
+						</button>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=infantopsicologia' ? 'active' : '' ); ?>">
+								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
+									Articulos
+								</a>
+							</li>
+							<li class="">
+								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
+									Documentos y herramientas de ayuda
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+			<?php endif; ?>
+
 			<?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'mente-sana-vida-sana' ) : ?>
 			<div class="row">
 				<div class="col-lg-12 DescripcionPrograma">
