@@ -451,7 +451,7 @@
 								<div class="row">
 									<h3>Artículos recomedados</h3>
 									<?php
-										$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" ORDER BY RAND() LIMIT 3';
+										$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" AND status = 1 ORDER BY RAND() LIMIT 3';
 										$result = mysqli_query($con, $sql_rel);
 										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
 										

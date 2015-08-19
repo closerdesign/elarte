@@ -4,8 +4,9 @@
 		$title="Phronesis - El Arte de Saber Vivir";
 		$description="Somos una Editorial que promueve 'el arte de saber vivir' por medio de publicaciones en formato electrónico. Todos nuestros productos sólo se publican en formato digital y se entregan a través de Internet.";
 		if( isset($_REQUEST['content']) && ($_REQUEST['content']=='articulos') && isset($_REQUEST['id']) ){
-			$title=getTituloArticulo($_REQUEST['id']);
-			$description=getDescripcionArticulo($_REQUEST['id']);
+			$title = getTituloArticulo($_REQUEST['id']);
+			$description = getDescripcionArticulo($_REQUEST['id']);
+			$img = getUrlImagenArticulo($_REQUEST['id']);
 		}elseif(
 			isset($_REQUEST['content']) &&
 			(
@@ -24,7 +25,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php echo $title; ?></title>
+	<meta property="og:image" content="<?php echo $img; ?>"/>
 	<meta property="og:title" content="<?php echo $title; ?>"/>
+	<meta property="og:description" content="<?php echo $description; ?>"/>
 	<meta name="description" content="<?php echo $description; ?>">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
