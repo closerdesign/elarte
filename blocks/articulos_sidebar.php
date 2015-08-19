@@ -73,11 +73,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="banner300x250">
 				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Web App - Artículos Categoría Der 3 -->
 				<ins class="adsbygoogle"
 				     style="display:inline-block;width:300px;height:250px"
 				     data-ad-client="ca-pub-5955686545071577"
@@ -87,5 +86,5 @@
 				</script>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
