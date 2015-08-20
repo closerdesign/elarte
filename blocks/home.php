@@ -260,7 +260,7 @@
 ?>
 
 <div class="row programasPortada">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<h1 style="text-align: center; color: #fff; font-weight: 100">Programas Especiales</h1>
@@ -268,7 +268,7 @@
 		</div>
 		<hr>
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-2 col-md-offset-1">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -304,7 +304,7 @@
 				<!-- end card-container -->
 			</div>
 			<!-- end col sm 3 -->
-			<div class="col-md-3">
+			<div class="col-md-2 ">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -340,7 +340,7 @@
 				<!-- end card-container -->
 			</div>
 			<!-- end col sm 3 -->
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -375,7 +375,7 @@
 				</div>
 				<!-- end card-container -->
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="card-container">
 					<div class="card">
 						<div class="front">
@@ -401,6 +401,43 @@
 								<div class="main">
 									<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros."</p>
 									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado">Ir al programa</a></p>
+								</div>
+							</div>
+						</div>
+						<!-- end back panel -->
+					</div>
+					<!-- end card -->
+				</div>
+				<!-- end card-container -->
+			</div>	
+			<div class="col-md-2">
+				<div class="card-container">
+					<div class="card">
+						<div class="front">
+							<div class="cover">
+								<img src="/images/rotating_card_thumb2.png"/>
+							</div>
+							<div class="user">
+								<img class="img-circle" src="/img/Marcela_Monte.jpg"/>
+							</div>
+							<div class="content">
+								<div class="main">
+									<h3 class="name">Infantopsicología</h3>
+									<p class="profession">Marcela Monte</p>
+								</div>
+							</div>
+						</div>
+						<!-- end front panel -->
+						<div class="back">
+							<div class="header">
+								<h5 class="motto">Infantopsicología</h5>
+							</div>
+							<div class="content">
+								<div class="main">
+									<p>Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
+										educación de niños y niñas, herramientas y recursos que apoyen un 
+										desarrollo temprano saludable.</p>
+									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia">Ir al programa</a></p>
 								</div>
 							</div>
 						</div>

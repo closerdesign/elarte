@@ -182,6 +182,71 @@
 <?php endif; ?>
 
 
+<?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'infantopsicologia' ) : ?>
+	<div class="container">
+		<div class="col-lg-12 DescripcionPrograma">
+			<div class="row">
+				<div class="col-lg-12">
+					<p>
+						<a class="btn btn-default" href='index.php?content=programas-especiales'>
+							<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
+						</a>
+					</p>
+					<h1 class="DescripcionPrograma-titulo">Infantopsicología</h1>
+					<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
+					<br>
+					<p>
+						Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
+						educación de niños y niñas, herramientas y recursos que apoyen un 
+						desarrollo temprano saludable.
+					</p>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="DescripcionPrograma-imgAutor col-lg-1">
+					<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80">
+				</div>
+				<div class="DescripcionPrograma-autorAbout col-lg-11">
+					<strong>Sobre Marcela Monte:</strong> Licenciada en Psicología mención Cognitivo-Integrativa y Diploma de Honor de la Universidad Nacional de San Luis, especializada en Psicoterapia Breve Infantojuvenil. Trabaja actualmente como psicoterapeuta infantil. Se ha desempeñado en Servicios de Neonatología, Pediatría y Obstetricia, en diseño y ejecución de programas de asistencia a futuros padres y madres, recién nacidos sanos y de alto riesgo hospitalizados, bebés y niños en procesos de intervenciones quirúrgicas, y con enfermedades crónicas, talleres de capacitación en prevención y promoción de la salud mental infanto-juvenil para Equipos Interdisciplinarios de Salud y Educación.
+				</div>
+			</div>
+			<br>
+			<br>
+		</div>
+	</div>
+	<div class="container">
+		<nav class="navbar navbar-inverse" id="nav2">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed btnCategorias" data-toggle="collapse" data-target=".menuArticulos">
+					<span>Secciones  <i class="fa fa-align-justify"></i></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=infantopsicologia' ? 'active' : '' ); ?>">
+							<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
+								Articulos
+							</a>
+						</li>
+						<li class="active">
+							<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>">
+								Documentos y herramientas de ayuda
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</div>
+<?php endif; ?>
+
+
 <?php if ( !isset($_REQUEST['slug']) ) : ?>
 <div class="container">
 	<div class="row">
@@ -451,9 +516,20 @@
 								<div class="row">
 									<h3>Artículos recomendados</h3>
 									<?php
+										/*echo "<pre>";
+										var_dump($_REQUEST);
+										echo "</pre>";*/
+										if ( !empty( $_REQUEST['content'] ) && $_REQUEST['content'] == 'articulos' && !isset($_REQUEST['slug']) ) {
+											$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" AND status = 1 ORDER BY RAND() LIMIT 3';
+										}else if ( !empty( $_REQUEST['slug'] ) && $_REQUEST['slug'] == 'programas-especiales' ) {
+											$id_program = getIdPrograma($_REQUEST['alias']);
 
-									
-										$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" AND status = 1 ORDER BY RAND() LIMIT 3';
+											/*echo "<pre>";
+											var_dump($id_program);
+											echo "</pre>";*/
+
+											$sql_rel = 'SELECT * FROM articulos WHERE programas_especiales = '.$id_program.' AND status = 1 ORDER BY RAND() LIMIT 3';
+										}
 										$result = mysqli_query($con, $sql_rel);
 										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
 										
