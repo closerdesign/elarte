@@ -719,7 +719,7 @@
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 divArticulos">
 								<?php
-									$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1";
+									/*$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 AND categoria != 15 AND categoria != 16";
 									if(isset($_REQUEST['categoria'])){
 										$sql.=" AND categoria LIKE '%$_REQUEST[categoria]%'";
 									}
@@ -733,7 +733,8 @@
 										while($post=mysqli_fetch_assoc($q)){
 											echo getArticuloCategoria($post['id']);
 										}
-									}
+									}*/
+									echo getAjaxArticle();
 								?>		
 							</div>
 						</div>
@@ -757,25 +758,99 @@
 		?>
 		<script>
 			$(document).ready(function(){
-				var load = 0;
+				var load = 1;
 				$(window).scroll(function(){
 					if($(window).scrollTop() == $(document).height() - $(window).height())
 					{
 						$('.load').fadeIn();
 						load++;
-						$.post('/includes/php.php',{
-						  consulta: "cargarArticulos",
+
+						$.ajax({
+							url: '/includes/php.php',
+							type: 'POST',
+							dataType: 'json',
+							data: {
+										consulta: 'getAjaxArticle',
+										page: load,
+										categoria: "<?= (int)$_REQUEST['categoria']; ?>"
+									},
+						})
+						.done(function(data) {
+							$('.divArticulos').append(data.html);
+						  	$('.load').fadeOut();
+						  	window.sr.init();
+						  	/*console.log('success');*/
+						})
+						.fail(function() {
+							/*console.log("error");*/
+						})
+						.always(function() {
+							/*console.log("complete");*/
+						});
+						
+
+
+						/*$.post('/includes/php.php',{
+						  consulta: "getAjaxArticle",
 						  categoria: "<?php echo $_REQUEST['categoria'] ?>",
 						  load: load
 						}).done(function(data){
 						  $('.divArticulos').append(data);
 						  $('.load').fadeOut();
-						});
+						});*/
 					}
 				});
 			});
 		</script>
 		<?php
+	}elseif ( isset($_REQUEST['content']) && $_REQUEST['content']=='articulos' ) {
+?>
+		<script>
+			$(document).ready(function(){
+				var load = 1;
+				$(window).scroll(function(){
+					if($(window).scrollTop() == $(document).height() - $(window).height())
+					{
+						$('.load').fadeIn();
+						load++;
+
+						$.ajax({
+							url: '/includes/php.php',
+							type: 'POST',
+							dataType: 'json',
+							data: {
+										consulta: 'getAjaxArticle',
+										page: load,
+									},
+						})
+						.done(function(data) {
+							$('.divArticulos').append(data.html);
+						  	$('.load').fadeOut();
+						  	window.sr.init();
+						  	/*console.log('success');*/
+						})
+						.fail(function() {
+							/*console.log("error");*/
+						})
+						.always(function() {
+							/*console.log("complete");*/
+						});
+						
+
+
+						/*$.post('/includes/php.php',{
+						  consulta: "getAjaxArticle",
+						  categoria: "<?php echo $_REQUEST['categoria'] ?>",
+						  load: load
+						}).done(function(data){
+						  $('.divArticulos').append(data);
+						  $('.load').fadeOut();
+						});*/
+					}
+				});
+			});
+		</script>			
+<?php
 	}
 ?>
 

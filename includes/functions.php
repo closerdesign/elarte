@@ -618,7 +618,7 @@
 
 			$html="";
 			$html.="
-				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s' >
+				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s'>
 					<div class='articulos'>
 						<a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$data[imagen]' alt='$titulo' /></a>
 						<div class='articulos-inner'>
