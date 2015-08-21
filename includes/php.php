@@ -232,7 +232,7 @@
 	{
 		global $con;
 
-		$num_articles = 4;
+		$num_articles = 10;
 
 		if ( !empty( $_REQUEST['page'] ) ) {
 			$page = (int)$_REQUEST['page'];
