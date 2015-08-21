@@ -193,6 +193,9 @@
 			case 'validarLoggeo':
 				validarLoggeo();
 				break;
+			case 'getAjaxArticle':
+				getAjaxArticle();
+				break;
 			default:
 				break;
 		}
@@ -224,6 +227,70 @@
 	/*if ( $argv[1] == 'inscripcionesPendientes' ) {
 		inscripcionesPendientes();
 	}*/
+
+	function getAjaxArticle()
+	{
+		global $con;
+
+		$num_articles = 4;
+
+		if ( !empty( $_REQUEST['page'] ) ) {
+			$page = (int)$_REQUEST['page'];
+			if ( $page < 0 ) {
+				$page = 1;
+			}
+		}else{
+			$page = 1;
+		}
+
+		$inicia_desde = ($page - 1) * $num_articles;
+
+		if ( !empty( $_REQUEST['categoria'] ) ) {
+			$categoria = (int)$_REQUEST['categoria'];
+			$sql = "SELECT * FROM articulos WHERE categoria = $categoria ORDER BY fecha_publicacion DESC LIMIT $inicia_desde, $num_articles ";
+		}else{
+			$sql = "SELECT * FROM articulos ORDER BY fecha_publicacion DESC LIMIT $inicia_desde, $num_articles ";
+		}
+
+		/*echo $sql;*/
+
+		$q = mysqli_query($con, $sql);
+
+		$html = "";
+
+		while($item=mysqli_fetch_assoc($q)){
+			if ( (int)$item['programas_especiales'] > 0 ) {
+				$alias = getProgramaData( (int)$item['programas_especiales'] );
+			}
+
+			$titulo = removeUnwantedChars($item['titulo']);
+
+			$html.="
+				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s'>
+					<div class='articulos'>
+						<a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$item[imagen]' alt='$titulo' /></a>
+						<div class='articulos-inner'>
+							<h4><a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'>$item[titulo]</a></h4>
+							<p>".custom_echo(strip_tags($item['contenido']))."</p>
+						</div>
+					</div>
+					<div class='cta-blog'>
+						<p><a item-programa='".(int)$item['programas_especiales']."' href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
+					</div>
+				</div>
+			";
+		}
+
+		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+			$result['error'] = 0;
+			$result['html'] = $html;
+			echo json_encode($result);
+			return;
+		}else{
+			return $html;
+		}
+
+	}
 
 	function descargarArchivosProgramas()
 	{
