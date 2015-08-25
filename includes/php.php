@@ -271,14 +271,16 @@
 			$html.="
 				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s'>
 					<div class='articulos'>
-						<a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$item[imagen]' alt='$titulo' /></a>
+						<a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'>
+								<img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$item[imagen]' alt='".$item['titulo']."' />
+						</a>
 						<div class='articulos-inner'>
-							<h4><a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'>$item[titulo]</a></h4>
+							<h4><a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]' title='".$item['titulo']."'>$item[titulo]</a></h4>
 							<p>".custom_echo(strip_tags($item['contenido']))."</p>
 						</div>
 					</div>
 					<div class='cta-blog'>
-						<p><a item-programa='".(int)$item['programas_especiales']."' href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
+						<p><a item-programa='".(int)$item['programas_especiales']."' href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]' title='Leer la nota'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
 					</div>
 				</div>
 			";
@@ -3240,6 +3242,7 @@
 			   						href='".URL."/articulos/$a[id]' 
 			   						target='_blank'
 			   						style='text-decoration: none; color: #6A127A'
+			   						title='" . $a["titulo"] . "'
 			   					>
 			   						$a[titulo]
 			   					</a>
@@ -3252,11 +3255,13 @@
 			   					<a
 			   						href='".URL."/articulos/$a[id]'
 			   						target='_blank'
+			   						title='" . $a["titulo"] . "'
 			   						>
 			   						<img 
 			   							width='240'
 			   							style='float:left; margin: 10px 10px 10px 0; max-width: 40%'
 			   							src='".URL."/admin/_lib/file/imgarticulos/$a[imagen]' 
+			   							alt='" . $a["titulo"] . "'
 			   						/>
 			   					</a>
 			   					".strip_tags(getFirstPara($a['contenido']))."
