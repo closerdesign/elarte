@@ -196,6 +196,9 @@
 			case 'getAjaxArticle':
 				getAjaxArticle();
 				break;
+			case 'agregarSubComentarios':
+				agregarSubComentarios();
+				break;
 			default:
 				break;
 		}
@@ -1044,12 +1047,26 @@
 			$headers  = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 			$url=NOTIFICACION;
-			$html=file_get_contents($url);
+			/*$html=file_get_contents($url);*/
+
+			//  Initiate curl
+			$ch = curl_init();
+			// Disable SSL verification
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			// Will return the response, if false it print the response
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			// Set the url
+			curl_setopt($ch, CURLOPT_URL,$url);
+			// Execute
+			$html=curl_exec($ch);
+			// Closing
+			curl_close($ch);
+
 			$contenido='
 				<p>Un nuevo comentario ha sido publicado en el artículo <b>'.getTituloArticulo($_POST['articulo']).'</b>.</p>
 				<p>A continuación su contenido:</p>
 				<h3>"'.$_POST['comentario'].'"</h3>
-				<p>Si considera inapropiado el contenido de este comentario y desea despublicarlo, por favor haga click <a href="'.URL.'index.php?content=unpublish&id='.$id.'">aquí</a>.</p>
+				<p>Si considera inapropiado el contenido de este comentario y desea eliminarlo, por favor haga click <a href="'.URL.'index.php?content=unpublish&id='.$id.'">aquí</a>.</p>
 			';
 			$html=str_replace("{{contenido}}",$contenido,$html);         
 			$mail = new PHPMailer();
@@ -1068,6 +1085,108 @@
 		}
 	}
 	
+	function agregarSubComentarios()
+	{
+		extract($_POST);
+
+		if ( !empty( $comment ) ) {
+			if ( !empty( $articulo )  ) {
+				
+			}
+			global $con;
+			if(!mysqli_query($con, "
+				INSERT INTO comentarios (
+					usuario,
+					parent,
+					articulo,
+					comentarios,
+					status
+				) VALUES (
+					'$usuario',
+					'$parent',
+					'$articulo',
+					'$comment',
+					'1'
+				)
+			")){
+				$response['message'] = 'Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.';
+				$response['error'] = 1;
+				echo json_encode($response);
+			}else{
+				$id = mysqli_insert_id($con);
+				$headers = 'MIME-Version: 1.0' . "\r\n";
+				$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+				$url = NOTIFICACION;
+				/*$html=file_get_contents($url);*/
+
+				//  Initiate curl
+				$ch = curl_init();
+				// Disable SSL verification
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+				// Will return the response, if false it print the response
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				// Set the url
+				curl_setopt($ch, CURLOPT_URL,$url);
+				// Execute
+				$html = curl_exec($ch);
+				// Closing
+				curl_close($ch);
+
+				$contenido = '
+					<p>Un nuevo comentario ha sido publicado en el artículo <b>'.getTituloArticulo($articulo).'</b>.</p>
+					<p>A continuación su contenido:</p>
+					<h3>"'.$comment.'"</h3>
+					<p>Si considera inapropiado el contenido de este comentario y desea eliminarlo, por favor haga click <a href="'.URL.'index.php?content=unpublish&id='.$id.'">aquí</a>.</p>
+				';
+				$html = str_replace("{{contenido}}",$contenido,$html);         
+				$mail = new PHPMailer();
+				$mail->From = 'no-reply@phronesisvirtual.com';
+				$mail->FromName = 'Phronesis | El arte de saber vivir';
+				$mail->Subject = utf8_decode('['.$id.'] Un nuevo comentario ha sido incluído');
+				$mail->Body = utf8_decode($html);
+				$mail->IsHTML(true);
+				$mail->AddAddress(NOTIFICACIONES);
+				/*$mail->AddReplyTo($_POST['']);*/
+				if($sent_mail = $mail->Send()){
+					/*echo "Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.";*/
+					$response['message'] = 'Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.';
+					$response['error'] = 1;
+					echo json_encode($response);
+					return;
+				}else{
+					/*echo "Tu comentario ha sido agregado exitosamente. Gracias por compartir con la comunidad.";*/
+					$nombre = getNombreUsuario($usuario);
+					$apellido = getApellidoUsuario($usuario);
+					$commentHtml = '<div class="row sub-comment">';
+					$commentHtml .= '	<div class="col-lg-10 col-lg-offset-2">';
+					$commentHtml .= '		<div class="globo-comentarios">';
+					$commentHtml .= $comment;
+					$commentHtml .= '		</div>';
+					$commentHtml .= '	</div>';
+					$commentHtml .= '	<div class="row">';
+					$commentHtml .= '		<div class="col-lg-3 col-lg-offset-9 col-md-3 col-sm-12">';
+					$commentHtml .= '			<div class="meta-comentarios">';
+					$commentHtml .= '				Por '.$nombre.' '.$apellido;
+					$commentHtml .= '			</div>';
+					$commentHtml .= '		</div>';
+					$commentHtml .= '	</div>';
+					$commentHtml .= '</div>';
+
+					$response['comment'] = $commentHtml;
+					$response['message'] = "Tu comentario ha sido agregado exitosamente. Gracias por compartir con la comunidad.";
+					$response['error'] = 0;
+					echo json_encode($response);
+					return;
+				}
+			}
+		}else{
+			$response['message'] = "Debe escribir un mensaje";
+			$response['error'] = 1;
+			echo json_encode($response);
+			return;
+		}
+	}
+
 	// Lightbox detalle de pedido
 	function detallePedido()
 	{

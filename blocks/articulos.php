@@ -614,44 +614,98 @@
 										}
 									?>
 									<?php
-										$sql="SELECT * FROM comentarios WHERE articulo = '$data[id]' AND status = 1 ORDER BY creado DESC";
+										$sql="SELECT * FROM comentarios WHERE articulo = '$data[id]' AND status = 1 AND ISNULL(parent) ORDER BY creado DESC";
 										$q=mysqli_query($con, $sql);
 										$n=mysqli_num_rows($q);
-										
-										echo '
+									?>
 											<div class="row">
 												<div class="col-lg-12 col-md-12 col-sm-12">
 													<h4>Comentarios</h4>
 													<hr>
 												</div>
-											</div>';
-										
+											</div>
+											<div class="SeccionComentarios">
+												
+									<?php
 										if($n<1){
-											echo "
+									?>
 												<div class='row'>
 													<div class='col-lg-12 col-md-12 col-sm-12'>
 														<p>Este artículo aún no tiene comentarios.</p>
 													</div>
 												</div>
-											";
+									<?php
 										}else{
 											while($c=mysqli_fetch_assoc($q)){
-												echo "
+									?>
 													<div class='row'>
 														<div class='col-lg-12 col-md-12 col-sm-12'>
-															<div class='globo-comentarios'>
-																$c[comentarios]
+															<div class="row">
+																<div class='globo-comentarios'>
+																	<?= $c['comentarios'] ?>
+																</div>
 															</div>
-															<div class='meta-comentarios'>
-																Por ".getMetaComentarios($c['usuario'])."
+															<div class="row">
+																<div class="col-lg-3 col-lg-offset-9 col-md-3 col-sm-12">
+																	<div class='meta-comentarios'>
+																		Por <?= getMetaComentarios($c['usuario']); ?>
+																		<?php if ( !empty( $_SESSION['id'] ) ): ?>
+																		<a href="javascript:;" class="getResponseForm">Responder</a>
+																		<?php endif; ?>
+																	</div>
+																</div>
+															</div>
+															<?php if ( !empty( $_SESSION['id'] ) ): ?>
+															<div class="row ResponseContainerForm" style="display:none;">
+																<form class="ResponseForm">
+																	<div class="col-lg-10 col-lg-offset-2">
+																		<div class="row">
+																			<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+																				<textarea class="form-control" name="comentario" placeholder="Escribe aquí tu respuesta" required ></textarea>
+																			</div>
+																		</div>
+																		<div class="row">
+																			<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+																				<input type="hidden" name="articulo" value="<?= $data['id'] ?>" />
+																				<input type="hidden" name="usuario" value="<?= $_SESSION['id'] ?>" />
+																				<input type="hidden" name="parent" value="<?= $c['idComentarios'] ?>">
+																				<button type="submit" class="btn btn-primary">Enviar comentario</button>
+																			</div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+															<?php endif ?>
+														</div>
+														<?php
+															$sql2="SELECT * FROM comentarios WHERE articulo = '$data[id]' AND status = 1 AND parent = $c[idComentarios] ORDER BY creado DESC";
+															$l=mysqli_query($con, $sql2);
+															$m=mysqli_num_rows($l);
+															while($d=mysqli_fetch_assoc($l)){
+														?>
+														<div class="row sub-comment">
+															<div class="col-lg-10 col-lg-offset-2">
+																<div class='globo-comentarios'>
+																	<?= $d['comentarios'] ?>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-lg-3 col-lg-offset-9 col-md-3 col-sm-12">
+																	<div class='meta-comentarios'>
+																		Por <?= getMetaComentarios($c['usuario']); ?>
+																	</div>
+																</div>
 															</div>
 														</div>
+														<?php
+															}
+														?>	
 													</div>
-												";
+									<?php
 											}
 										}
-										
 									?>
+											</div>
 								</div>
 							</div>		
 							<?php /*}*/ ?>
@@ -803,7 +857,7 @@
 			});
 		</script>
 		<?php
-	}elseif ( isset($_REQUEST['content']) && $_REQUEST['content']=='articulos' ) {
+	}elseif ( isset($_REQUEST['content']) && $_REQUEST['content']=='articulos' && !isset($_REQUEST['id']) ) {
 ?>
 		<script>
 			$(document).ready(function(){
@@ -862,4 +916,57 @@
 		var features = 'scrollbars=yes,width=650,height=500';
 		window.open(url,title,features);
 	});
+
+	if ( $('.getResponseForm').length > 0 ) {
+		$('body').on('click', '.getResponseForm', function(event) {
+			event.preventDefault();
+			$(this).parents('.row').next('.ResponseContainerForm').slideToggle('fast');
+		});
+
+		$('.ResponseForm').each(function(index, el) {
+			$(this).submit(function(e) {
+				e.preventDefault();
+			}).validate({
+				rules: {
+					new_password: {
+						minlength: 8
+					}
+				},
+				submitHandler: function(form){
+
+					$('.load').fadeIn();
+					
+					console.log($(form).find('.form-control').val());
+
+					$.ajax({
+						type: "POST",
+						url: "/includes/php.php",
+						dataType: 'json',
+						context: $(form),
+						data: {
+							consulta: "agregarSubComentarios",
+							comment: $(form).find('.form-control').val(),
+							articulo: $(form).find('input[name="articulo"]').val(),
+							usuario: $(form).find('input[name="usuario"]').val(),
+							parent: $(form).find('input[name="parent"]').val()
+						}
+					})
+					.done(function(data){
+						if ( parseInt(data.error) === 0 ) {
+							var parent = $(form).parents('.ResponseContainerForm').parent();
+							var firstEl = parent.next();
+
+							$( data.comment ).insertAfter( parent );
+						}else{
+							bootbox.alert(data.message, function() {console.log("Alert Callback");});
+						}
+
+						$('.form-control').val('');
+						$('.load').fadeOut();
+					});
+				}
+			});
+		});
+
+	}
 </script>
