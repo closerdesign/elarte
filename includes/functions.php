@@ -147,7 +147,7 @@
 	
 	function getBtnDescarga($val){
 		global $con;
-		$btn='<a href="javascript:void(0)" onclick="openRegisterModal()" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Comprar</a>';
+		$btn='<a href="javascript:void(0)" onclick="openRegisterModal()" class="btn btn-primary" title="Comprar"><i class="fa fa-shopping-cart"></i> Comprar</a>';
 		if(isset($_SESSION['id'])){
 			$sql = "SELECT * FROM publicacionesxusuario WHERE usuario = " . $_SESSION['id'] . "  AND publicacion = '" . $val . "'";
 			$q=mysqli_query($con, $sql);
@@ -182,7 +182,7 @@
 							<tr>
 								<td>'.$pista['nombre'].'</td>
 								<td>
-									<a target="_blank" href="/admin/_lib/file/docarchivosPublicaciones/'.$pista['archivo'].'" class="btn btn-primary">
+									<a target="_blank" href="/admin/_lib/file/docarchivosPublicaciones/'.$pista['archivo'].'" class="btn btn-primary" title="Reproducir">
 										<i class="fa fa-play-circle"></i> Reproducir
 									</a>
 								</td>
@@ -236,7 +236,7 @@
 					if($demo==""){
 						$btn="";
 					}else{
-						$btn='<a href="https://www.youtube.com/watch?v='.$demo.'" id="btnVideo" class="btn btn-primary popup-youtube"><i class="fa fa-play-circle"></i> Demo</a>';
+						$btn='<a href="https://www.youtube.com/watch?v='.$demo.'" id="btnVideo" class="btn btn-primary popup-youtube" title="Demo"><i class="fa fa-play-circle"></i> Demo</a>';
 					}
 				}else{
 					// Ejecutar las acciones en caso contrario
@@ -258,7 +258,7 @@
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
 		if($data['video']!=""){
-			$btn='<a href="https://www.youtube.com/watch?v='.$data['video'].'" id="btnVideo" class="btn btn-primary popup-youtube"><i class="fa fa-video-camera"></i> Video</a>';
+			$btn='<a href="https://www.youtube.com/watch?v='.$data['video'].'" id="btnVideo" class="btn btn-primary popup-youtube" title="Video"><i class="fa fa-video-camera"></i> Video</a>';
 		}
 		echo $btn;
 	}
@@ -620,14 +620,14 @@
 			$html.="
 				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s'>
 					<div class='articulos'>
-						<a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$data[imagen]' alt='$titulo' /></a>
+						<a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]' title='$titulo'><img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$data[imagen]' alt='$titulo' /></a>
 						<div class='articulos-inner'>
-							<h4><a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'>$data[titulo]</a></h4>
+							<h4><a href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]' title='$data[titulo]'>$data[titulo]</a></h4>
 							<p>".custom_echo(strip_tags($data['contenido']))."</p>
 						</div>
 					</div>
 					<div class='cta-blog'>
-						<p><a data-programa='".(int)$data['programas_especiales']."' href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
+						<p><a data-programa='".(int)$data['programas_especiales']."' href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]' title='Leer la nota'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
 					</div>
 				</div>
 			";
