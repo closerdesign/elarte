@@ -465,7 +465,7 @@ blockquote{
 	font-weight: bold;
 	color: #969696;
 	text-transform: uppercase;
-	margin-right: 30px;
+	/*margin-right: 30px;*/
 }
 
 .menuMiCuenta{
@@ -1616,4 +1616,13 @@ img.mfp-img {
 }
 .SocialMenu-button.google{
 	background: #D14538;
+}
+.SeccionComentarios > .row{
+	padding: 1.5rem;
+}
+.SeccionComentarios > .row:nth-child(odd){
+	background: #F1F1F1;
+}
+.SeccionComentarios > .row:nth-child(odd) .globo-comentarios{
+	background: #FFF;
 }

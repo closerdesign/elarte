@@ -1,3 +1,10 @@
+<?php
+	if ( ($_REQUEST['id']==4) || ($_REQUEST['id']==5) ) {
+		header('location: http://www.elartedesabervivir.com');
+		die();
+	}
+?>
+
 <?php if( validaPaquete($_REQUEST['id']) == 1 ){ ?>
 
 	<?php
