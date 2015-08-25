@@ -52,10 +52,11 @@
 									</div>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6">
-											<a href="/index.php?content=publicacion&id=<?php echo $pub['id'] ?>">
+											<a href="/index.php?content=publicacion&id=<?php echo $pub['id'] ?>" title="<?= $pub['titulo'] ?>">
 											<img 
 												class="img img-responsive img-rounded" 
-												src="/admin/_lib/file/imgpublicaciones/<?php echo $pub['portada'] ?>" 
+												src="/admin/_lib/file/imgpublicaciones/<?php echo $pub['portada'] ?>"
+												alt="<?= $pub['titulo']; ?>"
 											/>
 											</a>
 										</div>
@@ -75,7 +76,7 @@
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="descPublicacion">
 												<p><?php echo limit_words(strip_tags($pub['descripcion']),25); ?>...</p>
-												<p><a href="/index.php?content=publicacion&id=<?php echo $pub['id'] ?>">(Más información...)</a></p>
+												<p><a href="/index.php?content=publicacion&id=<?php echo $pub['id'] ?>" title="Más información">(Más información...)</a></p>
 											</div>
 										</div>
 									</div>
