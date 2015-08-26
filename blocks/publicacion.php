@@ -22,7 +22,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-3">
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
-									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/<?php echo $data['portada'] ?>" />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/<?php echo $data['portada'] ?>" alt="<?php echo $data['titulo'] ?>" />
 								</div>
 							</div>
 							<div class="row">

@@ -315,7 +315,7 @@
 		$sql="SELECT * FROM articulos WHERE id = '$val'";
 		$q=mysqli_query($con, $sql);
 		$data=mysqli_fetch_array($q);
-		return "<a href='/index.php?content=articulos&id=$data[id]'>$data[titulo]</a>";
+		return "<a href='/index.php?content=articulos&id=$data[id]' title='$data[titulo]'>$data[titulo]</a>";
 	}
 	
 	function getDescripcionArticulo($val){
@@ -629,7 +629,7 @@
 						</div>
 					</div>
 					<div class='cta-blog'>
-						<p><a data-programa='".(int)$data['programas_especiales']."' href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]' title='Leer la nota'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
+						<p><a data-programa='".(int)$data['programas_especiales']."' href='/index.php?".( (int)$data['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$data[id]' title='$data[titulo]'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
 					</div>
 				</div>
 			";
