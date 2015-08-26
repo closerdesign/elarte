@@ -17,7 +17,7 @@
 										<img src="/images/rotating_card_thumb2.png">
 									</div>
 									<div class="user">
-										<img class="img-circle" src="/images/reflexiones.jpg">
+										<img class="img-circle" src="/images/reflexiones.jpg" alt="Reflexiones para Vivir Mejor">
 									</div>
 									<div class="content">
 										<div class="main">
@@ -41,7 +41,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="/index.php?content=mi-cuenta&task=reflexiones" class="btn btn-success btn-lg pull-right">Ingresar</a>
+									<a href="/index.php?content=mi-cuenta&task=reflexiones" class="btn btn-success btn-lg pull-right" title="Reflexiones para Vivir Mejor">Ingresar</a>
 								</div>
 							</div>
 						</div>
@@ -56,7 +56,7 @@
 										<img src="/images/rotating_card_thumb2.png">
 									</div>
 									<div class="user">
-										<img class="img-circle" src="/images/iris.jpg">
+										<img class="img-circle" src="/images/iris.jpg" alt="Iris Luna">
 									</div>
 									<div class="content">
 										<div class="main">
@@ -80,7 +80,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="index.php?content=programas-especiales&alias=mente-sana-vida-sana" class="btn btn-success btn-lg pull-right">Ingresar</a>
+									<a href="index.php?content=programas-especiales&alias=mente-sana-vida-sana" class="btn btn-success btn-lg pull-right" title="Mente Sana, Vida Sana">Ingresar</a>
 								</div>
 							</div>
 						</div>
@@ -95,7 +95,7 @@
 										<img src="/images/rotating_card_thumb2.png">
 									</div>
 									<div class="user">
-										<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg">
+										<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" alt="Luis Flórez Alarcón">
 									</div>
 									<div class="content">
 										<div class="main">
@@ -119,7 +119,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="index.php?content=programas-especiales&alias=angeles-caidos-o-antropoides-erguidos" class="btn btn-success btn-lg pull-right">Ingresar</a>
+									<a href="index.php?content=programas-especiales&alias=angeles-caidos-o-antropoides-erguidos" class="btn btn-success btn-lg pull-right" title="¿Ángeles caídos o antropoides erguidos?">Ingresar</a>
 								</div>
 							</div>
 						</div>
@@ -134,7 +134,7 @@
 										<img src="/images/rotating_card_thumb2.png">
 									</div>
 									<div class="user">
-										<img class="img-circle" src="/img/Nancy_Castrillon.png">
+										<img class="img-circle" src="/img/Nancy_Castrillon.png" title="Nancy Castrillón">
 									</div>
 									<div class="content">
 										<div class="main">
@@ -158,7 +158,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="index.php?content=programas-especiales&alias=el-arte-y-la-virtud-del-cuidado" class="btn btn-success btn-lg pull-right">Ingresar</a>
+									<a href="index.php?content=programas-especiales&alias=el-arte-y-la-virtud-del-cuidado" class="btn btn-success btn-lg pull-right" title="El arte y la virtud del cuidado">Ingresar</a>
 								</div>
 							</div>
 						</div>
@@ -173,7 +173,7 @@
 										<img src="/images/rotating_card_thumb2.png">
 									</div>
 									<div class="user">
-										<img class="img-circle" src="/img/Marcela_Monte.jpg">
+										<img class="img-circle" src="/img/Marcela_Monte.jpg" alt="Marcela Monte">
 									</div>
 									<div class="content">
 										<div class="main">
@@ -199,7 +199,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="index.php?content=programas-especiales&alias=infantopsicologia" class="btn btn-success btn-lg pull-right">Ingresar</a>
+									<a href="index.php?content=programas-especiales&alias=infantopsicologia" class="btn btn-success btn-lg pull-right" title="Infantopsicología">Ingresar</a>
 								</div>
 							</div>
 						</div>
@@ -244,7 +244,9 @@
 				<div class="col-lg-12 DescripcionPrograma">
 					<div class="row">
 						<div class="col-lg-12">
-							<p><a class="btn btn-default" href='index.php?content=programas-especiales'><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a></p>
+							<p>
+								<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales"><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a>
+							</p>
 							<h1 class="DescripcionPrograma-titulo">Infantopsicología</h1>
 							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
 							<br>
@@ -258,7 +260,7 @@
 					<br>
 					<div class="row">
 						<div class="DescripcionPrograma-imgAutor col-lg-1">
-							<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80">			
+							<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80" alt="Marcela Monte">			
 						</div>
 						<div class="DescripcionPrograma-autorAbout col-lg-11">
 							<strong>Sobre Marcela Monte:</strong> Licenciada en Psicología mención Cognitivo-Integrativa y Diploma de Honor de la Universidad Nacional de San Luis, especializada en Psicoterapia Breve Infantojuvenil. Trabaja actualmente como psicoterapeuta infantil. Se ha desempeñado en Servicios de Neonatología, Pediatría y Obstetricia, en diseño y ejecución de programas de asistencia a futuros padres y madres, recién nacidos sanos y de alto riesgo hospitalizados, bebés y niños en procesos de intervenciones quirúrgicas, y con enfermedades crónicas, talleres de capacitación en prevención y promoción de la salud mental infanto-juvenil para Equipos Interdisciplinarios de Salud y Educación.
@@ -280,12 +282,12 @@
 					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=infantopsicologia' ? 'active' : '' ); ?>">
-								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
+								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Infantopsicología">
 									Articulos
 								</a>
 							</li>
 							<li class="">
-								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
+								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Infantopsicología">
 									Documentos y herramientas de ayuda
 								</a>
 							</li>
@@ -302,7 +304,8 @@
 				<div class="col-lg-12 DescripcionPrograma">
 					<div class="row">
 						<div class="col-lg-12">
-							<p><a class="btn btn-default" href='index.php?content=programas-especiales'><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a></p>
+							<p>
+							<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales"><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a></p>
 							<h1 class="DescripcionPrograma-titulo">Mente sana, vida sana</h1>
 							<span class="DescripcionPrograma-subTitulo">Por Dra. Iris Luna (Psiquiatra)</span>
 							<br>
@@ -314,7 +317,7 @@
 					<br>
 					<div class="row">
 						<div class="DescripcionPrograma-imgAutor col-lg-1">
-							<img class="img-circle" src="/images/iris.jpg" width="80">			
+							<img class="img-circle" src="/images/iris.jpg" width="80" alt="Iris Luna">			
 						</div>
 						<div class="DescripcionPrograma-autorAbout col-lg-11">
 							<strong>Sobre Iris Luna:</strong> Iris Luna es médico psiquiatra, especialista en adicciones, magister en nutrición y especialista en sobrepeso y obesidad. Desde hace quince años trabaja como psicoterapeuta, docente y conferencista. Ha publicado cuatro libros académicos, así como múltiples artículos para revistas científicas sobre temas de psicopatología femenina. Dentro de sus actividades cabe destacar aquellas relacionadas con los temas de salud y prevención en salud mental y trastornos del comportamiento.
@@ -336,12 +339,12 @@
 					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
-								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
+								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
 									Articulos
 								</a>
 							</li>
 							<li class="">
-								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
+								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Mente sana, vida sana">
 									Documentos y herramientas de ayuda
 								</a>
 							</li>
@@ -358,7 +361,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<p>
-								<a class="btn btn-default" href='index.php?content=programas-especiales'>
+								<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales">
 									<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
 								</a>
 							</p>
@@ -373,7 +376,7 @@
 					<br>
 					<div class="row">
 						<div class="DescripcionPrograma-imgAutor col-lg-1">
-							<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" width="80">
+							<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" width="80" alt="Luis Flórez Alarcón">
 						</div>
 						<div class="DescripcionPrograma-autorAbout col-lg-11">
 							<strong>Sobre Luis Flórez:</strong> Psicólogo, Magister en Análisis Experimental de la Conducta y Doctor en Psicología Experimental. Actualmente es profesor Titular, adscrito al Departamento de Psicología de la Universidad Nacional de Colombia y director de la línea de investigación sobre Modelos Psicosociales en Prevención y Promoción de la Salud, en el grupo de investigación Estilo de Vida y Desarrollo Humano.
@@ -396,12 +399,12 @@
 						<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
-									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
+									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de ¿Ángeles caídos o antropoides erguidos?">
 										Articulos
 									</a>
 								</li>
 								<li class="">
-									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de ¿Ángeles caídos o antropoides erguidos?">
 										Documentos y herramientas de ayuda
 									</a>
 								</li>
@@ -419,7 +422,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<p>
-									<a class="btn btn-default" href='index.php?content=programas-especiales'>
+									<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales">
 										<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
 									</a>
 								</p>
@@ -434,7 +437,7 @@
 						<br>
 						<div class="row">
 							<div class="DescripcionPrograma-imgAutor col-lg-1">
-								<img class="img-circle" src="/img/Nancy_Castrillon.png" width="80">
+								<img class="img-circle" src="/img/Nancy_Castrillon.png" width="80" alt="Nancy Castrillón">
 							</div>
 							<div class="DescripcionPrograma-autorAbout col-lg-11">
 								<strong>Sobre Nancy Castrillón:</strong> Psicóloga con especialización en Psicología clínica; máster en Humanidades, y máster en Neurorehabilitación y Enfermedades Neurodegenerativas.
@@ -457,12 +460,12 @@
 							<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
-										<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>">
+										<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de El arte y la virtud del cuidado">
 											Articulos
 										</a>
 									</li>
 									<li class="">
-										<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos">
+										<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de El arte y la virtud del cuidado">
 											Documentos y herramientas de ayuda
 										</a>
 									</li>

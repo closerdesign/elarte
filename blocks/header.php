@@ -14,19 +14,31 @@
 			<ul class="nav navbar-nav">
 				<?php
 					if(!isset($_SESSION['id'])){
-						echo '<li><a class="muestraLogin inicioMoviles" href="#"><i class="fa fa-user"></i> Iniciar sesión</a></li>';
+						echo '<li><a class="muestraLogin inicioMoviles" href="#" title="Iniciar sesión"><i class="fa fa-user"></i> Iniciar sesión</a></li>';
 					}
 				?>
-				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>><a href="/"><i class="fa fa-home"></i> Inicio</a></li>
-				<li<?php if( isset($_REQUEST['content']) && $_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras"><i class="fa fa-align-justify"></i> Guías y Obras Editoriales</a></li>
-				<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=mis-publicaciones"><i class="fa fa-book"></i> Mi Biblioteca</a></li>
-				<li<?php if( isset($_REQUEST['content']) && $_REQUEST['content']=='articulos' && !isset( $_REQUEST['slug'] ) ){ echo(" class='active' "); } ?>><a href="http://www.elartedesabervivir.com/?content=articulos"><i class="fa fa-pencil"></i> Artículos</a></li>
-				<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=articulos-favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a></li>
+				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>>
+					<a href="/" title="Inicio">
+						<i class="fa fa-home"></i> Inicio
+					</a>
+				</li>
+				<li<?php if( isset($_REQUEST['content']) && $_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>>
+					<a href="/?content=obras" title="Guías y Obras Editoriales"><i class="fa fa-align-justify"></i> Guías y Obras Editoriales</a>
+				</li>
+				<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>>
+					<a href="/?content=mi-cuenta&task=mis-publicaciones" title="Mi Biblioteca"><i class="fa fa-book"></i> Mi Biblioteca</a>
+				</li>
+				<li<?php if( isset($_REQUEST['content']) && $_REQUEST['content']=='articulos' && !isset( $_REQUEST['slug'] ) ){ echo(" class='active' "); } ?>>
+					<a href="http://www.elartedesabervivir.com/?content=articulos" title="Artículos"><i class="fa fa-pencil"></i> Artículos</a>
+				</li>
+				<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>>
+					<a href="/?content=mi-cuenta&task=articulos-favoritos" title="Artículos Favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a>
+				</li>
 				<?php
 					if(isset($_SESSION['id'])){
 						?>
 						<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
-							<a href="/?content=mi-cuenta&task=mi-pedido">
+							<a href="/?content=mi-cuenta&task=mi-pedido" title="Mi pedido">
 								<i class="fa fa-shopping-cart"></i> Mi pedido
 								<span class="label label-danger" id="noProductos" style="display:none"></span>
 							</a>
@@ -35,11 +47,17 @@
 					}
 				?>
 				<!-- <li><a data-toggle="modal" data-target="#myModalEspeciales" href="javascript:void(0)"><i class="fa fa-star"></i> Programas Especiales</a></li> -->
-				<li <?php echo ( isset($_REQUEST['slug']) || isset($_REQUEST['content']) && $_REQUEST['content'] == 'programas-especiales' ? 'class="active"' : '' ); ?>><a href="/index.php?content=programas-especiales"><i class="fa fa-star"></i> Programas Especiales</a></li>
+				<li <?php echo ( isset($_REQUEST['slug']) || isset($_REQUEST['content']) && $_REQUEST['content'] == 'programas-especiales' ? 'class="active"' : '' ); ?>>
+					<a href="/index.php?content=programas-especiales" title="Programas Especiales"><i class="fa fa-star"></i> Programas Especiales</a>
+				</li>
 				<?php if(!isset($_SESSION['id'])){ ?>
-				<li><a href="/index.php?content=que-es-phronesis"><i class="fa fa-question"></i> ¿Qué es Phronesis?</a></li>
+				<li>
+					<a href="/index.php?content=que-es-phronesis" title="¿Qué es Phronesis?"><i class="fa fa-question"></i> ¿Qué es Phronesis?</a>
+				</li>
 				<?php } ?>
-				<li><a data-toggle="modal" data-target="#myModalContacto" href="#"><i class="fa fa-envelope"></i> Contacto</a></li>
+				<li>
+					<a data-toggle="modal" data-target="#myModalContacto" href="#" title="Contacto"><i class="fa fa-envelope"></i> Contacto</a>
+				</li>
 				<?php
 					if(isset($_SESSION['id'])){
 						echo("<li class='inicioMoviles'><a href='#' class='cerrarSesion'><i class='fa fa-sign-out'></i> Salir</a></li>");
@@ -72,7 +90,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-3">
-					<a href="/"><img class="img img-responsive img-rounded" src="/img/logo.png" alt="Phronesis, el arte de saber vivir" /></a>
+					<a href="/" title="Phronesis, el arte de saber vivir">
+						<img class="img img-responsive img-rounded" src="/img/logo.png" alt="Phronesis, el arte de saber vivir" />
+					</a>
 				</div>
 				<?php
 					if(!isset($_SESSION['id'])){
@@ -91,7 +111,7 @@
 						?>
 						<div class="col-md-offset-3 col-lg-6 col-md-6 col-sm-6">
 							<p class="text-right">
-								<a href="/index.php?content=mi-cuenta">
+								<a href="/index.php?content=mi-cuenta" title="Mi cuenta">
 									Mi cuenta <i class="fa fa-user"></i>
 								</a>
 							</p>

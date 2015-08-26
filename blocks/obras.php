@@ -76,7 +76,7 @@
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="descPublicacion">
 												<p><?php echo limit_words(strip_tags($pub['descripcion']),25); ?>...</p>
-												<p><a href="/index.php?content=publicacion&id=<?php echo $pub['id'] ?>" title="Más información">(Más información...)</a></p>
+												<p><a href="/index.php?content=publicacion&id=<?php echo $pub['id'] ?>" title="<?= $pub['titulo']; ?>">(Más información...)</a></p>
 											</div>
 										</div>
 									</div>

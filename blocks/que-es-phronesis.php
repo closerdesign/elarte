@@ -8,7 +8,7 @@
 		<hr>
 		<div class="row">
 			<div class="col-lg-3 col-md-3 col-sm-3">
-				<img src="/img/queEsPhronesis.jpg" class="img img-responsive img-circle" />
+				<img src="/img/queEsPhronesis.jpg" class="img img-responsive img-circle" alt="¿Qué es Phronesis?" />
 			</div>
 			<div class="col-lg-5 col-md-5 col-sm-5">
 				<p class="lead">Somos una Editorial que promueve "el arte de saber vivir" por medio de publicaciones en formato electrónico. Todos nuestros productos sólo se publican en formato digital y se entregan a través de Internet.</p>

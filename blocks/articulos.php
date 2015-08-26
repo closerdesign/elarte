@@ -14,7 +14,7 @@
 		<br>
 		<div class="row">
 			<div class="DescripcionPrograma-imgAutor col-lg-1">
-				<img class="img-circle" src="/images/iris.jpg" width="80" alt="Dra. Iris Luna">			
+				<img class="img-circle" src="/images/iris.jpg" width="80" alt="Iris Luna">			
 			</div>
 			<div class="DescripcionPrograma-autorAbout col-lg-11">
 				<strong>Sobre Iris Luna:</strong> Iris Luna es médico psiquiatra, especialista en adicciones, magister en nutrición y especialista en sobrepeso y obesidad. Desde hace quince años trabaja como psicoterapeuta, docente y conferencista. Ha publicado cuatro libros académicos, así como múltiples artículos para revistas científicas sobre temas de psicopatología femenina. Dentro de sus actividades cabe destacar aquellas relacionadas con los temas de salud y prevención en salud mental y trastornos del comportamiento.
@@ -37,12 +37,12 @@
 			<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active">
-						<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos">
+						<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
 							Artículos
 						</a>
 					</li>
 					<li class="">
-						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos y herramientas de ayuda">
+						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Mente sana, vida sana">
 							Documentos y herramientas de ayuda
 						</a>
 					</li>
@@ -62,7 +62,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<p>
-					<a class="btn btn-default" href='index.php?content=programas-especiales' title="Volver a Programas Especiales">
+					<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales">
 						<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
 					</a>
 				</p>
@@ -77,7 +77,7 @@
 		<br>
 		<div class="row">
 			<div class="DescripcionPrograma-imgAutor col-lg-1">
-				<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" width="80" alt="Dr. Luis Flórez Alarcón">
+				<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" width="80" alt="Luis Flórez Alarcón">
 			</div>
 			<div class="DescripcionPrograma-autorAbout col-lg-11">
 				<strong>Sobre Luis Flórez:</strong> Psicólogo, Magister en Análisis Experimental de la Conducta y Doctor en Psicología Experimental. Actualmente es profesor Titular, adscrito al Departamento de Psicología de la Universidad Nacional de Colombia y director de la línea de investigación sobre Modelos Psicosociales en Prevención y Promoción de la Salud, en el grupo de investigación Estilo de Vida y Desarrollo Humano.
@@ -100,12 +100,12 @@
 			<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active">
-						<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos">
+						<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de ¿Ángeles caídos o antropoides erguidos?">
 							Artículos
 						</a>
 					</li>
 					<li class="">
-						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos y herramientas de ayuda">
+						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de ¿Ángeles caídos o antropoides erguidos?">
 							Documentos y herramientas de ayuda
 						</a>
 					</li>
@@ -125,7 +125,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<p>
-						<a class="btn btn-default" href='index.php?content=programas-especiales' title="Volver a Programas Especiales">
+						<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales">
 							<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
 						</a>
 					</p>
@@ -140,7 +140,7 @@
 			<br>
 			<div class="row">
 				<div class="DescripcionPrograma-imgAutor col-lg-1">
-					<img class="img-circle" src="/img/Nancy_Castrillon.png" width="80" alt="Dra. Nancy Castrillón">
+					<img class="img-circle" src="/img/Nancy_Castrillon.png" width="80" alt="Nancy Castrillón">
 				</div>
 				<div class="DescripcionPrograma-autorAbout col-lg-11">
 					<strong>Sobre Nancy Castrillón:</strong> Psicóloga con especialización en Psicología clínica; máster en Humanidades, y máster en Neurorehabilitación y Enfermedades Neurodegenerativas.
@@ -163,12 +163,12 @@
 				<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos">
+							<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de El arte y la virtud del cuidado">
 								Artículos
 							</a>
 						</li>
 						<li class="">
-							<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos y herramientas de ayuda">
+							<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de El arte y la virtud del cuidado">
 								Documentos y herramientas de ayuda
 							</a>
 						</li>
@@ -188,7 +188,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<p>
-						<a class="btn btn-default" href='index.php?content=programas-especiales' title="Volver a Programas Especiales">
+						<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales">
 							<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
 						</a>
 					</p>
@@ -205,7 +205,7 @@
 			<br>
 			<div class="row">
 				<div class="DescripcionPrograma-imgAutor col-lg-1">
-					<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80" alt="Lic. Marcela Monte">
+					<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80" alt="Marcela Monte">
 				</div>
 				<div class="DescripcionPrograma-autorAbout col-lg-11">
 					<strong>Sobre Marcela Monte:</strong> Licenciada en Psicología mención Cognitivo-Integrativa y Diploma de Honor de la Universidad Nacional de San Luis, especializada en Psicoterapia Breve Infantojuvenil. Trabaja actualmente como psicoterapeuta infantil. Se ha desempeñado en Servicios de Neonatología, Pediatría y Obstetricia, en diseño y ejecución de programas de asistencia a futuros padres y madres, recién nacidos sanos y de alto riesgo hospitalizados, bebés y niños en procesos de intervenciones quirúrgicas, y con enfermedades crónicas, talleres de capacitación en prevención y promoción de la salud mental infanto-juvenil para Equipos Interdisciplinarios de Salud y Educación.
@@ -228,12 +228,12 @@
 				<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=infantopsicologia' ? 'active' : '' ); ?>">
-							<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos">
+							<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Infantopsicología">
 								Artículos
 							</a>
 						</li>
 						<li class="active">
-							<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>" title="Documentos y herramientas de ayuda">
+							<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>" title="Documentos de Infantopsicología">
 								Documentos y herramientas de ayuda
 							</a>
 						</li>
@@ -409,7 +409,7 @@
 											</button>
 										</div>
 										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-											<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>">
+											<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>" rel="publisher">
 												<i class="fa fa-google"></i> Compartir en Google
 											</button>
 										</div>
@@ -506,7 +506,7 @@
 										</button>
 									</div>
 									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-										<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>">
+										<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>" rel="publisher">
 											<i class="fa fa-google"></i> Compartir en Google
 										</button>
 									</div>
@@ -557,7 +557,7 @@
 										<?php
 											}
 										?>
-											<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $c['imagen'] ?>" title="<?= $c['titulo']; ?>"/>
+											<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $c['imagen'] ?>" alt="<?= $c['titulo']; ?>"/>
 										</a>
 
 										<?php

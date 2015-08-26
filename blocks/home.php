@@ -4,7 +4,9 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4">
 					<div class="logoContainer">
-						<img src="/img/logoinv.png" class="img img-responsive" />
+						<a href="http://www.elartedesabervivir.com" title="Phrónesis: El arte de saber vivir">
+							<img src="/img/logoinv.png" class="img img-responsive" alt="Phrónesis: El arte de saber vivir" />
+						</a>
 					</div>
 				</div>
 			</div>
@@ -21,8 +23,8 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4">
 					<p>
-						<a onclick="openRegisterModal()" class="btn btn-success btn-lg">¡Regístrate ahora!</a>&nbsp;
-						<a href="javascript:void(0)" data-toggle="modal" data-target="#myModalPorQueRegistrarse" class="btn btn-default">¿Por qué registrarse?</a>&nbsp;
+						<a onclick="openRegisterModal()" class="btn btn-success btn-lg" title="Regístrate ahora">¡Regístrate ahora!</a>&nbsp;
+						<a href="javascript:void(0)" data-toggle="modal" data-target="#myModalPorQueRegistrarse" class="btn btn-default" title="¿Por qué registrarse?">¿Por qué registrarse?</a>&nbsp;
 					</p>
 				</div>
 			</div>
@@ -33,7 +35,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4">
-					<img src="/img/walterPortada.png" class="img img-responsive invitacionPortada" />
+					<img src="/img/walterPortada.png" class="img img-responsive invitacionPortada" alt="Walter Riso" />
 				</div>
 			</div>
 		</div>
@@ -94,7 +96,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/images/pareja-y-sexualidad.jpg"/>
+								<img class="img-circle" src="/images/pareja-y-sexualidad.jpg" alt="Pareja y Sexualidad" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -110,7 +112,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Disfruta y comparte tu relación al máximo utilizando nuestros consejos y aprendiendo tips que te harán más felíz.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/index.php?content=articulos&categoria=3">Leer artículos</a></p>
+									<p style="text-align: center">
+										<a class="btn btn-default" href="/index.php?content=articulos&categoria=3" title="Pareja y Sexualidad">Leer artículos</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -129,7 +133,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/images/superacion-personal.jpg"/>
+								<img class="img-circle" src="/images/superacion-personal.jpg" alt="Superación Personal" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -145,7 +149,9 @@
 							<div class="content">
 								<div class="main">
 									<p>El crecimiento personal es un proyecto en el que debes trabajar continuamente, encuentra artículos que te ayudaran en este continuo proceso.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/index.php?content=articulos&categoria=7">Leer artículos</a></p>
+									<p style="text-align: center">
+										<a class="btn btn-default" href="/index.php?content=articulos&categoria=7" title="Superación Personal">Leer artículos</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -164,7 +170,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/images/salud-y-nutricion.jpg"/>
+								<img class="img-circle" src="/images/salud-y-nutricion.jpg" alt="Salud y Nutrición" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -180,7 +186,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Saber vivir incluye disfrutar de una vida sana. Aprende consejos para que hacer ejercicio, alimentarte bien y mejorar tus hábitos sea parte de tu vida.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/index.php?content=articulos&categoria=6">Leer artículos</a></p>
+									<p style="text-align: center">
+										<a class="btn btn-default" href="/index.php?content=articulos&categoria=6" title="Leer artículos" title="Salud y Nutrición">Leer artículos</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -199,7 +207,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/images/familia.jpg"/>
+								<img class="img-circle" src="/images/familia.jpg" alt="Familia" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -215,7 +223,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Es esencial mantener la armonía de cualquier vínculo familiar. Nuestro contenido se enfoca en ayudarte a lograrlo.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/index.php?content=articulos&categoria=2">Leer artículos</a></p>
+									<p style="text-align: center">
+										<a class="btn btn-default" href="/index.php?content=articulos&categoria=2" title="Familia">Leer artículos</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -248,7 +258,7 @@
 				<ul class="bxslider">
 				  <?php
 					  while($p=mysqli_fetch_assoc($q)){
-						  echo('<li><a href="/index.php?content=publicacion&id='.$p['id'].'"><img src="/admin/_lib/file/imgpublicaciones/'.$p['portada'].'"/></a></li>');
+						  echo('<li><a href="/index.php?content=publicacion&id='.$p['id'].'" title="'.$p['titulo'].'"><img src="/admin/_lib/file/imgpublicaciones/'.$p['portada'].'" alt="'.$p['titulo'].'"/></a></li>');
 					  }
 				  ?>
 				</ul>
@@ -276,7 +286,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/images/reflexiones.jpg"/>
+								<img class="img-circle" src="/images/reflexiones.jpg" alt="Walter Riso" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -293,7 +303,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Programa en video conducido por el psicólogo y escritor Walter Riso en el que se busca crear un espacio de reflexión sobre los comportamientos que hacen parte de nuestra vida.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/index.php?content=mi-cuenta&task=reflexiones">Ir al programa</a></p>
+									<p style="text-align: center">
+									<a class="btn btn-default" href="/index.php?content=mi-cuenta&task=reflexiones" title="Reflexiones para Vivir Mejor">Ir al programa</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -312,7 +324,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/images/iris.jpg"/>
+								<img class="img-circle" src="/images/iris.jpg" alt="Iris Luna" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -329,7 +341,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Armonía entre cuerpo y mente de la mano de la Dra. Iris Luna, médico psiquiatra magister en nutrición con especialización en sobrepeso y obesidad.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/mente-sana-vida-sana">Ir al programa</a></p>
+									<p style="text-align: center">
+									<a class="btn btn-default" href="/programas-especiales/mente-sana-vida-sana" title="Mente Sana, Vida Sana">Ir al programa</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -348,7 +362,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg"/>
+								<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" alt="Luis Flórez Alarcón" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -365,7 +379,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Esta columna pretende analizar las motivaciones humanas a la luz de algunos principios científicos acerca del proceso motivacional, mirando este proceso desde una perspectiva teórica de corte cognitivo.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/angeles-caidos-o-antropoides-erguidos">Ir al programa</a></p>
+									<p style="text-align: center">
+									<a class="btn btn-default" href="/programas-especiales/angeles-caidos-o-antropoides-erguidos" title="¿Ángeles caídos o antropoides erguidos?">Ir al programa</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -383,7 +399,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/img/Nancy_Castrillon.png"/>
+								<img class="img-circle" src="/img/Nancy_Castrillon.png" alt="Nancy Castrillón" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -400,7 +416,9 @@
 							<div class="content">
 								<div class="main">
 									<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros."</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado">Ir al programa</a></p>
+									<p style="text-align: center">
+									<a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado" title="El arte y la virtud del cuidado">Ir al programa</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -418,7 +436,7 @@
 								<img src="/images/rotating_card_thumb2.png"/>
 							</div>
 							<div class="user">
-								<img class="img-circle" src="/img/Marcela_Monte.jpg"/>
+								<img class="img-circle" src="/img/Marcela_Monte.jpg" alt="Marcela Monte" />
 							</div>
 							<div class="content">
 								<div class="main">
@@ -437,7 +455,7 @@
 									<p>Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
 										educación de niños y niñas, herramientas y recursos que apoyen un 
 										desarrollo temprano saludable.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia">Ir al programa</a></p>
+									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia" title="Infantopsicología">Ir al programa</a></p>
 								</div>
 							</div>
 						</div>
@@ -471,10 +489,12 @@
 						<div class="col-lg-4 col-md-4 col-sm-4 articuloHome">
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
-									<a href="/index.php?content=articulos&id='.$p['id'].'"><img class="img img-responsive img-left" src="/admin/_lib/file/imgarticulos/'.$p['imagen'].'" align="left" style="min-height:190px"></a>
-									<h3><a href="/index.php?content=articulos&id='.$p['id'].'">'.$p['titulo'].'</a></h3>
+									<a href="/index.php?content=articulos&id='.$p['id'].'" title="'.$p['titulo'].'">
+									<img class="img img-responsive img-left" src="/admin/_lib/file/imgarticulos/'.$p['imagen'].'" align="left" style="min-height:190px" alt="'.$p['titulo'].'">
+									</a>
+									<h3><a href="/index.php?content=articulos&id='.$p['id'].'" title="'.$p['titulo'].'">'.$p['titulo'].'</a></h3>
 									<p>'.$contenido.'</p>
-									<p><a href="/index.php?content=articulos&id='.$p['id'].'" class="btn btn-default">Leer más</a></p>
+									<p><a href="/index.php?content=articulos&id='.$p['id'].'" class="btn btn-default" title="'.$p['titulo'].'">Leer más</a></p>
 								</div>
 							</div>
 						</div>		

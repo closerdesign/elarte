@@ -38,7 +38,7 @@
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-12">
-									<img class="img img-rounded img-responsive" src="/admin/_lib/file/imgpaquetes/<?php echo $data['portada'] ?>">
+									<img class="img img-rounded img-responsive" src="/admin/_lib/file/imgpaquetes/<?php echo $data['portada'] ?>" alt="<?php echo $data['nombre'] ?>">
 								</div>
 							</div>
 							<div class="row">

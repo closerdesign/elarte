@@ -12,20 +12,20 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>><a href="/"><i class="fa fa-home"></i> Inicio</a></li>
-				<li<?php if($_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras"><i class="fa fa-align-justify"></i> Biblioteca</a></li>
+				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>><a href="/" title="Inicio"><i class="fa fa-home"></i> Inicio</a></li>
+				<li<?php if($_REQUEST['content']=='obras'){ echo(" class='active' "); } ?>><a href="/?content=obras" title="Biblioteca"><i class="fa fa-align-justify"></i> Biblioteca</a></li>
 				<?php
 					if(isset($_SESSION['id'])){
 						?>
-						<li<?php if($_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=mis-publicaciones"><i class="fa fa-book"></i> Mi Biblioteca</a></li>
+						<li<?php if($_REQUEST['task']=='mis-publicaciones'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=mis-publicaciones" title="Mi Biblioteca"><i class="fa fa-book"></i> Mi Biblioteca</a></li>
 						<?php
 					}
 				?>
-				<li<?php if($_REQUEST['content']=='articulos'){ echo(" class='active' "); } ?>><a href="/?content=articulos"><i class="fa fa-pencil"></i> Artículos</a></li>
+				<li<?php if($_REQUEST['content']=='articulos'){ echo(" class='active' "); } ?>><a href="/?content=articulos" title="Artículos"><i class="fa fa-pencil"></i> Artículos</a></li>
 				<?php
 					if(isset($_SESSION['id'])){
 						?>
-						<li<?php if($_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=articulos-favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a></li>
+						<li<?php if($_REQUEST['task']=='articulos-favoritos'){ echo(" class='active' "); } ?>><a href="/?content=mi-cuenta&task=articulos-favoritos" title="Artículos Favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a></li>
 						<?php
 					}
 				?>
@@ -33,7 +33,7 @@
 					if(isset($_SESSION['id'])){
 						?>
 						<li<?php if($_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
-							<a href="/?content=mi-cuenta&task=mi-pedido">
+							<a href="/?content=mi-cuenta&task=mi-pedido" title="Mi pedido">
 								<i class="fa fa-shopping-cart"></i> Mi pedido 
 								<?php if(isset($_COOKIE['pedido'])){
 									$sql="SELECT * FROM publicacionesxpedido WHERE pedido = '$_COOKIE[pedido]'";
@@ -51,11 +51,11 @@
 				<!--<li<?php if($_REQUEST['content']=='comunidad'){ echo(" class='active' "); } ?>><a href="#">Comunidad</a></li>-->
 				<!--<li<?php if($_REQUEST['content']=='eventos'){ echo(" class='active' "); } ?>><a href="#">Eventos</a></li>-->
 				<!--<li<?php if($_REQUEST['content']=='suscripciones'){ echo(" class='active' "); } ?>><a href="#">Suscripciones</a></li>-->
-				<li><a data-toggle="modal" data-target="#myModalContacto" href="#"><i class="fa fa-envelope"></i> Contacto</a></li>
+				<li><a data-toggle="modal" data-target="#myModalContacto" href="#" title="Contacto"><i class="fa fa-envelope"></i> Contacto</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right hidden-xs">
-				<li><a href="https://www.facebook.com/phronesisvirtual" target="_blank"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="https://twitter.com/phronesisvir" target="_blank"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="https://www.facebook.com/phronesisvirtual" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://twitter.com/phronesisvir" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -81,7 +81,7 @@
 						?>
 						<div class="col-md-offset-3 col-lg-6 col-md-6 col-sm-6 hidden-xs">
 							<form name="login" id="login" class="navbar-form navbar-right" role="search" action="index.php" method="post">
-								<p><i class="fa fa-user"></i> Ingresar a mi cuenta. <a href="/?content=registrarme">¡Regístrate!</a> <a href="/index.php?content=recuperar-contrasena">¿Olvidaste tu contraseña?</a></p>
+								<p><i class="fa fa-user"></i> Ingresar a mi cuenta. <a href="/?content=registrarme" title="¡Regístrate!">¡Regístrate!</a> <a href="/index.php?content=recuperar-contrasena" title="¿Olvidaste tu contraseña?">¿Olvidaste tu contraseña?</a></p>
 								<div class="form-group">
 									<input type="email" class="form-control" name="login-email" id="login-email" placeholder="Email" required />
 								</div>
@@ -96,8 +96,8 @@
 						?>
 						<div class="col-md-offset-3 col-lg-6 col-md-6 col-sm-6">
 							<p class="text-right">
-								<a href="/index.php?content=mi-cuenta">Mi cuenta <i class="fa fa-user"></i></a><br />
-								<a href="/index.php?task=cerrar-sesion">Cerrar sesión <i class="fa fa-power-off"></i></a>
+								<a href="/index.php?content=mi-cuenta" title="Mi cuenta">Mi cuenta <i class="fa fa-user"></i></a><br />
+								<a href="/index.php?task=cerrar-sesion" title="Cerrar sesión">Cerrar sesión <i class="fa fa-power-off"></i></a>
 							</p>
 						</div>
 						<?php
@@ -112,7 +112,7 @@
 		<div class="container">
 			<div class="col-lg-12 col-md-12 col-sm-12 bannerTop">
 				<h1>¡Haz parte de nuestra comunidad!</h1>
-				<p><a href="/index.php?content=registrarme" class="btn btn-success btn-lg">¡Regístrate ahora!</a></p>
+				<p><a href="/index.php?content=registrarme" class="btn btn-success btn-lg" title="¡Regístrate ahora!">¡Regístrate ahora!</a></p>
 			</div>
 		</div>	
 	</div>
