@@ -15,6 +15,32 @@
 					<img src="<?= URL_IMG ?>logoinv.png" alt="Phrónesis" class="Header-titleImg">
 				</a>
 			</h1>
+		<?php if ( User::isLogged() ): ?>
+			<a href="<?= URL_API ?>home/logOut/">Salir</a>
+		<?php endif ?>
+		</div>
+		<div class="Header-container">
+			<nav>
+				<ul>
+					<li>
+						<a href="<?= URL_API ?>">
+							Inicio
+						</a>
+					</li>
+					<li>
+						<a href="<?= URL_API ?>obras">
+							Obras
+						</a>
+						<ul>
+							<li>
+								<a href="<?= URL_API ?>obras/agregarObras">
+									Agregar Obra
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</header>
 
@@ -28,8 +54,9 @@
 		<?= ( isset($mainUrl) ? "var mainUrl = '$mainUrl';" : "" );  ?>
 		<?= "var currentUrl = '".URL_API."';" ?>
 	</script>
-	<?php if ( $template === "obras" ): ?>
+	<?php if ( $template === "obras" || $template === "agregarObras" ): ?>
 		<script src="//cdn.ckeditor.com/4.5.3/full/ckeditor.js"></script>
+		<script type="text/javascript" src="<?= URL_JS ?>jquery.validate.min.js"></script>
 		<script type="text/javascript" src="<?= URL_JS ?>obras.js"></script>
 	<?php endif ?>
 	<script type="text/javascript" src="<?= URL_JS ?>script.js"></script>

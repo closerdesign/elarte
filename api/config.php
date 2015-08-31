@@ -18,4 +18,6 @@ define('URL_API', "http://www.elartedesabervivir.com/api/");
 define('URL_CSS', "http://www.elartedesabervivir.com/api/resources/css/");
 define('URL_JS', "http://www.elartedesabervivir.com/api/resources/js/");
 define('URL_IMG', "http://www.elartedesabervivir.com/api/resources/imgs/");
+define('URL_IMG_SITE', "http://www.elartedesabervivir.com/admin/_lib/file/imgarticulos/");
+
 define('NOTIFICACION', URL."/email/conferenciaPre.html");

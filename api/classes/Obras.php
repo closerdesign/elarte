@@ -13,21 +13,25 @@ class Obras
 	public $status;
 	public $programas_especiales;
 
-	public function __construct($id)
+	public function __construct( $id = NULL )
 	{
-		$db = MysqliDb::getInstance();
-		$db->where ('id', $id);
-		$obra = $db->getOne("articulos");
-		$this->id                   = $obra['id'];
-		$this->titulo               = $obra['titulo'];
-		$this->imagen               = $obra['imagen'];
-		$this->contenido            = $obra['contenido'];
-		$this->categoria            = $obra['categoria'];
-		$this->status               = $obra['status'];
-		$this->programas_especiales = $obra['programas_especiales'];
+		if ( !empty( $id ) ) {
+			$db = MysqliDb::getInstance();
+			$db->where ('id', $id);
+			$obra = $db->getOne("articulos");
+			$this->id                   = $obra['id'];
+			$this->titulo               = $obra['titulo'];
+			$this->imagen               = $obra['imagen'];
+			$this->contenido            = $obra['contenido'];
+			$this->categoria            = $obra['categoria'];
+			$this->status               = $obra['status'];
+			$this->programas_especiales = $obra['programas_especiales'];
+		}else{
+			$this->id = $id;
+		}
 	}
 
-	public static function getListObras($pag = NULL)
+	public static function getListObras( $pag = NULL )
 	{
 		$num_page = 10; 
 
@@ -94,6 +98,33 @@ class Obras
 		    return true;
 		else
 		    return false;
+	}
+
+	public function add()
+	{
+		$db = MysqliDb::getInstance();
+
+		$data = Array (
+			'titulo'               => $this->titulo,
+			'imagen'               => $this->imagen,
+			'contenido'            => $this->contenido,
+			'categoria'            => $this->categoria,
+			'status'               => $this->status,
+			'programas_especiales' => $this->programas_especiales
+		);
+
+
+		$id = $db->insert('articulos', $data);
+
+		ppp($id);
+
+		if ($id){
+		    return true;
+		}
+		else{
+			 echo 'insert failed: ' . $db->getLastError();
+		    return false;
+		}
 	}
 
 }

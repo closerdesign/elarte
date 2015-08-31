@@ -1,7 +1,6 @@
 <?php
 
 class HomeController {
-
     public function indexAction()
     {
         extract($_POST);
@@ -25,4 +24,9 @@ class HomeController {
         return new View('home', ['titulo' => 'Sección de Ingreso']);
     }
 
+    public function logOutAction()
+    {
+        User::logOut();
+        header('location: '.URL_API);
+    }
 }
