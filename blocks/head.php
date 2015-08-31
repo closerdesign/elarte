@@ -16,8 +16,13 @@
 				$_REQUEST['content'] == 'promocion'
 			)
 		){
-			$title = getDataPaquete($_REQUEST['id'])['nombre'];
+			if ( $_REQUEST['id'] == 2 ) {
+				$_REQUEST['id'] = 1;
+			}
+			$paquete = getDataPaquete($_REQUEST['id']);
+			$title = $paquete['nombre'];
 			$description = strip_tags(getDataPaquete($_REQUEST['id'])['descripcion']);
+			$img = 'http://www.elartedesabervivir.com/admin/_lib/file/imgpaquetes/'.$paquete['portada'];
 		}
 	?>
 	
