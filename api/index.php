@@ -14,7 +14,8 @@ require 'library/Response.php';
 require 'library/View.php';
 require_once 'library/MysqliDb.php';
 require_once 'library/phpmailer.php';
-
+require __DIR__ . '/vendor/autoload.php';
+classes();
 $db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
 
 //Llamar al controlador indicado

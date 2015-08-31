@@ -1,0 +1,102 @@
+.Section-container
+	margin 2rem auto
+	max-width 1024px
+	
+	& .Search
+		background #FFF
+		box-shadow 1px 1px 5px -3px #2B2B2B
+		margin-bottom 1rem
+		padding 1rem
+		
+		&-form
+			text-align center
+			
+.Pagination
+	margin-bottom 1rem
+	&-container
+		align-content space-around
+		display flex
+		flex-direction row
+		flex-wrap wrap
+		height 150px
+		justify-content center
+		list-style none
+		margin 0
+		padding 0
+		
+	&-item
+		background #DEDEDE
+		border 1px solid transparent
+		margin-right .6rem
+		transition .3s all ease
+
+		&:first-child
+			align-self flex-start
+		
+		&:last-child
+			margin-right 0
+			
+		&:hover
+			border 1px solid #FFF
+			box-shadow 0px 1px 3px #000
+			
+	&-link
+		color #8a8a8a
+		display block
+		height 100%
+		padding .6rem
+		text-decoration none
+		width 100%
+		
+		&Current
+			background #737373
+			color #FFF
+		
+.Obras
+	margin-bottom 1rem
+	
+	&-header
+		background #EFEFEF
+		display flex
+		flex-direction row
+		flex-wrap nowrap
+		justify-content space-between
+		align-items center
+		padding .5rem 1rem
+		box-shadow 1px 1px 5px -3px #2B2B2B	inset
+		
+		&Id
+			background #F8C81A
+			color #FFF
+			padding .5rem
+		&Arrow
+			background #FFF
+			padding .5rem
+			
+		
+	&-container
+		box-shadow 0px 0px 5px -1px #2B2B2B	inset
+		display none
+		padding .5rem 1rem
+		background #fff
+		
+	&-row
+		align-items flex-start
+		display flex
+		flex 1
+		flex-direction row
+		flex-wrap nowrap
+		justify-content flex-start
+		margin-bottom 1rem
+		padding 1rem
+		
+		&:nth-child(even)
+			background #EFEFEF
+		
+	&-label
+		width 150px
+		align-self center
+		
+	&-input
+		width 700px
+		

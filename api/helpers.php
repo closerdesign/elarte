@@ -8,6 +8,19 @@ function view($template, $vars = array())
     require "views/$template.tpl.php";
 }
 
+function classes()
+{
+    $directorio = 'classes';
+    $ficheros  = scandir($directorio,1);
+
+    foreach ($ficheros as $key => $fichero) {
+        $file = explode('.', $fichero);
+        if ( $file[1] == 'php' ) {
+            require_once 'classes/'.$fichero;
+        }
+    }
+}
+
 function controller($name)
 {
     if (empty($name))
@@ -28,6 +41,26 @@ function controller($name)
     }
 }
 
+function get_client_ip_env() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+        $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+ 
+    return $ipaddress;
+}
+
 function ppp($value='')
 {
     echo '<pre>';
@@ -35,46 +68,7 @@ function ppp($value='')
     echo '</pre>';
 }
 
-function generatePassword($length, $alphaPost='off', $alpha_upperPost='off', $numericPost = 'off', $specialPost = 'off')
-{
-    $alpha = "abcdefghijklmnopqrstuvwxyz";
-    $alpha_upper = strtoupper($alpha);
-    $numeric = "0123456789";
-    $special = ".-+=_,!@$#*%<>[]{}";
-    $chars = "";
-     
-    if (isset($length)){
-        // if you want a form like above
-        if (isset($alphaPost) && $alphaPost == 'on')
-            $chars .= $alpha;
-         
-        if (isset($alpha_upperPost) && $alpha_upperPost == 'on')
-            $chars .= $alpha_upper;
-         
-        if (isset($numericPost) && $numericPost == 'on')
-            $chars .= $numeric;
-         
-        if (isset($specialPost) && $specialPost == 'on')
-            $chars .= $special;
-         
-        $length = $length;
-    }else{
-        // default [a-zA-Z0-9]{9}
-        $chars = $alphaPost . $alpha_upper . $numeric;
-        $length = 9;
-    }
-     
-    $len = strlen($chars);
-    $pw = '';
-     
-    for ($i=0;$i<$length;$i++)
-            $pw .= substr($chars, rand(0, $len-1), 1);
-     
-    // the finished password
-    return str_shuffle($pw);
-}
-
-function sendEmail($asunto, $contrasenna, $email, $nombre, $emailTo, $emailFrom)
+function sendEmail($asunto, $contrasenna, $email, $nombre, $emailTo, $emailFrom, $template)
 {
     $mail             = new PHPMailer();
     
@@ -101,7 +95,7 @@ function sendEmail($asunto, $contrasenna, $email, $nombre, $emailTo, $emailFrom)
             ),
         );
 
-    $html=file_get_contents(NOTIFICACION, false, stream_context_create($arrContextOptions));
+    $html=file_get_contents(URL.'email/'.$template.'.html', false, stream_context_create($arrContextOptions));
     
     $html=str_replace("{{contrasenna}}",$contrasenna,$html);
     $html=str_replace("{{email}}",$email, $html);
@@ -113,8 +107,8 @@ function sendEmail($asunto, $contrasenna, $email, $nombre, $emailTo, $emailFrom)
     /*$mail->addBCC('pfhurtado@phronesisvirtual.com');*/
     
     if(!$mail->Send()) {
-      return 0;
-  } else {
-      return 1;
-  }
+        return 0;
+    } else {
+        return 1;
+    }
 }

@@ -1,0 +1,97 @@
+@import 'nib';
+@import 'normalize.styl';
+
+*
+	box-sizing border-box
+
+html,
+body
+	margin 0
+	padding 0
+	height 100%
+
+body
+	background #EFEFEF
+	color #8A8A8A
+	
+.Header
+	background linear-gradient(top, #c1c1c1 0%, #989898 50%, #c1c1c1 100%);
+
+	&-container
+		margin 0 auto
+		width 1024px
+		
+	&-title
+		margin 0
+		padding .5rem 0
+		
+	&-titleImg
+		height 5rem
+		
+.Home
+	
+	&-container
+		margin 0 auto
+		width 1024px
+		padding-bottom 2rem
+	
+	&-title
+		margin 0
+		padding 1rem 0
+		text-align center
+		
+	&-formContainer
+		background #FFF
+		border-radius 3px
+		margin 0 auto
+		width 500px
+		padding 1rem
+		box-shadow 1px 1px 5px -3px #2B2B2B
+				
+		& label
+			display block
+			margin-bottom .5rem
+			text-align center
+		
+		& input
+			background #efefef
+			border 0 solid transparent
+			border-radius 3px
+			display block
+			padding 1.1rem 1rem
+			width 100%
+			transition .3s all ease
+			
+			&:focus
+				background #DEDEDE
+				outline 0
+				
+		& button
+			background #6A127A
+			border 0 solid transparent
+			border-radius 3px
+			color #FFF
+			display block
+			padding .6rem
+			width 100%
+			transition .3s all ease
+
+			&:hover
+				background #500D5D
+				
+.Footer
+	background linear-gradient(top, #c1c1c1 0%, #989898 50%, #c1c1c1 100%);
+	/*bottom 0px*/
+	padding 1rem
+	position absolute
+	width 100%
+	
+	&-copy
+		color #FFF
+		text-align center
+		text-shadow 1px 1px 2px #2B2B2B
+		
+
+		
+@import 'utilities.styl'		
+@import 'obras.styl'
