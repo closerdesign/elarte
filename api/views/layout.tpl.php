@@ -20,6 +20,7 @@
 			<a href="<?= URL_API ?>home/logOut/">Salir</a>
 		<?php endif ?>
 		</div>
+		<?php if ( User::isLogged() ): ?>
 		<div class="Header-container">
 			<nav>
 				<ul>
@@ -43,6 +44,7 @@
 				</ul>
 			</nav>
 		</div>
+		<?php endif ?>
 	</header>
 
 	<?= $tpl_content; ?>
