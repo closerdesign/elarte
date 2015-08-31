@@ -6,7 +6,7 @@
 				<input type="text" name="titulo"  class="u-inputText">
 				<button type="submit" class="u-button">Buscar</button>
 			</form>
-			<?php if ( !is_null($mensaje) ): ?>
+			<?php if ( isset( $mensaje ) && !is_null($mensaje) ): ?>
 				<h3><?= $mensaje ?></h3>
 			<?php endif ?>
 			<h3></h3>
@@ -53,7 +53,7 @@
 								<div class="Obras-headerArrow u-arrowDown"></div>
 							</div>
 							<div class="Obras-container">
-								<form action="<?= URL_API ?>obras/guardar" method="POST" >
+								<form action="<?= URL_API ?>obras/guardar" method="POST" enctype="multipart/form-data">
 									<div class="Obras-row">
 										<div class="Obras-label">
 											Título:
@@ -67,6 +67,7 @@
 											Imagen:
 										</div>
 										<div class="Obras-input">
+											<img src="<?= URL_IMG_SITE.$articulo['imagen'] ?>" alt="">
 											<input name="imagen" type="file" value="<?= $articulo['imagen'] ?>">
 										</div>
 									</div>

@@ -9,4 +9,12 @@
 
 		$(this).parent().next().slideToggle('fast');
 	});
+
+	$(".obrasForm").validate({
+		rules: {
+			status: {
+				required: true
+			}
+		}
+	});
 })();

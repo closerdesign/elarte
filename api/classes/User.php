@@ -61,4 +61,20 @@ class User
 			return true;
 		}
 	}
+
+	static function isLogged()
+	{
+		if ( isset($_SESSION['loggedId']) && isset( $_SESSION['encrypt'] ) ) {
+			return true;
+		}
+		return false;
+	}
+
+	static function logOut()
+	{
+		if ( session_destroy() ) {
+			return true;
+		}
+		return false;
+	}
 }

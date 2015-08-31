@@ -6,28 +6,41 @@ class ObrasController
 {
 	public function indexAction($mensaje = NULL)
 	{
-		if ( isset( $_SESSION['loggedId'] ) ) {
+		if ( User::isLogged() ) {
 			$articulos = Obras::getListObras(1);
 			$pages = Obras::getNumPages();
 			$categorias = Categoria::getAll();
 			$program_esp = Programa::getAll();
 
-			$params = [
-							'articulos' => $articulos,
-							'categorias_art' => $categorias,
-							'program_esp'=> $program_esp,
-							'pages' => $pages,
-							'current_page' => 1,
-							'mainUrl' => 'obras', 
-							'mensaje' => $mensaje
-						];
+
+			if ( is_null( $mensaje ) ) {
+				$params = [
+								'articulos' => $articulos,
+								'categorias_art' => $categorias,
+								'program_esp'=> $program_esp,
+								'pages' => $pages,
+								'current_page' => 1,
+								'mainUrl' => 'obras', 
+								'mensaje' => $mensaje
+							];
+			}else{
+				$params = [
+								'articulos' => $articulos,
+								'categorias_art' => $categorias,
+								'program_esp'=> $program_esp,
+								'pages' => $pages,
+								'current_page' => 1,
+								'mainUrl' => '/api/obras', 
+								'mensaje' => $mensaje
+							];
+			}
 
 			return new View('obras', $params);
 		}else{
 			$params = [
 							'titulo' => 'Sección de Ingreso',
 							'error' => 'Datos correctos',
-							'mainUrl' => '/'
+							'mainUrl' => '/api'
 						];
 			return new View('home', $params);
 		}
@@ -39,7 +52,7 @@ class ObrasController
 		$url_page = explode('/', $url_page);
 		$pag = $url_page[2];
 
-		if ( isset( $_SESSION['loggedId'] ) ) {
+		if ( User::isLogged() ) {
 			$articulos = Obras::getListObras($pag);
 			$pages = Obras::getNumPages();
 			$categorias = Categoria::getAll();
@@ -86,10 +99,31 @@ class ObrasController
 		extract( $_POST );
 
 		$obra = new Obras($id);
-
 		$obra->titulo = $titulo;
-		if ( !empty( $imagen ) ) {
-			$obra->imagen = $imagen;
+		if ( !empty( $_FILES['imagen'] ) ) {
+
+			$handle = new upload($_FILES['imagen']);
+			if ($handle->uploaded) {
+				$handle->process( dirname( getcwd() ) .'/admin/_lib/file/imgarticulos/' );
+				if ($handle->processed) {
+					$obra->imagen = $handle->file_src_name;
+				} else {
+					echo 'error : ' . $handle->error;
+				}
+				
+				$handle->file_new_name_body = $handle->file_src_name_body.'1200X627';
+				$handle->image_resize       = true;
+				$handle->image_x            = 1200;
+				$handle->image_y            = 627;
+
+				$handle->process( dirname( getcwd() ) .'/admin/_lib/file/imgarticulos/' );
+				if ($handle->processed) {
+					$handle->clean();
+
+				} else {
+					echo 'error : ' . $handle->error;
+				}
+			}
 		}
 		$categoria = implode(',', $categoria);
 		$obra->contenido = $contenido;
@@ -100,8 +134,77 @@ class ObrasController
 		if ( $obra->save() ) {
 			return $this->indexAction('Se ha guardado correctamente.');
 		}
-
 		echo "mal";
 		return;
+	}
+
+	public function agregarAction()
+	{
+		extract($_POST);
+
+
+		$obra = new Obras();
+
+		if ( !empty( $_FILES['imagen'] ) ) {
+
+			$handle = new upload($_FILES['imagen']);
+			if ( $handle->uploaded ) {
+				$handle->process( dirname( getcwd() ) .'/admin/_lib/file/imgarticulos/' );
+				if ($handle->processed) {
+					$obra->imagen = $handle->file_src_name;
+				} else {
+					echo 'error : ' . $handle->error;
+				}
+				
+				$handle->file_new_name_body = $handle->file_src_name_body.'1200X627';
+				$handle->image_resize       = true;
+				$handle->image_x            = 1200;
+				$handle->image_y            = 627;
+
+				$handle->process( dirname( getcwd() ) .'/admin/_lib/file/imgarticulos/' );
+				if ($handle->processed) {
+					$handle->clean();
+
+					$obra->titulo               = $titulo;
+					$obra->contenido            = $contenido;
+					$categoria                  = implode(',', $categoria);
+					$obra->categoria            = $categoria;
+					$obra->programas_especiales = $programas_especiales;
+					$obra->status               = $status;
+					
+					if ( $obra->add() ) {
+						return $this->indexAction('Se ha creado correctamente.');
+					}else{
+						return $this->indexAction('Ha ocurrido un error al crear.');
+					}
+				} else {
+					return $this->indexAction('Ha ocurrido un error al crear.');
+				}
+			}
+		}
+
+
+	}
+
+	public function agregarObrasAction()
+	{
+		if ( User::isLogged() ) {
+			/*$articulos = Obras::getListObras(1);
+			$pages = Obras::getNumPages();*/
+			$categorias = Categoria::getAll();
+			$program_esp = Programa::getAll();
+
+
+			$params = [
+							/*'articulos' => $articulos,*/
+							'categorias_art' => $categorias,
+							'program_esp'=> $program_esp,
+							/*'pages' => $pages,*/
+							/*'current_page' => 1,*/
+							'mainUrl' => '/api/obras/agregarObras'
+						];
+
+			return new View('agregarObras', $params);
+		}
 	}
 }
