@@ -6,32 +6,6 @@
 				<input type="text" name="titulo" id="titulo" class="u-inputText">
 				<button type="submit" class="u-button">Buscar</button>
 			</form>
-			<form action="<?= URL_API ?>obras/filterCategory" class="Search-form Filter-category" method="POST">
-				<label for="categoria">
-					Filtrar por Categoría:
-				</label>
-				<select name="categoria" id="categoria">
-					<option value="">--Seleccione una categoría para filtrar</option>
-					<?php foreach ($categorias_art as $key2 => $catart): ?>
-					<option value="<?= $catart['id'] ?>">
-						<?= $catart['nombre'] ?>
-					</option>
-					<?php endforeach ?>
-				</select>
-			</form>
-			<form action="<?= URL_API ?>obras/filterPrograma" class="Search-form Filter-programa" method="POST">
-				<label for="programa">
-					Filtrar por programa
-				</label>
-				<select name="programa" id="programa">
-					<option value="">--Seleccione un programa para filtrar--</option>
-					<?php foreach ($program_esp as $key3 => $prog): ?>
-					<option value="<?= $prog['id_programa'] ?>">
-						<?= $prog['titulo'] ?>
-					</option>
-					<?php endforeach ?>
-				</select>
-			</form>
 			<?php if ( !empty($mensaje) ): ?>
 				<h3><?= $mensaje ?></h3>
 			<?php endif ?>

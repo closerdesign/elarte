@@ -125,9 +125,11 @@ class ObrasController
 				}
 			}
 		}
-		$categoria = implode(',', $categoria);
+		if ( !empty( $categoria ) ) {
+			$categoria = implode(',', $categoria);
+			$obra->categoria = $categoria;
+		}
 		$obra->contenido = $contenido;
-		$obra->categoria = $categoria;
 		$obra->status = $status;
 		$obra->programas_especiales = $programas_especiales;
 
