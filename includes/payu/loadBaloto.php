@@ -1,7 +1,24 @@
 <?php
     
     require_once('PayU.php');
-	
+		
+    function getRealIpAddr()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+        {
+        	$ip=$_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+        {
+        	$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+        	$ip=$_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
 	// Variables de producción
 	Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
 	Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
@@ -37,7 +54,7 @@
 		//Ingrese aquí el nombre del pagador.
 		PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
 		//Ingrese aquí el documento de contacto del pagador.
-		PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],
+		/*PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],*/
 	
 		//Ingrese aquí el nombre del método de pago
 		PayUParameters::PAYMENT_METHOD => PaymentMethods::BALOTO,
@@ -48,7 +65,7 @@
 		//Ingrese aquí la fecha de expiración.
 		PayUParameters::EXPIRATION_DATE => "2015-09-26T00:00:00",
 		//IP del pagadador
-		PayUParameters::IP_ADDRESS => "127.0.0.1",   
+		PayUParameters::IP_ADDRESS => getRealIpAddr(),   
 	);
 		
 	$response = PayUPayments::doAuthorizationAndCapture($parameters);

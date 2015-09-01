@@ -63,10 +63,12 @@
 				<input type="text" class="form-control" name="codigoSeguridad" id="codigoSeguridad" placeholder="Código de seguridad" required />
 			</div>
 
+			<input type="hidden" name="pedido" id="pedido" value="pkg<?= $_SESSION['id'] ?>" />
 			<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor; ?>" />
-			<input type="hidden" name="pedido" id="pedido" value="CF<?= $_SESSION['id'] ?>" />
+			<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?= getNombreUsuario($_SESSION['id']).' '.getApellidoUsuario($_SESSION['id']); ?>" />
 			<input type="hidden" name="email" id="email" value="<?= getEmailUsuario($_SESSION['id']); ?>" />
 			<input type="hidden" name="ciudad" id="ciudad" value="<?= getCiudadUsuario($_SESSION['id']); ?>" />
+			<input type="hidden" name="pais" id="pais" value="<?= getPaisUsuario($_SESSION['id']); ?>" />
 			<input type="hidden" name="cuotas" id="cuotas" value="1" />
 		</div>
 		<?php

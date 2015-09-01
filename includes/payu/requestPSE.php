@@ -5,7 +5,23 @@
     	$reference = $_POST['pedido'];
 	$value = $_POST['vrPedido'];
 	//$value = 2.3;
-    	
+    function getRealIpAddr()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+        {
+        	$ip=$_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+        {
+        	$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+        	$ip=$_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+	
     	// PRUEBAS
      //Quitar estas variables de entorno para poder pasar a producccion
      //Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi"); 
@@ -76,11 +92,11 @@
 		PayUParameters::COUNTRY => PayUCountries::CO,
 		
 		//IP del pagadador
-		PayUParameters::IP_ADDRESS => "127.0.0.1",
+		PayUParameters::IP_ADDRESS => getRealIpAddr(),
 		//Cookie de la sesión actual.
 		PayUParameters::PAYER_COOKIE=>session_id(),
 		//Cookie de la sesión actual.        
-		PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
+		PayUParameters::USER_AGENT=>$_SERVER['HTTP_USER_AGENT']
 	   
 	);
 		
