@@ -1,13 +1,30 @@
 <?php
     require_once('PayU.php');
 
+    function getRealIpAddr()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+        {
+        	$ip=$_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+        {
+        	$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+        	$ip=$_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
     //Quitar estas variables de entorno para poder pasar a producccion
     //Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi"); 
     //Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi"); 
     //Environment::setSubscriptionsCustomUrl("https://stg.api.payulatam.com/payments-api/rest/v4.3/"); 
     //Fin variables de Entorno
 
-    if ( _TESTING_ ) {
+    /*if ( _TESTING_ ) {
     	Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi");
     	Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi");
     	Environment::setSubscriptionsCustomUrl("https://stg.api.payulatam.com/payments-api/rest/v4.3/");
@@ -18,7 +35,7 @@
     	PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
     	PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
     	$accountId = "500538";
-    }else{
+    }else{*/
 		Environment::setPaymentsCustomUrl('https://api.payulatam.com/payments-api/4.0/service.cgi'); 
 		Environment::setReportsCustomUrl('https://api.payulatam.com/reports-api/4.0/service.cgi'); 
 		Environment::setSubscriptionsCustomUrl('https://api.payulatam.com/payments-api/rest/v4.3/'); 
@@ -29,7 +46,7 @@
 		PayU::$language = SupportedLanguages::ES; //Seleccione el idioma.
 		PayU::$isTest = false; //Dejarlo True cuando sean pruebas.
 		$accountId = "501716";
-    }	
+    /*}	*/
 	
 	//Ingrese aquí el nombre del medio de pago
 	$parameters = array(

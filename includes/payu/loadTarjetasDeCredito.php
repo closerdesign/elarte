@@ -2,6 +2,23 @@
     
 	require_once('PayU.php');
 
+	function getRealIpAddr()
+	{
+	    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+	    {
+	    	$ip=$_SERVER['HTTP_CLIENT_IP'];
+	    }
+	    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+	    {
+	    	$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+	    }
+	    else
+	    {
+	    	$ip=$_SERVER['REMOTE_ADDR'];
+	    }
+	    return $ip;
+	}
+
     $reference = $_POST['pedido'];
 	$value = $_POST['vrPedido'];
 	$expiration = $_POST['yearTarjeta']."/".$_POST['mesTarjeta'];
@@ -46,19 +63,23 @@
 	
 	// -- Comprador 
 	//Ingrese aquí el nombre del comprador.
-	PayUParameters::BUYER_NAME => $_POST['nombreTarjeta'],
+	PayUParameters::BUYER_NAME => $_POST['nombreUsuario'],
 	//Ingrese aquí el email del comprador.
 	PayUParameters::BUYER_EMAIL => $_POST['email'],
+	PayUParameters::BUYER_CITY => $_POST['ciudad'],
+	PayUParameters::BUYER_COUNTRY => $_POST['pais'],
+
+
 	
 	// -- pagador --
-	//Ingrese aquí el nombre del pagador.
+	//Ingrese aquí el nombre del pagador. tarjetahabiente
 	//PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
 	PayUParameters::PAYER_NAME => $_POST['nombreTarjeta'],
 	//Ingrese aquí el email del pagador.
 	PayUParameters::PAYER_EMAIL => $_POST['email'],
 	PayUParameters::PAYER_CITY => $_POST['ciudad'],
 	//PayUParameters::PAYER_STATE => "Bogota",
-	PayUParameters::PAYER_COUNTRY => 'US',
+	/*PayUParameters::PAYER_COUNTRY => $_POST['pais'],*/
 	
 	// -- Datos de la tarjeta de crédito -- 
 	//Ingrese aquí el número de la tarjeta de crédito
@@ -79,11 +100,11 @@
 	//Session id del device.
 	PayUParameters::DEVICE_SESSION_ID => "vghs6tvkcle931686k1900o6e1",
 	//IP del pagadador
-	PayUParameters::IP_ADDRESS => "127.0.0.1",
+	PayUParameters::IP_ADDRESS => getRealIpAddr(),
 	//Cookie de la sesión actual.
 	PayUParameters::PAYER_COOKIE=>session_id(),
 	//Cookie de la sesión actual.        
-	PayUParameters::USER_AGENT=>"Mozilla/5.0 (Windows NT 5.1; rv:18.0) Gecko/20100101 Firefox/18.0"
+	PayUParameters::USER_AGENT=>$_SERVER['HTTP_USER_AGENT']
 );
 	
 $response = PayUPayments::doAuthorizationAndCapture($parameters);

@@ -1,6 +1,23 @@
 <?php
     require_once('PayU.php');
 
+    function getRealIpAddr()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+        {
+        	$ip=$_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+        {
+        	$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+        	$ip=$_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
     //Quitar estas variables de entorno para poder pasar a producccion
     //Environment::setPaymentsCustomUrl("https://stg.api.payulatam.com/payments-api/4.0/service.cgi"); 
     //Environment::setReportsCustomUrl("https://stg.api.payulatam.com/reports-api/4.0/service.cgi"); 
@@ -53,7 +70,7 @@
 		//Ingrese aquí la fecha de expiración.
 		PayUParameters::EXPIRATION_DATE => "2015-10-02T04:00:00",
 		//IP del pagadador
-		PayUParameters::IP_ADDRESS => "127.0.0.1",
+		PayUParameters::IP_ADDRESS => getRealIpAddr(),
 	   
 	);
 		

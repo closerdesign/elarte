@@ -39,7 +39,7 @@
 		</div>
 
 		<input type="hidden" name="noDocumentoBaloto" id="noDocumentoBaloto" value="900476732" />
-		<input type="hidden" name="noPedido" id="noPedido" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
+		<input type="hidden" name="noPedido" id="noPedido" value="PKG-<?= $_SESSION['id'] ?>-<?= $_REQUEST['id'] ?>" />
 		<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor; ?>" />
 		<input type="hidden" name="email" id="email" value="<?= getEmailUsuario($_SESSION['id']); ?>" />
 		<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?= getNombreUsuario($_SESSION['id']); ?> <?= getApellidoUsuario($_SESSION['id']); ?>" />
