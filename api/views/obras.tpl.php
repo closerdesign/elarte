@@ -3,13 +3,38 @@
 		<div class="Search">
 			<form action="<?= URL_API ?>obras/find" class="Search-form" method="POST">
 				<label for="titulo">Buscar por título:</label>
-				<input type="text" name="titulo"  class="u-inputText">
+				<input type="text" name="titulo" id="titulo" class="u-inputText">
 				<button type="submit" class="u-button">Buscar</button>
 			</form>
-			<?php if ( isset( $mensaje ) && !is_null($mensaje) ): ?>
+			<form action="<?= URL_API ?>obras/filterCategory" class="Search-form Filter-category" method="POST">
+				<label for="categoria">
+					Filtrar por Categoría:
+				</label>
+				<select name="categoria" id="categoria">
+					<option value="">--Seleccione una categoría para filtrar</option>
+					<?php foreach ($categorias_art as $key2 => $catart): ?>
+					<option value="<?= $catart['id'] ?>">
+						<?= $catart['nombre'] ?>
+					</option>
+					<?php endforeach ?>
+				</select>
+			</form>
+			<form action="<?= URL_API ?>obras/filterPrograma" class="Search-form Filter-programa" method="POST">
+				<label for="programa">
+					Filtrar por programa
+				</label>
+				<select name="programa" id="programa">
+					<option value="">--Seleccione un programa para filtrar--</option>
+					<?php foreach ($program_esp as $key3 => $prog): ?>
+					<option value="<?= $prog['id_programa'] ?>">
+						<?= $prog['titulo'] ?>
+					</option>
+					<?php endforeach ?>
+				</select>
+			</form>
+			<?php if ( !empty($mensaje) ): ?>
 				<h3><?= $mensaje ?></h3>
 			<?php endif ?>
-			<h3></h3>
 		</div>
 		<?php if ( !isset($item) ): ?>
 		<nav class="Pagination u-containerStyle">
@@ -23,7 +48,7 @@
 				</li>
 				<?php endif ?>
 
-				<?php for ($i=1; $i < $pages ; $i++): ?>
+				<?php for ($i=1; $i <= $pages ; $i++): ?>
 				<li class="Pagination-item">
 					<a href="<?= URL_API ?>obras/page/<?= $i ?>" class="Pagination-link <?= ( $current_page == $i ? 'Pagination-linkCurrent' : '' ) ?>">
 						<?= $i ?>
@@ -102,7 +127,12 @@
 											<select name="programas_especiales" class="categoria">
 												<option value=""> --Seleccione una categoría--</option>
 												<?php foreach ($program_esp as $key3 => $prog): ?>
-												<option value="<?= $prog['id_programa'] ?>" <?= ( $prog['id_programa'] == $articulo['programas_especiales'] ? 'selected="selected' : '' ) ?>><?= $prog['titulo'] ?></option>
+												<option 
+													value="<?= $prog['id_programa'] ?>" 
+													<?= ( $prog['id_programa'] == $articulo['programas_especiales'] ? 'selected="selected"' : '' ) ?>
+												>
+													<?= $prog['titulo'] ?>
+												</option>
 												<?php endforeach ?>
 											</select>
 										</div>
@@ -144,98 +174,6 @@
 						</div>						
 					<?php endforeach ?>
 				<?php endif ?>
-				<!-- <div class="Obras-item">
-					<div class="Obras-header">
-						<div class="Obras-headerId">1</div>
-						<div class="Obras-headerTitulo">Prueba</div>
-						<div class="Obras-headerArrow u-arrowDown"></div>
-					</div>
-					<div class="Obras-container">
-						<form action="">
-							<div class="Obras-row">
-								<div class="Obras-label">
-									Título:
-								</div>
-								<div class="Obras-input">
-									<input type="text" class="u-inputTextWhite">
-								</div>
-							</div>
-							<div class="Obras-row">
-								<div class="Obras-label">
-									Imagen:
-								</div>
-								<div class="Obras-input">
-									<input type="file">
-								</div>
-							</div>
-							<div class="Obras-row">
-								<div class="Obras-label">
-									Contenido:
-								</div>
-								<div class="Obras-input">
-									<textarea class="contenido" name="contenido" id="" cols="30" rows="10"></textarea>
-								</div>
-							</div>
-							<div class="Obras-row">
-								<div class="Obras-label">
-									Categoría:
-								</div>
-								<div class="Obras-input">
-									<select name="categoria" class="categoria">
-										<option value=""> --Seleccione una categoría--</option>
-										<option value="categoria1">categoria1</option>
-										<option value="categoria2">categoria2</option>
-										<option value="categoria3">categoria3</option>
-										<option value="categoria4">categoria4</option>
-										<option value="categoria5">categoria5</option>
-									</select>
-								</div>
-							</div>
-							<div class="Obras-row">
-								<div class="Obras-label">
-									Programas Especiales:
-								</div>
-								<div class="Obras-input">
-									<select name="categoria" class="categoria">
-										<option value=""> --Seleccione una categoría--</option>
-										<option value="categoria1">categoria1</option>
-										<option value="categoria2">categoria2</option>
-										<option value="categoria3">categoria3</option>
-										<option value="categoria4">categoria4</option>
-										<option value="categoria5">categoria5</option>
-									</select>
-								</div>
-							</div>
-							<div class="Obras-row">
-								<div class="Obras-label">
-									Estado:
-								</div>
-								<div class="Obras-input">
-									<label for="sizeSmall">Activo
-										<input type = "radio"
-							                 name = "radSize"
-							                 id = "sizeSmall"
-							                 value = "small"
-							                 checked = "checked" />
-									</label>
-									<label for="sizeLarge">Desactivo
-										<input type = "radio"
-							                 name = "radSize"
-							                 id = "sizeLarge"
-							                 value = "small"/>
-									</label>
-								</div>
-
-							</div>
-							<div class="Obras-row">
-								<div class="Obras-label"></div>
-								<div class="Obras-input u-alignRight">
-									<button class="u-button">Actualizar</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div> -->
 			</div>
 		</div>
 		<?php if ( !isset($item) ): ?>
@@ -248,7 +186,7 @@
 				</li>
 				<?php endif ?>
 
-				<?php for ($i=1; $i < $pages ; $i++): ?>
+				<?php for ($i=1; $i <= $pages ; $i++): ?>
 				<li class="Pagination-item">
 					<a href="<?= URL_API ?>obras/page/<?= $i ?>" class="Pagination-link <?= ( $current_page == $i ? 'Pagination-linkCurrent' : '' ) ?>"><?= $i ?></a>
 				</li>
