@@ -127,7 +127,12 @@
 											<select name="programas_especiales" class="categoria">
 												<option value=""> --Seleccione una categoría--</option>
 												<?php foreach ($program_esp as $key3 => $prog): ?>
-												<option value="<?= $prog['id_programa'] ?>" <?= ( $prog['id_programa'] == $articulo['programas_especiales'] ? 'selected="selected' : '' ) ?>><?= $prog['titulo'] ?></option>
+												<option 
+													value="<?= $prog['id_programa'] ?>" 
+													<?= ( $prog['id_programa'] == $articulo['programas_especiales'] ? 'selected="selected"' : '' ) ?>
+												>
+													<?= $prog['titulo'] ?>
+												</option>
 												<?php endforeach ?>
 											</select>
 										</div>
