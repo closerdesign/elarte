@@ -62,10 +62,10 @@ class Obras
 			$db->where ('titulo like "%'.$titulo.'%"');
 		}
 
-		$articulos = $db->get("articulos");
+		$num_articulos = $db->getValue("articulos", "count(*)");
 
 
-		$total_pages = ceil( count($articulos) / $num_page );
+		$total_pages = ceil( $num_articulos / $num_page );
 
 		return $total_pages;
 	}
