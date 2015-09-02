@@ -7,6 +7,21 @@
 			$title = getTituloArticulo($_REQUEST['id']);
 			$description = getDescripcionArticulo($_REQUEST['id']);
 			$img = getUrlImagenArticulo($_REQUEST['id']);
+
+			$data = getDataArticulos($_REQUEST['id']);
+
+			if ( !empty($data['meta_description']) ) {
+				$description = utf8_encode( $data['meta_description'] );
+			}else{
+		 		$description = $description;
+			}
+
+			if ( !empty($data['meta_keywords']) ) {
+				$keywords = $data['meta_keywords'];
+			}else{
+				$keywords = '';
+			}
+
 		}elseif(
 			isset($_REQUEST['content']) &&
 			(
@@ -23,9 +38,9 @@
 			$title = $paquete['nombre'];
 
 			if ( !empty($paquete['meta_description']) ) {
-				$description = $paquete['meta_description'];
+				$description = utf8_encode( $paquete['meta_description'] );
 			}else{
-		 		$description = strip_tags( $paquete['descripcion'] );
+		 		$description = strip_tags( utf8_encode($paquete['descripcion']) );
 			}
 
 			if ( !empty($paquete['meta_keywords']) ) {
