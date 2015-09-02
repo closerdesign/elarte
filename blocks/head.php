@@ -11,9 +11,9 @@
 			$data = getDataArticulos($_REQUEST['id']);
 
 			if ( !empty($data['meta_description']) ) {
-				$description = utf8_encode( $data['meta_description'] );
+				$description = utf8_decode( $data['meta_description'] );
 			}else{
-		 		$description = $description = strip_tags( utf8_encode($description) );;
+		 		$description = strip_tags( utf8_decode($description) );
 			}
 
 			if ( !empty($data['meta_keywords']) ) {
@@ -38,9 +38,9 @@
 			$title = $paquete['nombre'];
 
 			if ( !empty($paquete['meta_description']) ) {
-				$description = utf8_encode( $paquete['meta_description'] );
+				$description = utf8_decode( $paquete['meta_description'] );
 			}else{
-		 		$description = strip_tags( utf8_encode($paquete['descripcion']) );
+		 		$description = strip_tags( utf8_decode($paquete['descripcion']) );
 			}
 
 			if ( !empty($paquete['meta_keywords']) ) {
