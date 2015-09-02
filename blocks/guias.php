@@ -11,9 +11,15 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 1;
 			require 'guias2.php';
 			break;
+
 		case 3:
 			$_REQUEST['id'] = 1;
 			require 'guias3.php';
+			break;
+
+		case 4:
+			$_REQUEST['id'] = 1;
+			require 'guias4.php';
 			break;
 		default:
 			break;
