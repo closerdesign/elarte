@@ -39,6 +39,11 @@ RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
 RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80
+RewriteCond %{REQUEST_URI} guias/([^/]+)
+RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
+
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} 80
 RewriteCond %{REQUEST_URI} mi-cuenta
 RewriteRule ^(.*)$ https://www.elartedesabervivir.com/$1 [R,L]
 
@@ -140,3 +145,11 @@ RewriteRule ^ /promocion/%1? [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^promocion/([^/]+)$ /index.php?content=promocion&id=$1 [L]
+
+# GUIAS
+RewriteCond %{THE_REQUEST} \?content=guias&id=([^&\ ]+)($|\ )
+RewriteRule ^ /guias/%1? [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^guias/([^/]+)$ /index.php?content=guias&id=$1 [L]
