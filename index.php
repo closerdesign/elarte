@@ -45,14 +45,26 @@
 			require_once('blocks/eliminar-imagenes.php');
 		}elseif($_REQUEST['content']=='que-es-phronesis'){
 			require_once('blocks/que-es-phronesis.php');
-		}elseif($_REQUEST['content']=='paquetes'){
+		}elseif($_REQUEST['content']=='paquetes'){ //Template paquetes
+
 			require_once('blocks/paquetes.php');
-		}elseif($_REQUEST['content']=='colecciones'){
+
+		}elseif($_REQUEST['content']=='colecciones'){ //Template paquetes
+
 			require_once('blocks/colecciones.php');
-		}elseif($_REQUEST['content']=='coleccion'){
+
+		}elseif($_REQUEST['content']=='coleccion'){ //Template paquetes
+
 			require_once('blocks/coleccion.php');
-		}elseif($_REQUEST['content']=='promocion'){
+
+		}elseif($_REQUEST['content']=='promocion'){ //Template paquetes
+
 			require_once('blocks/promocion.php');
+			
+		}elseif($_REQUEST['content']=='guias'){ //Template paquetes
+
+			require_once('blocks/guias.php');
+
 		}elseif($_REQUEST['content']=='politica-de-privacidad'){
 			require_once('blocks/politica-de-privacidad.php');
 		}elseif($_REQUEST['content']=='darse-de-baja'){
