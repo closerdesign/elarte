@@ -13,7 +13,7 @@
 			if ( !empty($data['meta_description']) ) {
 				$description = utf8_encode( $data['meta_description'] );
 			}else{
-		 		$description = $description;
+		 		$description = $description = strip_tags( utf8_encode($description) );;
 			}
 
 			if ( !empty($data['meta_keywords']) ) {
