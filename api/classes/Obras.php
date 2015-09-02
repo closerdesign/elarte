@@ -12,6 +12,8 @@ class Obras
 	public $categoria;
 	public $status;
 	public $programas_especiales;
+	public $meta_description;
+	public $meta_keywords;
 
 	public function __construct( $id = NULL )
 	{
@@ -26,6 +28,8 @@ class Obras
 			$this->categoria            = $obra['categoria'];
 			$this->status               = $obra['status'];
 			$this->programas_especiales = $obra['programas_especiales'];
+			$this->meta_description     = $obra['meta_description'];
+			$this->meta_keywords        = $obra['meta_keywords'];
 		}else{
 			$this->id = $id;
 		}
@@ -91,7 +95,9 @@ class Obras
 			'contenido'            => $this->contenido,
 			'categoria'            => $this->categoria,
 			'status'               => $this->status,
-			'programas_especiales' => $this->programas_especiales
+			'programas_especiales' => $this->programas_especiales,
+			'meta_description'     => $this->meta_description,
+			'meta_keywords'        => $this->meta_keywords
 		);
 		$db->where ('id', $this->id);
 		if ($db->update ('articulos', $data))
@@ -110,7 +116,9 @@ class Obras
 			'contenido'            => $this->contenido,
 			'categoria'            => $this->categoria,
 			'status'               => $this->status,
-			'programas_especiales' => $this->programas_especiales
+			'programas_especiales' => $this->programas_especiales,
+			'meta_description'     => $this->meta_description,
+			'meta_keywords'        => $this->meta_keywords
 		);
 
 

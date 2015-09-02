@@ -21,7 +21,19 @@
 			}
 			$paquete = getDataPaquete($_REQUEST['id']);
 			$title = $paquete['nombre'];
-			$description = strip_tags(getDataPaquete($_REQUEST['id'])['descripcion']);
+
+			if ( !empty($paquete['meta_description']) ) {
+				$description = $paquete['meta_description'];
+			}else{
+		 		$description = strip_tags( $paquete['descripcion'] );
+			}
+
+			if ( !empty($paquete['meta_keywords']) ) {
+				$keywords = $paquete['meta_keywords'];
+			}else{
+				$keywords = '';
+			}
+
 			$img = 'http://www.elartedesabervivir.com/admin/_lib/file/imgpaquetes/'.$paquete['portada'];
 		}
 	?>
@@ -34,6 +46,7 @@
 	<meta property="og:title" content="<?php echo $title; ?>"/>
 	<meta property="og:description" content="<?php echo ( str_replace('"',"'",$description) ); ?>"/>
 	<meta name="description" content="<?php echo ( str_replace('"',"'",$description) ); ?>">
+	<meta name="keywords" content="<?= $keywords ?>">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
