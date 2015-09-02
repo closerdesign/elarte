@@ -1626,3 +1626,16 @@ img.mfp-img {
 .SeccionComentarios > .row:nth-child(odd) .globo-comentarios{
 	background: #FFF;
 }
+
+.the_grey{
+	color: #807E7E;
+	font-size: 2.7rem;
+}
+
+.the_grey .orange{
+	color: #F87101;
+	font-size: 3.5rem;
+}
+.tachado s{
+	font-weight: normal;
+}
