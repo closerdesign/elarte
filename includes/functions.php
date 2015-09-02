@@ -392,6 +392,14 @@
 		$data=mysqli_fetch_array($q);
 		return $data;
 	}
+
+	function getDataArticulos($val){
+		global $con;
+		$sql="SELECT * FROM articulos WHERE id = '$val'";
+		$q=mysqli_query($con, $sql);
+		$data=mysqli_fetch_array($q);
+		return $data;
+	}
 	
 	function validaPaquete($val){
 		global $con;
