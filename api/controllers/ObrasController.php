@@ -20,7 +20,7 @@ class ObrasController
 								'program_esp'=> $program_esp,
 								'pages' => $pages,
 								'current_page' => 1,
-								'mainUrl' => 'obras', 
+								'mainUrl' => 'obras',
 								'mensaje' => $mensaje
 							];
 			}else{
@@ -30,7 +30,7 @@ class ObrasController
 								'program_esp'=> $program_esp,
 								'pages' => $pages,
 								'current_page' => 1,
-								'mainUrl' => '/api/obras', 
+								'mainUrl' => '/api/obras',
 								'mensaje' => $mensaje
 							];
 			}
@@ -129,15 +129,46 @@ class ObrasController
 			$categoria = implode(',', $categoria);
 			$obra->categoria = $categoria;
 		}
-		$obra->contenido = $contenido;
-		$obra->status = $status;
+		$obra->contenido            = $contenido;
+		$obra->status               = $status;
 		$obra->programas_especiales = $programas_especiales;
+		$obra->meta_description     = $meta_description;
+		$obra->meta_keywords        = $meta_keywords;
 
 		if ( $obra->save() ) {
 			return $this->indexAction('Se ha guardado correctamente.');
 		}
 		echo "mal";
 		return;
+	}
+
+	public function uploadAction()
+	{
+		if ( !empty( $_FILES['imagen'] ) ) {
+
+			$handle = new upload($_FILES['imagen']);
+			if ($handle->uploaded) {
+				$handle->process( dirname( getcwd() ) .'/admin/_lib/file/imgarticulos/' );
+				if ($handle->processed) {
+					$handle->clean();
+					echo "Archivo subido con exito";
+				} else {
+					echo 'error : ' . $handle->error;
+				}
+				
+				$handle->file_new_name_body = $handle->file_src_name_body.'1200X627';
+				$handle->image_resize       = true;
+				$handle->image_x            = 1200;
+				$handle->image_y            = 627;
+
+				$handle->process( dirname( getcwd() ) .'/admin/_lib/file/imgarticulos/' );
+				if ($handle->processed) {
+
+				} else {
+					echo 'error : ' . $handle->error;
+				}
+			}
+		}
 	}
 
 	public function agregarAction()
@@ -173,6 +204,8 @@ class ObrasController
 					$obra->categoria            = $categoria;
 					$obra->programas_especiales = $programas_especiales;
 					$obra->status               = $status;
+					$obra->meta_description     = $meta_description;
+					$obra->meta_keywords        = $meta_keywords;
 					
 					if ( $obra->add() ) {
 						return $this->indexAction('Se ha creado correctamente.');

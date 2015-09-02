@@ -134,7 +134,22 @@
 									                 
 											</label>
 										</div>
-
+									</div>
+									<div class="Obras-row">
+										<div class="Obras-label">
+											Meta description:
+										</div>
+										<div class="Obras-input">
+											<textarea name="meta_description" width="500" style="margin: 0px; width: 695px; height: 86px;"><?=( !empty( $articulo['meta_description'] ) ? $articulo['meta_description'] : '' )?></textarea>
+										</div>
+									</div>
+									<div class="Obras-row">
+										<div class="Obras-label">
+											Meta keywords:
+										</div>
+										<div class="Obras-input">
+											<input type="text" name="meta_keywords" class="u-inputTextWhite" <?= ( !empty( $articulo['meta_keywords'] ) ? 'value="'.$articulo['meta_keywords'].'"' : '' ) ?> >
+										</div>
 									</div>
 									<div class="Obras-row">
 										<div class="Obras-label"></div>
