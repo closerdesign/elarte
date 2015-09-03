@@ -11,7 +11,8 @@ class AdminController
 			$db = MysqliDb::getInstance();
 
 			$db->join("publicaciones pu", "pupe.publicacion = pu.id", "INNER");
-			$db->where ('valor', 0);
+			$db->where ('pupe.valor', 0);
+			$db->where ('pupe.creado', '2015-07-01 00:00:00','>=');
 			$results = $db->get ('publicacionesxpedido pupe', null, 'pupe.id, pupe.pedido, pupe.publicacion, pu.precio, pupe.creado' );
 
 			$resultArray = '';
