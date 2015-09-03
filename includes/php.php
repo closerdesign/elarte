@@ -2839,7 +2839,7 @@
 			
 			$mensaje = "";
 			$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
-			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
+			$mensaje .= "<p>Queremos informarle que el pago ha sido: ".$displayEstado[$estado]."</p>";
 			if( $estado == 1 ){
 				$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
 			}elseif( $estado == 0 ){
@@ -2915,9 +2915,9 @@
 			
 			$mensaje = "";
 			$mensaje .= "<p>Hola ".getNombreUsuario($usuario).",</p>";
-			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$displayEstado[$estado]."</p>";
+			$mensaje .= "<p>Queremos informarle que el pago ha sido: ".$displayEstado[$estado]."</p>";
 			if( $estado == 1 ){
-				$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
+				/*$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";*/
 			}elseif( $estado == 0 ){
 				$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
 			}elseif( $estado == 2 ){

@@ -104,9 +104,9 @@
 			/*actualizarOrden($orderId, $estadoTexto, $order['transaction_id']);*/
 			$mensaje = "";
 			$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
-			$mensaje .= "<p>Queremos informarle que el pago de la inscripción en nuestra conferencia virtual ha sido: ".$estadoTexto2."</p>";
+			$mensaje .= "<p>Queremos informarle que el pago ha sido: ".$estadoTexto2."</p>";
 			if( $estado == 1 ){
-				$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";
+				/*$mensaje .= "<p>Pronto estaremos notificándole con las instrucciones para el acceso al evento.</p>";*/
 			}elseif( $estado == 0 || $estado == 3 ){
 				$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
 			}elseif( $estado == 2 ){
