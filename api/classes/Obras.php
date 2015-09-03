@@ -124,8 +124,6 @@ class Obras
 
 		$id = $db->insert('articulos', $data);
 
-		ppp($id);
-
 		if ($id){
 		    return true;
 		}
