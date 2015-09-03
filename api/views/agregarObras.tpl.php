@@ -35,7 +35,7 @@
 									Categoría:
 								</div>
 								<div class="Obras-input">
-									<select name="categoria[]" class="categoria" multiple="multiple" required>
+									<select name="categoria[]" class="categoria" multiple="multiple">
 										<?php
 											$cat_array = explode( ',', $articulo['categoria'] );
 										?>
@@ -50,7 +50,7 @@
 									Programas Especiales:
 								</div>
 								<div class="Obras-input">
-									<select name="programas_especiales" class="categoria" required>
+									<select name="programas_especiales" class="categoria">
 										<option value="">
 											--Seleccione una categoría--
 										</option>
