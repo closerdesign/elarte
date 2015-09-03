@@ -855,7 +855,6 @@
 				$mail->IsHTML(true);
 				$usuario=mysqli_fetch_array(mysqli_query($con, "SELECT usuario FROM pedidos WHERE id = '$_POST[pedido]'"));
 				$mail->AddAddress(getEmailUsuario($usuario['usuario']));
-				//$mail->AddBCC('juanc@closerdesign.co');
 				$mail->AddBCC('pfhurtado@phronesisvirtual.com');
 				//$mail->AddReplyTo($_POST['']);
 				if(!$sent_mail= $mail->Send()){
@@ -921,7 +920,6 @@
 			$mail->Body = utf8_decode($html);
 			$mail->IsHTML(true);
 			$mail->AddAddress(NOTIFICACIONES);
-			//$mail->AddBCC('juanc@closerdesign.co');
 			$mail->AddReplyTo($_POST['email']);
 			if(!$sent_mail= $mail->Send()){
 				echo "Lo sentimos, se ha presentado un error, por favor intente de nuevo.";
