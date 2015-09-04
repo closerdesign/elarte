@@ -478,7 +478,7 @@
 		</div>
 		<hr>
 		<?php
-			$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 ORDER BY fecha_publicacion DESC LIMIT 3";
+			$sql="SELECT * FROM articulos WHERE status = 1 AND categoria != 1 AND programas_especiales = 0 ORDER BY fecha_publicacion DESC LIMIT 3";
 			$q=mysqli_query($con, $sql);
 			$n=mysqli_num_rows($q);
 			if($n>2){
