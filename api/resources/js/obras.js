@@ -27,6 +27,7 @@
 	});
 
 	$('.DatePicker').fdatepicker({
+		
 		language: 'es'
 	});
 })();
