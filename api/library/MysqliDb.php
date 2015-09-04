@@ -1005,6 +1005,7 @@ class MysqliDb
                 case 'exists':
                     $this->_query.= $operator . $this->_buildPair ("", $val);
                     break;
+                case 'not like':
                 case 'like':
                     $this->_query .= " $key _utf8 '%$val%' ";
                     break;
