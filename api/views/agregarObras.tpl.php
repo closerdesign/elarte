@@ -36,6 +36,9 @@
 								</div>
 								<div class="Obras-input">
 									<select name="categoria[]" class="categoria" multiple="multiple">
+										<option value="">
+											--Seleccione una categoría--
+										</option>
 										<?php
 											$cat_array = explode( ',', $articulo['categoria'] );
 										?>
@@ -85,6 +88,14 @@
 						                 />
 							                 
 									</label>
+								</div>
+							</div>
+							<div class="Obras-row">
+								<div class="Obras-label">
+									Fecha de publicación
+								</div>
+								<div class="Obras-input">
+									<input name="fecha_publicacion" type="text" class="u-inputTextWhite DatePicker" data-date-format="yyyy-mm-dd" <?= ( !empty( $articulo['fecha_publicacion'] ) ? 'value="'.$articulo['fecha_publicacion'].'"' : '' ) ?> required>
 								</div>
 							</div>
 							<div class="Obras-row">

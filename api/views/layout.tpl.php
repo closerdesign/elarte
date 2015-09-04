@@ -5,6 +5,9 @@
 	<meta charset="UTF-8">
     <title>Bienvenido</title>
     <link rel="stylesheet" href="<?= URL_CSS ?>styles.css">
+    <?php if ( $template === "obras" || $template === "agregarObras" ): ?>
+    	<link rel="stylesheet" href="<?= URL_CSS ?>foundation-datepicker.min.css">
+    <?php endif ?>
 </head>
 
 <body>
@@ -60,6 +63,7 @@
 	<?php if ( $template === "obras" || $template === "agregarObras" ): ?>
 		<script src="//cdn.ckeditor.com/4.5.3/full/ckeditor.js"></script>
 		<script type="text/javascript" src="<?= URL_JS ?>jquery.validate.min.js"></script>
+		<script type="text/javascript" src="<?= URL_JS ?>foundation-datepicker.min.js"></script>
 		<script type="text/javascript" src="<?= URL_JS ?>obras.js"></script>
 	<?php endif ?>
 	<script type="text/javascript" src="<?= URL_JS ?>script.js"></script>

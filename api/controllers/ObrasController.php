@@ -132,6 +132,7 @@ class ObrasController
 		$obra->contenido            = $contenido;
 		$obra->status               = $status;
 		$obra->programas_especiales = $programas_especiales;
+		$obra->fecha_publicacion    = $fecha_publicacion;
 		$obra->meta_description     = $meta_description;
 		$obra->meta_keywords        = $meta_keywords;
 
@@ -203,6 +204,7 @@ class ObrasController
 					$categoria                  = implode(',', $categoria);
 					$obra->categoria            = $categoria;
 					$obra->programas_especiales = $programas_especiales;
+					$obra->fecha_publicacion    = $fecha_publicacion;
 					$obra->status               = $status;
 					$obra->meta_description     = $meta_description;
 					$obra->meta_keywords        = $meta_keywords;

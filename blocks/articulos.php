@@ -297,7 +297,7 @@
 	}
 	if( (isset($_REQUEST['id'])===true) && ($n==1) ){
 		// Aquí va el contenido del artículo
-		$data=mysqli_fetch_array(mysqli_query($con, "SELECT * FROM articulos WHERE id = $_REQUEST[id]"));
+		$data=mysqli_fetch_array(mysqli_query($con, "SELECT * FROM articulos WHERE id = $_REQUEST[id] AND status = 1 ORDER BY fecha_publicacion DESC"));
 		?>
 		<div class="row top">
 			<div class="container">

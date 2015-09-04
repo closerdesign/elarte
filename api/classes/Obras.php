@@ -12,6 +12,7 @@ class Obras
 	public $categoria;
 	public $status;
 	public $programas_especiales;
+	public $fecha_publicacion;
 	public $meta_description;
 	public $meta_keywords;
 
@@ -28,6 +29,7 @@ class Obras
 			$this->categoria            = $obra['categoria'];
 			$this->status               = $obra['status'];
 			$this->programas_especiales = $obra['programas_especiales'];
+			$this->fecha_publicacion    = $obra['fecha_publicacion'];
 			$this->meta_description     = $obra['meta_description'];
 			$this->meta_keywords        = $obra['meta_keywords'];
 		}else{
@@ -96,6 +98,7 @@ class Obras
 			'categoria'            => $this->categoria,
 			'status'               => $this->status,
 			'programas_especiales' => $this->programas_especiales,
+			'fecha_publicacion'    => $this->fecha_publicacion,
 			'meta_description'     => $this->meta_description,
 			'meta_keywords'        => $this->meta_keywords
 		);
@@ -117,6 +120,7 @@ class Obras
 			'categoria'            => $this->categoria,
 			'status'               => $this->status,
 			'programas_especiales' => $this->programas_especiales,
+			'fecha_publicacion'    => $this->fecha_publicacion,
 			'meta_description'     => $this->meta_description,
 			'meta_keywords'        => $this->meta_keywords
 		);

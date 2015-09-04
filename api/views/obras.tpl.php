@@ -137,6 +137,14 @@
 									</div>
 									<div class="Obras-row">
 										<div class="Obras-label">
+											Fecha de publicación
+										</div>
+										<div class="Obras-input">
+											<input name="fecha_publicacion" type="text" class="u-inputTextWhite DatePicker" data-date-format="yyyy-mm-dd" <?= ( !empty( $articulo['fecha_publicacion'] ) ? 'value="'.$articulo['fecha_publicacion'].'"' : '' ) ?> required>
+										</div>
+									</div>
+									<div class="Obras-row">
+										<div class="Obras-label">
 											Meta description:
 										</div>
 										<div class="Obras-input">

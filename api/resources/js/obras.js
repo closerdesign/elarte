@@ -25,4 +25,8 @@
 			}
 		}
 	});
+
+	$('.DatePicker').fdatepicker({
+		language: 'es'
+	});
 })();
