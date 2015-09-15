@@ -459,6 +459,7 @@
 
 												echo $newstr;
 											?>
+											<p><a href="https://www.elartedesabervivir.com/guias/7" target="_blank"><img alt="Guías prácticas de Walter Riso con precio especial" src="https://www.mediafire.com/convkey/6e86/ww4mxv6neumw39r6g.jpg" style="height:250px; width:300px" /></a></p>
 										</div>
 									</div>
 									
