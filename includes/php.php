@@ -252,7 +252,7 @@
 			$categoria = (int)$_REQUEST['categoria'];
 			$sql = "SELECT * FROM articulos WHERE categoria = $categoria ORDER BY fecha_publicacion DESC LIMIT $inicia_desde, $num_articles ";
 		}else{
-			$sql = "SELECT * FROM articulos ORDER BY fecha_publicacion DESC LIMIT $inicia_desde, $num_articles ";
+			$sql = "SELECT * FROM articulos where programas_especiales = 0 AND status = 1 AND fecha_publicacion < now() ORDER BY fecha_publicacion DESC LIMIT $inicia_desde, $num_articles ";
 		}
 
 		/*echo $sql;*/
