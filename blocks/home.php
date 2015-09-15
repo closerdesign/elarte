@@ -440,7 +440,7 @@
 							</div>
 							<div class="content">
 								<div class="main">
-									<h3 class="name">Infantopsicología</h3>
+									<h3 class="name">Psicología infanil (Infantopsicología)</h3>
 									<p class="profession">Marcela Monte</p>
 								</div>
 							</div>
@@ -448,14 +448,14 @@
 						<!-- end front panel -->
 						<div class="back">
 							<div class="header">
-								<h5 class="motto">Infantopsicología</h5>
+								<h5 class="motto">Psicología infanil (Infantopsicología)</h5>
 							</div>
 							<div class="content">
 								<div class="main">
 									<p>Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
 										educación de niños y niñas, herramientas y recursos que apoyen un 
 										desarrollo temprano saludable.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia" title="Infantopsicología">Ir al programa</a></p>
+									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia" title="Psicología infanil (Infantopsicología)">Ir al programa</a></p>
 								</div>
 							</div>
 						</div>
