@@ -177,7 +177,7 @@
 									</div>
 									<div class="content">
 										<div class="main">
-											<h3 class="name"><strong>Infantopsicología</strong></h3>
+											<h3 class="name"><strong>Psicología infanil (Infantopsicología)</strong></h3>
 											<p class="profession">Marcela Monte</p>
 										</div>
 									</div>
@@ -185,7 +185,7 @@
 							</div>
 						</div>
 						<div class="col-lg-9 DescripcionPrograma">
-							<h3 class="DescripcionPrograma-titulo">Infantopsicología</h3>
+							<h3 class="DescripcionPrograma-titulo">Psicología infanil (Infantopsicología)</h3>
 							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
 							<br>
 							<p>
@@ -247,7 +247,7 @@
 							<p>
 								<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales"><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a>
 							</p>
-							<h1 class="DescripcionPrograma-titulo">Infantopsicología</h1>
+							<h1 class="DescripcionPrograma-titulo">Psicología infanil (Infantopsicología)</h1>
 							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
 							<br>
 							<p>
@@ -260,7 +260,7 @@
 					<br>
 					<div class="row">
 						<div class="DescripcionPrograma-imgAutor col-lg-1">
-							<img class="img-circle" src="/images/Marcela_Monte.jpg" width="80" alt="Marcela Monte">			
+							<img class="img-circle" src="/img/Marcela_Monte.jpg" width="80" alt="Marcela Monte">			
 						</div>
 						<div class="DescripcionPrograma-autorAbout col-lg-11">
 							<strong>Sobre Marcela Monte:</strong> Licenciada en Psicología mención Cognitivo-Integrativa y Diploma de Honor de la Universidad Nacional de San Luis, especializada en Psicoterapia Breve Infantojuvenil. Trabaja actualmente como psicoterapeuta infantil. Se ha desempeñado en Servicios de Neonatología, Pediatría y Obstetricia, en diseño y ejecución de programas de asistencia a futuros padres y madres, recién nacidos sanos y de alto riesgo hospitalizados, bebés y niños en procesos de intervenciones quirúrgicas, y con enfermedades crónicas, talleres de capacitación en prevención y promoción de la salud mental infanto-juvenil para Equipos Interdisciplinarios de Salud y Educación.
