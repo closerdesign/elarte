@@ -1211,3 +1211,49 @@ if (window.location.hash == '#_=_') {
     window.location.hash = ''; // for older browsers, leaves a # behind
     history.pushState('', document.title, window.location.pathname); // nice and clean
 }
+
+
+
+/*$('#myCarousel').carousel({
+	interval: 40000
+});
+
+$('.carousel .item').each(function(){
+	var next = $(this).next();
+	if (!next.length) {
+		next = $(this).siblings(':first');
+	}
+	next.children(':first-child').clone().appendTo($(this));
+
+	if (next.next().length>0) {
+
+		next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
+
+	}
+	else {
+		$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+
+	}
+});*/
+
+
+$('#myCarousel').carousel({
+	interval: 4000
+})
+
+$('.carousel .item').each(function(){
+	var next = $(this).next();
+	if (!next.length) {
+		next = $(this).siblings(':first');
+	}
+	next.children(':first-child').clone().appendTo($(this));
+	
+	for (var i=0;i<2;i++) {
+		next=next.next();
+		if (!next.length) {
+			next = $(this).siblings(':first');
+		}
+		
+		next.children(':first-child').clone().appendTo($(this));
+	}
+});

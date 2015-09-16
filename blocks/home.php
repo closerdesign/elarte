@@ -270,7 +270,7 @@
 ?>
 
 <div class="row programasPortada">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<h1 style="text-align: center; color: #fff; font-weight: 100">Programas Especiales</h1>
@@ -278,193 +278,236 @@
 		</div>
 		<hr>
 		<div class="row">
-			<div class="col-md-2 col-md-offset-1">
-				<div class="card-container">
-					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="/images/rotating_card_thumb2.png"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="/images/reflexiones.jpg" alt="Walter Riso" />
-							</div>
-							<div class="content">
-								<div class="main">
-									<h3 class="name">Reflexiones para Vivir Mejor</h3>
-									<p class="profession">Walter Riso</p>
+			<div class="carousel slide" id="myCarousel">
+				<div class="carousel-inner">
+					<div class="item active">
+						<div class="col-md-3">
+							<div class="card-container">
+								<div class="card">
+									<div class="front">
+										<div class="cover">
+											<img src="/images/rotating_card_thumb2.png"/>
+										</div>
+										<div class="user">
+											<img class="img-circle" src="/images/reflexiones.jpg" alt="Walter Riso" />
+										</div>
+										<div class="content">
+											<div class="main">
+												<h3 class="name">Reflexiones para Vivir Mejor</h3>
+												<p class="profession">Walter Riso</p>
+											</div>
+										</div>
+									</div>
+									<!-- end front panel -->
+									<div class="back">
+										<div class="header">
+											<h5 class="motto">Reflexiones para Vivir Mejor</h5>
+										</div>
+										<div class="content">
+											<div class="main">
+												<p>Programa en video conducido por el psicólogo y escritor Walter Riso en el que se busca crear un espacio de reflexión sobre los comportamientos que hacen parte de nuestra vida.</p>
+												<p style="text-align: center">
+												<a class="btn btn-default" href="/index.php?content=mi-cuenta&task=reflexiones" title="Reflexiones para Vivir Mejor">Ir al programa</a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!-- end back panel -->
 								</div>
+								<!-- end card -->
 							</div>
+							<!-- end card-container -->
 						</div>
-						<!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">Reflexiones para Vivir Mejor</h5>
-							</div>
-							<div class="content">
-								<div class="main">
-									<p>Programa en video conducido por el psicólogo y escritor Walter Riso en el que se busca crear un espacio de reflexión sobre los comportamientos que hacen parte de nuestra vida.</p>
-									<p style="text-align: center">
-									<a class="btn btn-default" href="/index.php?content=mi-cuenta&task=reflexiones" title="Reflexiones para Vivir Mejor">Ir al programa</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- end back panel -->
 					</div>
-					<!-- end card -->
+					<div class="item">
+						<div class="col-md-3 ">
+							<div class="card-container">
+								<div class="card">
+									<div class="front">
+										<div class="cover">
+											<img src="/images/rotating_card_thumb2.png"/>
+										</div>
+										<div class="user">
+											<img class="img-circle" src="/images/iris.jpg" alt="Iris Luna" />
+										</div>
+										<div class="content">
+											<div class="main">
+												<h3 class="name">Mente Sana, Vida Sana</h3>
+												<p class="profession">Iris Luna</p>
+											</div>
+										</div>
+									</div>
+									<!-- end front panel -->
+									<div class="back">
+										<div class="header">
+											<h5 class="motto">Mente Sana, Vida Sana</h5>
+										</div>
+										<div class="content">
+											<div class="main">
+												<p>Armonía entre cuerpo y mente de la mano de la Dra. Iris Luna, médico psiquiatra magister en nutrición con especialización en sobrepeso y obesidad.</p>
+												<p style="text-align: center">
+												<a class="btn btn-default" href="/programas-especiales/mente-sana-vida-sana" title="Mente Sana, Vida Sana">Ir al programa</a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!-- end back panel -->
+								</div>
+								<!-- end card -->
+							</div>
+							<!-- end card-container -->
+						</div>
+					</div>
+					<div class="item">
+						<div class="col-md-3">
+							<div class="card-container">
+								<div class="card">
+									<div class="front">
+										<div class="cover">
+											<img src="/images/rotating_card_thumb2.png"/>
+										</div>
+										<div class="user">
+											<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" alt="Luis Flórez Alarcón" />
+										</div>
+										<div class="content">
+											<div class="main">
+												<h3 class="name">¿Ángeles caídos o antropoides erguidos?</h3>
+												<p class="profession">Luis Flórez Alarcón</p>
+											</div>
+										</div>
+									</div>
+									<!-- end front panel -->
+									<div class="back">
+										<div class="header">
+											<h5 class="motto">¿Ángeles caídos o antropoides erguidos?</h5>
+										</div>
+										<div class="content">
+											<div class="main">
+												<p>Esta columna pretende analizar las motivaciones humanas a la luz de algunos principios científicos acerca del proceso motivacional, mirando este proceso desde una perspectiva teórica de corte cognitivo.</p>
+												<p style="text-align: center">
+												<a class="btn btn-default" href="/programas-especiales/angeles-caidos-o-antropoides-erguidos" title="¿Ángeles caídos o antropoides erguidos?">Ir al programa</a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!-- end back panel -->
+								</div>
+								<!-- end card -->
+							</div>
+							<!-- end card-container -->
+						</div>
+					</div>
+					<div class="item">
+						<div class="col-md-3">
+							<div class="card-container">
+								<div class="card">
+									<div class="front">
+										<div class="cover">
+											<img src="/images/rotating_card_thumb2.png"/>
+										</div>
+										<div class="user">
+											<img class="img-circle" src="/img/Nancy_Castrillon.png" alt="Nancy Castrillón" />
+										</div>
+										<div class="content">
+											<div class="main">
+												<h3 class="name">El arte y la virtud del cuidado</h3>
+												<p class="profession">Nancy Castrillón</p>
+											</div>
+										</div>
+									</div>
+									<!-- end front panel -->
+									<div class="back">
+										<div class="header">
+											<h5 class="motto">El arte y la virtud del cuidado</h5>
+										</div>
+										<div class="content">
+											<div class="main">
+												<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros."</p>
+												<p style="text-align: center">
+												<a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado" title="El arte y la virtud del cuidado">Ir al programa</a>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!-- end back panel -->
+								</div>
+								<!-- end card -->
+							</div>
+							<!-- end card-container -->
+						</div>	
+					</div>
+					<div class="item">
+						<div class="col-md-3">
+							<div class="card-container">
+								<div class="card">
+									<div class="front">
+										<div class="cover">
+											<img src="/images/rotating_card_thumb2.png"/>
+										</div>
+										<div class="user">
+											<img class="img-circle" src="/img/Marcela_Monte.jpg" alt="Marcela Monte" />
+										</div>
+										<div class="content">
+											<div class="main">
+												<h3 class="name">Psicología infanil (Infantopsicología)</h3>
+												<p class="profession">Marcela Monte</p>
+											</div>
+										</div>
+									</div>
+									<div class="back">
+										<div class="header">
+											<h5 class="motto">Psicología infanil (Infantopsicología)</h5>
+										</div>
+										<div class="content">
+											<div class="main">
+												<p>Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
+													educación de niños y niñas, herramientas y recursos que apoyen un 
+													desarrollo temprano saludable.</p>
+												<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia" title="Psicología infanil (Infantopsicología)">Ir al programa</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="col-md-3">
+							<div class="card-container">
+								<div class="card">
+									<div class="front">
+										<div class="cover">
+											<img src="/images/rotating_card_thumb2.png"/>
+										</div>
+										<div class="user">
+											<img class="img-circle" src="/img/daniel-martinez.png" alt="Daniel Martínez" />
+										</div>
+										<div class="content">
+											<div class="main">
+												<h3 class="name">Fitness Set</h3>
+												<p class="profession">Daniel Martínez</p>
+											</div>
+										</div>
+									</div>
+									<div class="back">
+										<div class="header">
+											<h5 class="motto">Fitness Set</h5>
+										</div>
+										<div class="content">
+											<div class="main">
+												<p>Si lo que quieres es modificar tu vida y hacerla más saludable, estás en el espacio adecuado; pues aquí encontrarás herramientas para sentirte vital, sano y llevar un estilo de vida que te haga sentir y ver bien. Encontrarás rutinas, tips y recetas que te ayudarán a emprender este camino del mundo fitness.</p>
+												<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/fitness-set" title="fitness-set">Ir al programa</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<!-- end card-container -->
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
 			</div>
-			<!-- end col sm 3 -->
-			<div class="col-md-2 ">
-				<div class="card-container">
-					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="/images/rotating_card_thumb2.png"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="/images/iris.jpg" alt="Iris Luna" />
-							</div>
-							<div class="content">
-								<div class="main">
-									<h3 class="name">Mente Sana, Vida Sana</h3>
-									<p class="profession">Iris Luna</p>
-								</div>
-							</div>
-						</div>
-						<!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">Mente Sana, Vida Sana</h5>
-							</div>
-							<div class="content">
-								<div class="main">
-									<p>Armonía entre cuerpo y mente de la mano de la Dra. Iris Luna, médico psiquiatra magister en nutrición con especialización en sobrepeso y obesidad.</p>
-									<p style="text-align: center">
-									<a class="btn btn-default" href="/programas-especiales/mente-sana-vida-sana" title="Mente Sana, Vida Sana">Ir al programa</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- end back panel -->
-					</div>
-					<!-- end card -->
-				</div>
-				<!-- end card-container -->
-			</div>
-			<!-- end col sm 3 -->
-			<div class="col-md-2">
-				<div class="card-container">
-					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="/images/rotating_card_thumb2.png"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="/img/Luis_Florez_Alarcon.jpg" alt="Luis Flórez Alarcón" />
-							</div>
-							<div class="content">
-								<div class="main">
-									<h3 class="name">¿Ángeles caídos o antropoides erguidos?</h3>
-									<p class="profession">Luis Flórez Alarcón</p>
-								</div>
-							</div>
-						</div>
-						<!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">¿Ángeles caídos o antropoides erguidos?</h5>
-							</div>
-							<div class="content">
-								<div class="main">
-									<p>Esta columna pretende analizar las motivaciones humanas a la luz de algunos principios científicos acerca del proceso motivacional, mirando este proceso desde una perspectiva teórica de corte cognitivo.</p>
-									<p style="text-align: center">
-									<a class="btn btn-default" href="/programas-especiales/angeles-caidos-o-antropoides-erguidos" title="¿Ángeles caídos o antropoides erguidos?">Ir al programa</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- end back panel -->
-					</div>
-					<!-- end card -->
-				</div>
-				<!-- end card-container -->
-			</div>
-			<div class="col-md-2">
-				<div class="card-container">
-					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="/images/rotating_card_thumb2.png"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="/img/Nancy_Castrillon.png" alt="Nancy Castrillón" />
-							</div>
-							<div class="content">
-								<div class="main">
-									<h3 class="name">El arte y la virtud del cuidado</h3>
-									<p class="profession">Nancy Castrillón</p>
-								</div>
-							</div>
-						</div>
-						<!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">El arte y la virtud del cuidado</h5>
-							</div>
-							<div class="content">
-								<div class="main">
-									<p>Cuidar es un arte. En este espacio la Dra. Nancy Castrillón, licenciada en psicología, máster en Neurorehabilitación y Humanidades; nos enseña sobre el arte de cuidar. "Cuidar de mi para poder cuidar de otros."</p>
-									<p style="text-align: center">
-									<a class="btn btn-default" href="/programas-especiales/el-arte-y-la-virtud-del-cuidado" title="El arte y la virtud del cuidado">Ir al programa</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- end back panel -->
-					</div>
-					<!-- end card -->
-				</div>
-				<!-- end card-container -->
-			</div>	
-			<div class="col-md-2">
-				<div class="card-container">
-					<div class="card">
-						<div class="front">
-							<div class="cover">
-								<img src="/images/rotating_card_thumb2.png"/>
-							</div>
-							<div class="user">
-								<img class="img-circle" src="/img/Marcela_Monte.jpg" alt="Marcela Monte" />
-							</div>
-							<div class="content">
-								<div class="main">
-									<h3 class="name">Psicología infanil (Infantopsicología)</h3>
-									<p class="profession">Marcela Monte</p>
-								</div>
-							</div>
-						</div>
-						<!-- end front panel -->
-						<div class="back">
-							<div class="header">
-								<h5 class="motto">Psicología infanil (Infantopsicología)</h5>
-							</div>
-							<div class="content">
-								<div class="main">
-									<p>Espacio desarrollado para ofrecer, a los adultos responsables de la crianza y 
-										educación de niños y niñas, herramientas y recursos que apoyen un 
-										desarrollo temprano saludable.</p>
-									<p style="text-align: center"><a class="btn btn-default" href="/programas-especiales/infantopsicologia" title="Psicología infanil (Infantopsicología)">Ir al programa</a></p>
-								</div>
-							</div>
-						</div>
-						<!-- end back panel -->
-					</div>
-					<!-- end card -->
-				</div>
-				<!-- end card-container -->
-			</div>		
 		</div>
 	</div>
 </div>

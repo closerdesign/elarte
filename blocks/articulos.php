@@ -1,3 +1,61 @@
+<?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'fitness-set' ) : ?>
+<div class="container">
+	<div class="col-lg-12 DescripcionPrograma">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3 class="DescripcionPrograma-titulo">Fitness Set</h3>
+				<span class="DescripcionPrograma-subTitulo">Por Lic. Daniel Martínez (Licenciado en Ciencias de la Actividad Física y el Deporte)</span>
+				<br>
+				<!-- <p>
+					Armonía entre cuerpo y mente. En este espacio la Dra. Iris Luna pretende a través de artículos, documentos, videos y otros materiales poner al alcance de nuestra comunidad herramientas y pautas para alcanzar un balance de bienestar entre cuerpo y mente.
+				</p> -->
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="DescripcionPrograma-imgAutor col-lg-1">
+				<img class="img-circle" src="/images/daniel-martinez.png" width="80" alt="Daniel Martínez">
+			</div>
+			<div class="DescripcionPrograma-autorAbout col-lg-11">
+				<strong>Sobre Daniel Martínez:</strong> Licenciado en Ciencias de la Actividad Física y el Deporte de la Universidad de Barcelona en INEFC (2008-2013), Técnico de fitness en complejos deportivos municipales en El Prat de Llobregat, Barcelona (2008-2009), Técnico de fitness en Complejo Deportivo Baldiri Aleu, Sant Boi, Barcelona (2010-2011), Federado en Taekwondo desde los 6 años (1996), actividad que ejerció dictando clases y enseñando su importancia. Desde el año 2013 es entrenador Personal en Dir Seven, Barcelona.
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+</div>
+<div class="container">
+	<nav class="navbar navbar-inverse" id="nav2">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed btnCategorias" data-toggle="collapse" data-target=".menuArticulos">
+				<span>Secciones  <i class="fa fa-align-justify"></i></span>
+				</button>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
+							Artículos
+						</a>
+					</li>
+					<li class="">
+						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Mente sana, vida sana">
+							Documentos y herramientas de ayuda
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+</div>
+<?php endif; ?>
+
+
 <?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'mente-sana-vida-sana' ) : ?>
 <div class="container">
 	<div class="col-lg-12 DescripcionPrograma">
