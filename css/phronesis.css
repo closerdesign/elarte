@@ -1657,4 +1657,12 @@ img.mfp-img {
 .carousel-inner .next        { left:  25%; }
 .carousel-inner .prev		 { left: -25%; }
 .carousel-control 			 { width:  4%; }
-.carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
+.carousel-control.left,.carousel-control.right {
+	margin-left:15px;
+	background-image:none;
+	color: #000;
+}
+.carousel-control.right{
+	margin-left: 0;
+	margin-right: 15px;
+}
