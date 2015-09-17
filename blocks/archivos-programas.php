@@ -422,7 +422,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>Espera muy pronto 5 videos de las rutinas de ejercicios, tips, recetas y artículos para entrar al mundo fit.</h3>
+				<h3 class="alert alert-danger">Espera muy pronto 5 videos de las rutinas de ejercicios, tips, recetas y artículos para entrar al mundo fit.</h3>
 			</div>
 		</div>
 		<div class="row">
