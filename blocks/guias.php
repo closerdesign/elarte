@@ -40,6 +40,10 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 3;
 			require 'guias8.php';
 			break;
+		case 9:
+			$_REQUEST['id'] = 3;
+			require 'guias9.php';
+			break;
 		default:
 			break;
 	}
