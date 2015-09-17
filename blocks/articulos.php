@@ -9,6 +9,7 @@
 				<!-- <p>
 					Armonía entre cuerpo y mente. En este espacio la Dra. Iris Luna pretende a través de artículos, documentos, videos y otros materiales poner al alcance de nuestra comunidad herramientas y pautas para alcanzar un balance de bienestar entre cuerpo y mente.
 				</p> -->
+				<img class="img-responsive" src="/img/COLLAGE-DANIEL.png" alt="">
 			</div>
 		</div>
 		<br>
@@ -37,13 +38,18 @@
 			<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active">
-						<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
-							Artículos
+						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Rutinas de Mente sana, vida sana">
+							Rutinas de ejercicio
 						</a>
 					</li>
 					<li class="">
-						<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Mente sana, vida sana">
-							Documentos y herramientas de ayuda
+						<a href="" title="Recetas de Mente sana, vida sana">
+							Recetas
+						</a>
+					</li>
+					<li class="">
+						<a href="" title="Tips de Mente sana, vida sana">
+							Tips
 						</a>
 					</li>
 				</ul>

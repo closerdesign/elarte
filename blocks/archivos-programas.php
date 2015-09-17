@@ -1,6 +1,68 @@
 <div class="row top">
 	<div class="container">
 		<div class="col-md-12">
+			<?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'fitness-set' ) : ?>
+			<div class="row">
+				<div class="col-lg-12 DescripcionPrograma">
+					<div class="row">
+						<div class="col-lg-12">
+							<h3 class="DescripcionPrograma-titulo">Fitness Set</h3>
+							<span class="DescripcionPrograma-subTitulo">Por Lic. Daniel Martínez (Licenciado en Ciencias de la Actividad Física y el Deporte)</span>
+							<br>
+							<!-- <p>
+								Armonía entre cuerpo y mente. En este espacio la Dra. Iris Luna pretende a través de artículos, documentos, videos y otros materiales poner al alcance de nuestra comunidad herramientas y pautas para alcanzar un balance de bienestar entre cuerpo y mente.
+							</p> -->
+							<img class="img-responsive" src="/img/COLLAGE-DANIEL.png" alt="">
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="DescripcionPrograma-imgAutor col-lg-1">
+							<img class="img-circle" src="/img/daniel-martinez.png" width="80" alt="Daniel Martínez">
+						</div>
+						<div class="DescripcionPrograma-autorAbout col-lg-11">
+							<strong>Sobre Daniel Martínez:</strong> Licenciado en Ciencias de la Actividad Física y el Deporte de la Universidad de Barcelona en INEFC (2008-2013), Técnico de fitness en complejos deportivos municipales en El Prat de Llobregat, Barcelona (2008-2009), Técnico de fitness en Complejo Deportivo Baldiri Aleu, Sant Boi, Barcelona (2010-2011), Federado en Taekwondo desde los 6 años (1996), actividad que ejerció dictando clases y enseñando su importancia. Desde el año 2013 es entrenador Personal en Dir Seven, Barcelona.
+						</div>
+					</div>
+					<br>
+					<br>
+				</div>
+			</div>
+			<div class="row">
+				<nav class="navbar navbar-inverse" id="nav2">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed btnCategorias" data-toggle="collapse" data-target=".menuArticulos">
+							<span>Secciones  <i class="fa fa-align-justify"></i></span>
+							</button>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && $_REQUEST['section'] == 'rutinas' ? 'active' : '' ) ?>">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Artículos de Mente sana, vida sana">
+										Rutinas de ejercicio
+									</a>
+								</li>
+								<li class="">
+									<a href="" title="Recetas de Mente sana, vida sana">
+										Recetas
+									</a>
+								</li>
+								<li class="">
+									<a href="" title="Tips de Mente sana, vida sana">
+										Tips
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- /.navbar-collapse -->
+					</div>
+					<!-- /.container-fluid -->
+				</nav>
+			</div>
+			<?php endif; ?>
 				<?php if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'mente-sana-vida-sana' ) : ?>
 				<div class="row">
 					<div class="col-lg-12 DescripcionPrograma">
@@ -248,108 +310,154 @@
 		</div>
 	</div>
 </div>
-<div class="row">
-	<div class="container">
-		<div class="col-lg-12">
-			<?php
+<?php if ( $_REQUEST['section'] == 'documentos' ): ?>
+	<div class="row">
+		<div class="container">
+			<div class="col-lg-12">
+				<?php
 
-				$dir = getcwd().'/archivos-programas/'.$_REQUEST['alias'];
+					$dir = getcwd().'/archivos-programas/'.$_REQUEST['alias'];
 
-				$files2 = scandir($dir, 1);
-				$files = preg_grep('/^([^.])/', $files2);
+					$files2 = scandir($dir, 1);
+					$files = preg_grep('/^([^.])/', $files2);
 
-				$special_links = array();
-				$special_title = array();
-			?>
+					$special_links = array();
+					$special_title = array();
+				?>
 
-				
-			<ul>
-			<?php 
-				if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'mente-sana-vida-sana' ) {
-					$special_links[] = 'data-jsfunction="indiceMasaCorporal"';
-					$special_title[] = 'Indice de masa corporal.';
-				}
-			?>
-			<?php
-				foreach ($files as $key => $value) {
-			?>
-				<li>
-					<a href="javascript:;" data-filename="<?php echo $value; ?>" data-alias="<?php echo $_REQUEST['alias']; ?>" title="<?= $value; ?>">
-						<?php echo $value; ?>
-					</a>
-				</li>
-			<?php
-				}
-				foreach ($special_links as $key => $value) {
-			?>
-				<li>
-					<a href="javascript:;" <?php echo $value; ?> data-titulo="<?php echo $special_title[$key]; ?>" title="<?= $special_title[$key]; ?>">
-						<?php echo $special_title[$key]; ?>
-					</a>
-				</li>
-			<?php
-				}
-			?>
-			</ul>
+					
+				<ul>
+				<?php 
+					if ( isset($_REQUEST['alias']) && $_REQUEST['alias'] == 'mente-sana-vida-sana' ) {
+						$special_links[] = 'data-jsfunction="indiceMasaCorporal"';
+						$special_title[] = 'Indice de masa corporal.';
+					}
+				?>
+				<?php
+					foreach ($files as $key => $value) {
+				?>
+					<li>
+						<a href="javascript:;" data-filename="<?php echo $value; ?>" data-alias="<?php echo $_REQUEST['alias']; ?>" title="<?= $value; ?>">
+							<?php echo $value; ?>
+						</a>
+					</li>
+				<?php
+					}
+					foreach ($special_links as $key => $value) {
+				?>
+					<li>
+						<a href="javascript:;" <?php echo $value; ?> data-titulo="<?php echo $special_title[$key]; ?>" title="<?= $special_title[$key]; ?>">
+							<?php echo $special_title[$key]; ?>
+						</a>
+					</li>
+				<?php
+					}
+				?>
+				</ul>
 
 
-			<?php
-				if ( count($files) == 0 && count($special_links) == 0 ) {
-			?>
-				<h4>No hay documentos en estos momentos.</h4>
-			<?php
-				}
-			?>
+				<?php
+					if ( count($files) == 0 && count($special_links) == 0 ) {
+				?>
+					<h4>No hay documentos en estos momentos.</h4>
+				<?php
+					}
+				?>
+			</div>
 		</div>
 	</div>
-</div>
-<script type="text/javascript">
+	<script type="text/javascript">
 
-	$('body').on('click', 'a[data-filename]', function(event) {
-		event.preventDefault();
-		
-		$.ajax({
-			url: 'http://www.elartedesabervivir.com/includes/php.php',
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				consulta: 'validarLoggeo'
-			},
-			context: this
-		})
-		.done(function(data) {
-			if ( parseInt(data.error) === 0 ) {
-				$('<form action="http://www.elartedesabervivir.com/includes/php.php" method="POST"><input type="hidden" name="file_name" value="' + $(this).data('filename') + '" /> <input type="hidden" name="alias" value="' + $(this).data('alias') + '" /><input type="hidden" name="consulta" value="descargarArchivosProgramas" /></form>').appendTo('body').submit();
-			}else{
-				modal('Error al descargar el archivo', '<p>Debe estar registrado para poder descargar los documentos.</p>');
-			}
-		})
-		.fail(function() {
+		$('body').on('click', 'a[data-filename]', function(event) {
+			event.preventDefault();
 			
-		})
-		.always(function() {
-			
-		});
-	});
-
-	$('body').on('click', 'a[data-jsfunction]', function(event) {
-		event.preventDefault();
-		
-		var fn = window[$(this).data('jsfunction')];
-
-		console.log($(this).data('jsfunction'));
-		fn( $(this).data('titulo') );
-	});
-
-	function indiceMasaCorporal (titulo) {
-
-			var string = '<div>';
-				string += '<iframe src="http://widgets.calculatestuff.com/?token=1e3ba18e1113" frameborder="0" width="100%" height="500" scrolling="no" style="border:none;" id="1e3ba18e1113"></iframe>';
-				string += '<script type="text/javascript">';
-				string += '(function() {var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src="http://cdn.calculatestuff.com/resizer.js";(document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(s);})();';
-				string += '</scr'+'ipt>';
-				string += '</div>';
+			$.ajax({
+				url: 'http://www.elartedesabervivir.com/includes/php.php',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					consulta: 'validarLoggeo'
+				},
+				context: this
+			})
+			.done(function(data) {
+				if ( parseInt(data.error) === 0 ) {
+					$('<form action="http://www.elartedesabervivir.com/includes/php.php" method="POST"><input type="hidden" name="file_name" value="' + $(this).data('filename') + '" /> <input type="hidden" name="alias" value="' + $(this).data('alias') + '" /><input type="hidden" name="consulta" value="descargarArchivosProgramas" /></form>').appendTo('body').submit();
+				}else{
+					modal('Error al descargar el archivo', '<p>Debe estar registrado para poder descargar los documentos.</p>');
+				}
+			})
+			.fail(function() {
 				
-				modal(titulo, string);
-	}	
-</script>
+			})
+			.always(function() {
+				
+			});
+		});
+
+		$('body').on('click', 'a[data-jsfunction]', function(event) {
+			event.preventDefault();
+			
+			var fn = window[$(this).data('jsfunction')];
+
+			console.log($(this).data('jsfunction'));
+			fn( $(this).data('titulo') );
+		});
+
+		function indiceMasaCorporal (titulo) {
+
+				var string = '<div>';
+					string += '<iframe src="http://widgets.calculatestuff.com/?token=1e3ba18e1113" frameborder="0" width="100%" height="500" scrolling="no" style="border:none;" id="1e3ba18e1113"></iframe>';
+					string += '<script type="text/javascript">';
+					string += '(function() {var s = document.createElement("script");s.type = "text/javascript";s.async = true;s.src="http://cdn.calculatestuff.com/resizer.js";(document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(s);})();';
+					string += '</scr'+'ipt>';
+					string += '</div>';
+					
+					modal(titulo, string);
+		}	
+	</script>
+<?php endif ?>
+
+<?php if ( $_REQUEST['section'] == 'rutinas' ): ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Espera muy pronto 5 videos de las rutinas de ejercicios, tips, recetas y artículos para entrar al mundo fit.</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/hdpvgphaANA" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					En este video de introducción, Daniel nos explica qué debemos hacer día a día y cómo lo debemos hacer para así trabajar continuamente. Serán 5 los videos de rutina de ejercicios, el ideal es repartir estas 5 rutinas en los 7 días de la semana.
+				</p>
+				
+				<h4>
+					Estos videos se pueden describir así:
+				</h4>
+				 
+			 	<ul>
+			 		<li>
+						<strong>VIDEO #1:</strong> Nos enseña ejercicios de plancha, se realizan ejercicios cardiovasculares, se trabajan cadenas de empuje y se realizan ejercicios de fuerza y resistencia.
+			 		</li>
+			 		<li>
+						<strong>VIDEO #2:</strong> Cuenta con 8 ejercicios en un circuito, se mezcla trabajo cardiovascular con trabajo muscular.
+			 		</li>
+			 		<li>
+						<strong>VIDEO #3:</strong> Este video nos muestra trabajo totalmente cardiovascular. Se muestran 8 ejercicios aeróbicos.
+			 		</li>
+			 		<li>
+						<strong>VIDEO #4:</strong> Aquí nos muestra 9 ejercicios de core abdominal, lumbar y de gluteos.
+			 		</li>
+			 		<li>
+						<strong>VIDEO #5:</strong> Este video es una mezcla de los 4 videos antes explicados, Se mezcla trabajo de resistencia, aeróbico y de fuerza.
+			 		</li>
+			 	</ul>
+			</div>
+		</div>
+	</div>
+<?php endif ?>

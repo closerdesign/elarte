@@ -240,7 +240,7 @@
 							</p>
 							<div class="row">
 								<div class="col-lg-offset-10 col-lg-2">
-									<a href="index.php?content=programas-especiales&alias=fitness-set" class="btn btn-success btn-lg pull-right" title="Fitness Set">Ingresar</a>
+									<a href="/index.php?content=archivos-programas&alias=fitness-set&section=rutinas" class="btn btn-success btn-lg pull-right" title="Fitness Set">Ingresar</a>
 								</div>
 							</div>
 						</div>
@@ -319,13 +319,8 @@
 						<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active">
-									<a href="" title="Rutinas de Mente sana, vida sana">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Rutinas de Mente sana, vida sana">
 										Rutinas de ejercicio
-									</a>
-								</li>
-								<li class="">
-									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
-										Artículos
 									</a>
 								</li>
 								<li class="">
