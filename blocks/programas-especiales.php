@@ -177,7 +177,7 @@
 									</div>
 									<div class="content">
 										<div class="main">
-											<h3 class="name"><strong>Psicología infanil (Infantopsicología)</strong></h3>
+											<h3 class="name"><strong>Psicología infantil (Infantopsicología)</strong></h3>
 											<p class="profession">Marcela Monte</p>
 										</div>
 									</div>
@@ -185,7 +185,7 @@
 							</div>
 						</div>
 						<div class="col-lg-9 DescripcionPrograma">
-							<h3 class="DescripcionPrograma-titulo">Psicología infanil (Infantopsicología)</h3>
+							<h3 class="DescripcionPrograma-titulo">Psicología infantil (Infantopsicología)</h3>
 							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
 							<br>
 							<p>
@@ -355,7 +355,7 @@
 							<p>
 								<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales"><i class='fa fa-arrow-left'></i> Volver a Programas Especiales</a>
 							</p>
-							<h1 class="DescripcionPrograma-titulo">Psicología infanil (Infantopsicología)</h1>
+							<h1 class="DescripcionPrograma-titulo">Psicología infantil (Infantopsicología)</h1>
 							<span class="DescripcionPrograma-subTitulo">Por Lic. Marcela Monte (Psicóloga)</span>
 							<br>
 							<p>
