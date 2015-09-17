@@ -17,7 +17,7 @@
 		<div class="container bannerTop">
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-8">
-					<h1>Haz parte de nuestra comunidad<br />y empieza a cambiar tu vida<br /><span style="color:#6A127A">¡Es gratís!</span></h1>
+					<h1>Haz parte de nuestra comunidad<br />y empieza a cambiar tu vida<br /><span style="color:#6A127A">¡Es gratis!</span></h1>
 				</div>
 			</div>
 			<div class="row">
