@@ -319,6 +319,11 @@
 						<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
 								<li class="active">
+									<a href="" title="Rutinas de Mente sana, vida sana">
+										Rutinas de ejercicio
+									</a>
+								</li>
+								<li class="">
 									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
 										Artículos
 									</a>
@@ -331,11 +336,6 @@
 								<li class="">
 									<a href="" title="Tips de Mente sana, vida sana">
 										Tips
-									</a>
-								</li>
-								<li class="">
-									<a href="" title="Rutinas de Mente sana, vida sana">
-										Rutinas
 									</a>
 								</li>
 							</ul>
