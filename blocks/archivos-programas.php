@@ -45,14 +45,19 @@
 										Rutinas de ejercicio
 									</a>
 								</li>
-								<li class="">
-									<a href="" title="Recetas de Mente sana, vida sana">
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && $_REQUEST['section'] == 'recetas' ? 'active' : '' ) ?>">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=recetas" title="Recetas de Mente sana, vida sana">
 										Recetas
 									</a>
 								</li>
-								<li class="">
-									<a href="" title="Tips de Mente sana, vida sana">
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && $_REQUEST['section'] == 'tips' ? 'active' : '' ) ?>">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=tips" title="Tips de Mente sana, vida sana">
 										Tips
+									</a>
+								</li>
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && !isset( $_REQUEST['section'] ) ? 'active' : '' ) ?>">
+									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Fitness set">
+										Artículos
 									</a>
 								</li>
 							</ul>

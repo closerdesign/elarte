@@ -318,19 +318,24 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="active">
-									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Rutinas de Mente sana, vida sana">
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && $_REQUEST['section'] == 'rutinas' ? 'active' : '' ) ?>">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Rutinas de Fitness set">
 										Rutinas de ejercicio
 									</a>
 								</li>
-								<li class="">
-									<a href="" title="Recetas de Mente sana, vida sana">
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && $_REQUEST['section'] == 'recetas' ? 'active' : '' ) ?>">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=recetas" title="Recetas de Fitness set">
 										Recetas
 									</a>
 								</li>
-								<li class="">
-									<a href="" title="Tips de Mente sana, vida sana">
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && $_REQUEST['section'] == 'tips' ? 'active' : '' ) ?>">
+									<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=tips" title="Tips de Fitness set">
 										Tips
+									</a>
+								</li>
+								<li class="<?= ( $_REQUEST['alias'] == 'fitness-set' && !isset( $_REQUEST['section'] ) ? 'active' : '' ) ?>">
+									<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Fitness set">
+										Artículos
 									</a>
 								</li>
 							</ul>
@@ -441,14 +446,24 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="<?php echo ( $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] == '/index.php?content=programas-especiales&alias=mente-sana-vida-sana' ? 'active' : '' ); ?>">
-								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
-									Articulos
+							<li class="active">
+								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Rutinas de Fitness set">
+									Rutinas de ejercicio
 								</a>
 							</li>
 							<li class="">
-								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Mente sana, vida sana">
-									Documentos y herramientas de ayuda
+								<a href="" title="Recetas de Fitness set">
+									Recetas
+								</a>
+							</li>
+							<li class="">
+								<a href="" title="Tips de Fitness set">
+									Tips
+								</a>
+							</li>
+							<li>
+								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Fitness set">
+									Artículos
 								</a>
 							</li>
 						</ul>
