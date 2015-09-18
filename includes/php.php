@@ -199,6 +199,9 @@
 			case 'agregarSubComentarios':
 				agregarSubComentarios();
 				break;
+			case 'getPrecioPaquete':
+				consultarPrecioPaquete();
+				break;
 			default:
 				break;
 		}
@@ -230,6 +233,20 @@
 	/*if ( $argv[1] == 'inscripcionesPendientes' ) {
 		inscripcionesPendientes();
 	}*/
+
+	function consultarPrecioPaquete()
+	{
+		$id = $_POST['id'];
+		$data = getDataPaquete($id);
+
+		$result = array(
+						'precio' => $data['precio'],
+						'nombre' => $data['nombre'],
+						'error'  => 0
+					);
+		
+		echo json_encode($result);
+	}
 
 	function getAjaxArticle()
 	{
