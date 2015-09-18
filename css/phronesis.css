@@ -1666,3 +1666,41 @@ img.mfp-img {
 	margin-left: 0;
 	margin-right: 15px;
 }
+
+.CompraPaquetes h4{
+	color: #595958;
+	font-size: 1.5rem;
+	font-weight: normal;
+	margin-bottom: 2rem;
+}
+
+.CompraPaquetes-label{
+	font-size: 1.7rem;
+	font-weight: normal;
+	margin-left: 1rem;
+}
+
+.CompraPaquetes-label .orange{
+	color: #FF6102;
+}
+
+
+.modal-dialog-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+.modal-footer {
+    margin-top: 0;
+}
+
+@media (max-width: 767px) {
+  .modal-dialog-center {
+    width: 100%;
+  }
+}
