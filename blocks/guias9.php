@@ -193,7 +193,7 @@
                         				
 					</div>
             	</div>
-                
+            </div>    
                 
             <div class="row">
             	
@@ -215,7 +215,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<br /><br />
-                                    <img class="img img-responsive" src="../img/formato-guias.png" alt="Guías prácticas en versión PDF">
+                                    <img class="img img-responsive" src="../img/formato-guias2.png" alt="Guías prácticas en versión PDF">
                                     
                                     
                                     
@@ -260,7 +260,7 @@
                                             
                                             <?php } ?>
                                             
-                                            
+                                            <br />
                                             
                                         </div>
                                     
@@ -284,6 +284,79 @@
                      
 				</div>
 			</div>
+            
+            <!-- /////////////////////////////////////////////////////  -->
+           
+            <div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+                                    <h3>Guía práctica para vencer la dependencia emocional</h3>
+                                    <br />
+                                    <p style="font-size:16px">
+                                    	Son herramientas que te servirán para llevar una vida emocional saludabe, donde encontrarás  pautas para hacer del amor una experiencia plena y gratificante, orientandote en temas como la autoestima, la asertividad, la independencia afectiva, la infidelidad, entre otros.
+                                    </p>
+                                    
+                                    
+									
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									
+								</div>
+							</div>
+						</div>	
+					</div>
+					
+				</div>
+				<div class="col-md-6">
+					
+					<div class="row">
+						<div class="col-md-12">
+							
+							<style>
+								.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+							</style>
+								<div class="col-md-12">
+									<br /><br />
+                                    
+                                    <div class='embed-container'>
+										<iframe src='https://www.youtube.com/embed/<?= $data['video'] ?>?autoplay=false&rel=0' frameborder='0' allowfullscreen>
+										</iframe>
+                            
+                            			
+                            
+                            
+									</div>
+                                    <br /><br />
+								</div>
+					
+								
+						</div>
+                        
+                        
+                        				
+					</div>
+            	</div>
+            </div>    
+                
+            <div class="row">
+            	
+				<div class="col-lg-12 col-md-12 col-sm-12">
+                	
+                    <hr /> 
+                     
+				</div>
+			</div>
+                
+                
+                <!-- /////////////////////////////////////////////////////  -->
+            
    			
             
 		</div>
