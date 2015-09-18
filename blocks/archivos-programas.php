@@ -6,6 +6,11 @@
 				<div class="col-lg-12 DescripcionPrograma">
 					<div class="row">
 						<div class="col-lg-12">
+							<p>
+								<a class="btn btn-default" href='index.php?content=programas-especiales' title="Programas Especiales">
+									<i class='fa fa-arrow-left'></i> Volver a Programas Especiales
+								</a>
+							</p>
 							<h3 class="DescripcionPrograma-titulo">Fitness Set</h3>
 							<span class="DescripcionPrograma-subTitulo">Por Lic. Daniel Martínez (Licenciado en Ciencias de la Actividad Física y el Deporte)</span>
 							<br>
