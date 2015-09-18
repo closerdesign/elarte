@@ -447,23 +447,13 @@
 					<div class="collapse navbar-collapse menuArticulos" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="active">
-								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=rutinas" title="Rutinas de Fitness set">
-									Rutinas de ejercicio
-								</a>
-							</li>
-							<li class="">
-								<a href="" title="Recetas de Fitness set">
-									Recetas
-								</a>
-							</li>
-							<li class="">
-								<a href="" title="Tips de Fitness set">
-									Tips
-								</a>
-							</li>
-							<li>
-								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Fitness set">
+								<a href="/index.php?content=programas-especiales&alias=<?php echo $_REQUEST['alias']; ?>" title="Artículos de Mente sana, vida sana">
 									Artículos
+								</a>
+							</li>
+							<li class="">
+								<a href="/index.php?content=archivos-programas&alias=<?php echo $_REQUEST['alias']; ?>&section=documentos" title="Documentos de Mente sana, vida sana">
+									Documentos y herramientas de ayuda
 								</a>
 							</li>
 						</ul>
