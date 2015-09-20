@@ -429,7 +429,9 @@
 						</div>
 					</div>
 					<hr>
-					<div id="metodoPago" style="display:none;">
+					<div class="row">
+						<div id="metodoPago" class="col-lg-12" style="display:none;">
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer text-left" style="text-align: left;">
@@ -557,45 +559,29 @@
 			$('input:radio[name="product"]:checked').prop( "checked", false );
 		});
 
-		function adjustModalMaxHeightAndPosition(){
-		    $('.modal').each(function(){
-		        if($(this).hasClass('in') == false){
-		            $(this).show(); /* Need this to get modal dimensions */
-		        };
-		        var contentHeight = $(window).height() - 60;
-		        var headerHeight = $(this).find('.modal-header').outerHeight() || 2;
-		        var footerHeight = $(this).find('.modal-footer').outerHeight() || 2;
+		var fit_modal_body;
 
-		        $(this).find('.modal-content').css({
-		            'max-height': function () {
-		                return contentHeight;
-		            }
-		        });
 
-		        $(this).find('.modal-body').css({
-		            'max-height': function () {
-		                return (contentHeight - (headerHeight + footerHeight));
-		            }
-		        });
-
-		        $(this).find('.modal-dialog').addClass('modal-dialog-center').css({
-		            'margin-top': function () {
-		                return -($(this).outerHeight() / 2);
-		            },
-		            'margin-left': function () {
-		                return -($(this).outerWidth() / 2);
-		            }
-		        });
-		        if($(this).hasClass('in') == false){
-		            $(this).hide(); /* Hide modal */
-		        };
-		    });
-		};
-		if ($(window).height() >= 320){
-		    $(window).resize(adjustModalMaxHeightAndPosition).trigger("resize");
-		}
 
 	})();
+		
+	fit_modal_body = function(modal) {
+	  var body, bodypaddings, header, headerheight, height, modalheight;
+	  header = $(".modal-header", modal).first();
+	  body = $(".modal-body", modal).first();
+	  modalheight = parseInt(modal.css("height"));
+	  headerheight = parseInt(header.css("height")) + parseInt(header.css("padding-top")) + parseInt(header.css("padding-bottom"));
+	  bodypaddings = parseInt(body.css("padding-top")) + parseInt(body.css("padding-bottom"));
+	  height = modalheight - headerheight - bodypaddings - 5;
+	  return body.css("max-height", "" + height + "px");
+	};
+	$(window).resize(function() {
+	  return fit_modal_body($(".modal"));
+	});
+
+	$('#myModalPagoPaquetes').on('shown.bs.modal', function () {
+	  return fit_modal_body($("#myModalPagoPaquetes"));
+	})
 	</script>
 	<!-- ClickDesk Live Chat Service for websites -->
 	<script type='text/javascript'>

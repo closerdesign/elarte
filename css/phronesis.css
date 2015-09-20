@@ -1685,12 +1685,12 @@ img.mfp-img {
 }
 
 
-.modal-dialog-center {
+/* .modal-dialog-center {
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
-}
+} */
 
 .modal-body {
     overflow-y: auto;
