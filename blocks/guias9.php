@@ -573,7 +573,7 @@
 	  headerheight = parseInt(header.css("height")) + parseInt(header.css("padding-top")) + parseInt(header.css("padding-bottom"));
 	  bodypaddings = parseInt(body.css("padding-top")) + parseInt(body.css("padding-bottom"));
 	  height = modalheight - headerheight - bodypaddings - 5;
-	  return body.css("max-height", "" + height + "px");
+	  return body.css("max-height", "" + height - 65 + "px");
 	};
 	$(window).resize(function() {
 	  return fit_modal_body($(".modal"));
