@@ -514,6 +514,7 @@ blockquote{
 	min-height: 355px;
 	position: relative;
 	margin-bottom: 15px;
+	min-width:33.33333%;
 }
 
 .publicacionContainer h1{
@@ -522,8 +523,9 @@ blockquote{
 	color: #6A1279;
 	margin: 15px;
 	line-height: 1;
-	text-align: center;
-	min-height: 90px;
+	
+	
+	
 }
 
 .publicacionContainer p{
@@ -532,7 +534,7 @@ blockquote{
 }
 
 .publicacionContainer img{
-	max-height: 175px;
+	max-height: 270px;
 	margin-bottom: 10px;
 	margin-left: 15px;
 }
