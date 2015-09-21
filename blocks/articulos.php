@@ -783,7 +783,7 @@
 															<div class="row">
 																<div class="col-lg-3 col-lg-offset-9 col-md-3 col-sm-12">
 																	<div class='meta-comentarios'>
-																		Por <?= getMetaComentarios($c['usuario']); ?>
+																		Por <?= getMetaComentarios($d['usuario']); ?>
 																	</div>
 																</div>
 															</div>
