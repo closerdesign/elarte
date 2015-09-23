@@ -1128,6 +1128,7 @@
 			")){
 				$response['message'] = 'Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.';
 				$response['error'] = 1;
+				$response['errorCode'] = 1;
 				echo json_encode($response);
 			}else{
 				$id = mysqli_insert_id($con);
@@ -1168,6 +1169,7 @@
 					/*echo "Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.";*/
 					$response['message'] = 'Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.';
 					$response['error'] = 1;
+					$response['errorCode'] = 2;
 					echo json_encode($response);
 					return;
 				}else{
@@ -1199,6 +1201,7 @@
 		}else{
 			$response['message'] = "Debe escribir un mensaje";
 			$response['error'] = 1;
+			$response['errorCode'] = 3;
 			echo json_encode($response);
 			return;
 		}
