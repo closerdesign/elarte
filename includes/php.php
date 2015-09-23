@@ -1149,7 +1149,7 @@
 				// Closing
 				curl_close($ch);
 
-				$contenido = '
+				/*$contenido = '
 					<p>Un nuevo comentario ha sido publicado en el artículo <b>'.getTituloArticulo($articulo).'</b>.</p>
 					<p>A continuación su contenido:</p>
 					<h3>"'.$comment.'"</h3>
@@ -1163,15 +1163,12 @@
 				$mail->Body = utf8_decode($html);
 				$mail->IsHTML(true);
 				$mail->AddAddress(NOTIFICACIONES);
-				/*$mail->AddReplyTo($_POST['']);*/
 				if($sent_mail = $mail->Send()){
-					/*echo "Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.";*/
 					$response['message'] = 'Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.';
 					$response['error'] = 1;
 					echo json_encode($response);
 					return;
-				}else{
-					/*echo "Tu comentario ha sido agregado exitosamente. Gracias por compartir con la comunidad.";*/
+				}else{*/
 					$nombre = getNombreUsuario($usuario);
 					$apellido = getApellidoUsuario($usuario);
 					$commentHtml = '<div class="row sub-comment">';
@@ -1194,7 +1191,7 @@
 					$response['error'] = 0;
 					echo json_encode($response);
 					return;
-				}
+				/*}*/
 			}
 		}else{
 			$response['message'] = "Debe escribir un mensaje";
