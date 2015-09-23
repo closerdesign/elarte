@@ -2347,7 +2347,15 @@
 		
 		$baseUrlSuccess = URL . "index.php?content=mi-cuenta&task=mis-publicaciones&orderPaypalId=$id_pedido&pagina=coleccion";
 		
-		$baseUrlFailed = URL . "?content=coleccion&id=".$_POST['codigoPaquete']."&orderPaypalId=$id_pedido&pagina=coleccion";
+		
+		if($_POST['codigoPaquete']==6)
+		{
+			$baseUrlFailed = URL . "?content=guias&id=9&orderPaypalId=$id_pedido&pagina=coleccion";
+		}
+		else
+			$baseUrlFailed = URL . "?content=coleccion&id=".$_POST['codigoPaquete']."&orderPaypalId=$id_pedido&pagina=coleccion";
+		
+		
 		$payment = makePaymentUsingPayPal($_POST['amount'], 'USD', $_POST['description'],$baseUrlSuccess."&success=true", $baseUrlFailed."&success=false");
 
 		if ( $payment->getState() == 'created') {
