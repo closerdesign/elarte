@@ -40,9 +40,15 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 3;
 			require 'guias8.php';
 			break;
-		case 9:
-			$_REQUEST['id'] = 3;
+		case "guias-practicas-de-walter-riso":
+			$_REQUEST['id'] = 1;
 			require 'guias9.php';
+			break;
+			
+		//Otros paquetes
+		case 10:
+			$_REQUEST['id'] = 2;
+			require 'guias10.php';
 			break;
 		default:
 			break;

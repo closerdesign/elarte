@@ -588,102 +588,43 @@
 								</div>
 								<br>
 								<hr>
-								<div class="row">
-									<h3>Artículos recomendados</h3>
-									<?php
-										/*echo "<pre>";
-										var_dump($_REQUEST);
-										echo "</pre>";*/
-										if ( !empty( $_REQUEST['content'] ) && $_REQUEST['content'] == 'articulos' && !isset($_REQUEST['slug']) ) {
-											$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" AND status = 1 ORDER BY RAND() LIMIT 3';
-										}else if ( !empty( $_REQUEST['slug'] ) && $_REQUEST['slug'] == 'programas-especiales' ) {
-											$id_program = getIdPrograma($_REQUEST['alias']);
-
-											/*echo "<pre>";
-											var_dump($id_program);
-											echo "</pre>";*/
-
-											$sql_rel = 'SELECT * FROM articulos WHERE programas_especiales = '.$id_program.' AND status = 1 ORDER BY RAND() LIMIT 3';
-										}
-										$result = mysqli_query($con, $sql_rel);
-										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
-										
-										/*echo "<pre>";
-										var_dump($data['categoria']);
-										echo "</pre>";*/
-										/*echo "<pre>";
-										var_dump(count($related_cat));
-										echo "</pre>";*/
-										$num_articles = mysqli_num_rows($result);
-
-										if ( $num_articles > 0 ) {
-											while($c = mysqli_fetch_assoc($result)){
-												$titulo = removeUnwantedChars($c['titulo']);
-									?>
-									<div class="col-lg-4">
-										<?php
-											if ( $c['programas_especiales'] > 0 ) {
-										?>
-										<a href="/index.php?slug=programas-especiales&alias=<?= $_REQUEST['alias'] ?>&content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
-										<?php
-											}else{
-										?>
-										<a href="/index.php?content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
-										<?php
-											}
-										?>
-											<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $c['imagen'] ?>" alt="<?= $c['titulo']; ?>"/>
-										</a>
-
-										<?php
-											if ( $c['programas_especiales'] > 0 ) {
-										?>
-										<a href="/index.php?slug=programas-especiales&alias=<?= $_REQUEST['alias'] ?>&content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
-										<?php
-											}else{
-										?>
-										<a href="/index.php?content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
-										<?php
-											}
-										?>
-											<h3>
-												<?= strtok(wordwrap($c['titulo'], 40, "...\n"), "\n") ?>
-											</h3>
-										</a>
-										<p class="text-justify">
-											<?= substr(strip_tags($c['contenido']), 0, 200); ?>...
-										</p>
+								
+								<div class="col-lg-12 col-md-12 col-sm-12">                                    
+                                    <div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<h4>Comentar con Facebook</h4>
+																					
+                                        
+											<?php
+                                                $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                                            ?>
+                                            <div id="fb-root"></div>
+                                            <script>(function(d, s, id) {
+                                              var js, fjs = d.getElementsByTagName(s)[0];
+                                              if (d.getElementById(id)) return;
+                                              js = d.createElement(s); js.id = id;
+                                              js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1555280741417343";
+                                              fjs.parentNode.insertBefore(js, fjs);
+                                            }(document, 'script', 'facebook-jssdk'));</script>
+                                            
+                                            <div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
+                                        
+                                    	</div>
 									</div>
-									<?php
-											}
-										}
-
-									?>
-								</div>
-								<hr>
-								<br>
-								<div class="col-lg-12 col-md-12 col-sm-12">
-									<p class="lead">Comparte tus comentarios</p>
-									<hr>
-									<?php
-										$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-									?>
-									<div id="fb-root"></div>
-									<script>(function(d, s, id) {
-									  var js, fjs = d.getElementsByTagName(s)[0];
-									  if (d.getElementById(id)) return;
-									  js = d.createElement(s); js.id = id;
-									  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1555280741417343";
-									  fjs.parentNode.insertBefore(js, fjs);
-									}(document, 'script', 'facebook-jssdk'));</script>
 									
-									<div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
-									
-									<hr>
+									<br>
+                                    
+                                    <div class="row">
+										<div class="col-lg-12 col-md-12 col-sm-12">
+											<h4>Comentar con tu cuenta de Phronesis</h4>
+										</div>
+									</div>
+                                    
+                                    
 									<?php
 										if(!isset($_SESSION['id'])){
 											echo '
-												<p>Para poder comentar este artículo debes ser un usuario registrado. <a class="btn btn-default" href="javascript:void(0)" onclick="openRegisterModal()" title="Regístrate">Regístrate</a> o ingresa haciendo click <a class="btn btn-default" href="javascript:void(0)" onclick="openLoginModal()" title="ingresa haciendo click">aquí</a>.</p>
+												<p>Para comentar con tu cuenta de Phronesis debes <a class="btn btn-default" href="javascript:void(0)" onclick="openLoginModal()" title="ingresa haciendo click">Iniciar sesión</a> <br>Si aún no tienes una cuenta en Phronesis la puedes abrir gratis y en segundos haciendo <a class="btn btn-default" href="javascript:void(0)" onclick="openRegisterModal()" title="Regístrate">Click aquí</a></p>
 											';
 										}else{
 											?>
@@ -709,12 +650,7 @@
 										$q=mysqli_query($con, $sql);
 										$n=mysqli_num_rows($q);
 									?>
-											<div class="row">
-												<div class="col-lg-12 col-md-12 col-sm-12">
-													<h4>Comentarios</h4>
-													<hr>
-												</div>
-											</div>
+											
 											<div class="SeccionComentarios">
 												
 									<?php
@@ -722,7 +658,7 @@
 									?>
 												<div class='row'>
 													<div class='col-lg-12 col-md-12 col-sm-12'>
-														<p>Este artículo aún no tiene comentarios.</p>
+														<p>Este artículo aún no tiene comentarios con cuentas de Phronesis.</p>
 													</div>
 												</div>
 									<?php
@@ -797,7 +733,92 @@
 										}
 									?>
 											</div>
+                                            
+                                            <br /><br />
 								</div>
+                                
+                                
+								
+                                
+                                
+                                <div class="row">
+                                
+									<h3>Artículos recomendados</h3>
+									<?php
+										/*echo "<pre>";
+										var_dump($_REQUEST);
+										echo "</pre>";*/
+										if ( !empty( $_REQUEST['content'] ) && $_REQUEST['content'] == 'articulos' && !isset($_REQUEST['slug']) ) {
+											$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" AND status = 1 ORDER BY RAND() LIMIT 3';
+										}else if ( !empty( $_REQUEST['slug'] ) && $_REQUEST['slug'] == 'programas-especiales' ) {
+											$id_program = getIdPrograma($_REQUEST['alias']);
+
+											/*echo "<pre>";
+											var_dump($id_program);
+											echo "</pre>";*/
+
+											$sql_rel = 'SELECT * FROM articulos WHERE programas_especiales = '.$id_program.' AND status = 1 ORDER BY RAND() LIMIT 3';
+										}
+										$result = mysqli_query($con, $sql_rel);
+										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
+										
+										/*echo "<pre>";
+										var_dump($data['categoria']);
+										echo "</pre>";*/
+										/*echo "<pre>";
+										var_dump(count($related_cat));
+										echo "</pre>";*/
+										$num_articles = mysqli_num_rows($result);
+
+										if ( $num_articles > 0 ) {
+											while($c = mysqli_fetch_assoc($result)){
+												$titulo = removeUnwantedChars($c['titulo']);
+									?>
+									<div class="col-lg-4">
+										<?php
+											if ( $c['programas_especiales'] > 0 ) {
+										?>
+										<a href="/index.php?slug=programas-especiales&alias=<?= $_REQUEST['alias'] ?>&content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
+										<?php
+											}else{
+										?>
+										<a href="/index.php?content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
+										<?php
+											}
+										?>
+											<img class="img img-responsive inner" src="/admin/_lib/file/imgarticulos/<?php echo $c['imagen'] ?>" alt="<?= $c['titulo']; ?>"/>
+										</a>
+
+										<?php
+											if ( $c['programas_especiales'] > 0 ) {
+										?>
+										<a href="/index.php?slug=programas-especiales&alias=<?= $_REQUEST['alias'] ?>&content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
+										<?php
+											}else{
+										?>
+										<a href="/index.php?content=articulos&titulo=<?= $titulo ?>&id=<?= $c['id'] ?>" title="<?= $c['titulo']; ?>">
+										<?php
+											}
+										?>
+											<h3>
+												<?= strtok(wordwrap($c['titulo'], 40, "...\n"), "\n") ?>
+											</h3>
+										</a>
+										<p class="text-justify">
+											<?= substr(strip_tags($c['contenido']), 0, 200); ?>...
+										</p>
+									</div>
+									<?php
+											}
+										}
+
+									?>
+								</div>
+								
+                                
+                                
+                                
+                                
 							</div>		
 							<?php /*}*/ ?>
 						

@@ -71,11 +71,13 @@
 									<button class="btn btn-primary compartirFacebook"><i class="fa fa-facebook"></i> Compartir en Facebook</button>
 								</div>
 							</div>
+                            <!--
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
 									<a class="btn btn-primary" href="/index.php?content=obras">Ir a la biblioteca</a>
 								</div>
 							</div>
+                            -->
 						</div>
 					</div>
 				</div>

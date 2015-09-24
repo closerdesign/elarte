@@ -8,7 +8,7 @@
 		?>
 		<script>
 			$(document).ready(function(){
-				$('#myModalPagoPaquetes').modal('show');
+				$('#PaquetesModal').modal('show');
 				$.cookie('modal',1);
 			});
 		</script>
@@ -91,13 +91,13 @@
 						<?php if(isset($_SESSION['id'])){ ?>
 						<p class="text-center">
 							<center>
-								<button style="width:400px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción</button>
+								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción</button>
 							</center>
 						</p>
 						<?php }else{ ?>
 						<p class="text-center">
 							<center>
-								<button style="width:400px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción</button>
+								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción</button>
 							</center>
 						</p>
 						<?php } ?>
@@ -120,7 +120,7 @@
             						<h3>¿Para qué sirven estas guías?</h3>
             						<br />
             						<p style="font-size:16px">
-            							Son herramientas que te servirán para llevar una vida emocional saludabe, donde encontrarás  pautas para hacer del amor una experiencia plena y gratificante, orientandote en temas como la autoestima, la asertividad, la independencia afectiva, la infidelidad, entre otros.
+            							Son herramientas que te servirán para llevar una vida emocional saludable, donde encontrarás  pautas para hacer del amor una experiencia plena y gratificante, orientandote en temas como la autoestima, la asertividad, la independencia afectiva, la infidelidad, entre otros.
             						</p>
             					</div>
             				</div>
@@ -164,9 +164,10 @@
 	            			<div class="col-md-12">
 	            				<div class="row">
 	            					<div class="col-md-12">
-	            						<br />
-	            						<br />
-	            						<img class="img img-responsive" src="../img/formato-guias.png" alt="Guías prácticas en versión PDF">
+	            						
+	                                    <h3>Formatos disponibles</h3>
+	                                    <br />
+	            						<img class="img img-responsive" src="../img/formato-guias2.png" alt="Guías prácticas en versión PDF">
 	            					</div>
 	            				</div>
 	            			</div>
@@ -177,13 +178,11 @@
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-12">
-										<br />
-	                                    <h3>Formatos disponibles</h3>
-	                                    <br />
+										<br /><br /><br /><br /> 
 	                                    <p style="font-size:16px">
-	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escritra sin ningún tipo de restricción.
+	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
 	                                        <br /><br />
-	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electronico (computadora, tablet, celular, etc.).
+	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.).
 
 	                                    </p>
 
@@ -192,13 +191,13 @@
 	                                    	<?php if(isset($_SESSION['id'])){ ?>
 	                                    	<p class="text-center">
 	                                    		<center>
-	                                        		<button style="width:400px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción ahora</button>
+	                                        		<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción ahora</button>
 	                                    		</center>
 	                                    	</p>
 	                                    	<?php }else{ ?>
 	                                    	<p class="text-center">
 	                                    		<center>
-	                                    			<button style="width:400px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción ahora</button>
+	                                    			<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción ahora</button>
 	                                    		</center>
 	                                    	</p>
 	                                    	<?php } ?>
@@ -209,12 +208,85 @@
 						</div>
 	            	</div>
 	            </div>
-
-	            <div class="row">
+                
+                <br />
+                <hr />
+                
+                <div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-	                    <hr />
+                		<h3 class="text-center">Escucha algunos fragmentos de la versión en aduio</h3>
+	                 	<br />
+                	
+						<p style="font-size:16px"></p>
 					</div>
 				</div>
+                
+                <div class="row">
+	            	<div class="col-md-6">
+	            		<div class="row">
+	            			<div class="col-md-12">
+	            				<div class="row">
+	            					<div class="col-md-12">
+	            						<br />
+                                        
+                                        <iframe id='audio_4400055' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE;  box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400055_4_1.html?c1=ff6600"></iframe> 
+	                                    
+	            					</div>
+	            				</div>
+	            			</div>
+	            		</div>
+	            	</div>
+                    
+                    <div class="col-md-6">
+	            		<div class="row">
+	            			<div class="col-md-12">
+	            				<div class="row">
+	            					<div class="col-md-12">
+                                    	<br />
+	            						<iframe id='audio_4400045' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE; box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400045_4_1.html?c1=ff6600"></iframe>
+	                                    
+	            					</div>
+	            				</div>
+	            			</div>
+	            		</div>
+	            	</div>
+                    
+                </div>
+                
+                
+                <div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+                        <br /><br />
+                        <div class="text-center" style="font-size:24px;">
+								<strong>
+									¡No dejes escapar esta oportunidad!
+								</strong>
+                                	<br /><br />
+                                    Lleva hoy estas guías en versión audio o pdf con el <span style="color:red">30% de descuento</span><br />o lleva las dos versiones con el <span style="color:red">50% de descuento</span>
+							</div>
+                        
+                        <br />
+                        <div class="col-md-12">
+                            <?php if(isset($_SESSION['id'])){ ?>
+                            <p class="text-center">
+                                <center>
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción ahora</button>
+                                </center>
+                            </p>
+                            <?php }else{ ?>
+                            <p class="text-center">
+                                <center>
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción ahora</button>
+                                </center>
+                            </p>
+                            <?php } ?>
+                            <br />
+                            <hr />
+                        </div>
+					</div>
+				</div>
+                
+	            
 			</div>
 		</div>
 
@@ -310,49 +382,41 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<input id="btnPaqueteAudio" type="radio" name="product" value="3" data-discount="30" data-price="34,95" data-format="MP3">
+								<input id="btnPaqueteAudio" type="radio" name="product" value="3" data-discount="30" data-price="34.95" data-format="MP3">
 								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> Formato de audio MP3 (-30% dto)</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<input id="btnPaquetePDF" type="radio" name="product" value="1" data-discount="25" data-price="34,95" data-format="PDF">
-								<label class="CompraPaquetes-label" for="btnPaquetePDF"> Formato de audio PDF (-30% dto)</label>
+								<input id="btnPaquetePDF" type="radio" name="product" value="1" data-discount="30" data-price="34.95" data-format="PDF">
+								<label class="CompraPaquetes-label" for="btnPaquetePDF"> Formato de texto PDF (-30% dto)</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<input id="btnPaqueteAll" type="radio" name="product" value="2" data-discount="15" data-price="69.9" data-format="PDF + MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Formato de audio PDF + MP3 <span class="orange">(-50% dto)</span></label>
+								<input id="btnPaqueteAll" type="radio" name="product" value="6" data-discount="50" data-price="69.9" data-format="PDF + MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Los dos formatos PDF + MP3 <span class="orange">(-50% dto)</span></label>
 							</div>
 						</div>
 						<br>
+                        <p class="mensajeEspera1"></p>
 						<br>
 						<br>
 						<div class="CompraPaquetes-dataContainer text-right" style="display:none;">
 							<div class="row">
-								<div class="col-lg-3 col-lg-offset-6">
-									Precio:	
-								</div>
-								<div class="col-lg-3 text-center">
-									USD $<span class="CompraPaquetes-price"></span>
+								<div class="col-lg-12 text-rigth">
+                                	<b>Precio:</b> USD $<span class="CompraPaquetes-price"></span>
+                                </div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12 text-rigth">
+									<b>Descuento:</b> -<span class="CompraPaquetes-discount"></span>%
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-lg-3 col-lg-offset-6">
-									Descuento:	
-								</div>
-								<div class="col-lg-3 text-center">
-							 		-<span class="CompraPaquetes-discount"></span>%
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3 col-lg-offset-6">
-									Total a pagar:	
-								</div>
-								<div class="col-lg-3 text-center">
-							 		USD $<span class="CompraPaquetes-total"></span>
-								</div>
+								<div class="col-lg-12 text-rigth">
+									<b>Total a pagar: USD $<span class="CompraPaquetes-total"></span></b>
+                                </div>
 							</div>
 						</div>
 					</div>
@@ -383,28 +447,19 @@
 					<div class="row">
 						<div class=" text-right">
 							<div class="row">
-								<div class="col-lg-3 col-lg-offset-6">
-									Precio:	
-								</div>
-								<div class="col-lg-3 text-center">
-									USD $<span class="CompraPaquetes-price"></span>
+								<div class="col-lg-12 text-rigth">
+                                	<b>Precio:</b> USD $<span class="CompraPaquetes-price"></span>
+                                </div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12 text-rigth">
+									<b>Descuento:</b> -<span class="CompraPaquetes-discount"></span>%
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-lg-3 col-lg-offset-6">
-									Descuento:	
-								</div>
-								<div class="col-lg-3 text-center">
-							 		-<span class="CompraPaquetes-discount"></span>%
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3 col-lg-offset-6">
-									Total a pagar:	
-								</div>
-								<div class="col-lg-3 text-center">
-							 		USD $<span class="CompraPaquetes-total"></span>
-								</div>
+								<div class="col-lg-12 text-rigth">
+									<b>Total a pagar: USD $<span class="CompraPaquetes-total"></span></b>
+                                </div>
 							</div>
 						</div>
 					</div>
@@ -413,8 +468,9 @@
 					<div class="row">
 						<div class="col-md-12">
 							<p>
+                            	Selecciona el país desde donde realizarás el pago: <br />
 								<select class="form-control" name="paisMetodo" id="paisMetodo" required>
-									<option value="">Selecciona el país desde donde realizarás el pago ...</option>
+									<option value="">Selecciona un país</option>
 									<?= selectPaises(); ?>
 								</select>
 							</p>
@@ -430,6 +486,7 @@
 					</div>
 					<hr>
 					<div class="row">
+                    	<p class="mensajeEspera2" style="display:none">Un momento por favor...</p>
 						<div id="metodoPago" class="col-lg-12" style="display:none;">
 						</div>
 					</div>
@@ -456,6 +513,10 @@
 			event.preventDefault();
 			$('#metodo').slideUp();
 			$('#metodoPago').slideUp();
+			
+			$('.mensajeEspera2').slideDown();
+			
+			
 			if ( $(this).val() !== '' ) {
 				var data = {
 								pais : $(this).val(),
@@ -469,6 +530,7 @@
 				})
 				.done(function(data) {
 					if ( data.error ) {
+						$('.mensajeEspera2').slideUp();
 						$('#metodo').empty().html(data.html);
 						$('#metodo').slideDown();
 					}else{
@@ -486,6 +548,12 @@
 			var discount = $(this).data('discount');
 			var price = $(this).data('price');
 			var format = $(this).data('format');
+			
+			
+			$('.CompraPaquetes-dataContainer').slideUp('fast');
+			$('#CompraPaquetes-nextButton').slideUp('fast');
+			$('.mensajeEspera1').text("Un momento por favor...");
+			
 
 			$.ajax({
 				url: '/includes/php.php',
@@ -502,9 +570,10 @@
 				id_paquete = $(this).val();
 				nombre     = 'Colección de guías prácticas de Walter Riso ('+ format +')';
 
-				if ( !$('.CompraPaquetes-dataContainer').is(':visible') ) {
+				//if ( !$('.CompraPaquetes-dataContainer').is(':visible') ) {
 					$('.CompraPaquetes-dataContainer').slideDown('fast');
-				}
+				//}
+				$('.mensajeEspera1').text("");
 				console.log('nombre: '+data.nombre);
 				$('#CompraPaquetes-nombre').text(nombre);
 				$('.CompraPaquetes-price').text(price);
@@ -522,6 +591,7 @@
 			event.preventDefault();
 			console.log(nombre);
 			$('#metodoPago').slideUp();
+			$('.mensajeEspera2').slideDown();
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -542,6 +612,7 @@
 				data: data,
 			})
 			.done(function(data) {
+				$('.mensajeEspera2').slideUp();
 				$('#metodoPago').html(data);
 				$('#metodoPago').slideDown();
 			});
