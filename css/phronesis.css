@@ -1706,3 +1706,32 @@ img.mfp-img {
     width: 100%;
   }
 }
+
+
+.instagram-programa a,
+.facebook-programa a,
+.twitter-programa a{
+	display: block;
+	padding: 1rem;
+	font-size: 3rem;
+	-webkit-transition: .3s all ease;
+	-o-transition: .3s all ease;
+	transition: .3s all ease;
+}
+.instagram-programa a:hover,
+.facebook-programa a:hover,	
+.twitter-programa a:hover{	
+	background: #420751;
+}
+.instagram-programa a{
+	background: #125688;
+	color: #FFF;
+}
+.facebook-programa a{
+	background: #3b5998;
+	color: #FFF;
+}
+.twitter-programa a{
+	background: #00aced;
+	color: #FFF;
+}

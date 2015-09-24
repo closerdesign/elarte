@@ -307,8 +307,23 @@
 							<strong>Sobre Daniel Martínez:</strong> Licenciado en Ciencias de la Actividad Física y el Deporte de la Universidad de Barcelona en INEFC (2008-2013), Técnico de fitness en complejos deportivos municipales en El Prat de Llobregat, Barcelona (2008-2009), Técnico de fitness en Complejo Deportivo Baldiri Aleu, Sant Boi, Barcelona (2010-2011), Federado en Taekwondo desde los 6 años (1996), actividad que ejerció dictando clases y enseñando su importancia. Desde el año 2013 es entrenador Personal en Dir Seven, Barcelona.
 						</div>
 					</div>
-					<br>
-					<br>
+					<div class="row">
+						<div class="col-lg-1 col-lg-offset-9 text-center instagram-programa">
+							<a href="https://instagram.com/danimrfit/" title="Instagram" target="_blank">
+								<i class="fa fa-instagram"></i>
+							</a>
+						</div>
+						<div class="col-lg-1 text-center facebook-programa">
+							<a href="https://www.facebook.com/daniel.martinezramirez.334" title="Facebook" target="_blank">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</div>
+						<div class="col-lg-1 text-center twitter-programa">
+							<a href="https://twitter.com/@danimrfitt" title="Twitter" target="_blank">
+								<i class="fa fa-twitter"></i>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="container">
