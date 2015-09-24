@@ -29,8 +29,23 @@
 							<strong>Sobre Daniel Martínez:</strong> Licenciado en Ciencias de la Actividad Física y el Deporte de la Universidad de Barcelona en INEFC (2008-2013), Técnico de fitness en complejos deportivos municipales en El Prat de Llobregat, Barcelona (2008-2009), Técnico de fitness en Complejo Deportivo Baldiri Aleu, Sant Boi, Barcelona (2010-2011), Federado en Taekwondo desde los 6 años (1996), actividad que ejerció dictando clases y enseñando su importancia. Desde el año 2013 es entrenador Personal en Dir Seven, Barcelona.
 						</div>
 					</div>
-					<br>
-					<br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1 col-lg-offset-9 text-center instagram-programa">
+					<a href="https://instagram.com/danimrfit/" title="Instagram" target="_blank">
+						<i class="fa fa-instagram"></i>
+					</a>
+				</div>
+				<div class="col-lg-1 text-center facebook-programa">
+					<a href="https://www.facebook.com/daniel.martinezramirez.334" title="Facebook" target="_blank">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</div>
+				<div class="col-lg-1 text-center twitter-programa">
+					<a href="https://twitter.com/@danimrfitt" title="Twitter" target="_blank">
+						<i class="fa fa-twitter"></i>
+					</a>
 				</div>
 			</div>
 			<div class="row">
@@ -431,11 +446,6 @@
 <?php if ( $_REQUEST['section'] == 'rutinas' ): ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
-				<h3 class="alert alert-danger">Espera muy pronto 5 videos de las rutinas de ejercicios, tips, recetas y artículos para entrar al mundo fit.</h3>
-			</div>
-		</div>
-		<div class="row">
 			<div class="col-lg-8">
 				<div class="embed-responsive embed-responsive-16by9">
 					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/hdpvgphaANA" frameborder="0" allowfullscreen></iframe>
@@ -477,6 +487,7 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
+				<h3>Rutina Fitness Estiramiento - Todos los días</h3>
 				<p>
 					En este video Daniel nos enseña ejercicios de estiramiento para aplicar día a día antes y después de la rutina de entrenamiento.
 				</p>
@@ -490,6 +501,9 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
+				<h3>
+					Rutina Fitness - Día 1:	<br> Fuerza y Resistencia
+				</h3>
 				<p>
 					Nos enseña ejercicios de plancha, se realizan ejercicios cardiovasculares, se trabajan cadenas de empuje y se realizan ejercicios de fuerza y resistencia.
 				</p>
@@ -503,6 +517,9 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
+				<h3>
+					Rutina Fitness - Día 2: <br> Cardiovascular - Muscular
+				</h3>
 				<p>
 					Cuenta con 8 ejercicios en un circuito, se mezcla trabajo cardiovascular con trabajo muscular.
 				</p>
@@ -516,6 +533,9 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
+				<h3>
+					Rutina Fitness - Día 3: <br> Aeróbicos
+				</h3>
 				<p>
 					Este video nos muestra trabajo totalmente cardiovascular. Se muestran 8 ejercicios aeróbicos.
 				</p>
@@ -529,6 +549,9 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
+				<h3>
+					Rutina Fitness - Día 4: <br> Abdomen, Espalda y Glúteos
+				</h3>
 				<p>
 					Aquí nos muestra 9 ejercicios de core abdominal, lumbar y de gluteos.
 				</p>
@@ -542,6 +565,9 @@
 				</div>
 			</div>
 			<div class="col-lg-4">
+				<h3>
+					Rutina Fitness - Día 5: <br> Resistencia, Aeróbico y Fuerza.
+				</h3>
 				<p>
 					Este video es una mezcla de los 4 videos antes explicados, Se mezcla trabajo de resistencia, aeróbico y de fuerza.
 				</p>
