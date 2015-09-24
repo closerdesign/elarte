@@ -471,6 +471,84 @@
 		</div>
 		<hr>
 		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/dBK_AGZlDWE" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					En este video Daniel nos enseña ejercicios de estiramiento para aplicar día a día antes y después de la rutina de entrenamiento.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/iDiHEjxAVZc" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					Nos enseña ejercicios de plancha, se realizan ejercicios cardiovasculares, se trabajan cadenas de empuje y se realizan ejercicios de fuerza y resistencia.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/fXKZta7qnUM" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					Cuenta con 8 ejercicios en un circuito, se mezcla trabajo cardiovascular con trabajo muscular.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/Z3pMxc44Rt4" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					Este video nos muestra trabajo totalmente cardiovascular. Se muestran 8 ejercicios aeróbicos.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/zFDvBg-ClnY" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					Aquí nos muestra 9 ejercicios de core abdominal, lumbar y de gluteos.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/MKVeqEw60Y4" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<p>
+					Este video es una mezcla de los 4 videos antes explicados, Se mezcla trabajo de resistencia, aeróbico y de fuerza.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
 			<div id="fb-root"></div>
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];
