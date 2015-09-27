@@ -232,7 +232,10 @@
 					<img class="img-circle" src="/img/Nancy_Castrillon.png" width="80" alt="Nancy Castrillón">
 				</div>
 				<div class="DescripcionPrograma-autorAbout col-lg-11">
-					<strong>Sobre Nancy Castrillón:</strong> Psicóloga con especialización en Psicología clínica; máster en Humanidades, y máster en Neurorehabilitación y Enfermedades Neurodegenerativas.
+					<p><strong>Sobre Nancy Castrillón:</strong> Es Licenciada en psicología de la universidad de San Buenaventura de Medellín. Es magister en Neurorehabilitación, de la universidad Autónoma de Barcelona, así mismo lo es en Humanidades: Historia, Filosofía, Arte y Literatura, de la Universidad de Barcelona.</p>
+					<p>
+						Actualmente ejerce como psicóloga en la práctica privada y forma parte del grupo de revisión clínica sobre psicoanálisis relacional, en Barcelona. Cuenta con amplia experiencia en el campo de los RRHH y la banca privada; el maltrato en la infancia y la adolescencia, y conductas autolesivas. Además, de tener experiencia y formación académica en el área de la Neurorehabilitación; específicamente en personas con retardo mental profundo, deficiencias psíquicas y físicas, y enfermedades neurodegenerativas.
+					</p>
 				</div>
 			</div>
 			<br>
