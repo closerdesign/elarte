@@ -85,6 +85,7 @@ $(document).ready(function(){
 
 	// Obtener formulario de pago
 	function obtenerFormularioDePago(metodo){
+		
 		cargar();
 		logActividades("Llama formulario de pago para el metodo " + metodo);
 		$.post('/includes/php.php',{
@@ -97,6 +98,7 @@ $(document).ready(function(){
 	}
 	
 	function obtenerFormularioDePago2(metodo, pagina){
+		
 		cargar();
 		logActividades("Llama formulario de pago para el metodo " + metodo);
 		$.post('/includes/php.php',{
@@ -782,7 +784,7 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Registrarse con');
+        $('.modal-title').html('Registro de usuarios');
     });
     $('.error').removeClass('alert alert-danger').html('');
 
@@ -794,7 +796,7 @@ function showLoginForm(){
             $('.login-footer').fadeIn('fast');
         });
 
-        $('.modal-title').html('Entrar con');
+        $('.modal-title').html('Iniciar sesión');
     });
      $('.error').removeClass('alert alert-danger').html('');
 }
@@ -826,6 +828,9 @@ function loginAjax(){
 		password: $('#passwordLogin').val(),
 		url: $('#currentUrl').val()
 	};
+	
+	$('.mensajeLogin').fadeIn();
+	
 	$.ajax({
 		url: '/includes/php.php',
 		type: 'POST',
@@ -833,6 +838,9 @@ function loginAjax(){
 		data: data,
 	})
 	.done(function(data) {
+		
+		$('.mensajeLogin').fadeOut();
+		
 		if( data.error == 1 ){
 		    $.cookie('session',data);
 		    location.reload();
@@ -921,13 +929,15 @@ $('#registroUsuarios').validate({
 		}
 	},
 	submitHandler: function(form){
+		
 		$.ajax({
 			type: "POST",
 			url: "/includes/php.php",
 			data: {
 				consulta: "registro",
 				email: $('#emailRegistro').val(),
-				password: $('#passwordRegistro').val()
+				password: $('#passwordRegistro').val(),
+				currentUrlPaul: $('#currentUrlPaul').val()
 			}
 		}).done(function(data){
 			if(data === 0){
