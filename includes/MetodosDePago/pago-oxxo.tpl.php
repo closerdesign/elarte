@@ -7,7 +7,7 @@
 			<div class="col-md-12">
 				<p>A continuación efectuaremos en procedimiento de generación de su recibo para pago en efectivo a través de puntos OXXO.</p><p>Le agradecemos que revise atentamente el email que enviaremos a su cuenta <?= getEmailUsuario($_SESSION['id']) ?> para evitar inconvenientes en su proceso de pago.</p>
 				<input type="hidden" name="noDocumentoOxxo" id="noDocumentoOxxo" value="900476732" />
-				<input type="hidden" name="noPedido" id="noPedido" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
+				<input type="hidden" name="noPedido" id="noPedido" value="U<?php echo $_SESSION['id'] ?>L<?= $landing; ?>P<?php echo $_REQUEST['id'] ?>" />
 				<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor ?>" />
 				<input type="hidden" name="consulta" id="consulta" value="oxxoRequest" />
 				<input type="hidden" name="nombreOxxo" id="nombreOxxo" value="<?= getNombreUsuario($_SESSION['id']); ?> <?= getApellidoUsuario($_SESSION['id']); ?>" />
@@ -78,6 +78,7 @@
 							consulta: "procesaPaquete",
 							paquete: "<?php echo $_REQUEST['id'] ?>",
 							usuario: "<?php echo $_SESSION['id'] ?>",
+							landing: "<?php echo $landing ?>",
 							formaPago: "5",
 							estado: data.transactionResponse.state,
 							orderId: data.transactionResponse.orderId,

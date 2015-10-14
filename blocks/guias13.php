@@ -19,20 +19,21 @@
 	} 
 	?>
 
-	<!-- <img src="../img/bannerl1.png"  /> -->
-	<div class="row top">
+	<div><img class="img img-responsive" src="../img/bannerl8.png"  /></div>
+	
+	<div class="row top" style="background-color:#CCC" >
 
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<h1 class="text-center">Guías prácticas de Walter Riso</h1>
-					<h4 class="text-center">Una herramienta imprescindible para tu bienestar</h4>
+					<h4 class="text-center">La mejor herramienta para tu vida emocional</h4>
 				</div>
 			</div>
 			<hr>
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p style="font-size:16px">Estas guías son una excelente herramienta para iniciar un proceso de mejora y crecimiento personal. Basado en sus más de 30 años de experiencia como psicólogo terapeuta y en sus amplias investigaciones y estudios, Walter Riso nos muestra de una forma sencilla y totalmente práctica los pasos a seguir para lograr objetivos de crecimiento y mejora en nuestra vida emocional.</p>
+					<p style="font-size:16px"><b>¿Por qué sufrimos por amor?</b> La verdadera razón es que no estamos educados para amar correctamente. El amor no debe ser dependiente, mucho menos enfermizo. Es un gran error creer que el que no sufre es porque no ama o que si amamos debemos sufrir. Walter Riso, como fruto de su trayectoria profesional, nos enseña de modo práctico cuáles son las pautas para vivir el amor con realismo e independencia, a disfrutar a plenitud de este sentimiento sin sufrimiento, miedo ni zozobra.</p>
 				</div>
 			</div>
 
@@ -78,7 +79,9 @@
 				</div>
 			</div>
 
-
+		
+        
+        
 
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
@@ -105,14 +108,23 @@
 						</p>
 						<?php } ?>
 						<br />
-						<hr />
+						
 					</div>
 				</div>
 			</div>
+            
+		</div>
+	</div>
+		
+	<div><img class="img img-responsive" src="../img/bannerl9.png"  /></div>
+	
+	<div class="row top" style="background-color:#CCC" >
+
+		<div class="container">
 
 
             <!-- /////////////////////////////////////////////////////  -->
-
+		
             <div class="row">
             	<div class="col-md-6">
             		<div class="row">
@@ -158,6 +170,8 @@
 	        			<hr />
 	        		</div>
 	        	</div>
+                
+            
 
                 <!-- /////////////////////////////////////////////////////  -->
 
@@ -213,7 +227,15 @@
 	            </div>
                 
                 <br />
-                <hr />
+                
+			</div>
+        </div>
+            
+        
+        
+        <div class="row top" style="background-color:#CCC" >
+    
+            <div class="container">
                 
                 <div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
@@ -595,8 +617,6 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
-			
-			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -605,7 +625,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 9
+				landing: 13
 			};
 
 			$('#metodoPago').empty();

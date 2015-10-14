@@ -19,20 +19,21 @@
 	} 
 	?>
 
-	<!-- <img src="../img/bannerl1.png"  /> -->
-	<div class="row top">
+	<div><img class="img img-responsive" src="../img/bannerl2.png"  /></div>
+	
+	<div class="row top" style="background-color:#CCC" >
 
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h1 class="text-center">Guías prácticas de Walter Riso</h1>
-					<h4 class="text-center">Una herramienta imprescindible para tu bienestar</h4>
+					<h1 class="text-center">Colección de Guías prácticas de Walter Riso</h1>
+					<h2 class="text-center">¡Precio especial por tiempo limitado!</h2>
 				</div>
 			</div>
 			<hr>
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p style="font-size:16px">Estas guías son una excelente herramienta para iniciar un proceso de mejora y crecimiento personal. Basado en sus más de 30 años de experiencia como psicólogo terapeuta y en sus amplias investigaciones y estudios, Walter Riso nos muestra de una forma sencilla y totalmente práctica los pasos a seguir para lograr objetivos de crecimiento y mejora en nuestra vida emocional.</p>
+					<p style="font-size:16px">No estamos educados para amar, se promueve un amor enfermizo y dependiente que sólo sirve para aleccionar el consumismo, nos enseñan que si no sufrimos por amor es porque no amamos, ¡grave error!. En estas guías Walter Riso da las pautas y los pasos a seguir para vivir el amor con realismo, independencia y desapego, demostrando que la plenitud de este sentimiento se puede vivir y disfrutar sin sufrimiento, sin miedos y sin zozobras.</p>
 				</div>
 			</div>
 
@@ -78,7 +79,9 @@
 				</div>
 			</div>
 
-
+		
+        
+        
 
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
@@ -112,7 +115,7 @@
 
 
             <!-- /////////////////////////////////////////////////////  -->
-
+		
             <div class="row">
             	<div class="col-md-6">
             		<div class="row">
@@ -183,9 +186,9 @@
 									<div class="col-md-12">
 										<br /><br /><br /><br /> 
 	                                    <p style="font-size:16px">
-	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
+	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio). 
 	                                        <br /><br />
-	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.).
+	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
 
 	                                    </p>
 
@@ -256,7 +259,7 @@
                     
                 </div>
                 
-                
+                          
                 <div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
                         <br /><br />
@@ -288,6 +291,13 @@
                         </div>
 					</div>
 				</div>
+                
+                
+            <div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<p><b>¿Quién es Walter Riso?</b> Walter Riso nació en Italia (Nápoles). Es Doctor en psicología, especialista en Terapia Cognitiva y Magister en Bioética. Hace treinta años trabaja como psicólogo clínico y formador de terapeutas, práctica que alterna con el ejercicio de la cátedra universitaria en Latinoamérica y España, y la publicación de textos científicos y de divulgación, en diversos medios. Ha publicado diversos libros, convertidos en grandes bestsellers.</p> 
+				</div>
+			</div>
                 
 	            
 			</div>
@@ -595,8 +605,6 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
-			
-			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -605,7 +613,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 9
+				landing: 14
 			};
 
 			$('#metodoPago').empty();

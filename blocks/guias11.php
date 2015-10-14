@@ -19,23 +19,17 @@
 	} 
 	?>
 
-	<!-- <img src="../img/bannerl1.png"  /> -->
-	<div class="row top">
+	<div><img class="img img-responsive" src="../img/bannerl2.png"  /></div>
+	
+	<div class="row top" style="background-color:#CCC" >
 
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h1 class="text-center">Guías prácticas de Walter Riso</h1>
-					<h4 class="text-center">Una herramienta imprescindible para tu bienestar</h4>
+                	<br />
+					<h1 class="text-left">Guías prácticas para:
 				</div>
 			</div>
-			<hr>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p style="font-size:16px">Estas guías son una excelente herramienta para iniciar un proceso de mejora y crecimiento personal. Basado en sus más de 30 años de experiencia como psicólogo terapeuta y en sus amplias investigaciones y estudios, Walter Riso nos muestra de una forma sencilla y totalmente práctica los pasos a seguir para lograr objetivos de crecimiento y mejora en nuestra vida emocional.</p>
-				</div>
-			</div>
-
 
 			<div class="row">
 				<div class="col-md-6">
@@ -43,12 +37,26 @@
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-12">
-									<br /><br />
-									<img class="img img-responsive" src="/admin/_lib/file/imgpaquetes/<?= $data['portada'] ?>" alt="<?= $data['nombre'] ?>">
+									<br />
+                                    
+                                    <ul style="list-style-image:../img/chulo.png">
+                                            <li style="list-style-image:url(../img/chulo.png); font-size:16px;"><h3>Afrontar la infidelidad de la pareja</h3></li>
+                                            <li style="list-style-image:url(../img/chulo.png); font-size:16px;"><h3>Mejorar la autoestima</h3></li>
+                                            <li style="list-style-image:url(../img/chulo.png); font-size:16px;"><h3>No dejarse manipular y ser asertivo</h3></li>
+                                            <li style="list-style-image:url(../img/chulo.png); font-size:16px;"><h3>No sufrir de amor</h3></li>
+                                            <li style="list-style-image:url(../img/chulo.png); font-size:16px;"><h3>Vencer la dependencia emocional</h3></li>
+                                    </ul>
+                                    
+									
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
+                                	<br />
+                                    <br />
+                                    
+                                    
+                                    
 								</div>
 							</div>
 						</div>
@@ -58,36 +66,34 @@
 					<div class="row">
 						<div class="col-md-12">
 							<br /><br />
-							<ul style="list-style-image:../img/chulo.png">
-								<?php
-								$publicaciones=explode(',', $data['publicaciones']);
-								foreach($publicaciones as $pub){
-									?>
-									<li style="list-style-image:url(../img/chulo.png); font-size:16px;"><?= getNombrePublicacion($pub) ?> </li>
-									<?php
-								}
-								?>
-							</ul>
-							<div class="text-center" style="font-size:24px;">
+							<img class="img img-responsive" src="/admin/_lib/file/imgpaquetes/<?= $data['portada'] ?>" alt="<?= $data['nombre'] ?>">
+							
+						</div>
+					</div>
+				</div>
+                
+                
+			</div>
+
+		
+        	<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<p style="font-size:16px">No estamos educados para amar, se promueve un amor enfermizo y dependiente que sólo sirve para aleccionar el consumismo, nos enseñan que si no sufrimos por amor es porque no amamos, ¡grave error!. En estas guías Walter Riso da las pautas y los pasos a seguir para vivir el amor con realismo, independencia y desapego, demostrando que la plenitud de este sentimiento se puede vivir y disfrutar sin sufrimiento, sin miedos y sin zozobras.</p>
+                    <br /><br />
+                    <div class="text-center" style="font-size:24px;">
 								<strong>
 									Lleva hoy esta colección con el<br /><span style="color:red">30% de descuento</span>
 								</strong>
 							</div>
-						</div>
-					</div>
 				</div>
 			</div>
-
-
+        
 
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<br /><br />
-					<h3 style="color:red" class="text-center">
-						Precio actual: USD <?= number_format($data['precio'],2) ?>
-					</h3>
-					<h4 style="color:gray" class="text-center tachado">
-						<s>Precio normal: USD $34.95</s>
+										
+					<h4 style="color:gray" class="text-center">
+						Las 5 guías por sólo: USD $24.70
 					</h4>
 					<br />
 					<div class="col-md-12">
@@ -112,7 +118,7 @@
 
 
             <!-- /////////////////////////////////////////////////////  -->
-
+		
             <div class="row">
             	<div class="col-md-6">
             		<div class="row">
@@ -120,10 +126,10 @@
             				<div class="row">
             					<div class="col-md-12">
             						<br />
-            						<h3>¿Para qué sirven estas guías?</h3>
+            						<h3>¿Quién es Walter Riso?</h3>
             						<br />
             						<p style="font-size:16px">
-            							Son herramientas que te servirán para llevar una vida emocional saludable, donde encontrarás  pautas para hacer del amor una experiencia plena y gratificante, orientandote en temas como la autoestima, la asertividad, la independencia afectiva, la infidelidad, entre otros.
+            							Walter Riso nació en Italia (Nápoles). Es Doctor en psicología, especialista en Terapia Cognitiva y Magister en Bioética. Hace treinta años trabaja como psicólogo clínico y formador de terapeutas, práctica que alterna con el ejercicio de la cátedra universitaria en Latinoamérica y España, y la publicación de textos científicos y de divulgación, en diversos medios. Ha publicado diversos libros, convertidos en grandes bestsellers.
             						</p>
             					</div>
             				</div>
@@ -183,9 +189,9 @@
 									<div class="col-md-12">
 										<br /><br /><br /><br /> 
 	                                    <p style="font-size:16px">
-	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
+	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio).
 	                                        <br /><br />
-	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.).
+	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
 
 	                                    </p>
 
@@ -595,8 +601,6 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
-			
-			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -605,7 +609,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 9
+				landing: 11
 			};
 
 			$('#metodoPago').empty();

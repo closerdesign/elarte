@@ -5,16 +5,19 @@
 
 	if( (isset($_SESSION['id']) && (!isset($_COOKIE['modal'])) ))
 	{
-		?>
+	?>
 		<script>
-			$(document).ready(function(){
-				$('#myModalPagoPaquetes').modal('show');
-				$.cookie('modal',1);	
-			});
+				$(document).ready(function(){
+	
+					if (!$('#myModalCompletaRegistro').is(':visible')) {
+						$('#PaquetesModal').modal('show');
+						$.cookie('modal',1);
+					}
+				});
 		</script>
-		<?php
-	}
-?>
+	<?php
+	} 
+	?>
 	<div class="row top">
 		<div class="container">
 			<div class="row">

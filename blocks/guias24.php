@@ -19,32 +19,23 @@
 	} 
 	?>
 
-	<!-- <img src="../img/bannerl1.png"  /> -->
-	<div class="row top">
-
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h1 class="text-center">Guías prácticas de Walter Riso</h1>
-					<h4 class="text-center">Una herramienta imprescindible para tu bienestar</h4>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p style="font-size:16px">Estas guías son una excelente herramienta para iniciar un proceso de mejora y crecimiento personal. Basado en sus más de 30 años de experiencia como psicólogo terapeuta y en sus amplias investigaciones y estudios, Walter Riso nos muestra de una forma sencilla y totalmente práctica los pasos a seguir para lograr objetivos de crecimiento y mejora en nuestra vida emocional.</p>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<div class="col-md-6">
+	<!-- <div><img class="img img-responsive" src="../img/bannerl2.png"  /></div> -->
+    
+    
+    <div class="row top" style="background-color:#485061">
+    
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-4">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-12">
 									<br /><br />
-									<img class="img img-responsive" src="/admin/_lib/file/imgpaquetes/<?= $data['portada'] ?>" alt="<?= $data['nombre'] ?>">
+                                    <center>
+										<img style="max-width:300px" class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia%20practica%20para%20vencer%20la%20dependencia%20emocional.png" alt="Guía práctica para vencer la dependencia emocional" title="Guía práctica para vencer la dependencia emocional - Walter Riso">
+                                    </center>
+                                    <br />
 								</div>
 							</div>
 							<div class="row">
@@ -54,65 +45,234 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<br />
+							<h2 style="color:#c4e269; font-family:Verdana, Geneva, sans-serif">Guía práctica para vencer la dependencia emocional</h2>
+                            <h3 style="color:#fff;">13 pasos para amar con independencia y libertad.</h3>
+                            <br />
+                            <p style="font-size:16px; color:#FFF">¿Eres de los que piensa y siente que no puede vivir sin su pareja, que tu vida sin ella no tiene sentido, que tu felicidad solo depende de tu pareja y que tu vida sólo puede girar en torno a ella?. ¡Cuidado! depender de la persona que se ama no solo arruina relaciones, también es una manera de enterrarse en vida, un acto de automutilación psicológica donde el amor propio, el autorrespeto, la dignidad, los principios y la esencia de uno mismo son ofrendados y regalados irracional-mente.</p>
+                            <br />
+                            <span style="color:#c4e269; font-family:Verdana, Geneva, sans-serif; font-size:24px">Precio: USD $6,99 </span>
+                            <!--<br />
+                            <span style="color:#CCC; font-family:Verdana, Geneva, sans-serif; font-size:18px"><strike>Precio normal USD $6,99</strike> </span>-->
+                            <br /><br />
+                           <?php if(isset($_SESSION['id'])){ ?>
+                            <p class="text-left">
+                                
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar ahora</button>
+                                
+                            </p>
+                            <?php }else{ ?>
+                            <p class="text-left">
+                                
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar ahora</button>
+                                
+                            </p>
+                            <?php } ?>
+                           
+                           <!--
+                           
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57970-1-7</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> 53</li>
+                                        <li ><b>Duración (Versión audio):</b> 1:48:04 (1 Hora, 48 Minutos)</li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            -->
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+            	
+            
+            </div>
+        </div>
+    
+    </div>
+    
+	
+	<div class="row top" style="background-color:#CCC" >
+
+		<div class="container">
+        
+        
+        	<!-- /////////////////////////////////////////////////////  -->
+		
+            <div class="row">
+            
+            	<div class="col-lg-12 col-md-12 col-sm-12">
+                	<br />
+                	<h3>¿Para qué sirve esta obra?</h3>
+                    <br />
+            	</div>
+            
+            	<div class="col-md-6">
+            		
+					
+					<p style="font-size:16px">
+						Es común encontrar personas que después de un tiempo de relación se sienten reprimidos en varios aspectos de su vida, por ejemplo: sienten que sus proyectos profesionales deben ser abandonados, que sus principios, su vocación y sus valores deben ser modificados, que no son los mismos con sus amigos o familiares cuando su pareja está presente, e incluso sienten miedo de expresar sus ideas si estas van en contra de las ideas de su pareja. La gran mayoría de estas personas tienen estos problemas porque confundieron el amor con dependencia, porque tuvieron la idea absurda de que amar es vivir por el otro y para el otro.
+					</p>
+                                        
+					<p style="font-size:16px">   
+						En esta guía Walter Riso nos enseña de una forma práctica y poco teórica los pasos que se deben seguir para Amar sin dependencias emocionales, pretende aportar ideas y procedimientos que permitan desarrollar destrezas y habilidades para afrontar la dependencia emocional, prevenirla  y/o crear un estilo de vida orientado a la independencia emocional y al desapego afectivo.                                      
+					</p>
+				</div>
+			
 				<div class="col-md-6">
 					<div class="row">
 						<div class="col-md-12">
-							<br /><br />
-							<ul style="list-style-image:../img/chulo.png">
-								<?php
-								$publicaciones=explode(',', $data['publicaciones']);
-								foreach($publicaciones as $pub){
-									?>
-									<li style="list-style-image:url(../img/chulo.png); font-size:16px;"><?= getNombrePublicacion($pub) ?> </li>
-									<?php
-								}
-								?>
-							</ul>
-							<div class="text-center" style="font-size:24px;">
-								<strong>
-									Lleva hoy esta colección con el<br /><span style="color:red">30% de descuento</span>
-								</strong>
+							<style>
+								.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+							</style>
+							<div class="col-md-12">
+								<br />
+								<div class='embed-container'>
+									<iframe src='https://www.youtube.com/embed/UF8v3FCl7lY?autoplay=false&rel=0' frameborder='0' allowfullscreen>
+									</iframe>
+								</div>
+								<br />
+								<br />
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-
-
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<br /><br />
-					<h3 style="color:red" class="text-center">
-						Precio actual: USD <?= number_format($data['precio'],2) ?>
-					</h3>
-					<h4 style="color:gray" class="text-center tachado">
-						<s>Precio normal: USD $34.95</s>
-					</h4>
-					<br />
-					<div class="col-md-12">
+	        	
+                
+                
+                
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                	<div class="col-md-12">
 						<?php if(isset($_SESSION['id'])){ ?>
 						<p class="text-center">
 							<center>
-								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción</button>
+								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar ahora</button>
 							</center>
 						</p>
 						<?php }else{ ?>
 						<p class="text-center">
 							<center>
-								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción</button>
+								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar ahora</button>
 							</center>
 						</p>
 						<?php } ?>
 						<br />
-						<hr />
+						
+					</div>
+            	</div>
+                
+                <div class="row">
+	        		<div class="col-lg-12 col-md-12 col-sm-12">
+	        			<hr />
+	        		</div>
+	        	</div>
+                
+            </div>
+        
+        
+        
+        	<!-- /////////////////////////////////////////////////////  -->
+
+	            <div class="row">
+	            	<div class="col-md-6">
+	            		<div class="row">
+	            			<div class="col-md-12">
+	            				<div class="row">
+	            					<div class="col-md-12">
+	            						
+	                                    <h3>Formatos disponibles</h3>
+	                                    <br /><br />
+	            						
+	                                    <p style="font-size:16px">
+	                                    	Esta y todas las guías prácticas de Walter Riso se distribuyen únicamente por Internet en formato PDF (versión escrita) y en formato MP3 (versión audio), no se distribuyen en formatos físicos, sin embargo si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
+	                                        <br /><br />
+	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.).
+
+	                                    </p>
+	            					</div>
+	            				</div>
+	            			</div>
+	            		</div>
+	            	</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										
+                                        <h3>Escucha un fragmento de la versión en audio</h3>
+	                                    <br /><br />
+                                        
+                                        <iframe id='audio_4400055' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE;  box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400055_4_1.html?c1=ff6600"></iframe> 
+
+	                                    <br />
+	                                    
+									</div>
+								</div>
+							</div>
+						</div>
+	            	</div>
+                    
+                    
+                    
+	            </div>
+                
+                
+                <div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+                        <br /><br />
+                        <div class="text-center" style="font-size:24px;">
+								<strong>
+									¡No dejes escapar esta oportunidad!
+								</strong>
+                                	<br /><br />
+                                    Lleva hoy las dos versiones y recibe el <span style="color:red">30% de descuento</span>
+							</div>
+                        
+                        <br />
+                        <div class="col-md-12">
+                            <?php if(isset($_SESSION['id'])){ ?>
+                            <p class="text-center">
+                                <center>
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar ahora</button>
+                                </center>
+                            </p>
+                            <?php }else{ ?>
+                            <p class="text-center">
+                                <center>
+                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar ahora</button>
+                                </center>
+                            </p>
+                            <?php } ?>
+                            <br />
+                            <hr />
+                        </div>
 					</div>
 				</div>
-			</div>
+                
+                
+                
+                
 
 
             <!-- /////////////////////////////////////////////////////  -->
-
+		
             <div class="row">
             	<div class="col-md-6">
             		<div class="row">
@@ -120,10 +280,12 @@
             				<div class="row">
             					<div class="col-md-12">
             						<br />
-            						<h3>¿Para qué sirven estas guías?</h3>
+            						<h3>¿Qué son las guías prácticas?</h3>
             						<br />
             						<p style="font-size:16px">
-            							Son herramientas que te servirán para llevar una vida emocional saludable, donde encontrarás  pautas para hacer del amor una experiencia plena y gratificante, orientandote en temas como la autoestima, la asertividad, la independencia afectiva, la infidelidad, entre otros.
+                                    	Millones de personas son víctimas de relaciones amorosas inadecuadas y no saben qué hacer al respecto. El miedo a la pérdida, a la soledad y/o al abandono contaminan el vínculo amoroso y lo vuelven vulnerable y enfermizo. Un amor inseguro es una bomba de tiempo que puede estallar en cualquier momento y lastimarnos profundamente.
+                                        <br />
+            							Las guías prácticas de Walter Riso son herramientas que te servirán para llevar una vida emocional saludable, donde encontrarás  pautas para hacer del amor una experiencia plena y gratificante, orientandote en temas como la autoestima, la asertividad, la independencia afectiva, la infidelidad, entre otros.
             						</p>
             					</div>
             				</div>
@@ -141,9 +303,9 @@
 								.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 							</style>
 							<div class="col-md-12">
-								<br /><br />
+								<br /><br /><br />
 								<div class='embed-container'>
-									<iframe src='https://www.youtube.com/embed/<?= $data['video'] ?>?autoplay=false&rel=0' frameborder='0' allowfullscreen>
+									<iframe src='https://www.youtube.com/embed/RSg6VOP9rkM?autoplay=false&rel=0' frameborder='0' allowfullscreen>
 									</iframe>
 								</div>
 								<br />
@@ -159,138 +321,94 @@
 	        		</div>
 	        	</div>
 
-                <!-- /////////////////////////////////////////////////////  -->
-
-	            <div class="row">
-	            	<div class="col-md-6">
-	            		<div class="row">
-	            			<div class="col-md-12">
-	            				<div class="row">
-	            					<div class="col-md-12">
-	            						
-	                                    <h3>Formatos disponibles</h3>
-	                                    <br />
-	            						<img class="img img-responsive" src="../img/formato-guias2.png" alt="Guías prácticas en versión PDF">
-	            					</div>
-	            				</div>
-	            			</div>
-	            		</div>
-	            	</div>
-					<div class="col-md-6">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="row">
-									<div class="col-md-12">
-										<br /><br /><br /><br /> 
-	                                    <p style="font-size:16px">
-	                                    	Las guías prácticas de Walter Riso no son libros, son documentos o folletos que únicamente están disponibles en formatos digitales, puedes adquirirlos en formato PDF (versión escrita) o en formato MP3 (versión audio). Si tu preferencia es leer en medios impresos, no te preocupes, podrás imprimir la versión escrita sin ningún tipo de restricción.
-	                                        <br /><br />
-	                                        <b>¿Cómo recibo el producto?:</b> Sencillo, una vez realizas el pago podrás descargarlo y disfrutarlo en cualquier dispositivo electrónico (computadora, tablet, celular, etc.).
-
-	                                    </p>
-
-	                                    <br />
-	                                    <div class="col-md-12">
-	                                    	<?php if(isset($_SESSION['id'])){ ?>
-	                                    	<p class="text-center">
-	                                    		<center>
-	                                        		<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción ahora</button>
-	                                    		</center>
-	                                    	</p>
-	                                    	<?php }else{ ?>
-	                                    	<p class="text-center">
-	                                    		<center>
-	                                    			<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción ahora</button>
-	                                    		</center>
-	                                    	</p>
-	                                    	<?php } ?>
-	                                    </div>
-									</div>
-								</div>
-							</div>
-						</div>
-	            	</div>
-	            </div>
-                
-                <br />
-                <hr />
-                
-                <div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-                		<h3 class="text-center">Escucha algunos fragmentos de la versión en audio</h3>
-	                 	<br />
-                	
-						<p style="font-size:16px"></p>
-					</div>
-				</div>
-                
-                <div class="row">
-	            	<div class="col-md-6">
-	            		<div class="row">
-	            			<div class="col-md-12">
-	            				<div class="row">
-	            					<div class="col-md-12">
-	            						<br />
-                                        
-                                        <iframe id='audio_4400055' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE;  box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400055_4_1.html?c1=ff6600"></iframe> 
-	                                    
-	            					</div>
-	            				</div>
-	            			</div>
-	            		</div>
-	            	</div>
-                    
-                    <div class="col-md-6">
-	            		<div class="row">
-	            			<div class="col-md-12">
-	            				<div class="row">
-	            					<div class="col-md-12">
-                                    	<br />
-	            						<iframe id='audio_4400045' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE; box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400045_4_1.html?c1=ff6600"></iframe>
-	                                    
-	            					</div>
-	            				</div>
-	            			</div>
-	            		</div>
-	            	</div>
-                    
-                </div>
-                
-                
-                <div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-                        <br /><br />
-                        <div class="text-center" style="font-size:24px;">
-								<strong>
-									¡No dejes escapar esta oportunidad!
-								</strong>
-                                	<br /><br />
-                                    Lleva hoy estas guías en versión audio o pdf con el <span style="color:red">30% de descuento</span><br />o lleva las dos versiones con el <span style="color:red">50% de descuento</span>
-							</div>
-                        
-                        <br />
-                        <div class="col-md-12">
-                            <?php if(isset($_SESSION['id'])){ ?>
-                            <p class="text-center">
-                                <center>
-                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción ahora</button>
-                                </center>
-                            </p>
-                            <?php }else{ ?>
-                            <p class="text-center">
-                                <center>
-                                    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción ahora</button>
-                                </center>
-                            </p>
-                            <?php } ?>
-                            <br />
-                            <hr />
-                        </div>
-					</div>
-				</div>
+               
                 
 	            
 			</div>
+            
+            
+            <!-- /////////////////////////////// -->
+            
+            <div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+                		<div class="text-center" style="font-size:24px;">
+								<strong>
+									OTRAS GUÍAS PRÁCTICAS DE WALTER RISO
+								</strong>
+						</div>
+					</div>
+				</div>
+            
+            
+            
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br /><br />
+									<img class="img img-responsive" src="https://www.elartedesabervivir.com/admin/_lib/file/imgpaquetes/paqueteWalter-1.png" alt="<?= $data['nombre'] ?>">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<br /><br />
+							<ul style="list-style-image:../img/chulo.png">
+								
+									<li style="list-style-image:url(../img/chulo.png); font-size:16px;">Guía práctica para no sufrir de amor </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:16px;">Guía práctica para mejorar la autoestima </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:16px;">Guía práctica para no dejarse manipular y ser asertivo </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:16px;">Guía práctica para afrontar la infidelidad de la pareja </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:16px;">Guía práctica para vencer la dependencia emocional </li>
+									
+							</ul>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+		
+        
+        
+
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<br /><br />
+                    
+                    <div class="text-center" style="font-size:24px;">
+								<strong>
+									Lleva la colección completa y recibe un precio super especial</span>
+								</strong>
+						</div>
+                    
+                    
+					
+					<br />
+					<div class="col-md-12">
+						
+						<p class="text-center">
+							<center>
+								<a class="btn btn-success btn-lg" href="https://www.elartedesabervivir.com/guias/guias-practicas-para-no-sufrir-de-amor">Más información</a>
+							</center>
+						</p>
+						
+						<br />
+						<hr />
+					</div>
+				</div>
+			</div>
+           
+            
 		</div>
 
 		<!-- Modal -->
@@ -379,26 +497,26 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<h4>
-									Producto: Colección de guías prácticas de Walter Riso
+									Producto: Guía práctica para vencer la dependencia emocional
 								</h4>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<input id="btnPaqueteAudio" type="radio" name="product" value="3" data-discount="30" data-price="34.95" data-format="MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> Formato de audio MP3 (-30% dto)</label>
+								<input id="btnPaqueteAudio" type="radio" name="product" value="9" data-discount="0" data-price="6.99" data-format="MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> Formato de audio MP3</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<input id="btnPaquetePDF" type="radio" name="product" value="1" data-discount="30" data-price="34.95" data-format="PDF">
-								<label class="CompraPaquetes-label" for="btnPaquetePDF"> Formato de texto PDF (-30% dto)</label>
+								<input id="btnPaquetePDF" type="radio" name="product" value="7" data-discount="0" data-price="6.99" data-format="PDF">
+								<label class="CompraPaquetes-label" for="btnPaquetePDF"> Formato de texto PDF</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lg-12">
-								<input id="btnPaqueteAll" type="radio" name="product" value="6" data-discount="50" data-price="69.9" data-format="PDF + MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Los dos formatos PDF + MP3 <span class="orange">(-50% dto)</span></label>
+								<input id="btnPaqueteAll" type="radio" name="product" value="8" data-discount="30" data-price="13.98" data-format="PDF + MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Los dos formatos PDF + MP3 <span class="orange">(-30% dto)</span></label>
 							</div>
 						</div>
 						<br>
@@ -571,7 +689,7 @@
 			.done(function(data) {
 				precio     = data.precio;
 				id_paquete = $(this).val();
-				nombre     = 'Colección de guías prácticas de Walter Riso ('+ format +')';
+				nombre     = 'Guía práctica para vencer la dependencia emocional ('+ format +')';
 
 				//if ( !$('.CompraPaquetes-dataContainer').is(':visible') ) {
 					$('.CompraPaquetes-dataContainer').slideDown('fast');
@@ -595,8 +713,6 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
-			
-			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -605,7 +721,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 9
+				landing: 24
 			};
 
 			$('#metodoPago').empty();

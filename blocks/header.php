@@ -5,6 +5,29 @@
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
+        
+        	<?php
+            if(!isset($_SESSION['id'])){
+				echo '
+        		<div class="inicioMoviles" style="float:left; width:130px; font-size:14px;  margin:10px; margin-top:15px;">
+        			<a class="muestraLogin" href="#" title="Iniciar sesión"><i class="fa fa-user"></i> Iniciar sesión</a>
+            	</div>';
+			}else
+			{
+			
+				$nombreUsuarioLogin = getNombreUsuario($_SESSION['id']);
+			
+				echo '
+						<div class="inicioMoviles" style="float:left; width:250px; margin:5px;">
+						
+							<span style="font-size:14px"><b>Bienvenido '.$nombreUsuarioLogin.'</b></span><br />
+							
+							<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="label label-danger" id="noProductos" style="display:none"></span></a> 
+							
+						</div>';
+			}
+			?>
+            
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".menuPrincipal">
 			<span>Menú principal <i class="fa fa-align-justify"></i></span>
 			</button>
@@ -13,9 +36,10 @@
 		<div class="collapse navbar-collapse menuPrincipal" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<?php
+					/*
 					if(!isset($_SESSION['id'])){
 						echo '<li><a class="muestraLogin inicioMoviles" href="#" title="Iniciar sesión"><i class="fa fa-user"></i> Iniciar sesión</a></li>';
-					}
+					}*/
 				?>
 				<li<?php if(!isset($_REQUEST['content'])){ echo(" class='active' "); } ?>>
 					<a href="/" title="Inicio">
@@ -35,26 +59,31 @@
 					<a href="/?content=mi-cuenta&task=articulos-favoritos" title="Artículos Favoritos"><i class="fa fa-bookmark"></i> Artículos Favoritos</a>
 				</li>
 				<?php
+				
+				/*
 					if(isset($_SESSION['id'])){
 						?>
 						<li<?php if( isset($_REQUEST['task']) && $_REQUEST['task']=='mi-pedido'){ echo(" class='active' "); } ?>>
-							<a href="/?content=mi-cuenta&task=mi-pedido" title="Mi pedido">
-								<i class="fa fa-shopping-cart"></i> Mi pedido
+							<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito">
+								<i class="fa fa-shopping-cart"></i> Carrito de compras
 								<span class="label label-danger" id="noProductos" style="display:none"></span>
 							</a>
 						</li>
 						<?php
 					}
+				*/
 				?>
 				<!-- <li><a data-toggle="modal" data-target="#myModalEspeciales" href="javascript:void(0)"><i class="fa fa-star"></i> Programas Especiales</a></li> -->
 				<li <?php echo ( isset($_REQUEST['slug']) || isset($_REQUEST['content']) && $_REQUEST['content'] == 'programas-especiales' ? 'class="active"' : '' ); ?>>
 					<a href="/index.php?content=programas-especiales" title="Programas Especiales"><i class="fa fa-star"></i> Programas Especiales</a>
 				</li>
-				<?php if(!isset($_SESSION['id'])){ ?>
-				<li>
+				<li <?php echo ( isset($_REQUEST['slug']) || isset($_REQUEST['content']) && $_REQUEST['content'] == 'que-es-phronesis' ? 'class="active"' : '' ); ?>>
 					<a href="/index.php?content=que-es-phronesis" title="¿Qué es Phronesis?"><i class="fa fa-question"></i> ¿Qué es Phronesis?</a>
 				</li>
-				<?php } ?>
+                <li class='inicioMoviles' <?php echo ( isset($_REQUEST['slug']) || isset($_REQUEST['content']) && $_REQUEST['content'] == 'mi-cuenta' ? 'class="active"' : '' ); ?>>
+					<a href="/index.php?content=mi-cuenta" title="Mi cuenta"><i class="fa fa-user"></i> Mi cuenta</a>
+				</li>
+				
 				<li>
 					<a data-toggle="modal" data-target="#myModalContacto" href="#" title="Contacto"><i class="fa fa-envelope"></i> Contacto</a>
 				</li>
@@ -71,7 +100,24 @@
 						<li><button class="muestraLogin btn btn-primary" style="margin: 8px;"><i class="fa fa-user"></i> Iniciar sesión</button></li>
 						<?php
 					}else{
-						echo('<li><a class="cerrarSesion" href="javascript:void(0)">Salir <i class="fa fa-sign-out"></i></a></li>');
+						
+						$nombreUsuarioLogin = getNombreUsuario($_SESSION['id']);
+			
+						echo '
+						<div style="float:left; margin:5px;">
+						
+						
+							
+						
+							<span style="font-size:14px"><b>Bienvenido '.$nombreUsuarioLogin.'</b></span><br />
+							
+							<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="label label-danger" id="noProductos" style="display:none"></span>		</a> | 
+							<a href="/index.php?content=mi-cuenta" title="Mi cuenta"><i class="fa fa-user"></i> Mi cuenta</a> | <a href="#" class="cerrarSesion"><i class="fa fa-sign-out"></i> Salir</a>
+						</div>';
+						
+						
+						
+						//echo('<li><a class="cerrarSesion" href="javascript:void(0)">Salir <i class="fa fa-sign-out"></i></a></li>');
 					}
 				?>
 				

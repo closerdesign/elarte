@@ -5,16 +5,19 @@
 
 	if( (isset($_SESSION['id']) && (!isset($_COOKIE['modal'])) ))
 	{
-		?>
+	?>
 		<script>
-			$(document).ready(function(){
-				$('#myModalPagoPaquetes').modal('show');
-				$.cookie('modal',1);	
-			});
+				$(document).ready(function(){
+	
+					if (!$('#myModalCompletaRegistro').is(':visible')) {
+						$('#PaquetesModal').modal('show');
+						$.cookie('modal',1);
+					}
+				});
 		</script>
-		<?php
-	}
-?>
+	<?php
+	} 
+	?>
 
 	<!-- <img src="../img/bannerl1.png"  /> -->
 	<div class="row top">
@@ -503,7 +506,8 @@
 				value : <?= $data['precio']; ?>,
 				coleccion : true,
 				id : <?= $_REQUEST['id'] ?>,
-				nombre : '<?= $data["nombre"]; ?>'
+				nombre : '<?= $data["nombre"]; ?>',
+				landing: 10
 			};
 	
 			$('#metodoPago').empty();

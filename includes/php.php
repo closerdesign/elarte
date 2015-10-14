@@ -516,13 +516,15 @@
 						password,
 						status,
 						optin,
-						perfil
+						perfil,
+						URLRegistro
 					) VALUES (
 						'$email',
 						'".md5($password)."',
 						'0',
 						'1',
-						'0'
+						'0',
+						'$currentUrlPaul'
 					)
 			")){
 				$result['error'] = 0;
@@ -544,7 +546,7 @@
 			return;
 		}
 	}
-	function registroDeUsuariosFacebook($fbId, $nombreCompleto, $nombre, $apellido, $email)
+	function registroDeUsuariosFacebook($fbId, $nombreCompleto, $nombre, $apellido, $email, $url_actual)
 	{
 		global $con;
 
@@ -560,7 +562,8 @@
 							email,
 							status,
 							optin,
-							perfil
+							perfil,
+							URLRegistro
 						) VALUES (
 							'$fbId',
 							'$nombreCompleto',
@@ -569,7 +572,8 @@
 							'$email',
 							'0',
 							'1',
-							'0'
+							'0',
+							'elartedesabervivir.com$url_actual'
 						)
 				")){
 					$result['error'] = 0;
@@ -775,7 +779,7 @@
 	function agregar()
 	{				
 		global $con;
-
+		
 		if( empty($_POST['pedido']) ){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
@@ -1355,6 +1359,7 @@
 		unset($_SESSION['EMAIL']);
 		unset($_SESSION['FULLNAME']);
 		unset($_COOKIE['pedido']);
+		setcookie('pedido', null, -1, '/');
 	}
 	
 	// Completa los datos del registro
@@ -1563,6 +1568,8 @@
 			$q=mysqli_query($con, "SELECT * FROM publicacionesxpedido WHERE pedido = '$_COOKIE[pedido]'");
 			$n=mysqli_num_rows($q);
 			echo $n;
+		}else{
+			echo "Error en el pedido";
 		}
 	}
 	
@@ -1595,6 +1602,9 @@
 		if($_POST['estado']=='APPROVED'){
 			$estado=2;
 		}
+		if($_POST['estado']=='DECLINED'){
+			$estado=3;
+		}
 		
 		if ( isset($_POST['formaPago']) ) {
 			$formaPago = $_POST['formaPago'];
@@ -1614,7 +1624,9 @@
 					transactionId,
 					state,
 					pendingReason,
-					responseCode
+					responseCode,
+					referenciaLanding,
+					landing
 				) VALUES (
 					'$_POST[usuario]',
 					'".getPrecioPaquete($_POST['paquete'])."',
@@ -1624,7 +1636,9 @@
 					'$_POST[transactionId]',
 					'$_POST[estado]',
 					'$_POST[pendingReason]',
-					'$_POST[responseCode]'
+					'$_POST[responseCode]',
+					'"."U".$_POST[usuario]."L".$_POST[landing]."P".$_POST[paquete]."',
+					'$_POST[landing]'
 				)
 		")){
 			echo 0;
@@ -2173,6 +2187,8 @@
 		$metodo = $_POST['metodo'];
 		
 		$valor = $_POST['value'];
+		
+		$landing = $_POST['landing'];
 
 		// Proceso de pago con tarjeta de crédito
 		if( $metodo == 1 ){
@@ -2478,26 +2494,8 @@
 						$estado = 2;
 					}
 				}
-				
-				/*$query = 'SELECT * FROM inscritos_conferencia WHERE id_pedido = '.$p['id'];
-				$result = mysqli_query($con, $query);
-				if($result) {
-					actualizarOrden($p['id'], $estado, null);
-				}*/
 			}
 		}
-	/*	$payment = getPaymentDetails('PAY-76C05577WN522352PKWT6ZLA');
-			if ( isset($payment->name) ) {
-				echo "<pre>";
-				var_dump($payment);
-				echo "</pre>";
-			}else{
-				echo "<pre>";
-				var_dump($payment);
-				echo "</pre>";
-			}*/
-		
-		/*return $payment;*/
 	}
 
 	function getProductosPorOrden($orderId)
@@ -2653,8 +2651,8 @@
 			PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],
 			PayUParameters::PAYMENT_METHOD => PaymentMethods::BALOTO,
 			PayUParameters::COUNTRY => PayUCountries::CO,
-			PayUParameters::EXPIRATION_DATE => "2015-09-26T00:00:00",
-			PayUParameters::IP_ADDRESS => "127.0.0.1",   
+			PayUParameters::EXPIRATION_DATE => "2015-10-30T00:00:00",
+			PayUParameters::IP_ADDRESS => getRealIpAddr(),   
 		);
 			
 		$response = PayUPayments::doAuthorizationAndCapture($parameters);
@@ -2708,8 +2706,8 @@
 			
 			PayUParameters::COUNTRY => PayUCountries::MX,
 			
-			PayUParameters::EXPIRATION_DATE => "2015-09-27T00:00:00",
-			PayUParameters::IP_ADDRESS => "127.0.0.1",
+			PayUParameters::EXPIRATION_DATE => "2015-10-30T00:00:00",
+			PayUParameters::IP_ADDRESS => getRealIpAddr(),
 		
 		);
 		
@@ -2791,7 +2789,7 @@
 		//Ingrese aquí la fecha de expiración.
 		PayUParameters::EXPIRATION_DATE => "2015-10-02T04:00:00",
 		//IP del pagadador
-		PayUParameters::IP_ADDRESS => "127.0.0.1",
+		PayUParameters::IP_ADDRESS => getRealIpAddr(),
 		
 		);
 		

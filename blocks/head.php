@@ -50,6 +50,15 @@
 			}
 
 			$img = 'http://www.elartedesabervivir.com/admin/_lib/file/imgpaquetes/'.$paquete['portada'];
+			
+			
+		}elseif( $_REQUEST['content'] == 'guias' ){
+			
+			$titulo = ucwords(str_replace("-", " ", $_REQUEST['id']));
+					
+			$title = $titulo;
+			$description = $titulo.". Una herramienta para hacer del amor una experiencia plena y saludable";
+			$keywords = 'Guias practicas, Walter Riso, Amor, Desamor, Dependencia emocional, Guias practicas de walter riso';
 		}
 	?>
 	

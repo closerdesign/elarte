@@ -528,16 +528,17 @@
 				echo "<div class='row'>";
 				while($p=mysqli_fetch_assoc($q)){
 					$contenido=custom_echo(strip_tags($p['contenido']));
+					$titulo = removeUnwantedChars($p['titulo']);
 					echo '
 						<div class="col-lg-4 col-md-4 col-sm-4 articuloHome">
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
-									<a href="/index.php?content=articulos&id='.$p['id'].'" title="'.$p['titulo'].'">
+									<a href="/index.php?content=articulos&titulo='.$titulo.'&id='.$p['id'].'" title="'.$p['titulo'].'">
 									<img class="img img-responsive img-left" src="/admin/_lib/file/imgarticulos/'.$p['imagen'].'" align="left" style="min-height:190px" alt="'.$p['titulo'].'">
 									</a>
-									<h3><a href="/index.php?content=articulos&id='.$p['id'].'" title="'.$p['titulo'].'">'.$p['titulo'].'</a></h3>
+									<h3><a href="/index.php?content=articulos&titulo='.$titulo.'&id='.$p['id'].'" title="'.$p['titulo'].'">'.$p['titulo'].'</a></h3>
 									<p>'.$contenido.'</p>
-									<p><a href="/index.php?content=articulos&id='.$p['id'].'" class="btn btn-default" title="'.$p['titulo'].'">Leer más</a></p>
+									<p><a href="/index.php?content=articulos&titulo='.$titulo.'&id='.$p['id'].'" class="btn btn-default" title="'.$p['titulo'].'">Leer más</a></p>
 								</div>
 							</div>
 						</div>		

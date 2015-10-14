@@ -19,24 +19,394 @@
 	} 
 	?>
 
-	<!-- <img src="../img/bannerl1.png"  /> -->
-	<div class="row top">
+	<!--<div><img class="img img-responsive" src="../img/bannerl2.png"  /></div> -->
+	
+	<div class="row top" style="background-color:#CCC" >
 
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h1 class="text-center">Guías prácticas de Walter Riso</h1>
-					<h4 class="text-center">Una herramienta imprescindible para tu bienestar</h4>
+					<h1 class="text-center">Entrevista a Walter Riso</h1>
+					<h4 class="text-center">¿Por qué sufrimos por amor?</h4>
+                    <br />
 				</div>
 			</div>
 			<hr>
-			<div class="row">
+            
+            
+            <div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p style="font-size:16px">Estas guías son una excelente herramienta para iniciar un proceso de mejora y crecimiento personal. Basado en sus más de 30 años de experiencia como psicólogo terapeuta y en sus amplias investigaciones y estudios, Walter Riso nos muestra de una forma sencilla y totalmente práctica los pasos a seguir para lograr objetivos de crecimiento y mejora en nuestra vida emocional.</p>
+					<p style="font-size:16px">En esta entrevista el psicólogo y escritor Walter Riso habla a la comunidad Phronesis sobre su guía práctica para no sufrir de amor, abordando temas como el sufrimiento en el amor, el amor completo e incompleto, el amor realista, el amor recíproco, la importancia de la pasión (eros), la amistad (philia) y la ternura (agape), la importancia de saber elegir a la pareja, entre otros. </p>
+                    
 				</div>
 			</div>
-
-
+            
+            <div class="row">
+				<div class="col-md-6">
+                	
+					<style>
+						.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+					</style>
+					<div class="col-md-12">
+						<h3>Parte 1</h3>
+						<div class='embed-container'>
+                        	
+							<iframe src='https://www.youtube.com/embed/x4oTuQeDT_w?autoplay=false&rel=0' frameborder='0' allowfullscreen>
+							</iframe>
+						</div>
+						<br />
+						<br />
+					</div>
+				</div>
+				<div class="col-md-6">
+                	
+                	<style>
+						.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+					</style>
+					<div class="col-md-12">
+						<h3>Parte 2</h3>
+						<div class='embed-container'>
+							<iframe src='https://www.youtube.com/embed/33xTgbGATJg?autoplay=false&rel=0' frameborder='0' allowfullscreen>
+							</iframe>
+						</div>
+						<br />
+						<br />
+					</div>
+					
+                    
+				</div>
+			</div>
+            
+            <hr />
+            
+            <div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+                	<h2 class="text-center">
+							Información sobre las guías prácticas de Walter Riso</span>
+					</h2>
+                    <br />
+				</div>
+			</div>
+			
+            
+            <div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/No-sufrir-de-amor.png" alt="Guía práctica para no sufrir de amor" title="Guía práctica para no sufrir de amor - Walter Riso">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							
+							<h4>Guía práctica para no sufrir de amor</h4>
+                            <h5>39 Reflexiones y vivencias que te permitirán desarrollar estrategias y esquemas afectivos resistentes al "mal de amor"</h5>
+                            <br />
+                            <p style="font-size:16px">En esta obra Walter Riso te guiará por un modelo o un esquema de reflexión que te permita comprender lo que es el "buen amor" (sano, coherente, constructivo) y el "mal amor" (enfermo, incoherente, destructivo), permitiendote descubrir los motivos por los que transformamos absurdamente el amor en sufrimiento y dandote pautas y ejercicios prácticos que te ayudarán a generar esquemas y comportamientos más adaptativos para vivir el amor de una manera mas plena y saludable. </p>
+                            <br />
+                            
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57932-1-5</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> 73</li>
+                                        <li ><b>Duración (Versión audio):</b> 02:51:00 (2 Horas, 51 minutos)</li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+            
+            <hr />
+            
+            <!-- //////////////////////////////////////// -->
+            
+            
+            <div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia%20practica%20para%20vencer%20la%20dependencia%20emocional.png" alt="Guía práctica para vencer la dependencia emocional" title="Guía práctica para vencer la dependencia emocional - Walter Riso">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							
+							<h4>Guía práctica para vencer la dependencia emocional</h4>
+                            <h5>13 pasos para amar con independencia y libertad.</h5>
+                            <br />
+                            <p style="font-size:16px">¿Eres de los que piensa y siente que no puedes vivir sin tu pareja, que tu vida sin ella no tiene sentido, que tu felicidad solo depende de tu pareja y que tu vida sólo puede girar en torno a ella? ¡Cuidado! depender de la persona que se ama no solo arruina relaciones, también es una manera de enterrarse en vida, un acto de automutilación psicológica donde el amor propio, el autorrespeto, la dignidad, los principios y la esencia de uno mismo son ofrendados y regalados irracional-mente.  </p>
+                            <br />
+                            
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57970-1-7</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> 53</li>
+                                        <li ><b>Duración (Versión audio):</b> 1:48:04 (1 Hora, 48 Minutos)</li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+            
+            
+                      
+           <hr />
+            
+            <!-- //////////////////////////////////////// -->
+            
+            
+            <div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia_practica_para_mejorar_autoestima.png" alt="Guía práctica para mejorar la autoestima" title="Guía práctica para mejorar la autoestima - Walter Riso">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							
+							<h4>Guía práctica para mejorar la autoestima</h4>
+                            <h5>24 pasos para enamorarte de ti y mejorar tu autoestima.</h5>
+                            <br />
+                            <p style="font-size:16px">Activar el amor propio es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal. Y no se está haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino  a  la capacidad genuina de reconocer, sin vergüenza ni temor, las  fortalezas y virtudes que poseemos e  integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera. Quererse uno mismo, despreciando o ignorando a los demás, es presunción y exclusión; querer a los demás, despreciándose uno mismo, es no reconocer el autoamor que nos define. </p>
+                            <br />
+                            
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57970-0-0</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> 47</li>
+                                        <li ><b>Duración (Versión audio):</b> 01:42:00 (1 Hora, 42 minutos)</li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+            
+            
+            
+           <!-- //////////////////////////////////////// --> 
+           
+           <hr />
+            
+            <!-- //////////////////////////////////////// -->
+            
+            
+            <div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia-practica-para-no-dejarse-manipular.png" alt="Guía práctica para no dejarse manipular y ser asertivo" title="Guía práctica para no dejarse manipular y ser asertivo - Walter Riso">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							
+							<h4>Guía práctica para no dejarse manipular y ser asertivo</h4>
+                            <h5>14 pasos para evitar la sumisión, saber expresar desacuerdos (decir "no") y saber ser asertivo, todo de una forma socialmente aceptable.</h5>
+                            <br />
+                            <p style="font-size:16px">Si temes herir los sentimientos de los demás al ser sincero, o si no eres capaz de expresar la ira de un modo socialmente adecuado, de oponerte, de expresar una opinión contraria, o si sientes que los demás te humillan o te manipulan, esta guía es para ti. Ser asertivo significa ser capaz  de ejercer y/o defender los derechos personales: decir "no", expresar desacuerdos, dar una opinión contraria y/o expresar sentimientos negativos sin dejarse manipular, como lo haría una persona sumisa,  y sin violar los derechos de los demás, como lo haría una persona agresiva. La asertividad es un punto medio entre el que se arrodilla y el que aplasta al otro. Implica la defensa de los derechos, sin lastimar a nadie. </p>
+                            <br />
+                            
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57970-2-4</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> 29</li>
+                                        <li ><b>Duración (Versión audio):</b> </li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+            
+            
+            
+           <!-- //////////////////////////////////////// --> 
+           
+           <hr />
+            
+            <!-- //////////////////////////////////////// -->
+            
+            
+            <div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia-practica-para-afrontar-la-infidelidad.png" alt="Guía práctica para afrontar la infidelidad de la pareja" title="Guía práctica para afrontar la infidelidad de la pareja - Walter Riso">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							
+							<h4>Guía práctica para afrontar la infidelidad de la pareja</h4>
+                            <h5>16 lecciones para descubrir, entender y afrontar la infidelidad.</h5>
+                            <br />
+                            <p style="font-size:16px">Está guía es una excelente herramienta para descubrir, entender y afrontar la infidelidad en una relación de pareja. A través de 12 lecciones, Walter Riso muestra con fundamentos científicos y prácticos lo que es la infidelidad, los diferentes tipos de infidelidad, la forma cómo detectarla o descubrirla, las luchas y consecuencias psicológicas que se viven con la infidelidad y los caminos para afrontarla. </p>
+                            <br />
+                            
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57932-1-5</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> </li>
+                                        <li ><b>Duración (Versión audio):</b> </li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+            
+            <hr />
+            
+            
+           <!-- //////////////////////////////////////// --> 
+            
+            
+            <div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+                	<div class="text-center" style="font-size:24px;">
+						<strong>
+							Lleva hoy las 5 guías prácticas con el<br /><span style="color:red">30% de descuento</span>
+						</strong>
+					</div>
+				</div>
+			</div>
+            
+            
+            
 			<div class="row">
 				<div class="col-md-6">
 					<div class="row">
@@ -68,17 +438,15 @@
 								}
 								?>
 							</ul>
-							<div class="text-center" style="font-size:24px;">
-								<strong>
-									Lleva hoy esta colección con el<br /><span style="color:red">30% de descuento</span>
-								</strong>
-							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 
-
+		
+        
+        
 
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
@@ -112,7 +480,7 @@
 
 
             <!-- /////////////////////////////////////////////////////  -->
-
+		
             <div class="row">
             	<div class="col-md-6">
             		<div class="row">
@@ -231,6 +599,7 @@
 	            				<div class="row">
 	            					<div class="col-md-12">
 	            						<br />
+                                        
                                         
                                         <iframe id='audio_4400055' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE;  box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400055_4_1.html?c1=ff6600"></iframe> 
 	                                    
@@ -595,8 +964,6 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
-			
-			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -605,7 +972,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 9
+				landing: 20
 			};
 
 			$('#metodoPago').empty();

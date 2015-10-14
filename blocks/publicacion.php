@@ -37,7 +37,7 @@
 									?>
 									<div class="row">
 										<div class="col-lg-12 col-md-12 col-sm-12">
-											<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='http://www.youtube.com/embed/<?php echo $data['video'] ?>' frameborder='0' allowfullscreen></iframe></div>
+											<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/<?php echo $data['video'] ?>' frameborder='0' allowfullscreen></iframe></div>
 										</div>
 									</div>
 									<hr>
@@ -56,11 +56,11 @@
 									<?php echo getBtnDescarga($data['id']); ?>
 								</div>
 							</div>
-							<div class="row">
+							<!--<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
 									<?php echo getBtnMuestra($data['id']); ?>
 								</div>
-							</div>
+							</div>-->
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
 									<button class="btn btn-primary compartirAmigo"><i class="fa fa-share-square-o"></i> Compartir con un amigo</button>

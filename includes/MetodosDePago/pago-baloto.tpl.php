@@ -38,8 +38,8 @@
 			</div>
 		</div>
 
-		<input type="hidden" name="noDocumentoBaloto" id="noDocumentoBaloto" value="900476732" />
-		<input type="hidden" name="noPedido" id="noPedido" value="PKG-<?= $_SESSION['id'] ?>-<?= $_REQUEST['id'] ?>" />
+		<input type="hidden" name="noDocumentoBaloto" id="noDocumentoBaloto" value="0000" />
+		<input type="hidden" name="noPedido" id="noPedido" value="U<?= $_SESSION['id'] ?>L<?= $landing; ?>P<?= $_REQUEST['id'] ?>" />
 		<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor; ?>" />
 		<input type="hidden" name="email" id="email" value="<?= getEmailUsuario($_SESSION['id']); ?>" />
 		<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?= getNombreUsuario($_SESSION['id']); ?> <?= getApellidoUsuario($_SESSION['id']); ?>" />
@@ -82,6 +82,7 @@
 							consulta: "procesaPaquete",
 							paquete: "<?php echo $_REQUEST['id'] ?>",
 							usuario: "<?php echo $_SESSION['id'] ?>",
+							landing: "<?php echo $landing ?>",
 							formaPago: "4",
 							estado: data.transactionResponse.state,
 							orderId: data.transactionResponse.orderId,

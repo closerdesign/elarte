@@ -1,7 +1,15 @@
-<div class="row top">
+﻿<div class="row top">
 	<div class="container">
+
+		<div class="col-lg-12 col-md-12 col-sm-12">
+            		<div>
+				<a href="https://goo.gl/AXjEBl"><img class="img img-responsive" src="../img/bannerl3.png"  /></a>
+			</div>
+		</div>
+
 		<div class="row hidden-xs">
 			<div class="col-lg-12 col-md-12 col-sm-12">
+            
 				<div class="filtroPublicaciones">
 					<form class="form-inline">
 					  <div class="form-group">

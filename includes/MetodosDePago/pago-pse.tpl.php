@@ -54,7 +54,7 @@
 		<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?= getNombreUsuario($_SESSION['id']).' '.getApellidoUsuario($_SESSION['id']) ?>"/>
 		<input type="hidden" name="emailPSE" id="emailPSE" value="<?= getEmailUsuario($_SESSION['id']);  ?>" />
 		<input type="hidden" name="telefonoDiurno" id="telefonoDiurno" value="5717442384" />
-		<input type="hidden" name="pedido" id="pedido" value="PKG-<?php echo $_SESSION['id'] ?>-<?php echo $_REQUEST['id'] ?>" />
+		<input type="hidden" name="pedido" id="pedido" value="U<?php echo $_SESSION['id'] ?>L<?= $landing; ?>P<?php echo $_REQUEST['id'] ?>" />
 		<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor; ?>" />
 		<input type="hidden" name="consulta" id="consulta" value="pseRequest" />
 		<input type="hidden" name="email" id="email" value="<?= getEmailUsuario($_SESSION['id']) ?>" />
@@ -101,6 +101,7 @@
 									consulta: "procesaPaquete",
 									paquete: "<?php echo $_REQUEST['id'] ?>",
 									usuario: "<?php echo $_SESSION['id'] ?>",
+									landing: "<?php echo $landing ?>",
 									formaPago: "3",
 									estado: data.transactionResponse.state,
 									orderId: data.transactionResponse.orderId,

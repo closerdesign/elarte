@@ -19,14 +19,15 @@
 	} 
 	?>
 
-	<!-- <img src="../img/bannerl1.png"  /> -->
-	<div class="row top">
+	<div><img class="img img-responsive" src="../img/bannerl2.png"  /></div>
+	
+	<div class="row top" style="background-color:#CCC" >
 
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<h1 class="text-center">Guías prácticas de Walter Riso</h1>
-					<h4 class="text-center">Una herramienta imprescindible para tu bienestar</h4>
+					<h4 class="text-center">Una herramienta para hacer del amor una experiencia plena y saludable</h4>
 				</div>
 			</div>
 			<hr>
@@ -78,7 +79,9 @@
 				</div>
 			</div>
 
-
+		
+        
+        
 
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
@@ -112,7 +115,7 @@
 
 
             <!-- /////////////////////////////////////////////////////  -->
-
+		
             <div class="row">
             	<div class="col-md-6">
             		<div class="row">
@@ -595,8 +598,6 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
-			
-			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
@@ -605,7 +606,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 9
+				landing: 12
 			};
 
 			$('#metodoPago').empty();

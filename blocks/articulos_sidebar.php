@@ -58,11 +58,14 @@
 			</form>
 		</div>
 	</div>
+    
+    <!--
 	<div class="row">
+    
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="banner300x250">
 				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Web App - Artículos Categoría Der 2 -->
+				
 				<ins class="adsbygoogle"
 				     style="display:inline-block;width:300px;height:250px"
 				     data-ad-client="ca-pub-5955686545071577"
@@ -73,6 +76,46 @@
 			</div>
 		</div>
 	</div>
+    
+    -->
+    
+    <div class="row">
+    	
+        
+		<div class="col-lg-12 col-md-12 col-sm-12" style="border-style:solid; border-color:#CCC; border-width:1px;">
+        	
+                <center>
+                    <h2>Guías prácticas de Walter Riso</h2>
+                    <h5>Una herramienta para hacer del amor una experiencia plena y saludable</h5>
+                    <a href="https://goo.gl/y7fD44">
+                    	<img class="img img-responsive" src="https://www.elartedesabervivir.com/admin/_lib/file/imgpaquetes/paqueteWalter-1.png" alt="Guías prácticas de Walter Riso">
+                	</a>
+                </center>
+                <br />
+                <ul style="list-style-image:../img/chulo.png">
+								
+									<li style="list-style-image:url(../img/chulo.png); font-size:14px;">Guía práctica para no sufrir de amor </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:14px;">Guía práctica para mejorar la autoestima </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:14px;">Guía práctica para no dejarse manipular y ser asertivo </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:14px;">Guía práctica para afrontar la infidelidad de la pareja </li>
+                                    <li style="list-style-image:url(../img/chulo.png); font-size:14px;">Guía práctica para vencer la dependencia emocional </li>
+									
+				</ul>
+                
+                
+                
+                
+               	<p style="font-size:24px; text-align:center"><strong>Lleva hoy la colección completa hasta con el<br /><span style="color:red">50% de descuento</span></strong></p>
+                <div align="center">
+                	<a href="https://goo.gl/y7fD44"><button class="btn btn-success btn-lg">Más información</button></a>
+                </div>
+                <br />
+                
+            
+        	
+        </div>
+    </div>
+    
 	<!-- <div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12">
 			<div class="banner300x250">

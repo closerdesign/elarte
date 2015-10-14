@@ -141,7 +141,7 @@ class PayUPayments{
 			}else if($paymentMethod != null && (PayUPaymentMethodType::CASH == $paymentMethod->type )){
 				$requiredCash = array(
 						PayUParameters::PAYER_NAME,
-						PayUParameters::PAYER_DNI,
+						/*PayUParameters::PAYER_DNI,*/
 						PayUParameters::PAYMENT_METHOD);
 				
 				$required = array_merge($requiredAll, $requiredCash);

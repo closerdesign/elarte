@@ -154,21 +154,30 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Entrar con</h4>
+				<h4 class="modal-title">Iniciar sesión</h4>
 			</div>
 			<div class="modal-body">
+            
+            	<div class="box">
+					<div class="content registerBox" style="display:none;">
+						<div class="form">
+                        	<p>Registrarte te permitirá comprar nuestros productos y acceder a contenidos exclusivos completamente gratis.</p>
+                            <br />
+							<form method="post" name="registroUsuarios" id="registroUsuarios" >
+								<input id="emailRegistro" class="form-control" type="email" placeholder="Email" name="emailRegistro" required >
+								<input id="passwordRegistro" class="form-control" type="password" placeholder="Contraseña" name="passwordRegistro" required >
+								<input id="cPasswordRegistro" class="form-control" type="password" placeholder="Repetir contraseña" name="cPasswordRegistro" required >
+                                <input id="currentUrlPaul" name="currentUrlPaul" class="form-control" type="hidden" value="<?php echo "elartedesabervivir.com$_SERVER[REQUEST_URI]" ?>" />
+								<input class="btn btn-default btn-register" type="submit" value="Registrarse" >
+							</form>
+						</div>
+					</div>
+				</div>
+            
 				<div class="box">
 					<div class="content">
-						<div class="social">
-							<a id="facebook_login" class="circle facebook" href="/includes/fbconfig.php?url=<?php echo $_SERVER['REQUEST_URI'] ?>">
-							<i class="fa fa-facebook fa-fw"></i>
-							</a>
-						</div>
-						<div class="division">
-							<div class="line l"></div>
-							<span>ó</span>
-							<div class="line r"></div>
-						</div>
+						
+						
 						<div class="error"></div>
 						<div class="form loginBox">
 							<form method="post" action="/login" accept-charset="UTF-8">
@@ -177,21 +186,19 @@
 								<input id="currentUrl" name="currentUrl" type="hidden" value="<?php echo "$_SERVER[REQUEST_URI]" ?>" />
 								<input class="btn btn-default btn-login" type="button" value="Entrar" onclick="loginAjax()">
 							</form>
+                            <p class="mensajeLogin" style="display:none;">Un momento por favor...</p>
+						</div>
+                        <br />
+                        <hr />
+                        <div class="social">
+							<a id="facebook_login" class="circle facebook" href="/includes/fbconfig.php?url=<?php echo $_SERVER['REQUEST_URI'] ?>">
+							<i class="fa fa-facebook fa-fw"></i>
+                            Registrate o inicia sesión con facebook
+							</a>
 						</div>
 					</div>
 				</div>
-				<div class="box">
-					<div class="content registerBox" style="display:none;">
-						<div class="form">
-							<form method="post" name="registroUsuarios" id="registroUsuarios" >
-								<input id="emailRegistro" class="form-control" type="email" placeholder="Email" name="emailRegistro" required >
-								<input id="passwordRegistro" class="form-control" type="password" placeholder="Contraseña" name="passwordRegistro" required >
-								<input id="cPasswordRegistro" class="form-control" type="password" placeholder="Repetir contraseña" name="cPasswordRegistro" required >
-								<input class="btn btn-default btn-register" type="submit" value="Crear cuenta" >
-							</form>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			<div class="modal-footer">
 				<div class="forgot login-footer">

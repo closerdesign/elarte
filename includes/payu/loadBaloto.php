@@ -54,7 +54,7 @@
 		//Ingrese aquí el nombre del pagador.
 		PayUParameters::PAYER_NAME => $_POST['nombreCompleto'],
 		//Ingrese aquí el documento de contacto del pagador.
-		/*PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],*/
+		PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],
 	
 		//Ingrese aquí el nombre del método de pago
 		PayUParameters::PAYMENT_METHOD => PaymentMethods::BALOTO,
@@ -63,7 +63,7 @@
 		PayUParameters::COUNTRY => PayUCountries::CO,
 		
 		//Ingrese aquí la fecha de expiración.
-		PayUParameters::EXPIRATION_DATE => "2015-09-26T00:00:00",
+		PayUParameters::EXPIRATION_DATE => "2015-10-30T00:00:00",
 		//IP del pagadador
 		PayUParameters::IP_ADDRESS => getRealIpAddr(),   
 	);

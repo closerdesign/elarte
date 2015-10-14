@@ -1,7 +1,7 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12">
-			<h3><i class="fa fa-shopping-cart"></i> Mi pedido</h3>
+			<h3><i class="fa fa-shopping-cart"></i> Carrito de compras</h3>
 		</div>
 	</div>
 	<div class="row">
@@ -16,8 +16,8 @@
 							<th class="text-center">
 								Valor
 							</th>
-							<th>
-								&nbsp;
+							<th>&nbsp;
+								
 							</th>
 						</tr>
 					</thead>

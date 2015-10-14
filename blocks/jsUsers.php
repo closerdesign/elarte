@@ -48,6 +48,7 @@
 		$('.load').fadeIn();
 		var publicacion = $(this).attr('value');
 		var pedido = $.cookie('pedido');
+		console.log(pedido);
 		$.post('/includes/php.php',{
 			consulta: "agregar",
 			publicacion: publicacion,

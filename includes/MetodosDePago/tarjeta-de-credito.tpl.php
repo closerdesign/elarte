@@ -63,7 +63,7 @@
 				<input type="text" class="form-control" name="codigoSeguridad" id="codigoSeguridad" placeholder="Código de seguridad" required />
 			</div>
 
-			<input type="hidden" name="pedido" id="pedido" value="pkg<?= $_SESSION['id'] ?>" />
+			<input type="hidden" name="pedido" id="pedido" value="U<?= $_SESSION['id'] ?>L<?= $landing; ?>P<?= $_REQUEST['id'] ?>" />
 			<input type="hidden" name="vrPedido" id="vrPedido" value="<?= $valor; ?>" />
 			<input type="hidden" name="nombreCompleto" id="nombreCompleto" value="<?= getNombreUsuario($_SESSION['id']).' '.getApellidoUsuario($_SESSION['id']); ?>" />
 			<input type="hidden" name="email" id="email" value="<?= getEmailUsuario($_SESSION['id']); ?>" />
@@ -131,7 +131,7 @@
 				<?php
 					if ( isset($_POST['coleccion']) ) {
 				?>
-				if(response.transactionResponse.state=='DECLINED'){
+				/*if(response.transactionResponse.state=='DECLINED'){
 					$('#myModalVacioTitulo').html('Transacción rechazada');
 					$('#myModalVacioContenido').html('<p>El medio de pago que utilizaste ha sido rechazado. Por favor inténtalo con otro medio de pago o comunícate con tu entidad bancaria.</p>');
 					$('.load').fadeOut();
@@ -139,13 +139,14 @@
 				} else {
 
 					if(
-						(response.transactionResponse.state=='APPROVED') || 
+						(response.transactionResponse.state=='APPROVED') ||
 						(response.transactionResponse.state=='PENDING') )
-					{
+					{*/
 						$.post('/includes/php.php',{
 							consulta: "procesaPaquete",
 							paquete: "<?php echo $_REQUEST['id'] ?>",
 							usuario: "<?php echo $_SESSION['id'] ?>",
+							landing: "<?php echo $landing ?>",
 							estado: response.transactionResponse.state,
 							orderId: response.transactionResponse.orderId,
 							transactionId: response.transactionResponse.transactionId,
@@ -158,17 +159,45 @@
 							}
 							if( (msg==1) && (response.transactionResponse.state=='PENDING') ){
 								$('#myModalVacioTitulo').html('Transacción en proceso de verificación');
-								$('#myModalVacioContenido').html('<p>En este momento la transacción se encuentra en proceso de verificación por parte de la entidad bancaria.</p><p>Una vez culmine el proceso, recibirás una notificación por correo electrónico acerca del estado de tu compra.</p>');
+								$('#myModalVacioContenido').html('<p>En este momento la transacción se encuentra en proceso de verificación por parte de la entidad bancaria..</p><p>Una vez culmine el proceso, recibirás una notificación por correo electrónico acerca del estado de tu compra.</p>');
 								$('.load').fadeOut();
 								$('#myModalVacio').modal('show');
 							}
 							if( (msg==1) && (response.transactionResponse.state=='APPROVED') ){
-								alert('Transacción Aprobada. Ahora ya puedes descargar las publicaciones de "Mi Biblioteca". Pronto recibirás nuestras instrucciones para acceder a la Conferencia Virtual.');
+								
+								
+								<!-- Facebook Conversion Code for Pagina gracias por comprar -->
+									
+									
+									(function() {
+									  var _fbq = window._fbq || (window._fbq = []);
+									  if (!_fbq.loaded) {
+										var fbds = document.createElement('script');
+										fbds.async = true;
+										fbds.src = '//connect.facebook.net/en_US/fbds.js';
+										var s = document.getElementsByTagName('script')[0];
+										s.parentNode.insertBefore(fbds, s);
+										_fbq.loaded = true;
+									  }
+									})();
+									window._fbq = window._fbq || [];
+									window._fbq.push(['track', '6017122165366', {'value':'0.00','currency':'USD'}]);
+									
+									
+								
+								
+								alert('Transacción Aprobada. A continuación serás redireccionado a tu biblioteca donde podrás descargar las obras que acabas de adquirir. Podrás descargarlas cuantas veces quieras y en el momento que quieras accediendo a la opción "Mi biblioteca" del menu principal de nuestra página web.');
 								window.location.href="index.php?content=mi-cuenta&task=mis-publicaciones";
 							}
+							if(response.transactionResponse.state=='DECLINED'){
+								$('#myModalVacioTitulo').html('Transacción rechazada');
+								$('#myModalVacioContenido').html('<p>El medio de pago que utilizaste ha sido rechazado. Por favor inténtalo con otro medio de pago o comunícate con tu entidad bancaria.</p>');
+								$('.load').fadeOut();
+								$('#myModalVacio').modal('show');
+							}
 						});
-					}
-				}
+					//}
+				//}
 				<?php
 					}else{
 				?>

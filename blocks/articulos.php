@@ -398,8 +398,19 @@
 						<div class="row hidden-xs">
 							<div class="col-lg-12 col-md-12 col-sm-12 banner">
 								<div class="banner728x90">
+                                
+                                	
+                                	
+                                    <a href="https://goo.gl/vHPlqP"><img src="http://elartedesabervivir.com/img/banners/BannerWeb1.png" alt="Banner Amar o depender" title="Amar o depender, vence la dependencia afectiva" /></a>
+                                	
+                                
+                                	
+									
+									
+									<!-- Web App - Banner Artículo Top GOOGLE
+                                
 									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-									<!-- Web App - Banner Artículo Top -->
+									
 									<ins class="adsbygoogle"
 									     style="display:inline-block;width:728px;height:90px"
 									     data-ad-client="ca-pub-5955686545071577"
@@ -407,13 +418,21 @@
 									<script>
 									(adsbygoogle = window.adsbygoogle || []).push({});
 									</script>
+                                    -->
 								</div>
 							</div>
 						</div>
 						<div class="row publicidadMoviles">
 							<div class="col-lg-12 col-md-12 col-sm-12">
+								
+                                
+                                <a href="https://goo.gl/vHPlqP"><img src="../img/banners/BannerWeb1-320x60.png" alt="Banner Amar o depender 320x60" title="Amar o depender, vence la dependencia afectiva ahora" /></a>
+                                
+                                
+								
+								
+                                <!-- Web App - Banner Top Artículo Móvil
 								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-								<!-- Web App - Banner Top Artículo Móvil -->
 								<ins class="adsbygoogle"
 								     style="display:block"
 								     data-ad-client="ca-pub-5955686545071577"
@@ -422,6 +441,7 @@
 								<script>
 								(adsbygoogle = window.adsbygoogle || []).push({});
 								</script>
+                                -->
 							</div>
 						</div>
 						
@@ -485,27 +505,28 @@
 										</div>
 									</div>
 									
-									<div class="row SocialMenu">
-										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-											<?php
-												$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-												$actual_link = urlencode($actual_link);
-											?>
-											<button class="SocialMenu-button facebook" data-title="<?= $data['titulo']; ?>" data-href="https://www.facebook.com/share.php?u=<?= $actual_link ?>&title=<?= $data['titulo']; ?>">
-												<i class="fa fa-facebook"></i> Compartir en Facebook
-											</button>
-										</div>
-										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-											<button class="SocialMenu-button twitter" data-title="<?= $data['titulo']; ?>" data-href="https://twitter.com/intent/tweet?status=<?= $data['titulo']; ?>+<?= $actual_link; ?>">
-												<i class="fa fa-twitter"></i> Compartir en Twitter
-											</button>
-										</div>
-										<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-											<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>" rel="publisher">
-												<i class="fa fa-google"></i> Compartir en Google
-											</button>
-										</div>
+									<div class="row SocialMenu" align="center">
+										
+                                        <?php
+											$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+											$actual_link = urlencode($actual_link);
+										?>
+                                            
+										<button class="SocialMenu-button facebook" data-title="<?= $data['titulo']; ?>" data-href="https://www.facebook.com/share.php?u=<?= $actual_link ?>&title=<?= $data['titulo']; ?>">
+											<i class="fa fa-facebook"></i> Compartir
+										</button> 
+                                        <button class="SocialMenu-button twitter" data-title="<?= $data['titulo']; ?>" data-href="https://twitter.com/intent/tweet?status=<?= $data['titulo']; ?>+<?= $actual_link; ?>">
+											<i class="fa fa-twitter"></i> Compartir
+										</button> 
+                                        <button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>" rel="publisher">
+											<i class="fa fa-google"></i> Compartir
+										</button>
+										
+									
+                                    
 									</div>
+                                    
+										
 									
 									<div class="row articulos-compartir">
 										<div class="col-lg-6 col-md-6 col-sm-6">
@@ -529,41 +550,88 @@
 									<div class="row">
 										<div class="col-md-12 contenidoArticulos">
 											<?php
-												$length = strlen( $data['contenido'] );
-												$length = $length/2;
-												$length = round( $length );
+												if ( $data['id'] != 784 ) {
+													//$length = strlen( $data['contenido'] );
+													//$length = $length/2;
+													//$length = round( $length );
 
-												$str_to_insert = '<div class="banner300x250" style="float: right; margin-left: 1rem;">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Web App - Artículos Categoría Der 1 -->
-				<ins class="adsbygoogle"
-				     style="display:inline-block;width:300px;height:250px"
-				     data-ad-client="ca-pub-5955686545071577"
-				     data-ad-slot="2903925647"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-			</div>';
+													//$str_to_insert = '<p><a href="https://goo.gl/zHz3gP" target="_blank"><img alt="Guías prácticas de Walter Riso con precio especial" src="http://elartedesabervivir.com/img/guias-practicas-de-walter-riso-publi1.png" style="height:250px; width:300px" /></a></p>';
+													
+													
+													
 
-												$newstr = substr_replace($data['contenido'], $str_to_insert, $length, 0);
+													//$newstr = substr_replace($data['contenido'], $str_to_insert, $length, 0);
 
-												$newstr = inject_ad_text_after_n_chars($data['contenido']);
+													if($_REQUEST['alias'] <> "el-arte-y-la-virtud-del-cuidado")
+														$newstr = inject_ad_text_after_n_chars($data['contenido']);
+													else
+														$newstr = $data['contenido'];
 
-												echo $newstr;
+													echo $newstr;
+												}else{
+													echo $data['contenido'];
+												}
 											?>
-											<p><a href="https://www.elartedesabervivir.com/guias/7" target="_blank"><img alt="Guías prácticas de Walter Riso con precio especial" src="https://www.mediafire.com/convkey/6e86/ww4mxv6neumw39r6g.jpg" style="height:250px; width:300px" /></a></p>
+											
+                                            
+                                            
+                                            
 										</div>
 									</div>
 									
 								</div>	
 							</div>
+                            
+                            
+                            
+                            
+                            <!-- ///////////////////////////PUBLICIDAD FINAL//////////////////////-->
+                            <?php if($_REQUEST['alias'] <> "el-arte-y-la-virtud-del-cuidado"){ ?>
+							
+                            <hr />
+                            <h3 style="font-style:italic">&iquest;C&oacute;mo afrontar la soledad tras una ruptura, infidelidad o rechazo afectivo?</h3>
+                            
+                            <div class="row">
+                            	<div class="col-md-6" align="center">
+                            		<a href="https://goo.gl/MDTePb" target="_blank"><img alt="La soledad afectiva" class="img-responsive" src="http://elartedesabervivir.com/img/landings/Soledad-afectiva-video.jpg" style="height:227px; width:340px" /></a>
+                            	</div> 
+                            
+                            	<div class="col-md-6">
+                            		<p style="text-align:justify; font-size:16px">Si no sabemos manejar la soledad, si no estamos acostumbrados a ella, o si le tememos, seremos personas vulnerables en el amor, predispuestos a padecer con m&aacute;s intensidad el dolor de una separaci&oacute;n, de una infidelidad o de un rechazo afectivo. En este video el prestigioso psic&oacute;logo y escritor Walter Riso profundiza sobre este importante tema: <a href="https://goo.gl/MDTePb">https://goo.gl/PYQzhe</a></p>
+                            	</div>
+                            </div>
+                            <hr />
+                            <?php } ?>
+                            <!-- ///////////////////////////FIN PUBLICIDAD FINAL//////////////////////-->
 							
 							<div class="row comentarios-articulo">
+                            
+                            
+                            	<div class="row SocialMenu" align="center">
+								
+										<button class="SocialMenu-button facebook" data-title="<?= $data['titulo']; ?>" data-href="https://www.facebook.com/share.php?u=<?= $actual_link ?>&title=<?= $data['titulo']; ?>">
+											<i class="fa fa-facebook"></i> Compartir
+										</button> 
+                                        <button class="SocialMenu-button twitter" data-title="<?= $data['titulo']; ?>" data-href="https://twitter.com/intent/tweet?status=<?= $data['titulo']; ?>+<?= $actual_link; ?>">
+											<i class="fa fa-twitter"></i> Compartir
+										</button> 
+                                        <button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>" rel="publisher">
+											<i class="fa fa-google"></i> Compartir
+										</button>
+										
+                                        
+									
+                                    
+								</div>
+                                <br />
+								
+                            	<!--
 								<div class="row hidden-xs">
 									<div class="col-lg-12 col-md-12 col-sm-12">
+                                    	<br /><br />
 										<div class="banner728x90">
-											<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-											<!-- Web App - Banner Artículo Comentarios -->
+                                        	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+											
 											<ins class="adsbygoogle"
 											     style="display:inline-block;width:728px;height:90px"
 											     data-ad-client="ca-pub-5955686545071577"
@@ -574,38 +642,27 @@
 										</div>
 									</div>
 								</div>
+                                
 								<div class="row publicidadMoviles">
-									<div class="col-lg-12 col-md-12 col-sm-12">
+                                	<br /><br />
+                                    
+                                    <!--
+									<div class="banner300x250" align="center">
 										<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-										<!-- Web App - Móvil Categoría -->
-										<ins class="adsbygoogle"
-										     style="display:inline-block;width:320px;height:100px"
-										     data-ad-client="ca-pub-5955686545071577"
-										     data-ad-slot="5988915648"></ins>
-										<script>
-										(adsbygoogle = window.adsbygoogle || []).push({});
-										</script>
-									</div>
+                                         	
+                                         <ins class="adsbygoogle"
+                                                     style="display:inline-block;width:300px;height:250px"
+                                                     data-ad-client="ca-pub-5955686545071577"
+                                                     data-ad-slot="2903925647"></ins>
+                                         <script>
+                                         	(adsbygoogle = window.adsbygoogle || []).push({});
+                                         </script>
+                                     </div>
+                                     
+                                    
 								</div>
-								<div class="row SocialMenu">
-									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-										<button class="SocialMenu-button facebook" data-title="<?= $data['titulo']; ?>" data-href="https://www.facebook.com/share.php?u=<?= $actual_link ?>&title=<?= $data['titulo']; ?>">
-											<i class="fa fa-facebook"></i> Compartir en Facebook
-										</button>
-									</div>
-									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-										<button class="SocialMenu-button twitter" data-title="<?= $data['titulo']; ?>" data-href="https://twitter.com/intent/tweet?status=<?= $data['titulo']; ?>+<?= $actual_link; ?>">
-											<i class="fa fa-twitter"></i> Compartir en Twitter
-										</button>
-									</div>
-									<div class="SocialMenu-container col-lg-4 col-md-4 col-sm-4 text-center">
-										<button class="SocialMenu-button google" data-title="<?= $data['titulo']; ?>" data-href="https://plus.google.com/share?url=<?= $actual_link; ?>" rel="publisher">
-											<i class="fa fa-google"></i> Compartir en Google
-										</button>
-									</div>
-								</div>
-								<br>
-								<hr>
+								-->
+								
 								
 								<div class="col-lg-12 col-md-12 col-sm-12">                                    
                                     <div class="row">
@@ -763,29 +820,16 @@
                                 
 									<h3>Artículos recomendados</h3>
 									<?php
-										/*echo "<pre>";
-										var_dump($_REQUEST);
-										echo "</pre>";*/
+										
 										if ( !empty( $_REQUEST['content'] ) && $_REQUEST['content'] == 'articulos' && !isset($_REQUEST['slug']) ) {
 											$sql_rel = 'SELECT * FROM articulos WHERE categoria like "%'.$data['categoria'].'%" AND status = 1 ORDER BY RAND() LIMIT 3';
 										}else if ( !empty( $_REQUEST['slug'] ) && $_REQUEST['slug'] == 'programas-especiales' ) {
 											$id_program = getIdPrograma($_REQUEST['alias']);
 
-											/*echo "<pre>";
-											var_dump($id_program);
-											echo "</pre>";*/
-
 											$sql_rel = 'SELECT * FROM articulos WHERE programas_especiales = '.$id_program.' AND status = 1 ORDER BY RAND() LIMIT 3';
 										}
 										$result = mysqli_query($con, $sql_rel);
-										/*$related_cat = mysqli_fetch_array(mysqli_query($con, $sql_rel));*/
-										
-										/*echo "<pre>";
-										var_dump($data['categoria']);
-										echo "</pre>";*/
-										/*echo "<pre>";
-										var_dump(count($related_cat));
-										echo "</pre>";*/
+									
 										$num_articles = mysqli_num_rows($result);
 
 										if ( $num_articles > 0 ) {
@@ -865,11 +909,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-md-8 col-sm-12 articulos-content">
+                    	<!--
 						<div class="row hidden-xs">
 							<div class="col-lg-12 col-md-12 col-sm-12 banner">
 								<div class="banner728x90">
 									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-									<!-- Web App - Articulos Categoria Top -->
+									
 									<ins class="adsbygoogle"
 									     style="display:inline-block;width:728px;height:90px"
 									     data-ad-client="ca-pub-5955686545071577"
@@ -880,6 +925,7 @@
 								</div>
 							</div>
 						</div>
+                        -->
 						<?php
 							if(isset($_REQUEST['categoria'])){
 								echo("

@@ -65,8 +65,7 @@
 		(isset($_REQUEST['lapTransactionState'])) && 
 		($_REQUEST['lapTransactionState']!='APPROVED')
 	){
-		/*echo('<script>alert("Forma de pago rechazada. Por favor intente de nuevo o utilice otra forma de pago. ('.$_REQUEST['paymentMsg'].')");</script>');
-		echo('<script>window.location.href="/index.php?content=mi-cuenta&task=mi-pedido"</script>');*/
+		
 	}
 	
 ?>
