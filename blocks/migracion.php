@@ -7,7 +7,8 @@
 		$con_ps = mysqli_connect("localhost","phronesi_elarte","Z,'VT,?x3*LdjMvR","phronesi_live") or die ("DB Error");
 		mysqli_query($con_ps, "SET NAMES utf8");
 		
-		$sql = "SELECT * FROM ps_customer LIMIT 3000 OFFSET 33000";
+		$sql = "SELECT * FROM ps_customer LIMIT 40000, 10000;";
+		/*$sql = "SELECT * FROM ps_customer";*/
 		$q = mysqli_query($con_ps, $sql);
 		$n = mysqli_num_rows($q);
 		
@@ -21,10 +22,11 @@
 			$sql12 = "SELECT * FROM publicacionesxusuario WHERE usuario = '$usuario' AND publicacion = '".getCodigoPublicacionPs($publicacion)."'";
 			$q12 = mysqli_query($con, $sql12);
 			$n12 = mysqli_num_rows($q12);
+			$html = '';
 			if($n12>0){
 				$html .= "<p>El producto ya se encuentra en la biblioteca del usuario.</p>";
 			}else{
-				$sql13 = "INSERT INTO publicacionesxusuario (usuario,publicacion) VALUES ('$usuarioId','".getCodigoPublicacionPs($prod['product_id'])."')";
+				$sql13 = "INSERT INTO publicacionesxusuario (usuario,publicacion) VALUES ('$usuario','".getCodigoPublicacionPs($publicacion)."')";
 				$q13 = mysqli_query($con, $sql13);
 				if(!$q13){
 					$html .= "<p>No se pudo agregar la publicación ".getNombrePublicacionPs($publicacion)." en la biblioteca.</p>";
@@ -32,6 +34,7 @@
 					$html .= "<p>El producto ".getNombrePublicacionPs($publicacion)." ha sido agregado en la biblioteca.</p>";
 				}						
 			}
+			return $html;
 		}
 		
 		while( $row = mysqli_fetch_assoc($q) ){
@@ -136,7 +139,7 @@
 									optin,
 									perfil
 								) VALUES (
-									'$fbId',
+									'$fbid',
 									'$nombreCompleto',
 									'$nombre',
 									'$apellido',
