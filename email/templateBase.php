@@ -196,7 +196,7 @@
 				</td>
 				<td class="content-block">
 					<div class="editable" style="display: block;">
-						<a target="_blank" href="<?= URL ?>coleccion/1">
+						<a target="_blank" href="https://www.elartedesabervivir.com/guias/guias-practicas-de-walter-riso">
 							<img src="<?= URL ?>img/bannerPaqueteDesktop.jpg" width="100%" alt=""style="display: inline-block;"/>
 						</a>
 					</div>

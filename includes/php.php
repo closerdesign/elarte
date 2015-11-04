@@ -224,6 +224,9 @@
 			case 'aprobarPedidoNum':
 				aprobarPedidoNum();
 				break;
+			case 'enviarConferenciaNotificacion':
+				enviarConferenciaNotificacion();
+				break;
 			default:
 				# code...
 				break;
@@ -233,6 +236,133 @@
 	/*if ( $argv[1] == 'inscripcionesPendientes' ) {
 		inscripcionesPendientes();
 	}*/
+
+	function enviarConferenciaNotificacion()
+	{
+		global $con;
+
+		$sql = "SELECT * FROM `publicacionesxusuario` pub LEFT JOIN usuarios usu ON pub.usuario = usu.id WHERE `publicacion` = 21 GROUP BY usuario ORDER BY `publicacion` ASC ";
+		/*SELECT * FROM `publicacionesxusuario` pub LEFT JOIN usuarios usu ON pub.usuario = usu.id WHERE `publicacion` = 21 GROUP BY usuario ORDER BY `publicacion` ASC*/
+
+		$q = mysqli_query($con, $sql);
+
+		/*$response = notificar('lpaloma@phronesisvirtual.com','Confirmación de compra',$mensaje);*/
+		/*$response = notificar('ralvarez@phronesisvirtual.com','Confirmación de compra',$mensaje);*/
+		/*$response = notificar('pfhurtado@phronesisvirtual.com','Confirmación de compra',$mensaje);*/
+		/*$response = notificar('smorales@phronesisvirtual.com','Confirmación de compra',$mensaje);
+		$response = notificar('fgaravito@phronesisvirtual.com','Confirmación de compra',$mensaje);
+		$response = notificar('msandoval@phronesisvirtual.com','Confirmación de compra',$mensaje);
+		$response = notificar('nfonseca@phronesisvirtual.com','Confirmación de compra',$mensaje);*/
+		
+		while($item=mysqli_fetch_assoc($q)){
+			$mensaje = 'Hola '.getNombreUsuario($item['id']).' <br> <br>';
+
+			$mensaje .= '<p>Gracias por tu registro a <strong>“Conferencia virtual – Enamórate de ti, por Walter Riso”</strong> <br> Recuerda, se realizará el sábado 5 de diciembre de 2015.</p>';
+
+			$mensaje .= '<p>Ten presente el horario de acuerdo a tu ciudad de residencia:</p><br>';
+			$mensaje .= '
+				<table border="1" cellpadding="3" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th>
+								Ciudad
+							</th>
+							<th>
+								Hora
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								Los Ángeles, San Francisco, Las Vegas.
+							</td>
+							<td style="text-align: right;">
+								11:00 a.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								México, Guatemala, Tegucigalpa, San Salvador, San José, Managua.
+							</td>
+							<td style="text-align: right;">
+								1:00 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Bogotá, Lima, Quito, Panamá, Miami, Nueva York.
+							</td>
+							<td style="text-align: right;">
+								2:00 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Caracas.
+							</td>
+							<td style="text-align: right;">
+								2:30 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								San Juan, Sucre.
+							</td>
+							<td style="text-align: right;">
+								3:00 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Buenos Aires, Asunción, Santiago, Montevideo.
+							</td>
+							<td style="text-align: right;">
+								4:00 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Buenos Aires, Asunción, Santiago, Montevideo.
+							</td>
+							<td style="text-align: right;">
+								4:00 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Sao Paulo.
+							</td>
+							<td style="text-align: right;">
+								5:00 p.m.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Madrid, Barcelona.
+							</td>
+							<td style="text-align: right;">
+								8:00 p.m.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+			';
+
+			$mensaje .= '<p><a href="http://www.timeanddate.com/worldclock/fixedtime.html?p1=41&iso=20151205T14&msg=Conferencia%20Virtual%20-%20Enam%C3%B3rate%20de%20ti&ah=2&low=5">Consulta aquí el horario en otras ciudades</a></p>';
+
+			$mensaje .= '<p style="text-align: justify;">Para acceder a la conferencia debes ingresar el día del evento a <a href="http://www.elartedesabervivir.com">www.elartedesabervivir.com</a> e iniciar sesión con tu usuario y contraseña; allí encontrarás la información necesaria. No obstante, días antes de la conferencia te enviaremos un email con todas las instrucciones.</p>';
+			$mensaje .= '<p>¡Nos vemos pronto!</p>';
+			$mensaje .= '<p><strong>El equipo Phrónesis</strong></p>';
+			$sql2 = 'UPDATE usuarios SET `conferencia` = 1 WHERE `usuarios`.`id` = '.$item['id'];
+			notificar( getEmailUsuario($item['id']) ,'Confirmación de compra',$mensaje);
+			
+			if(!mysqli_query($con, $sql2)){
+				echo 'Usuario Actualizado: '.$item['id'].'<br>';
+			}
+		}
+	}
 
 	function consultarPrecioPaquete()
 	{
