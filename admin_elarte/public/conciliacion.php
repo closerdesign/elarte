@@ -29,6 +29,8 @@ if($_POST['boton'])
 </head>
 <body>
 
+
+
 <?php mostrarCabeceraPrincipal(); ?>
 
 <div>
@@ -53,14 +55,17 @@ if($_POST['boton'])
 <input type="button" name="BotonPrueba" id="BotonPrueba" value="Conciliar Paypal y El arte" onclick="conciliarPaypalConElarte()" />
 
 
+
+
 <input type="button" name="BotonPrueba" id="BotonPrueba" value="Listar pedidos Paypal en el arte" onclick="conciliarPaypalConElArtes()" />
 
 
 
 
-<!--
-<input type="button" name="BotonPrueba" id="BotonPrueba" value="Facturar" onclick="facturar()" />-->
+
+<input type="button" name="BotonPrueba" id="BotonPrueba" value="Facturar" onclick="facturar()" />
 <input type="button" name="BotonPrueba" id="BotonPrueba" value="Facturacion" onclick="mostrarFacturacion()" />
+
 
 <br /><br />
 

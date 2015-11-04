@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_pedidos
-NAO
-form
-form_pedidos

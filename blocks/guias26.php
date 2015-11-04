@@ -659,11 +659,11 @@
 				</div>
                 
                 <div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<p style="font-size:16px" class="text-center">Si prefieres adquirir cada guía de forma independiente, <a href="http://www.elartedesabervivir.com/obras">Haz clíck aquí</a> .</p>
-                    <hr />
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<p style="font-size:16px" class="text-center">Si prefieres adquirir cada guía de forma independiente, <a href="http://www.elartedesabervivir.com/obras">Haz clíck aquí</a> .</p>
+                    	<hr />
+					</div>
 				</div>
-			</div>
                 
 	            
 			</div>

@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_archivosxpublicacion
-NAO
-form
-form_archivosxpublicacion

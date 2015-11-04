@@ -13,31 +13,30 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			require 'guias2.php';
 			break;
 
-		case 3:
+		case "guia-practica-para-afrontar-la-infidelidad-de-pareja":
 			$_REQUEST['id'] = 1;
 			require 'guias3.php';
 			break;
 
-		case 4:
+		case "guia-practica-para-no-sufrir-de-amor":
 			$_REQUEST['id'] = 1;
 			require 'guias4.php';
 			break;
 
-		//Guias en Audio
-		case 5:
-			$_REQUEST['id'] = 3;
+		case "guia-practica-para-no-dejarse-manipular-y-ser-asertivo":
+			$_REQUEST['id'] = 1;
 			require 'guias5.php';
 			break;
-		case 6:
-			$_REQUEST['id'] = 3;
+		case "guia-practica-para-mejorar-la-autoestima":
+			$_REQUEST['id'] = 10;
 			require 'guias6.php';
 			break;
-		case 7:
-			$_REQUEST['id'] = 3;
+		case "que-hacer-frente-al-abandono":
+			$_REQUEST['id'] = 1;
 			require 'guias7.php';
 			break;
-		case 8:
-			$_REQUEST['id'] = 3;
+		case "como-identificar-que-soy-dependiente":
+			$_REQUEST['id'] = "1";
 			require 'guias8.php';
 			break;
 		case "guias-practicas-de-walter-riso":
@@ -149,6 +148,110 @@ if ( !empty( $_REQUEST['id'] ) ) {
 		case "la-culpa-en-la-infidelidad-31":
 			$_REQUEST['id'] = 1;
 			require 'guias31.php';
+			break;
+			
+		case "como-decir-no-con-walter-riso-32":
+			$_REQUEST['id'] = 1;
+			require 'guias32.php';
+			break;
+			
+		case "me-puedo-enamorar-de-mi-ex-pareja-33":
+			$_REQUEST['id'] = 1;
+			require 'guias33.php';
+			break;
+			
+		case "el-amor-es-eterno":
+			$_REQUEST['id'] = 1;
+			require 'guias34.php';
+			break;
+			
+		case "guias-para-mejorar-tu-vida-emocional-35":
+			$_REQUEST['id'] = 1;
+			require 'guias35.php';
+			break;
+			
+		case "4-elementos-para-mejorar-autoestima-36":
+			$_REQUEST['id'] = 1;
+			require 'guias36.php';
+			break;
+			
+		case "dos-formas-de-matar-el-amor":
+			$_REQUEST['id'] = 1;
+			require 'guias37.php';
+			break;
+			
+		case "te-amo-pero-te-dejo-38":
+			$_REQUEST['id'] = 1;
+			require 'guias38.php';
+			break;
+			
+		case "guias-practicas-para-mejorar-vida-emocional-39":
+			$_REQUEST['id'] = 1;
+			require 'guias39.php';
+			break;
+			
+		case "cuatro-premisas-para-un-amor-racional-40":
+			$_REQUEST['id'] = 1;
+			require 'guias40.php';
+			break;
+			
+		case "que-es-la-infidelidad-por-walter-riso":
+			$_REQUEST['id'] = 1;
+			require 'guias41.php';
+			break;
+		
+		case "no-tienes-que-contarle-todo-a-tu-pareja":
+			$_REQUEST['id'] = 1;
+			require 'guias42.php';
+			break;
+			
+		case "prueba":
+			$_REQUEST['id'] = 1;
+			require 'guias43.php';
+			break;	
+			
+		case "guias-practicas-para-vivir-el-amor-saludablemente":
+			$_REQUEST['id'] = 1;
+			require 'guias44.php';
+			break;
+			
+		case "parejas-disparejas":
+			$_REQUEST['id'] = 1;
+			require 'guias45.php';
+			break;
+			
+		case "un-pensamiento-que-genera-sufrimiento-en-el-amor":
+			$_REQUEST['id'] = 1;
+			require 'guias46.php';
+			break;
+		
+		case "aprener-a-expresar-tus-opiniones":
+			$_REQUEST['id'] = 1;
+			require 'guias47.php';
+			break;
+			
+		case "el-hombre-que-busco":
+			$_REQUEST['id'] = 1;
+			require 'guias48.php';
+			break;
+			
+		case "carta-a-mi-amor-infiel":
+			$_REQUEST['id'] = 1;
+			require 'guias49.php';
+			break;
+			
+		case "jurar-amor-eterno-es-un-error":
+			$_REQUEST['id'] = 13;
+			require 'guias50.php';
+			break;
+			
+			
+			
+		////// CONFERENCIA ENAMORATE DE TI
+			
+		case "enamorate-de-ti-conferencia-por-walter-riso":
+			$_REQUEST['id'] = 1;
+			require 'guias52.php';
 			break;
 			
 		//Otros paquetes

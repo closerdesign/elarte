@@ -285,22 +285,22 @@
 
 			$titulo = removeUnwantedChars($item['titulo']);
 
-			$html.="
-				<div class='col-lg-6 col-md-6 col-sm-6 articulos-container' data-sr='enter bottom and scale up 20% over 2s'>
-					<div class='articulos'>
-						<a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]'>
-								<img class='img img-responsive' src='/admin/_lib/file/imgarticulos/$item[imagen]' alt='".$item['titulo']."' />
+			$html.='
+				<div class="col-lg-6 col-md-6 col-sm-6 articulos-container" data-sr="enter bottom and scale up 20% over 2s">
+					<div class="articulos">
+						<a href="/index.php?'.( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' ).'content=articulos&titulo='.$titulo.'&id='.$item['id'].'">
+								<img class="img img-responsive" src="/admin/_lib/file/imgarticulos/'.$item['imagen'].'" alt="'.$item['titulo'].'" />
 						</a>
-						<div class='articulos-inner'>
-							<h4><a href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]' title='".$item['titulo']."'>$item[titulo]</a></h4>
-							<p>".custom_echo(strip_tags($item['contenido']))."</p>
+						<div class="articulos-inner">
+							<h4><a href="/index.php?'.( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' ).'content=articulos&titulo='.$titulo.'&id='.$item['id'].'" title="'.$item['titulo'].'">'.$item['titulo'].'</a></h4>
+							<p>'.custom_echo(strip_tags($item['contenido'])).'</p>
 						</div>
 					</div>
-					<div class='cta-blog'>
-						<p><a item-programa='".(int)$item['programas_especiales']."' href='/index.php?".( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' )."content=articulos&titulo=$titulo&id=$item[id]' title='Leer la nota'><i class='fa fa-plus-square'></i> Leer la nota</a></p>
+					<div class="cta-blog">
+						<p><a item-programa="'.(int)$item['programas_especiales'].'" href="/index.php?'.( (int)$item['programas_especiales'] > 0 ? 'slug=programas-especiales&alias='.$alias['alias'].'&' : '' ).'content=articulos&titulo='.$titulo.'&id='.$item['id'].'" title="Leer la nota"><i class="fa fa-plus-square"></i> Leer la nota</a></p>
 					</div>
 				</div>
-			";
+			';
 		}
 
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -508,6 +508,7 @@
 	{
 		global $con;
 		extract($_POST);
+		$email = strtolower($email);
 		if ( !empty($email) && !empty($password) ) {
 			if(!mysqli_query($con, "
 				INSERT INTO
@@ -533,7 +534,7 @@
 				return;
 			}else{
 				$_SESSION['id']=mysqli_insert_id($con);
-				agregaListaNewsletter($_POST['email']);
+				agregaListaNewsletter($email);
 				$result['error'] = 1;
 				$result['message'] = 'Registro exitoso.';
 				echo json_encode($result);
@@ -549,7 +550,7 @@
 	function registroDeUsuariosFacebook($fbId, $nombreCompleto, $nombre, $apellido, $email, $url_actual)
 	{
 		global $con;
-
+		$email = strtolower($email);
 		if ( !empty($email) ) {
 			if ( verificaEmailRegistro($email) ) {
 				if(!mysqli_query($con, "
@@ -582,7 +583,7 @@
 					return false;
 				}else{
 					$_SESSION['id']=mysqli_insert_id($con);
-					agregaListaNewsletter($_POST['email']);
+					agregaListaNewsletter($email);
 					$result['error'] = 1;
 					$result['message'] = 'Registro exitoso.';
 					/*echo json_encode($result);*/
@@ -607,6 +608,7 @@
 	{
 		global $con;
 		extract($_POST);
+		$usuario = strtolower($usuario);
 		if ( !empty($usuario) && !empty($password) && !empty($url) ) {
 			$sql_pre = "SELECT ps FROM usuarios WHERE email = '$usuario' LIMIT 1";
 			$q_pre = mysqli_query($con, $sql_pre);
@@ -648,6 +650,7 @@
 	{
 		global $con;
 		extract($_POST);
+		$email = strtolower($usuario);
 		if( !empty($email) ){
 			$n=mysqli_num_rows(mysqli_query($con, "SELECT email FROM usuarios WHERE email = '$email'"));
 			if($n>0){
@@ -783,6 +786,7 @@
 		if( empty($_POST['pedido']) ){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
+			setcookie('pedido', $id);
 		}else{
 			$id=$_POST['pedido'];
 		}
@@ -2637,7 +2641,7 @@
 			PayUParameters::PAYER_DNI=> $_POST['noDocumentoBaloto'],
 			PayUParameters::PAYMENT_METHOD => PaymentMethods::BALOTO,
 			PayUParameters::COUNTRY => PayUCountries::CO,
-			PayUParameters::EXPIRATION_DATE => "2015-10-30T00:00:00",
+			PayUParameters::EXPIRATION_DATE => "2015-12-05T00:00:00",
 			PayUParameters::IP_ADDRESS => getRealIpAddr(),   
 		);
 			
@@ -2692,7 +2696,7 @@
 			
 			PayUParameters::COUNTRY => PayUCountries::MX,
 			
-			PayUParameters::EXPIRATION_DATE => "2015-10-30T00:00:00",
+			PayUParameters::EXPIRATION_DATE => "2015-12-5T00:00:00",
 			PayUParameters::IP_ADDRESS => getRealIpAddr(),
 		
 		);
@@ -2773,7 +2777,7 @@
 		PayUParameters::COUNTRY => PayUCountries::PE,
 		
 		//Ingrese aquí la fecha de expiración.
-		PayUParameters::EXPIRATION_DATE => "2015-10-02T04:00:00",
+		PayUParameters::EXPIRATION_DATE => "2015-12-05T04:00:00",
 		//IP del pagadador
 		PayUParameters::IP_ADDRESS => getRealIpAddr(),
 		

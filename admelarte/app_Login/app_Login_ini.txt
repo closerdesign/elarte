@@ -1,6 +1,0 @@
-index.php
-Phronesis
-app_Login
-NAO
-contr
-app_Login

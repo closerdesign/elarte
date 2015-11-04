@@ -1,6 +1,0 @@
-index.php
-Phronesis
-grid_log_sesiones
-NAO
-cons
-grid_log_sesiones

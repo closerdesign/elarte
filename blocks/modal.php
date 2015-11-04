@@ -161,7 +161,15 @@
             	<div class="box">
 					<div class="content registerBox" style="display:none;">
 						<div class="form">
-                        	<p>Registrarte te permitirá comprar nuestros productos y acceder a contenidos exclusivos completamente gratis.</p>
+                        	<?php if($_SERVER[REQUEST_URI] == "/obras")
+								echo "<p>Para comprar nuestras obras debes registrarte o iniciar sesión con tu cuenta de Phronesis. Registrarte además de permitirte comprar nuestros productos te permitirá acceder a contenidos exclusivos completamente gratis.</p>";
+								else
+								echo "<p>Registrarte te permitirá comprar nuestros productos y acceder a contenidos exclusivos completamente gratis.</p>";
+							
+							?>
+                            
+                        
+                        	
                             <br />
 							<form method="post" name="registroUsuarios" id="registroUsuarios" >
 								<input id="emailRegistro" class="form-control" type="email" placeholder="Email" name="emailRegistro" required >
@@ -170,6 +178,7 @@
                                 <input id="currentUrlPaul" name="currentUrlPaul" class="form-control" type="hidden" value="<?php echo "elartedesabervivir.com$_SERVER[REQUEST_URI]" ?>" />
 								<input class="btn btn-default btn-register" type="submit" value="Registrarse" >
 							</form>
+                            
 						</div>
 					</div>
 				</div>
@@ -625,7 +634,7 @@
 					<div class="col-md-12">
 						<table class="table table-striped table-bordered">
 							<tr><th>Ciudad</th><th>Hora</th></tr>
-							<tr><td>Phoenix, Los Angeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
+							<tr><td>Phoenix, Los Ángeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
 							<tr><td>Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>2:00 PM</td></tr>
 							<tr><td>Bogotá, México, Lima, Quito, Panamá, New Orleans</td><td>3:00 PM</td></tr>
 							<tr><td>Caracas</td><td>3:30 PM</td></tr>
@@ -649,12 +658,12 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel">Horarios "El Arte de Amar sin Apegos"</h4>
+				<h4 class="modal-title" id="myModalLabel">Horarios de la conferencia: "Enamórate de ti"</h4>
 			</div>
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-12">
-						<p class="lead text-center">Julio 25 de 2015</p>
+						<p class="lead text-center">Diciembre 5 de 2015</p>
 					</div>
 				</div>
 				<div class="row">
@@ -662,20 +671,21 @@
 						<!--<div class="table-responsive">-->
 							<table class="table table-striped table-bordered">
 								<tr><th>Ciudad</th><th>Hora</th></tr>
-								<tr><td>Phoenix, Los Angeles, San Francisco, Las Vegas</td><td>1:00 PM</td></tr>
-								<tr><td>Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>2:00 PM</td></tr>
-								<tr><td>Bogotá, México, Lima, Quito, Panamá, New Orleans</td><td>3:00 PM</td></tr>
-								<tr><td>Caracas</td><td>3:30 PM</td></tr>
-								<tr><td>San Juan, Asunción, La paz, Miami, New York</td><td>4:00 PM</td></tr>
-								<tr><td>Buenos Aires, Sao Paulo, Santiago, Montevideo</td><td>5:00 PM</td></tr>
-								<tr><td>Madrid, Barcelona</td><td>10:00 PM</td></tr>
+								<tr><td>Los Ángeles, San Francisco, Las Vegas</td><td>11:00 a.m.</td></tr>
+								<tr><td>México, Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>1:00 p.m.</td></tr>
+								<tr><td>Bogotá, Lima, Quito, Panamá, Miami, New York</td><td>2:00 p.m.</td></tr>
+								<tr><td>Caracas</td><td>2:30 p.m.</td></tr>
+								<tr><td>San Juan, Sucre</td><td>3:00 p.m.</td></tr>
+								<tr><td>Buenos Aires, Asunción, Santiago, Montevideo</td><td>4:00 p.m.</td></tr>
+                                <tr><td>Sao Paulo</td><td>5:00 p.m.</td></tr>
+								<tr><td>Madrid, Barcelona</td><td>8:00 p.m.</td></tr>
 							</table>
 						<!--</div>-->
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<p class="lead text-center"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Conferencia+Virtual+-+El+Arte+de+Amar+Sin+Apegos&iso=20150725T15&p1=41&ah=1&am=30" target="_blank">Consultar más horarios</a></p>
+						<p class="lead text-center"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?p1=41&iso=20151205T14&msg=Conferencia%20Virtual%20-%20Enam%C3%B3rate%20de%20ti&ah=2&low=5" target="_blank">Consultar más horarios</a></p>
 					</div>
 				</div>
 			</div>

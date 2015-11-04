@@ -1,6 +1,0 @@
-form_publicaciones_mob.php
-Phronesis
-form_publicaciones_mob
-SIM
-form
-form_publicaciones

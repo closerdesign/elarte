@@ -224,6 +224,39 @@ function conciliarPaypalConElarte()
 function mostrarFacturacion()
 {
 	
+	
+	//ESTE ESCRIPT ES PARA AGREGAR A LA TABLA DE PUBLICACIONES POR PEDIDO LOS PRECIOS DE CADA PUBLICACION. 
+	
+	/*require_once "../Application/Model/FuncionesSQL.php";
+    $q = new ConecteMysql();
+	$q2 = new ConecteMysql();
+	
+	
+	$query = "Select id, precio from publicaciones";
+	
+	
+	$q->ejecutar($query, "");
+	
+	
+	$i=0;
+	
+	
+	while($q->Cargar())
+	{
+		$precio = $q->dato('precio');	
+		$id = $q->dato('id');
+		
+		$query = "UPDATE `publicacionesxpedido` SET `valor` = $precio  WHERE `publicacion` = $id AND id > 5327";
+		$q2->ejecutar($query, "");
+		
+	}
+	
+	
+		
+	*/	
+	
+	
+	
 		
 	echo"
 	
@@ -258,6 +291,97 @@ function mostrarFacturacion()
 		echo "
 		
 		<a href='../public/reporte_mensual.php?fechaInicial=2015-06-01&fechaFinal=2015-07-01' target='_blank'>Reporte mensual</a><br>
+
+		<a href='../public/reporte_mensual_cop.php?fechaInicial=2015-06-01&fechaFinal=2015-07-01' target='_blank'>Reporte mensual (COP)</a><br>
+		
+		</div>
+	
+	";	
+	
+	
+	echo"
+		<br><br>
+		<div>
+			Imprimir facturas Julio<br><br>";
+			
+			for($i=1;$i<=31;$i++)
+			{	
+			
+				$dia1 = date("2015-07-".$i);
+				$dia2 = strtotime ( '+1 day' , strtotime ( $dia1 ) ) ;
+				$dia2 = date ( 'Y-m-j' , $dia2 );
+			
+				
+				
+				
+				
+				echo "<a href='../public/facturas.php?fechaInicial=$dia1&fechaFinal=$dia2' target='_blank'>$dia1</a><br>";
+			}
+		
+		echo "
+		
+		<a href='../public/reporte_mensual.php?fechaInicial=2015-07-01&fechaFinal=2015-08-01' target='_blank'>Reporte mensual</a><br>
+		<a href='../public/reporte_mensual_cop.php?fechaInicial=2015-07-01&fechaFinal=2015-08-01' target='_blank'>Reporte mensual (COP)</a><br>
+		
+		</div>
+	
+	";
+
+	echo"
+		<br><br>
+		<div>
+			Imprimir facturas Agosto<br><br>";
+			
+			for($i=1;$i<=31;$i++)
+			{	
+			
+				$dia1 = date("2015-08-".$i);
+				$dia2 = strtotime ( '+1 day' , strtotime ( $dia1 ) ) ;
+				$dia2 = date ( 'Y-m-j' , $dia2 );
+			
+				
+				
+				
+				
+				echo "<a href='../public/facturas.php?fechaInicial=$dia1&fechaFinal=$dia2' target='_blank'>$dia1</a><br>";
+			}
+		
+		echo "
+		
+		<a href='../public/reporte_mensual.php?fechaInicial=2015-08-01&fechaFinal=2015-09-01' target='_blank'>Reporte mensual</a><br>
+
+		<a href='../public/reporte_mensual_cop.php?fechaInicial=2015-08-01&fechaFinal=2015-09-01' target='_blank'>Reporte mensual (COP)</a><br>
+		
+		</div>
+	
+	";	
+	
+	
+	
+	echo"
+		<br><br>
+		<div>
+			Imprimir facturas septiembre<br><br>";
+			
+			for($i=1;$i<=30;$i++)
+			{	
+			
+				$dia1 = date("2015-09-".$i);
+				$dia2 = strtotime ( '+1 day' , strtotime ( $dia1 ) ) ;
+				$dia2 = date ( 'Y-m-j' , $dia2 );
+			
+				
+				
+				
+				
+				echo "<a href='../public/facturas.php?fechaInicial=$dia1&fechaFinal=$dia2' target='_blank'>$dia1</a><br>";
+			}
+		
+		echo "
+		
+		<a href='../public/reporte_mensual.php?fechaInicial=2015-09-01&fechaFinal=2015-10-01' target='_blank'>Reporte mensual</a><br>
+
+		<a href='../public/reporte_mensual_cop.php?fechaInicial=2015-09-01&fechaFinal=2015-10-01' target='_blank'>Reporte mensual (COP)</a><br>
 		
 		</div>
 	
@@ -281,8 +405,9 @@ function facturar()
 	
 	//AGREGAMOS A LA TABLA DE FACTURACION LOS INSCRITOS A LA CONFERENCIA
 	
+	/*
 	
-	$query = "Select * from inscritos_conferencia where not exists (select 1 from admin_pedidos_aprobados where admin_pedidos_aprobados.id_pedido = inscritos_conferencia.id_inscripcion AND admin_pedidos_aprobados.medio = 1) AND inscritos_conferencia.estado_inscripcion = 1";
+	$query = "Select * from inscritos_conferencia where not exists (select 1 from admin_pedidos_aprobados where admin_pedidos_aprobados.id_pedido = inscritos_conferencia.id_inscripcion AND admin_pedidos_aprobados.medio = 1) AND inscritos_conferencia.estado_inscripcion = 1 AND inscritos_conferencia.metodo_pago <> 7";
 
 	
 	$q->ejecutar($query, "");
@@ -290,26 +415,26 @@ function facturar()
 	
 	$i=0;
 	
-	
-	while($q->Cargar())
-	{
+	*/
+	//while($q->Cargar())
+	//{
 		
 		
-		$id_inscripcion = $q->dato('id_inscripcion');
-		$creado = $q->dato('creado');		
+		//$id_inscripcion = $q->dato('id_inscripcion');
+		//$creado = $q->dato('creado');		
 		
-		$query = "INSERT INTO `elarte_phronesisapp`.`admin_pedidos_aprobados` (`id`, `medio`, `id_pedido`, `fecha_pedido`, `num_factura`, `fecha_factura`) VALUES (NULL, '1', '$id_inscripcion', '$creado', '', '$creado');";
+		//$query = "INSERT INTO `elarte_phronesisapp`.`admin_pedidos_aprobados` (`id`, `medio`, `id_pedido`, `fecha_pedido`, `num_factura`, `fecha_factura`) VALUES (NULL, '1', '$id_inscripcion', '$creado', '', '$creado');";
 		
-		$q2->ejecutar($query, "");
+		//$q2->ejecutar($query, "");
 		
-		$i++;
+		//$i++;
 		
 		//if($i==5)
 			//break;
 				
 		
 		
-	}
+	//}
 	
 	////////////////////////////////////////
 	
@@ -360,7 +485,7 @@ function facturar()
 	//AGREGAMOS A LA TABLA DE FACTURACION LOS PEDIDOS DE PRESTASHOP
 	
 	
-	$query = "Select * from admin_ps_orders where not exists (select 1 from admin_pedidos_aprobados where admin_pedidos_aprobados.id_pedido = admin_ps_orders.id_order AND admin_pedidos_aprobados.medio = 3) AND admin_ps_orders.current_state = 2 AND id_order >= 38961";
+	$query = "Select * from admin_ps_orders where not exists (select 1 from admin_pedidos_aprobados where admin_pedidos_aprobados.id_pedido = admin_ps_orders.id_order AND admin_pedidos_aprobados.medio = 3) AND admin_ps_orders.current_state = 2 AND id_order >= 39577";
 
 	
 	$q->ejecutar($query, "");
@@ -421,11 +546,11 @@ function facturar()
 		
 		$consecutivo_actual++;
 		
-		$dia_inicial_mes_facturacion = new DateTime('2015-06-01');
+		$dia_inicial_mes_facturacion = new DateTime('2015-07-01');
 		
 		$fecha_pedido = new DateTime($fecha_pedido);
 		
-		$fecha_para_pedidos_de_otros_meses = "2015-06-05";
+		$fecha_para_pedidos_de_otros_meses = "2015-07-05";
 		
 		
 		if($fecha_pedido < $dia_inicial_mes_facturacion)
@@ -2095,7 +2220,7 @@ function retornarPedidosElArteDeTablaPayu()
 		
 		
 		
-		if($data[2] >= 100000 || $data[2][0] == "P")
+		if($data[2] >= 100000 || $data[2][0] == "P" || $data[2][0] == "C" || $data[2][0] == "U" || $data[2][0] == "p" || $data[2][0] == "c" || $data[2][0] == "u")
 		{
 			$j=0;
 			
@@ -2119,7 +2244,7 @@ function retornarPedidosElArteDeTablaPayu()
 	while (( $data = fgetcsv ( $fp , 1000 , ";" )) !== FALSE ) 
 	{ 	// Mientras hay líneas que leer...
 		
-		if($data[2] >= 100000 || $data[2][0] == "P")
+		if($data[2] >= 100000 || $data[2][0] == "P" || $data[2][0] == "C" || $data[2][0] == "U" || $data[2][0] == "p" || $data[2][0] == "c" || $data[2][0] == "u")
 		{
 		
 			$j=0;
@@ -2143,7 +2268,7 @@ function retornarPedidosElArteDeTablaPayu()
 	while (( $data = fgetcsv ( $fp , 1000 , ";" )) !== FALSE ) 
 	{ 	// Mientras hay líneas que leer...
 		
-		if($data[2] >= 100000 || $data[2][0] == "P")
+		if($data[2] >= 100000 || $data[2][0] == "P" || $data[2][0] == "C" || $data[2][0] == "U" || $data[2][0] == "p" || $data[2][0] == "c" || $data[2][0] == "u")
 		{
 			$j=0;
 		

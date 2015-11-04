@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_reflexiones
-NAO
-form
-form_reflexiones

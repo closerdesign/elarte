@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_inscritos_conferencia_edit
-NAO
-form
-form_inscritos_conferencia_edit

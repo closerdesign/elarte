@@ -48,6 +48,7 @@
 		$('.load').fadeIn();
 		var publicacion = $(this).attr('value');
 		var pedido = parseInt( $.cookie('pedido') );
+
 		console.log(pedido);
 		$.post('/includes/php.php',{
 			consulta: "agregar",
@@ -56,7 +57,8 @@
 			pedido: pedido
 		}).done(function(msg){
 			if(pedido==""||pedido==undefined){
-			   $.cookie("pedido",msg);
+				document.cookie="pedido="+msg+";path=/";
+			   /*$.cookie("pedido",msg);*/
 			}
 			if(msg==0){
 			   $('.load').fadeOut();

@@ -31,7 +31,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<?php
-					$sql="SELECT * FROM publicaciones WHERE status = 1 ORDER BY id";
+					$sql="SELECT * FROM publicaciones WHERE status = 1 AND id <> 21 ORDER BY id";
 					$q=mysqli_query($con, $sql);
 					$n=mysqli_num_rows($q);
 					if($n<1){

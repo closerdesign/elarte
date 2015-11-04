@@ -84,7 +84,9 @@
 			</div>
 			<script type="text/javascript">
 				jQuery(document).ready(function($) {
-					$.removeCookie('pedido');
+					if ( typeof($.cookie('pedido')) != 'undefined' ) {
+						$.removeCookie('pedido');
+					}
 				});
 			</script>
 			<?php

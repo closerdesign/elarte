@@ -7,7 +7,8 @@
 		$con_ps = mysqli_connect("localhost","phronesi_elarte","Z,'VT,?x3*LdjMvR","phronesi_live") or die ("DB Error");
 		mysqli_query($con_ps, "SET NAMES utf8");
 		
-		$sql = "SELECT * FROM ps_customer LIMIT 40000, 10000;";
+		/*$sql = "SELECT * FROM ps_customer LIMIT 30000, 10000;";*/
+		$sql = "SELECT * FROM ps_customer WHERE email like 'marciaaranai@hotmail.com';";
 		/*$sql = "SELECT * FROM ps_customer";*/
 		$q = mysqli_query($con_ps, $sql);
 		$n = mysqli_num_rows($q);
