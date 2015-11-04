@@ -1,6 +1,0 @@
-index.php
-Phronesis
-grid_pedidos_1
-NAO
-cons
-grid_pedidos_1

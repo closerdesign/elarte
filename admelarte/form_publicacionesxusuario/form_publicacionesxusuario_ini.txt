@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_publicacionesxusuario
-NAO
-form
-form_publicacionesxusuario

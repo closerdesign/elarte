@@ -1,6 +1,0 @@
-index.php
-Phronesis
-grid_conferencia
-NAO
-cons
-grid_conferencia

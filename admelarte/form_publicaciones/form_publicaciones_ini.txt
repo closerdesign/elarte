@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_publicaciones
-SIM
-form
-form_publicaciones

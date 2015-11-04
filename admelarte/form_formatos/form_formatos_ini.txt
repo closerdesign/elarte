@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_formatos
-SIM
-form
-form_formatos

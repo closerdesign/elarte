@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_categorias
-SIM
-form
-form_categorias

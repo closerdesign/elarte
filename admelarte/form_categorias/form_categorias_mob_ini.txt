@@ -1,6 +1,0 @@
-form_categorias_mob.php
-Phronesis
-form_categorias_mob
-SIM
-form
-form_categorias

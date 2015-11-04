@@ -1,6 +1,0 @@
-index.php
-Phronesis
-form_idiomas
-SIM
-form
-form_idiomas
