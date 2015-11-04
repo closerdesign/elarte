@@ -70,9 +70,7 @@
 								?>
 							</ul>
 							<div class="text-center" style="font-size:24px;">
-								<strong>
-									Lleva hoy esta colección con el<br /><span style="color:red">30% de descuento</span>
-								</strong>
+								
 							</div>
 						</div>
 					</div>
@@ -86,12 +84,12 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<br /><br />
-					<h3 style="color:red" class="text-center">
-						Precio actual: USD <?= number_format($data['precio'],2) ?>
-					</h3>
-					<h4 style="color:gray" class="text-center tachado">
-						<s>Precio normal: USD $34.95</s>
-					</h4>
+                    	<center>
+						<h3>Lleva hoy esta colección en formato pdf o audio con el <span style="color:red">30% de descuento</span>
+                                    <br />
+                                    o lleva las dos versiones con el <span style="color:red">50% de descuento</span>
+						</h3>
+                        </center>
 					<br />
 					<div class="col-md-12">
 						<?php if(isset($_SESSION['id'])){ ?>

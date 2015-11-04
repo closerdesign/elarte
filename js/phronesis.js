@@ -57,7 +57,7 @@ $(document).ready(function(){
 	// Obtener detalle del pedido
 	function contenidoDelPedido(){
 		var pedido = $.cookie('pedido');
-		if( pedido !== 0 ){
+		if( pedido != 0 ){
 			$.post('/includes/php.php',{
 				consulta: "detalleDelPedido",
 				pedido: pedido

@@ -186,7 +186,7 @@
 									
 								
 								
-								alert('Transacción Aprobada. A continuación serás redireccionado a tu biblioteca donde podrás descargar las obras que acabas de adquirir. Podrás descargarlas cuantas veces quieras y en el momento que quieras accediendo a la opción "Mi biblioteca" del menu principal de nuestra página web.');
+								alert('Transacción Aprobada. A continuación serás redireccionado a tu biblioteca donde podrás descargar las obras que acabas de adquirir. Si tu compra incluye acceso a una conferencia pronto recibirás un email con la confirmación y las instrucciones de ingreso');
 								window.location.href="index.php?content=mi-cuenta&task=mis-publicaciones";
 							}
 							if(response.transactionResponse.state=='DECLINED'){

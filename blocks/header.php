@@ -22,10 +22,13 @@
 						
 							<span style="font-size:14px"><b>Bienvenido '.$nombreUsuarioLogin.'</b></span><br />
 							
-							<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="label label-danger" id="noProductos" style="display:none"></span></a> 
+							
 							
 						</div>';
 			}
+			
+			//<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="label label-danger" id="noProductos" style="display:none"></span></a> 
+			
 			?>
             
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".menuPrincipal">
@@ -111,8 +114,7 @@
 						
 							<span style="font-size:14px"><b>Bienvenido '.$nombreUsuarioLogin.'</b></span><br />
 							
-							<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="label label-danger" id="noProductos" style="display:none"></span>		</a> | 
-							<a href="/index.php?content=mi-cuenta" title="Mi cuenta"><i class="fa fa-user"></i> Mi cuenta</a> | <a href="#" class="cerrarSesion"><i class="fa fa-sign-out"></i> Salir</a>
+							<a href="/?content=mi-cuenta&task=mi-pedido" title="Carrito"><i class="fa fa-shopping-cart"></i> Carrito de compras <span class="label label-danger" id="noProductos" style="display:none"></span>		</a>
 						</div>';
 						
 						
@@ -157,9 +159,13 @@
 						?>
 						<div class="col-md-offset-3 col-lg-6 col-md-6 col-sm-6">
 							<p class="text-right">
-								<a href="/index.php?content=mi-cuenta" title="Mi cuenta">
+								<a href="/index.php?content=mi-cuenta" title="Mi cuenta" style="margin-right:10px; margin-left:10px">
 									Mi cuenta <i class="fa fa-user"></i>
 								</a>
+                                |
+                                <a href="#" class="cerrarSesion" style="margin-left:10px;">
+                                	Salir <i class="fa fa-sign-out"></i>
+                                </a>
 							</p>
 						</div>
 						<?php

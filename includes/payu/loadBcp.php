@@ -68,7 +68,7 @@
 		PayUParameters::COUNTRY => PayUCountries::PE,
 		
 		//Ingrese aquí la fecha de expiración.
-		PayUParameters::EXPIRATION_DATE => "2015-10-30T04:00:00",
+		PayUParameters::EXPIRATION_DATE => "2015-12-5T00:00:00",
 		//IP del pagadador
 		PayUParameters::IP_ADDRESS => getRealIpAddr(),
 	   

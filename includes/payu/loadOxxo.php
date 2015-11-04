@@ -69,7 +69,7 @@
 		PayUParameters::COUNTRY => PayUCountries::MX,
 		
 		//Ingrese aquí la fecha de expiración. Sólo para OXXO y SEVEN_ELEVEN
-		PayUParameters::EXPIRATION_DATE => "2015-09-27T00:00:00",
+		PayUParameters::EXPIRATION_DATE => "2015-12-5T00:00:00",
 		//IP del pagadador
 		PayUParameters::IP_ADDRESS => getRealIpAddr(),
 	   

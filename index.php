@@ -9,7 +9,16 @@
 	<?php require_once('blocks/head.php'); ?>
 	
 	<body class="body">
-	
+		<div id="fb-root">&nbsp;</div>
+		<script>
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=1555280741417343";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
 	<?php require('blocks/franja-conferencia.php'); ?>
 	
 	<?php require_once('includes/paypalResponse.php'); ?>
@@ -73,6 +82,10 @@
 			require_once('blocks/programas-especiales.php');
 		}elseif($_REQUEST['content']=='archivos-programas'){
 			require_once('blocks/archivos-programas.php');
+		}elseif($_REQUEST['content']=='conferencia-virtual'){
+			require_once('blocks/inscripcion-conferencia.php');
+		}elseif( $_REQUEST['content'] == 'inscripcion-conferencia' ){
+			require_once( 'blocks/inscripcion-conferencia.php' );
 		}else{
 			require_once('blocks/articulos.php');
 		}
@@ -144,6 +157,26 @@
 				if ( $payment->getState() == 'approved' ) {
 					$estado = 2;
 					$estadoTexto = 'Aprobada';
+		?>
+			<!-- Google Code for Compra de la Gu&iacute;as Conversion Page -->
+			<script type="text/javascript">
+			/* <![CDATA[ */
+			var google_conversion_id = 977034816;
+			var google_conversion_language = "en";
+			var google_conversion_format = "3";
+			var google_conversion_color = "ffffff";
+			var google_conversion_label = "7Ww2CPqe9mAQwLzx0QM";
+			var google_remarketing_only = false;
+			/* ]]> */
+			</script>
+			<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+			</script>
+			<noscript>
+			<div style="display:inline;">
+			<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/977034816/?label=7Ww2CPqe9mAQwLzx0QM&amp;guid=ON&amp;script=0"/>
+			</div>
+			</noscript>
+		<?php
 				}
 				else if ( $payment->getState() == 'failed' || $payment->getState() == 'canceled' || $payment->getState() == 'expired' ) {
 					$estado = 3;

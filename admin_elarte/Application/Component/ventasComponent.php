@@ -1,6 +1,233 @@
 <?php 
 
 
+
+function mostrarReporteVentas()
+{
+	
+	require_once "../Application/Model/FuncionesSQL.php";
+    $q = new ConecteMysql();
+	
+	$fecha1 = "2015-10-01";
+    $fecha2 = "2015-10-31";
+
+    $dias = (strtotime($fecha1)-strtotime($fecha2))/86400;
+	$dias = abs($dias); $dias = floor($dias);		
+	$dias = $dias + 1;
+    
+	for($i=1; $i<=$dias; $i++)
+	{
+		$query = "SELECT SUM(pedidos.valor) valor FROM pedidos WHERE status = 2 AND creado >= '2015-10-".$i."' AND creado <= '2015-10-".$i." 23:59:59' AND valor <>  ''";
+		$q->ejecutar($query, "");
+		if($q->Cargar())
+		{
+			
+			$valor = $q->dato('valor');
+			$total+= $valor;
+			$valor = number_format($valor, 2, '.', ',');
+			echo "2015-10-$i: $valor <br>";
+			
+			
+			
+		}
+		
+	}
+	
+	$prom = $total / $dias;
+	$prom = number_format($prom, 2, '.', ',');
+	echo "TOTAL: $total<br>";
+	echo "PROMEDIO: $prom";
+	
+	
+	
+}
+
+
+
+function mostrarMasInfoDePedido($pedidoID, $usuarioID)
+{
+	
+	require_once "../Application/Model/FuncionesSQL.php";
+    $q = new ConecteMysql();
+	
+	$query = "SELECT pedidos.*, usuarios.email, inscritos_conferencia.estado_inscripcion, inscritos_conferencia.metodo_pago  FROM pedidos 
+		LEFT JOIN usuarios ON pedidos.usuario = usuarios.id
+		LEFT JOIN inscritos_conferencia ON pedidos.id = inscritos_conferencia.id_pedido
+		WHERE pedidos.id = $pedidoID";
+		
+	$q->ejecutar($query, "");
+	
+	$estados = array("", "Pendiente", "Aprobado", "Rechazado");
+	$metodos_pago = array("", "Tarjeta de credito", "Paypal", "PSE", "Baloto", "Oxxo", "BCP");
+	
+	if($q->Cargar())
+	{
+		$id = $q->dato('id');
+		$usuario = $q->dato('usuario');
+		$valor = $q->dato('valor');
+		$status = $q->dato('status');
+		$formaPago = $q->dato('formaPago');
+		$transactionId = $q->dato('transactionId');
+		$state = $q->dato('state');
+		$pendingReason	 = $q->dato('pendingReason	');
+		$responseCode = $q->dato('responseCode');
+		$urlPaymentReceiptHtml	 = $q->dato('urlPaymentReceiptHtml	');
+		$creado = $q->dato('creado');
+		$email = $q->dato('email');
+		
+		$referenciaLanding = $q->dato('referenciaLanding');
+		$landing = $q->dato('landing');
+		
+		
+		echo "
+		<b>Pedido No:</b> $id<br>
+		<b>Usuario:</b> $email ($usuario)<br>
+		<b>Valor Pedido:</b> USD $$valor<br>
+		<b>Estado:</b> $estados[$status]<br>
+		<b>Forma de pago:</b> $metodos_pago[$formaPago]<br>
+		<b>Transaction ID:</b> $transactionId<br>
+		<b>Recibo de pago:</b> $urlPaymentReceiptHtml<br>
+		<b>Fecha creacion:</b> $creado<br>
+		<b>Referencia Landing:</b> $referenciaLanding<br>
+		<b>Landing:</b> $landing<br>
+		<br><br>
+		
+		
+		
+		
+		
+		";
+		
+		
+	}
+	
+	echo "</table>";
+	
+	
+	//////////////////////////////
+	
+	
+	$query = "SELECT * FROM publicacionesxpedido INNER JOIN publicaciones ON publicaciones.id = publicacionesxpedido.publicacion WHERE pedido = $pedidoID";	
+	$q->ejecutar($query, "");
+	
+	echo "Publicaciones del pedido:<br><br>
+	
+	<table border='0' cellpadding='1' cellspacing='1' class='tabla1' style='color:black'>
+		<tr class='tabla1_cabecera'>
+			<td>ID Publicacion</td>
+			<td>Nombre Publicacion</td>
+			<td>Valor</td>		
+		</tr>
+	
+	";
+	
+	
+	while($q->Cargar())
+	{
+		$publicacion = $q->dato('publicacion');
+		$valor = $q->dato('valor');
+		$titulo = $q->dato('titulo');
+		
+		echo "
+		<tr bgcolor='#FFFFFF'>
+			<td>$publicacion</td>
+			<td align='left'>$titulo</td>
+			<td width='100px' align='right'>USD $$valor</td>
+		
+		</tr>";
+		
+		
+	}
+	
+	echo "</table>";
+	
+	
+	/////////////////////////
+	
+	
+	$query = "SELECT * FROM publicacionesxusuario INNER JOIN publicaciones ON publicaciones.id = publicacionesxusuario.publicacion WHERE usuario = $usuarioID";	
+	$q->ejecutar($query, "");
+	
+	echo "<br><br>Publicaciones del usuario:<br><br>
+	
+	<table border='0' cellpadding='1' cellspacing='1' class='tabla1' style='color:black'>
+		<tr class='tabla1_cabecera'>
+			<td>ID Publicacion</td>
+			<td>Nombre Publicacion</td>	
+		</tr>
+	
+	";
+	
+	
+	while($q->Cargar())
+	{
+		$publicacion = $q->dato('publicacion');
+		$titulo = $q->dato('titulo');
+		
+		echo "
+		<tr bgcolor='#FFFFFF'>
+			<td>$publicacion</td>
+			<td align='left'>$titulo</td>
+		
+		</tr>";
+		
+		
+	}
+	
+	echo "</table>";
+	
+	
+	/////////////////////////
+	
+	
+	$query = "SELECT * FROM pedidos WHERE usuario = $usuarioID";	
+	$q->ejecutar($query, "");
+	
+	echo "<br><br>Otros pedidos del usuario:<br><br>
+	
+	<table border='0' cellpadding='1' cellspacing='1' class='tabla1' style='color:black'>
+		<tr class='tabla1_cabecera'>
+			<td>ID Pedido</td>
+			<td>Valor</td>
+			<td>Estado</td>
+			<td>Forma de pago</td>	
+			<td>Fecha</td>
+		</tr>
+	
+	";
+	
+	
+	while($q->Cargar())
+	{
+		$id = $q->dato('id');
+		$valor = $q->dato('valor');
+		$status = $q->dato('status');
+		$formaPago = $q->dato('formaPago');
+		$creado = $q->dato('creado');
+		
+		if($id <> $pedidoID)
+		{
+		
+			echo "
+			<tr bgcolor='#FFFFFF'>
+				<td><span class='link3' href='#' onClick='mostrarMasInfoDePedido($id, $usuarioID)'>$id</span></td>
+				<td>$valor</td>
+				<td>$estados[$status]</td>
+				<td>$metodos_pago[$formaPago]</td>
+				<td>$creado</td>
+			
+			</tr>";
+		}
+		
+		
+	}
+	
+	echo "</table>";
+	
+	
+}
+
+
 function mostrarPedidos()
 {
 	
@@ -20,7 +247,13 @@ function mostrarPedidos()
 	$antes_antesAyer = strtotime ( '-1 day', strtotime ( $antesAyer ) ) ;
 	$antes_antesAyer = date('Y-m-d', $antes_antesAyer);
 	
+       $fecha1 = "2015-10-01";
+       $fecha2 = "2015-10-30";
+
+       	$dias = (strtotime($fecha1)-strtotime($fecha2))/86400;
+	$dias = abs($dias); $dias = floor($dias);		
 	
+       
 	
 	$query = "SELECT SUM(pedidos.valor) valor  FROM pedidos WHERE status = 2 AND creado >= '$hoy' AND valor <>  ''";	
 	$q->ejecutar($query, "");
@@ -58,7 +291,7 @@ function mostrarPedidos()
 	}
 	
 	
-	$query = "SELECT SUM(pedidos.valor) valor  FROM pedidos WHERE status = 2 AND creado >= '2015/07/01' AND creado < '2015/08/01' AND valor <>  ''";	
+	$query = "SELECT SUM(pedidos.valor) valor  FROM pedidos WHERE status = 2 AND creado >= '2015/10/01' AND creado < '2015/11/01' AND valor <>  ''";	
 	$q->ejecutar($query, "");
 	if($q->Cargar())
 	{
@@ -120,14 +353,8 @@ function mostrarPedidos()
 		ANTES DE AYER: $$valor_total_antes_ayer<br>
 		ANTES ANTES DE AYER: $$valor_total_antes_antes_ayer<br>
 		MES: $valor_total_mes_pedidos
-		<br><br><br>
-		
-		INSCRIPCIONES:<br>
-		HOY: $$valor_total_hoy_inscripcion<br>
-		AYER: $$valor_total_ayer_inscripcion<br>
-		ANTES DE AYER: $$valor_total_antesAyer_inscripcion<br>
-		ANTES ANTES DE AYER: $$valor_total_antesAntesAyer_inscripcion<br>
-		MES: $valor_total_mes_inscripcion<br>
+		<a href='#' onclick='mostrarReporteVentas()'>Ver mas</a>
+		<br><br>
 	";
 
 
@@ -152,8 +379,8 @@ function mostrarPedidos()
 					<td>Forma de pago</td>
 					
 					
-					<td>Estado Inscripcion</td>
-					<td>Metodo Pago Inscripcion</td>
+					<td>Referencia Payu</td>
+					<td>Landing Page</td>
 				</tr>
 	";
 	
@@ -179,6 +406,9 @@ function mostrarPedidos()
 		$urlPaymentReceiptHtml	 = $q->dato('urlPaymentReceiptHtml	');
 		$creado = $q->dato('creado');
 		$email = $q->dato('email');
+		
+		$referenciaLanding = $q->dato('referenciaLanding');
+		$landing = $q->dato('landing');
 		
 		
 		
@@ -236,7 +466,7 @@ function mostrarPedidos()
 		
 		echo "
 		<tr bgcolor='#FFFFFF'>
-			<td>$id</td>
+			<td><span class='link3' href='#' onClick='mostrarMasInfoDePedido($id, $usuario)'>$id</span></td>
 			<td>$creado</td>
 			<td>$usuario</td>
 			<td>$email</td>
@@ -244,8 +474,8 @@ function mostrarPedidos()
 			<td>$estados[$status]</td>
 			<td>$metodos_pago[$formaPago]</td>
 			
-			<td $alert_estado>$estados_inscripciones[$estado_inscripcion]</td>
-			<td $alerta_transaccion><span id='metodo_pago_mensaje$cont'>$metodo_pago</span> $boton_arreglar</td>
+			<td>$referenciaLanding</td>
+			<td>$landing</td>
 			
 		</tr>	
 		";

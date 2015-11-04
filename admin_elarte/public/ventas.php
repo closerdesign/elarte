@@ -52,13 +52,13 @@ if($_POST['boton'])
  
 <div id='LayerDiv' align="center" class="layer" style="visibility:hidden" ></div>
 <div id='PopupDiv' class="pop_up_container" align="center">
-<table  width="400px" border="0" cellpadding="0" cellspacing="0">
+<table  width="700px" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td height="18" align="left" class="titulo_popup"><div id="TituloPopupDiv"></div></td>
+		<td height="18" align="left" class="titulo_popup"><div style="padding:3px;" id="TituloPopupDiv"></div></td>
 	  <td align="right" class="boton_cerrar_popup" onclick="OcultarPopup()"></td>
 	</tr>
     <tr>
-        <td colspan="2"><div id="ContenidoPopupDiv" class="ContenidoPopup"></div></td>
+        <td colspan="2"><div style="padding:20px; overflow:auto; max-height:500px;" id="ContenidoPopupDiv" class="ContenidoPopup"></div></td>
     </tr>
 </table> 
 </div>

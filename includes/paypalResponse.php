@@ -56,7 +56,7 @@
 				$mensaje .= "<p>Hola ".getNombreUsuario($_SESSION['id']).",</p>";
 				$mensaje .= "<p>Queremos informarle que el estado de su orden es: ".$estadoTexto."</p>";
 				if( $estado == 1 ){
-					$mensaje .= "<p>Ya puede disfrutar de sus obras en esta sección.</p>";
+					$mensaje .= "<p>Ya puede descargar las obras adquiridas en la sección <a href='https://www.elartedesabervivir.com/mi-cuenta/mis-publicaciones'>'Mi Biblioteca'</a>. Si su compra incluye acceso a una conferencia pronto recibirá un email con la confirmación y las instrucciones para acceder</p>";
 				}elseif( $estado == 0 ){
 					$mensaje .= "<p>Le invitamos a que lo intente nuevamente con otro medio de pago.</p>";
 				}elseif( $estado == 2 ){

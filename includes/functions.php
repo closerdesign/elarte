@@ -27,6 +27,23 @@
 		'2'=>"Formato de Audio"
 	);
 	
+	function getRealIpAddr()
+	{
+	    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+	    {
+	    	$ip=$_SERVER['HTTP_CLIENT_IP'];
+	    }
+	    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+	    {
+	    	$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+	    }
+	    else
+	    {
+	    	$ip=$_SERVER['REMOTE_ADDR'];
+	    }
+	    return $ip;
+	}
+	
 	function getFirstPara($string){
 		   $string = substr($string,0, strpos($string, "</p>")+4);
 		   $string = str_replace("<p>", "", str_replace("<p/>", "", $string));
@@ -154,14 +171,14 @@
 			$n=mysqli_num_rows($q);
 			$data=mysqli_fetch_array($q);
 			if($n<1){
-				$btn='<button value="'.$val.'" class="btn btn-primary btnAgregar"><i class="fa fa-shopping-cart"></i> Comprar</button>';
+				$btn='<button data-pedido="'.$_COOKIE['pedido'].'" value="'.$val.'" class="btn btn-primary btnAgregar"><i class="fa fa-shopping-cart"></i> Comprar</button>';
 			}else{
 				// Validar el formato de la publicación para decidir si muestra la lista de reproducción o la descarga
 				$formato=getFormatoPublicacion($val);
 				if($formato==1){
 					$btn='<button value="'.$data['publicacion'].'" class="btn btn-primary btnDescargar">Descargar</button>';
 				}else{
-					$btn='<button data-toggle="modal" data-target="#myModalLista'.$val.'" class="btn btn-primary"><i class="fa fa-play-circle"></i> Reproducir</button>';
+					$btn='<button data-toggle="modal" data-target="#myModalLista'.$val.'" class="btn btn-primary">Descargar</button>';
 					$btn.='
 					<div class="modal fade" id="myModalLista'.$val.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
@@ -169,6 +186,8 @@
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
 									<h4 class="modal-title" id="myModalLabel">Lista de Reproducción</h4>
+									<br>
+									<p style="font-size:16px;">Si deseas descargar el audio a tu computadora haz clic derecho sobre el botón "Reproducir" y presiona la opción "Guardar enlace como".</p>
 								</div>
 								<div class="modal-body">';
 					
@@ -592,6 +611,10 @@
 				$before_content = substr($content, 0, $after_character);
 				$after_content = substr($content, $after_character);
 				$after_content = explode('</p>', $after_content);
+				
+				$str_to_insert = '<p><a href="https://goo.gl/xKsN8J" target="_blank"><img alt="Guías prácticas de Walter Riso con precio especial" src="http://elartedesabervivir.com/img/guias-practicas-de-walter-riso-publi1.png" style="height:250px; width:300px" /></a></p>';
+				
+				/*
 				$str_to_insert = '<div class="banner300x250" style="float: right; margin-left: 1rem;">
 					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 					<!-- Web App - Artículos Categoría Der 1 -->
@@ -603,6 +626,7 @@
 					(adsbygoogle = window.adsbygoogle || []).push({});
 					</script>
 				</div>';
+				*/
 				array_splice($after_content, 1, 0, $str_to_insert);
 				$after_content = implode('</p>', $after_content);
 				return $before_content . $after_content;
@@ -1069,7 +1093,7 @@
 				) {
 					$user_message = 'Transacción aprobada';
 					entregarPedido($p['id']);
-					$message_successs = 'Para acceder a las obras que acabas de adquirir ingresa a <a href="https://www.elartedesabervivir.com/mi-cuenta/mis-publicaciones">tu biblioteca</a>.';
+					$message_successs = 'Si su compra incluye obras descargables (audios o textos) ingrese a <a href="https://www.elartedesabervivir.com/mi-cuenta/mis-publicaciones">su biblioteca</a> para descargarlos. Si su compra incluye acceso a una conferencia pronto recibirá un email con las instrucciones de acceso.';
 				}
 
 

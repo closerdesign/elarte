@@ -1008,7 +1008,7 @@
 						.done(function(data) {
 							$('.divArticulos').append(data.html);
 						  	$('.load').fadeOut();
-						  	window.sr.init();
+						  	/*window.sr.init();*/
 						  	/*console.log('success');*/
 						})
 						.fail(function() {
@@ -1056,7 +1056,7 @@
 						.done(function(data) {
 							$('.divArticulos').append(data.html);
 						  	$('.load').fadeOut();
-						  	window.sr.init();
+						  	/*window.sr.init();*/
 						  	/*console.log('success');*/
 						})
 						.fail(function() {

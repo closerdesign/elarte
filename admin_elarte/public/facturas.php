@@ -276,7 +276,7 @@
 			$TRM[$i] = $q3->dato('dolar');
 			$valor_pesos[$i] = $precio_final[$i]*$TRM[$i];
 						
-			$TRM[$i] = number_format($TRM[$i], 2, '.', ',');
+			$TRM_mostrar[$i] = number_format($TRM[$i], 2, '.', ',');
 			$valor_pesos[$i] = number_format($valor_pesos[$i], 2, '.', ',');
 						
 		}
@@ -285,21 +285,21 @@
 		
 		//ACUMULAMOS DATOS PARA INFORME FINAL
 		
-		$Informe_VentasExcluidas += $subtotal[$i];
+		$Informe_VentasExcluidas += $subtotal[$i]*$TRM[$i];
 		
 		if($Estado_factura[$i] == 0)
 		{
-			$Informe_VentasCanceladas += $subtotal[$i];
+			$Informe_VentasCanceladas += $subtotal[$i]*$TRM[$i];
 			
 		}
 		
 		if($Estado_factura[$i] == 1)
 		{
-			$Informe_Descuentos  += $descuento[$i];
-			$Informe_TotalVentas2 += $precio_final[$i];
+			$Informe_Descuentos  += $descuento[$i]*$TRM[$i];
+			$Informe_TotalVentas2 += $precio_final[$i]*$TRM[$i];
 			
-			$InformeFormaDePagoSubtotal[$forma_de_pago[$i]] += $subtotal[$i];
-			$InformeFormaDePagoDescuentos[$forma_de_pago[$i]] += $descuento[$i];
+			$InformeFormaDePagoSubtotal[$forma_de_pago[$i]] += $subtotal[$i]*$TRM[$i];
+			$InformeFormaDePagoDescuentos[$forma_de_pago[$i]] += $descuento[$i]*$TRM[$i];
 			
 			
 			
@@ -307,7 +307,7 @@
 		
 			for($j=0; $j< $cantidadProductos[$i]; $j++)	
 			{
-				$InformeReferencia[$referencia[$i][$j]] += $valor_total[$i][$j];
+				$InformeReferencia[$referencia[$i][$j]] += $valor_total[$i][$j]*$TRM[$i];
 				$informeReferenciaCant[$referencia[$i][$j]]++;
 			}
 			
@@ -449,7 +449,7 @@ for($j=0; $j<count($cantidad[$i]); $j++)
 	</tr>
     <tr>
 		<td align="right">TRM</td>
-        <td align="right">COP $<?php echo $TRM[$i]; ?></td>
+        <td align="right">COP $<?php echo $TRM_mostrar[$i]; ?></td>
 	</tr>
 </table>
 
@@ -536,7 +536,7 @@ for($j=0; $j<count($cantidad[$i]); $j++)
 	</tr>
     <tr>       
     	<td>Ventas Excluidas</td>
-        <td>$ <?php echo $Informe_VentasExcluidas;?></td>
+        <td>$ <?php echo number_format($Informe_VentasExcluidas, 0, '.', ',');?></td>
         <td>0%</td>
         <td>$ 0.00</td>
     </tr>
@@ -550,28 +550,28 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     
     <tr>
     	<td>Descuentos</td>
-        <td>$ <?php echo $Informe_Descuentos;?></td>
+        <td>$ <?php echo number_format($Informe_Descuentos, 0, '.', ',');?></td>
         <td>0%</td>
         <td>$ 0.00</td>
     </tr>
     
     <tr>
     	<td>Ventas canceladas</td>
-        <td>$ <?php echo $Informe_VentasCanceladas;?></td>
+        <td>$ <?php echo number_format($Informe_VentasCanceladas, 0, '.', ',');?></td>
         <td>0%</td>
         <td>$ 0.00</td>
     </tr>
     
     <tr>
     	<td>Total Ventas</td>
-        <td>$ <?php echo $Informe_TotalVentas;?> </td>
+        <td>$ <?php echo number_format($Informe_TotalVentas, 0, '.', ',');?> </td>
         <td>0%</td>
         <td>$ 0.00</td>
     </tr>
     
     <tr bgcolor="#CCCCCC">
     	<td colspan="3"><b>Total Ventas más IVA</b></td>
-        <td>$ <?php echo $Informe_TotalVentas2." ".$Informe_VerificacionTotal;?> </td>
+        <td>$ <?php echo number_format($Informe_TotalVentas2, 0, '.', ',')." ".$Informe_VerificacionTotal;?> </td>
     </tr>
 
     </table>
@@ -621,21 +621,21 @@ for($j=0; $j<count($cantidad[$i]); $j++)
 	</tr>
     <tr>       
     	<td align="left">Payu Latam Colombia (TC)</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[1];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[1];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[1] - $InformeFormaDePagoDescuentos[1];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[1], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[1], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[1] - $InformeFormaDePagoDescuentos[1], 0, '.', ',');?></td>
     </tr>
     <tr>       
     	<td align="left">Payu Latam Colombia (PSE)</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[3];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[3];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[3] - $InformeFormaDePagoDescuentos[3];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[3], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[3], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[3] - $InformeFormaDePagoDescuentos[3], 0, '.', ',');?></td>
     </tr>
     <tr>       
     	<td align="left">Payu Latam Colombia (Baloto)</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[4];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[4];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[4] - $InformeFormaDePagoDescuentos[4];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[4], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[4], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[4] - $InformeFormaDePagoDescuentos[4], 0, '.', ',');?></td>
     </tr>
     <tr bgcolor="#CCCCCC">       
     	<td align="left"><b>Total Payu Latam Colombia</b></td>
@@ -644,21 +644,21 @@ for($j=0; $j<count($cantidad[$i]); $j++)
 			$totalPayuColombiaDescuentos = $InformeFormaDePagoDescuentos[1]+$InformeFormaDePagoDescuentos[3]+$InformeFormaDePagoDescuentos[4];
 			$toalPayuColombia = $totalPayuColombiaSubtotal - $totalPayuColombiaDescuentos;
 		?>
-        <td align="right">$ <?php echo $totalPayuColombiaSubtotal;?></td>
-        <td align="right">$ <?php echo $totalPayuColombiaDescuentos;?></td>
-        <td align="right">$ <?php echo $toalPayuColombia;?></td>
+        <td align="right">$ <?php echo number_format($totalPayuColombiaSubtotal, 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($totalPayuColombiaDescuentos, 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($toalPayuColombia, 0, '.', ',');?></td>
     </tr>
     <tr>       
     	<td align="left">Payu Latam Mexico (Oxxo)</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[5];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[5];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[5] - $InformeFormaDePagoDescuentos[5];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[5], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[5], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[5] - $InformeFormaDePagoDescuentos[5], 0, '.', ',');?></td>
     </tr>
     <tr>       
     	<td align="left">Payu Latam Mexico (7-Eleven)</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[7];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[7];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[7] - $InformeFormaDePagoDescuentos[7];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[7], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[7], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[7] - $InformeFormaDePagoDescuentos[7], 0, '.', ',');?></td>
     </tr>
     	<tr  bgcolor="#CCCCCC">       
     	<td align="left"><b>Total Payu Latam Mexico</b></td>
@@ -667,25 +667,25 @@ for($j=0; $j<count($cantidad[$i]); $j++)
 			$totalPayuMexicoDescuentos = $InformeFormaDePagoDescuentos[5]+$InformeFormaDePagoDescuentos[7];
 			$toalPayuMexico = $totalPayuMexicoSubtotal - $totalPayuMexicoDescuentos;
 		?>
-        <td align="right">$ <?php echo $totalPayuMexicoSubtotal;?></td>
-        <td align="right">$ <?php echo $totalPayuMexicoDescuentos;?></td>
-        <td align="right">$ <?php echo $toalPayuMexico;?></td>
+        <td align="right">$ <?php echo number_format($totalPayuMexicoSubtotal, 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($totalPayuMexicoDescuentos, 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($toalPayuMexico, 0, '.', ',');?></td>
     </tr>
     <tr  bgcolor="#CCCCCC">       
     	<td align="left">Total Payu Latam Peru (BCP)</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[6];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[6];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[6] - $InformeFormaDePagoDescuentos[6];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[6], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[6], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[6] - $InformeFormaDePagoDescuentos[6], 0, '.', ',');?></td>
     </tr>
     <tr bgcolor="#CCCCCC">       
     	<td align="left">Total Paypal</td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[2];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoDescuentos[2];?></td>
-        <td align="right">$ <?php echo $InformeFormaDePagoSubtotal[2] - $InformeFormaDePagoDescuentos[2];?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[2], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoDescuentos[2], 0, '.', ',');?></td>
+        <td align="right">$ <?php echo number_format($InformeFormaDePagoSubtotal[2] - $InformeFormaDePagoDescuentos[2], 0, '.', ',');?></td>
     </tr>
     <tr bgcolor="#CCCCCC">
     	<td align="right" colspan="3"><b>GRAN TOTAL</b></td>
-        <td align="right">$ <?php echo $toalPayuColombia+$toalPayuMexico+($InformeFormaDePagoSubtotal[6] - $InformeFormaDePagoDescuentos[6]+$InformeFormaDePagoSubtotal[2] - $InformeFormaDePagoDescuentos[2]);?> </td>
+        <td align="right">$ <?php echo number_format($toalPayuColombia+$toalPayuMexico+($InformeFormaDePagoSubtotal[6] - $InformeFormaDePagoDescuentos[6]+$InformeFormaDePagoSubtotal[2] - $InformeFormaDePagoDescuentos[2]), 0, '.', ',');?> </td>
     </tr>
     
     </table>
@@ -726,7 +726,7 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     	
         <td align="left"><?php echo $listaReferencias[$i];?></td>
         <td align="center"><?php echo $informeReferenciaCant[$listaReferencias[$i]];?></td>
-        <td align="right">$ <?php echo $InformeReferencia[$listaReferencias[$i]];?></td>
+        <td align="right">$ <?php echo number_format($InformeReferencia[$listaReferencias[$i]], 0, '.', ',');?></td>
     </tr>
     <?php 
 		}
@@ -734,12 +734,12 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     <tr bgcolor="#CCCCCC">
     	<td align="right"><b>Total por producto</b></td>
         <td><b><?php echo $InformeTotalPorProductoCant;?></b></td>
-        <td align="right"><b>$ <?php echo $InformeTotalPorProducto;?></b></td>
+        <td align="right"><b>$ <?php echo number_format($InformeTotalPorProducto, 0, '.', ',');?></b></td>
     </tr>
     <tr bgcolor="#CCCCCC">
     	<td align="right"><b>Total descuentos</b></td>
         <td></td>
-        <td align="right"><b>$ <?php echo $Informe_Descuentos;?></b></td>
+        <td align="right"><b>$ <?php echo number_format($Informe_Descuentos, 0, '.', ',');?></b></td>
     </tr>
     <tr bgcolor="#CCCCCC">
     	<td align="right"><b>Total IVA</b></td>
@@ -749,7 +749,7 @@ for($j=0; $j<count($cantidad[$i]); $j++)
     <tr bgcolor="#CCCCCC">
     	<td align="right"><b>Total por producto más IVA</b></td>
         <td></td>
-        <td align="right"><b>$ <?php echo $InformeTotalPorProducto - $Informe_Descuentos;?></b></td>
+        <td align="right"><b>$ <?php echo number_format($InformeTotalPorProducto - $Informe_Descuentos, 0, '.', ',');?></b></td>
     </tr>
     </table>
     
