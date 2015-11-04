@@ -47,7 +47,7 @@
 	$('.btnAgregar').click(function(){
 		$('.load').fadeIn();
 		var publicacion = $(this).attr('value');
-		var pedido = $.cookie('pedido');
+		var pedido = parseInt( $.cookie('pedido') );
 		console.log(pedido);
 		$.post('/includes/php.php',{
 			consulta: "agregar",

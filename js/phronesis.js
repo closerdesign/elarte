@@ -56,7 +56,7 @@ $(document).ready(function(){
 	}
 	// Obtener detalle del pedido
 	function contenidoDelPedido(){
-		var pedido = $.cookie('pedido');
+		var pedido = parseInt($.cookie('pedido'));
 		if( pedido !== 0 ){
 			$.post('/includes/php.php',{
 				consulta: "detalleDelPedido",
@@ -68,7 +68,7 @@ $(document).ready(function(){
 					$('.loaderPedido').html(data);
 					$.post('/includes/php.php',{
 						consulta: "valorDelPedido",
-						orden: $.cookie('pedido')
+						orden: parseInt($.cookie('pedido'))
 					}).done(function(msg){
 						if( msg > 0 ){
 							$('#formasDePago').fadeIn();

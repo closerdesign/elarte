@@ -13,16 +13,4 @@
 		}
 	}
 	
-	// Recuperar la sesión
-	//if(
-	//   (!isset($_SESSION['id'])) &&
-	//   (isset($_COOKIE['session']))
-	//){
-	//   $_SESSION['id'] = $_COOKIE['session'];
-	//   $html = "";
-	//   $html .= "<script>";
-	//   $html .= "	location.reload();";
-	//   $html .= "</script>";
-	//}
-	
 ?>
