@@ -241,7 +241,7 @@
 	{
 		global $con;
 
-		$sql = "SELECT * FROM `publicacionesxusuario` pub LEFT JOIN usuarios usu ON pub.usuario = usu.id WHERE `publicacion` = 21 GROUP BY usuario ORDER BY `publicacion` ASC ";
+		$sql = "SELECT * FROM usuarios usu JOIN publicacionesxusuario pub ON pub.usuario = usu.id AND usu.conferencia != 1 WHERE pub.publicacion = 21 GROUP BY pub.usuario ORDER BY pub.usuario ASC";
 		/*SELECT * FROM `publicacionesxusuario` pub LEFT JOIN usuarios usu ON pub.usuario = usu.id WHERE `publicacion` = 21 GROUP BY usuario ORDER BY `publicacion` ASC*/
 
 		$q = mysqli_query($con, $sql);
