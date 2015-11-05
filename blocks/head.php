@@ -142,6 +142,10 @@
 	<script src="/js/fws2.js"></script>
 	<script src="/js/imagesloaded.js"></script>
 	<script src="/js/jquery.easing.js"></script>
+	<script src="/js/moment.js"></script>
+	<script src="/js/moment-timezone-with-data.min.js"></script>
+	
+	<script src="/js/jquery.countdown.min.js"></script>
 	
 	<!-- Audio Player Circle -->
 	<script type="text/javascript" src="/js/jquery.transform2d.js"></script>

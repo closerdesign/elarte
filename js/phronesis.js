@@ -1267,3 +1267,17 @@ $('.carousel .item').each(function(){
 		next.children(':first-child').clone().appendTo($(this));
 	}
 });
+
+
+
+
+jQuery(document).ready(function($) {
+	var nextYear = moment.tz("2015-12-05 14:00", "America/Bogota");
+
+	$('#countDown').countdown(nextYear.toDate(), function(event) {
+		$('#dias').html(event.strftime('%D'));
+		$('#horas').html(event.strftime('%H'));
+		$('#minutos').html(event.strftime('%M'));
+		$('#segundos').html(event.strftime('%S'));
+	});
+});

@@ -2,6 +2,87 @@
 	<img src="/img/ajax-loader.gif" alt="Cargando..." />
 </div>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="Header-conferencia hidden-lg hidden-md">
+		<div class="container">
+			<a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso?utm_source=banner-header&utm_medium=phronesis&utm_campaign=enamoratedeti">
+				<div class="row Header-conferenciaContainer">
+					<div class="Header-conferenciaColumns col-sm-3 col-xs-3 Header-conferenciaImg">
+						<img class="img-circle" src="/img/walter-riso-conferencia.jpg" alt="Walter Riso" style="width: 72%;">
+					</div>
+					<div class="Header-conferenciaColumns col-sm-9 col-xs-9 Header-conferenciaTitulo">
+						<h5>Conferencia Virtual</h5>
+						<h4>¡ENAMÓRATE DE TÍ!</h4>
+						<h5>Walter Riso</h5>
+					</div>
+				</div>
+				<div class="row Header-conferenciaContainer" style="text-align: right; padding-right: 26px;">
+					<div class="Header-conferenciaColumns col-sm-12 Header-conferenciaMensaje" style="font-size: 1.4rem;">
+						< Ver más >
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="Header-conferencia hidden-xs hidden-sm">
+		<div class="container">
+			<a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso?utm_source=banner-header&utm_medium=phronesis&utm_campaign=enamoratedeti">
+				<div class="row Header-conferenciaContainer">
+					<div class="Header-conferenciaColumns col-lg-2 Header-conferenciaImg">
+						<img class="img-circle" src="/img/walter-riso-conferencia.jpg" alt="Walter Riso">
+					</div>
+					<div class="Header-conferenciaColumns col-lg-3 Header-conferenciaTitulo">
+						<h5>Conferencia Virtual</h5>
+						<h4>¡ENAMÓRATE DE TÍ!</h4>
+						<h5>Walter Riso</h5>
+					</div>
+					<div class="Header-conferenciaColumns col-lg-2 Header-conferenciaMensaje">
+						En preventa <br>
+						USD 7,99 <br>
+						Hasta noviembre 7
+					</div>
+					<div class="Header-conferenciaColumns col-lg-3 Header-conferenciaCountdown">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="row">
+									<span id="dias"></span>
+								</div>
+								<small>Días</small>
+							</div>
+							<div class="col-lg-3">
+								<div class="row">
+									<span id="horas"></span>
+								</div>
+								<small>Horas</small>
+							</div>
+							<div class="col-lg-3">
+								<div class="row">
+									<span id="minutos"></span>
+								</div>
+								<small>Minutos</small>
+							</div>
+							<div class="col-lg-3">
+								<div class="row">
+									<span id="segundos"></span>
+								</div>
+								<small>Segundos</small>
+							</div>
+						</div>
+						<div class="row">
+							<div class="Header-conferenciaMensaje">
+								5 de diciembre de 2015
+							</div>
+						</div>
+						<div id="countDown"></div>
+					</div>
+					<div class="Header-conferenciaColumns col-lg-2 Header-conferenciaCta">
+						<button class="btn btn-success btn-lg">
+							¡Adquiere ya tu entrada!
+						</button>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
