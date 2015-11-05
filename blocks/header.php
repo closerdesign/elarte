@@ -2,7 +2,7 @@
 	<img src="/img/ajax-loader.gif" alt="Cargando..." />
 </div>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="Header-conferencia hidden-lg hidden-md">
+	<div class="Header-conferencia hidden-lg hidden-md hidden-xs">
 		<div class="container">
 			<a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso?utm_source=banner-header&utm_medium=phronesis&utm_campaign=enamoratedeti">
 				<div class="row Header-conferenciaContainer">
@@ -10,14 +10,9 @@
 						<img class="img-circle" src="/img/walter-riso-conferencia.jpg" alt="Walter Riso" style="width: 72%;">
 					</div>
 					<div class="Header-conferenciaColumns col-sm-9 col-xs-9 Header-conferenciaTitulo">
-						<h5>Conferencia Virtual</h5>
+						<h5>Conferencia Virtual por Walter Riso</h5>
 						<h4>¡ENAMÓRATE DE TÍ!</h4>
-						<h5>Walter Riso</h5>
-					</div>
-				</div>
-				<div class="row Header-conferenciaContainer" style="text-align: right; padding-right: 26px;">
-					<div class="Header-conferenciaColumns col-sm-12 Header-conferenciaMensaje" style="font-size: 1.4rem;">
-						< Ver más >
+						<h5 style="text-align: right;">< Ver más ></h5>
 					</div>
 				</div>
 			</a>
