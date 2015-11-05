@@ -1694,9 +1694,11 @@ img.mfp-img {
     top: 50%;
     left: 50%;
 } */
-
+.modal{
+	overflow-y: auto !important;
+}
 .modal-body {
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }
 .modal-footer {
     margin-top: 0;
