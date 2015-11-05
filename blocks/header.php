@@ -33,7 +33,7 @@
 					<div class="Header-conferenciaColumns col-lg-2 Header-conferenciaMensaje">
 						En preventa <br>
 						USD 7,99 <br>
-						Hasta noviembre 7
+						Hasta noviembre 10
 					</div>
 					<div class="Header-conferenciaColumns col-lg-3 Header-conferenciaCountdown">
 						<div class="row">
