@@ -37,6 +37,11 @@
 					</div>
 					<div class="Header-conferenciaColumns col-lg-3 Header-conferenciaCountdown">
 						<div class="row">
+							<div class="Header-conferenciaMensaje">
+								SOLO FALTAN
+							</div>
+						</div>
+						<div class="row">
 							<div class="col-lg-3">
 								<div class="row">
 									<span id="dias"></span>
@@ -60,11 +65,6 @@
 									<span id="segundos"></span>
 								</div>
 								<small>Segundos</small>
-							</div>
-						</div>
-						<div class="row">
-							<div class="Header-conferenciaMensaje">
-								5 de diciembre de 2015
 							</div>
 						</div>
 						<div id="countDown"></div>
