@@ -1280,4 +1280,11 @@ jQuery(document).ready(function($) {
 		$('#minutos').html(event.strftime('%M'));
 		$('#segundos').html(event.strftime('%S'));
 	});
+
+	$('body').on('click', '#Close-header', function(event) {
+		event.preventDefault();
+		$('.Header-conferencia').slideUp('fast');
+	});
 });
+
+

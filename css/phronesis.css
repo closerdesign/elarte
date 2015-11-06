@@ -1816,3 +1816,14 @@ img.mfp-img {
 
 	border: 1px solid transparent;
 }
+
+#Close-header{
+	background: #717171;
+	color: #750000;
+	font-size: 1.9rem;
+	opacity: .5;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 9999;
+}

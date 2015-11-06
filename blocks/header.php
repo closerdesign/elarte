@@ -2,8 +2,10 @@
 	<img src="/img/ajax-loader.gif" alt="Cargando..." />
 </div>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="Header-conferencia hidden-lg hidden-md hidden-xs">
+	<div class="Header-conferencia hidden-lg hidden-md">
 		<div class="container">
+				<button id="Close-header" class="btn fa fa-remove">
+				</button>
 			<a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso?utm_source=banner-header&utm_medium=phronesis&utm_campaign=enamoratedeti">
 				<div class="row Header-conferenciaContainer">
 					<div class="Header-conferenciaColumns col-sm-3 col-xs-3 Header-conferenciaImg">
