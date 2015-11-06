@@ -225,7 +225,7 @@
 						<tr><td>México, Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>1:00 p.m.</td></tr>
 						<tr><td>Bogotá, Lima, Quito, Panamá, Miami, New York</td><td>2:00 p.m.</td></tr>
 						<tr><td>Caracas</td><td>2:30 p.m.</td></tr>
-						<tr><td>San Juan, Sucre</td><td>3:00 p.m.</td></tr>
+						<tr><td>San Juan, Sucre, Santo Domingo</td><td>3:00 p.m.</td></tr>
 						<tr><td>Buenos Aires, Asunción, Santiago, Montevideo</td><td>4:00 p.m.</td></tr>
                         <tr><td>Sao Paulo</td><td>5:00 p.m.</td></tr>
 						<tr><td>Madrid, Barcelona</td><td>8:00 p.m.</td></tr>
@@ -254,6 +254,57 @@
                 
                 
                 
+            <div class="row">
+            
+            	<hr />
+            	<h3>¿Tienes dudas o comentarios? Estaremos atentos a responderte</h3>
+                
+            
+            	<?php
+					$actual_link = "https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso";
+					?>
+					<div id="fb-root"></div>
+					<script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1555280741417343";
+					fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));</script>
+					
+					<div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
+                    
+                    <br />
+            
+            
+            
+            <div class="row">
+            	<div class="col-md-6">
+                	<h3 class="text-center">¿Prefieres hablar con nosotros?</h3>
+                    <h4 class="text-center">Llámanos</h4>
+                    <br />
+                    <p class="text-center" style="font-size:16px;">
+                    	Colombia: +5713819084<br />
+                        México: +525541708262<br />
+                        Estados Unidos: +13052304729<br />
+                    </p>
+                    <p class"text-center">También puedes hablar con nosotros a través del chat que encuentras en la parte inferior izquierda de esta página</p>
+                </div>
+                
+                <div class="col-md-6">
+                	<h3 class="text-center">Otros medios de contacto</h3>  
+                    <h4 class="text-center">Estaremos atentos a responderte</h4>     
+                    <br />
+                    <p class="text-center" style="font-size:16px;">
+                    	Email: info@phronesisvirtual.com<br />
+                        Skype: editorialphronesis<br />
+                        Facebook: https://www.facebook.com/phronesisvirtual<br />
+                        Twitter: @phronesisvir<br />
+                    </ul>
+                    
+                </div>
+
+            
             </div>    
     		
 		</div>
