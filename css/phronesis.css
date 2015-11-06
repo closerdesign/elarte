@@ -1752,6 +1752,10 @@ img.mfp-img {
 .Header-conferencia{
 	background: #632523;
 }
+.Header-conferencia .container{
+	padding-left: 0;
+	padding-right: 38px;
+}
 .Header-conferenciaTitulo{
 	color: #FFFF0A;
 	font-size: 1.5rem;
