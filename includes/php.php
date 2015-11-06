@@ -347,15 +347,33 @@
 						</tr>
 					</tbody>
 				</table>
-				<br>
 			';
 
-			$mensaje .= '<p><a href="http://www.timeanddate.com/worldclock/fixedtime.html?p1=41&iso=20151205T14&msg=Conferencia%20Virtual%20-%20Enam%C3%B3rate%20de%20ti&ah=2&low=5">Consulta aquí el horario en otras ciudades</a></p>';
+			$mensaje .= '<p><a href="http://www.timeanddate.com/worldclock/fixedtime.html?p1=41&iso=20151205T14&msg=Conferencia%20Virtual%20-%20Enam%C3%B3rate%20de%20ti&ah=2&low=5">Consulta aquí el horario en otras ciudades</a></p><br>';
 
-			$mensaje .= '<p style="text-align: justify;">Para acceder a la conferencia debes ingresar el día del evento a <a href="http://www.elartedesabervivir.com">www.elartedesabervivir.com</a> e iniciar sesión con tu usuario y contraseña; allí encontrarás la información necesaria. No obstante, días antes de la conferencia te enviaremos un email con todas las instrucciones.</p>';
+			$mensaje .= '<p style="text-align: justify;">Para acceder a la conferencia debes ingresar el día del evento a <a href="http://www.elartedesabervivir.com">www.elartedesabervivir.com</a> e iniciar sesión con tu usuario y contraseña; allí encontrarás la información necesaria. No obstante, días antes de la conferencia te enviaremos un email con todas las instrucciones.</p><br>';
+			$mensaje .= '<p><strong>¿Necesitas más información?</strong></p>
+			<p>
+				<strong>Llámanos:</strong>
+			</p>
+			<p>
+				<strong>Colombia:</strong> + 571 3819084 <br>
+				<strong>Estados Unidos:</strong> +1 305 2304729 <br>
+				<strong>México:</strong> +525 541 708262 <br>
+			</p>
+			<p>
+				<strong>O escríbenos</strong><br>
+				<strong>Email:</strong> info@phronesisvirtual.com<br>
+				<strong>Skype:</strong> editorialphronesis<br>
+				<strong>Facebook:</strong> <a href="https://www.facebook.com/phronesisvirtual">https://www.facebook.com/phronesisvirtual</a><br>
+				<strong>Twitter:</strong> <a href="https://twitter.com/phronesisvir">@phronesisvir</a><br>
+			</p>
+			<br>';
 			$mensaje .= '<p>¡Nos vemos pronto!</p>';
 			$mensaje .= '<p><strong>El equipo Phrónesis</strong></p>';
+			
 			$sql2 = 'UPDATE usuarios SET `conferencia` = 1 WHERE `usuarios`.`id` = '.$item['id'];
+			
 			notificar( getEmailUsuario($item['id']) ,'Confirmación de compra',$mensaje);
 			
 			if(!mysqli_query($con, $sql2)){
