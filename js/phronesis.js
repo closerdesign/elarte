@@ -1284,6 +1284,7 @@ jQuery(document).ready(function($) {
 	$('body').on('click', '#Close-header', function(event) {
 		event.preventDefault();
 		$('.Header-conferencia').slideUp('fast');
+		$('.header-top').css('padding-top', '70px');
 	});
 });
 
