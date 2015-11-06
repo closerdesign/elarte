@@ -10,6 +10,9 @@
 			consulta: "publicacionesPedido"
 		}).done(function(data){
 			if(data!=0){
+				if ( data == 'Error en el pedido' ) {
+					data = 0;
+				}
 				$('#noProductos').html(data);
 				$('#noProductos').fadeIn();
 				$('.carrito').fadeIn();
