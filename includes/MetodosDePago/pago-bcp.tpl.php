@@ -1,5 +1,5 @@
 <form id="pagoConBcp">
-	<div class="modal-header">
+	<div>
 		<h4>
 			<i class="fa fa-money"></i> Pagos en Banco de Crédito - BCP
 		</h4>
@@ -38,18 +38,16 @@
 		<?php
 		}
 		?>
-		<hr>
 		<div class="row">
-			<div class="col-md-12">
-				<p class="lead pull-right">
+			<div class="col-lg-9 col-md-9">
+				<p class="lead">
 				Valor a pagar: USD <span id="valorConferencia"><?= number_format($valor,2); ?></span>
 				</p>
 			</div>
+			<div class="col-lg-3 col-md-3">
+				<button type="submit" class="btn btn-primary"><i class="fa fa-money"></i> Continuar</button>
+			</div>
 		</div>
-
-	</div>
-	<div class="modal-footer">
-		<button type="submit" class="btn btn-primary"><i class="fa fa-money"></i> Continuar</button>
 	</div>
 </form>
 
@@ -107,7 +105,7 @@
 			.fail(function(data) {
 				if ( data.statusText === 'timeout' ) {
 					var info = {
-						id_usuario: '<?= $_SESSION[id]; ?>',
+						id_usuario: '<?= $_SESSION["id"]; ?>',
 						url: window.location.href,
 						metodo: '<?= $metodo; ?>',
 						consulta: 'logErroresPagos'

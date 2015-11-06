@@ -1,5 +1,5 @@
 <form id="pagoTarjetaDeCredito">
-	<div class="modal-header">
+	<div>
 		<h4>
 			<i class="fa fa-credit-card"></i> Pagar con tarjeta de crédito
 			<a href="http://www.payulatam.com/logos/pol.php?l=150&c=556df33bef3cd" target="_blank"><img class="pull-right" src="http://www.payulatam.com/logos/logo.php?l=150&c=556df33bef3cd" height="30" alt="PayU Latam" border="0" /></a>
@@ -90,16 +90,15 @@
 		}
 		?>
 	</div>
-	<hr>
 	<div class="row">
-		<div class="col-md-12">
-			<p class="lead pull-right">
+		<div class="col-lg-9 col-md-9">
+			<p class="lead">
 				Valor a pagar: USD <span id="valorConferencia"><?= number_format($valor,2); ?></span>
 			</p>
 		</div>
-	</div>
-	<div class="modal-footer">
-		<button type="submit" class="btn btn-primary"><i class="fa fa-credit-card"></i> Pagar</button>
+		<div class="col-lg-3 col-md-3">
+			<button type="submit" class="btn btn-primary"><i class="fa fa-credit-card"></i> Pagar</button>
+		</div>
 	</div>
 </form>
 

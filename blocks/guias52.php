@@ -513,7 +513,6 @@
 							</p>
 						</div>
 					</div>
-					<hr>
 					<div class="row">
                     	<p class="mensajeEspera2" style="display:none">Un momento por favor...</p>
 						<div id="metodoPago" class="col-lg-12" style="display:none;">

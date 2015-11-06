@@ -1,5 +1,5 @@
 <form id="pagoConPSE">
-	<div class="modal-header">
+	<div>
 		<h4>
 			<i class="fa fa-university"></i> Pagar con Transferencia Bancaria PSE
 		</h4>
@@ -41,13 +41,15 @@
 		<?php
 		}
 		?>
-		<hr>
 		<div class="row">
-			<div class="col-md-12">
-				<p class="lead pull-right">
+			<div class="col-lg-9 col-md-9">
+				<p class="lead">
 					Valor a pagar: USD 
 					<span id="valorConferencia"><?= number_format($valor,2); ?></span>
 				</p>
+			</div>
+			<div class="col-lg-3 col-md-3">
+				<button type='submit' class='btn btn-primary'><i class='fa fa-paypal'></i> Continuar</button>
 			</div>
 		</div>
 		<input type="hidden" name="tipoPersona" id="tipoPersona" value="N" />
@@ -171,8 +173,5 @@
 				}
 			});
 		</script>
-	</div>
-	<div class='modal-footer'>
-		<button type='submit' class='btn btn-primary'><i class='fa fa-paypal'></i> Continuar</button>
 	</div>
 </form>
