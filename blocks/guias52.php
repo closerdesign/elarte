@@ -21,6 +21,17 @@
 
 	<!-- <div><img class="img img-responsive" src="../img/bannerl2.png"  /></div> -->
 	
+    <?php
+    date_default_timezone_set('America/Bogota');
+    $date = date('m/d/Y h:i:s a', time());
+    $dia = date('d', time());
+    $mes = date('m', time());
+    $anio = date('Y', time());
+   
+    $dia = 06;
+    $mes = 12;
+    ?>
+
 	<div class="row top" >
     
 
@@ -75,19 +86,103 @@
                         
                         <table border="0" width="100%">
                         	<tr height="80px">
-                            	<td valign="middle" width="20px"><input type="radio" value="1" name="precio_conferencia" checked="checked" /></td>
-                                <td valign="middle"><span style="font-size:16px; color:#FFF"><b>Primera preventa</b></span><br /><span style="font-size:15px; color:#FFF">Hasta nov. 10 de 2015</span></td>
-                                <td valign="middle" align="right"><span style="font-size:24px; color:#FFF">USD 7,99</span></td>
+                                <?php
+                                    if ( $dia <= 10 && $mes == 11 ) {
+                                ?>
+                                	<td valign="middle" width="20px">
+                                        <input type="radio" value="1" name="precio_conferencia" checked="checked" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#FFF"><b>Primera preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#FFF">Hasta nov. 10 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#FFF">USD 7,99</span>
+                                    </td>
+                                <?php        
+                                    }else{
+                                ?>
+                                    <td valign="middle" width="20px">
+                                        <input type="radio" value="1" name="precio_conferencia" disabled="disabled" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#a88080"><b>Primera preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#a88080">Hasta nov. 10 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#a88080">USD 7,99</span>
+                                    </td>
+                                <?php
+                                    }
+                                ?>
                             </tr>
                             <tr height="80px">
-                            	<td valign="middle" width="20px"><input type="radio" value="2" name="precio_conferencia" disabled="disabled" /></td>
-                                <td valign="middle"><span style="font-size:16px; color:#a88080"><b>Segunda preventa</b></span><br /><span style="font-size:15px; color:#a88080">Hasta nov. 17 de 2015</span></td>
-                                <td valign="middle" align="right"><span style="font-size:24px; color:#a88080">USD 9,99</span></td>
+                                <?php
+                                    if ( ($dia <= 17 && $dia > 10) && $mes == 11) {
+                                ?>
+                                    <td valign="middle" width="20px">
+                                            <input type="radio" value="2" name="precio_conferencia" checked="checked" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#FFF"><b>Segunda preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#FFF">Hasta nov. 17 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#FFF">USD 9,99</span>
+                                    </td>
+                                <?php        
+                                    }else{
+                                ?>
+                                    <td valign="middle" width="20px">
+                                            <input type="radio" value="2" name="precio_conferencia" disabled="disabled" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#a88080"><b>Segunda preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#a88080">Hasta nov. 17 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#a88080">USD 9,99</span>
+                                    </td>
+                                <?php
+                                    }
+                                ?>
                             </tr>
                             <tr height="80px">
-                            	<td valign="middle" width="20px"><input type="radio" value="3" name="precio_conferencia" disabled="disabled" /></td>
-                                <td valign="middle"><span style="font-size:16px; color:#a88080"><b>Precio full</b></span><br /><span style="font-size:15px; color:#a88080">Hasta dic. 5 de 2015</span></td>
-                                <td valign="middle" align="right"><span style="font-size:24px; color:#a88080">USD 14,99</span></td>
+                                <?php
+                                    if ( $dia <= 05 && $mes == 12) {
+                                ?>
+                                    <td valign="middle" width="20px">
+                                        <input type="radio" value="3" name="precio_conferencia" checked="checked" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#FFF"><b>Precio full</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#FFF">Hasta dic. 5 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#FFF">USD 14,99</span>
+                                    </td>
+                                <?php
+                                    }else{
+                                ?>
+                                	<td valign="middle" width="20px">
+                                        <input type="radio" value="3" name="precio_conferencia" disabled="disabled" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#a88080"><b>Precio full</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#a88080">Hasta dic. 5 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#a88080">USD 14,99</span>
+                                    </td>
+                                <?php
+                                    }
+                                ?>
                             </tr>
                         
                         </table>
