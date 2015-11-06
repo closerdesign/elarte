@@ -1819,9 +1819,9 @@ img.mfp-img {
 
 #Close-header{
 	background: #717171;
-	color: #750000;
+	color: #FFF;
 	font-size: 1.9rem;
-	opacity: .5;
+	opacity: .8;
 	position: absolute;
 	right: 0;
 	top: 0;
