@@ -562,7 +562,7 @@
 
 													//$newstr = substr_replace($data['contenido'], $str_to_insert, $length, 0);
 
-													if($_REQUEST['alias'] <> "el-arte-y-la-virtud-del-cuidado")
+													if($_REQUEST['alias'] <> "el-arte-y-la-virtud-del-cuidado" AND $_REQUEST['alias'] <> "angeles-caidos-o-antropoides-erguidos" AND $_REQUEST['alias'] <> "mente-sana-vida-sana" AND $_REQUEST['alias'] <> "infantopsicologia")
 														$newstr = inject_ad_text_after_n_chars($data['contenido']);
 													else
 														$newstr = $data['contenido'];
@@ -588,19 +588,31 @@
                             <!-- ///////////////////////////PUBLICIDAD FINAL//////////////////////-->
                             <?php if($_REQUEST['alias'] <> "el-arte-y-la-virtud-del-cuidado"){ ?>
 							
-                            <hr />
-                            <h3 style="font-style:italic">&iquest;C&oacute;mo afrontar la soledad tras una ruptura, infidelidad o rechazo afectivo?</h3>
                             
-                            <div class="row">
-                            	<div class="col-md-6" align="center">
-                            		<a href="https://goo.gl/MDTePb" target="_blank"><img alt="La soledad afectiva" class="img-responsive" src="http://elartedesabervivir.com/img/landings/Soledad-afectiva-video.jpg" style="height:227px; width:340px" /></a>
-                            	</div> 
-                            
-                            	<div class="col-md-6">
-                            		<p style="text-align:justify; font-size:16px">Si no sabemos manejar la soledad, si no estamos acostumbrados a ella, o si le tememos, seremos personas vulnerables en el amor, predispuestos a padecer con m&aacute;s intensidad el dolor de una separaci&oacute;n, de una infidelidad o de un rechazo afectivo. En este video el prestigioso psic&oacute;logo y escritor Walter Riso profundiza sobre este importante tema: <a href="https://goo.gl/MDTePb">https://goo.gl/PYQzhe</a></p>
-                            	</div>
+                            <div class="row" align="center">
+                                <hr />
+                                
+                                <a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso"><img class="img-responsive" src="../img/landings/conferencia-walter-riso.png" alt="Conferencia enamorate de ti" title="Conferencia virutal por Watler Riso: Enamorate de ti" /></a>
+                                
+                                
+                                <!--
+                                <h3 style="font-style:italic">&iquest;C&oacute;mo afrontar la soledad tras una ruptura, infidelidad o rechazo afectivo?</h3>
+                                
+                                <div class="row">
+                                    <div class="col-md-6" align="center">
+                                        <a href="https://goo.gl/MDTePb" target="_blank"><img alt="La soledad afectiva" class="img-responsive" src="http://elartedesabervivir.com/img/landings/Soledad-afectiva-video.jpg" style="height:227px; width:340px" /></a>
+                                    </div> 
+                                
+                                    <div class="col-md-6">
+                                        <p style="text-align:justify; font-size:16px">Si no sabemos manejar la soledad, si no estamos acostumbrados a ella, o si le tememos, seremos personas vulnerables en el amor, predispuestos a padecer con m&aacute;s intensidad el dolor de una separaci&oacute;n, de una infidelidad o de un rechazo afectivo. En este video el prestigioso psic&oacute;logo y escritor Walter Riso profundiza sobre este importante tema: <a href="https://goo.gl/MDTePb">https://goo.gl/PYQzhe</a></p>
+                                    </div>
+                                </div>
+                                
+                                -->
+                                
+                                <hr />
+                                
                             </div>
-                            <hr />
                             <?php } ?>
                             <!-- ///////////////////////////FIN PUBLICIDAD FINAL//////////////////////-->
 							

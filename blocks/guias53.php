@@ -28,6 +28,48 @@
         
         	<div class="row">
             
+            	<h1 class="text-center">Carta a mi amiga sin autoestima</h1>
+                <br />
+                <p style="font-size:16px">"No tengo tiempo para dormir el domingo, tengo tanto por hacer que me da remordimiento". Me disgusta que digas cosas como estas. Cuando te escucho me dan ganas de darte una cátedra sobre el amor propio (que, por cierto, hoy entiendo y disfruto gracias a los libros de Walter Riso). Sin embargo, y por prudencia, me toca callar pues ya en un intento previo recibí de ti malas respuestas;  sé bien que no te agradan mis consejos sobre el tema.</p>
+                <br />
+                <p style="font-size:16px">Yo también tengo, como millones de mujeres en el mundo, mil cosas por hacer: tengo hijos, un trabajo, una casa y un esposo con el cual compartir. Pero duermo hasta tarde los domingos, duermo tranquila aun cuando deba hacer tantas cosas. Como todos, necesito descansar y no me da remordimiento hacerlo; duermo dulce y plácidamente, reconforto mis ganas, mi entusiasmo y energías y vuelvo a empezar. Me gusta hacer "nada" cuando puedo, así libero mi mente de tantos "compromisos" que me llevan al estrés.</p>
+                <br />
+            	
+            </div>
+            
+            
+            <div class="row">
+            	<div class="col-md-6">
+                	<img width="100%" class="img img-responsive" src="../img/landings/mujer-con-alta-autoestima.png" alt:"Mujer con alta autoestima" title="Mujer con alta autoestima mirandose al espejo" />
+                </div>
+            	
+                <div class="col-md-6">
+                	<p style="font-size:16px">
+                    	También me miro al espejo muchas veces y me digo "¡qué bella estás!"; al escucharme me sonrojo y sonrío; cuando te conté lo que yo hacía, que me hablaba, solo logré un ataque de risa en ti y recuerdo las palabras que dijiste: "yo nunca me miro al espejo, si acaso por 2 segundos y ya"; pues ya lo sabes, yo sí me aprecio, me aplaudo, me hablo… Me disgusta cuando dices "¡estoy fea, no tengo la cintura como quiero!", o esa vez que me dijiste "Me voy a encontrar con Juan" y la emoción duró un segundo, pues de inmediato te recriminaste: "cuantos años y yo trabajando igual, con la misma ropa, no tengo carro y ni un apartamento propio"… ¿Cómo es posible volver un momento de emoción y reencuentro en una tragedia monumental? ¡Oh por Dios! Has tenido nuevos amores, nuevos amigos, aprendiste un nuevo idioma, has viajado, aprendiste de cocina, has vivido y experimentado, has bailado, has comido los banquetes que has querido, has, has, has… ¿Por qué te fijas solo en lo negativo? Cuántos quisieran hacer tanto como tú, llevar la vida que tu llevas, tener buena salud y simplemente vivir.
+                    </p>
+                </div>
+            
+            </div>
+            
+            <div class="row">
+            	<p style="font-size:16px">
+                	<br />
+            		A ti, mujer sin autoestima, quiero hacerte comprender lo siguiente: si te aplaudes por tus logros (que son muchos), si te miras al espejo y te besas, si te abrazas, si haces "nada" en una tarde y dedicas ese tiempo para ti, tu autoestima se verá renovada, aparecerá una nueva mujer llena de ganas, entusiasmo y amor. Ya no verás como anormales mis acciones, como aquella de sentarme en un parque, quitarme los zapatos y tocar el pasto, mirar a lo lejos y solo pensar, disfrutar colores, disfrutar del viento. ¡No sé si estoy loca! Y si lo estoy, lo disfruto inmensamente.
+                </p>
+ 				<p style="font-size:16px">
+					Mujer sin autoestima: Cuando digo que quiero emprender un nuevo hobbie, no me digas "eso te quita mucho tiempo"; créeme, yo lo disfruto y sí, quita tiempo, pero me gusta y lo hago con placer. Yo de ti me creo el cuento, estás aquí para disfrutar cada momento, para disfrutarte a ti misma, bella e inteligente mujer.
+				</p>
+                <hr />
+                <p style="font-size:16px">
+					<b>CONCLUSIÓN:</b> Cuando amamos lo que somos y aceptamos la realidad de nuestro ser, se nos hará más fácil aceptar aquello que no nos gusta; buscando mejorarlo y trabajar para sentirnos cada día más satisfechos con nosotros mismos. Como lo indica el psicólogo y escritor Walter Riso en su "Guía práctica para mejorar la autoestima": <i>"Activar el amor propio es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal. Y no se está haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos e integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera.  La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, dependencia emocional, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más"</i>. Hoy queremos invitarte a la conferencia virtual que dictará Walter Riso sobre este importante tema el próximo 5 de diciembre de 2015, es una cita para iniciar un romance que durará toda la vida: <i>el romance contigo mismo</i>. ¡No te la pierdas!. 
+                </p>
+            	<hr />
+            </div>
+        
+        
+        
+        	<div class="row">
+            
             	<img width="100%" class="img img-responsive" src="../img/landings/conferencia-virtual-enamorate-de-ti-3.png" alt:"Conferencia virtual por Walter Riso" title="Enamorate de ti, conferencia virtual por Walter Riso" />
 
             </div>
@@ -230,6 +272,7 @@
                         <tr><td>Sao Paulo</td><td>5:00 p.m.</td></tr>
 						<tr><td>Madrid, Barcelona</td><td>8:00 p.m.</td></tr>
 					</table>
+                    <p class="lead"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?p1=41&iso=20151205T14&msg=Conferencia%20Virtual%20-%20Enam%C3%B3rate%20de%20ti&ah=2&low=5" target="_blank">Consultar más horarios</a></p>
                             
                     <br />
                     
@@ -255,8 +298,8 @@
             </div>    
                 
             <div class="row">
-            
             	<hr />
+            	
             	<h3>¿Tienes dudas o comentarios? Estaremos atentos a responderte</h3>
                 
             
@@ -274,9 +317,13 @@
 					
 					<div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
                     
-                    <br />
+                    <hr />
             
-            </div>
+ 
+            
+            
+            </div>   
+            
             
             <div class="row">
             	<div class="col-md-6">
@@ -303,9 +350,10 @@
                     </ul>
                     
                 </div>
-
+                
             
-            </div>    
+            </div>
+             
     		
 		</div>
 
@@ -513,6 +561,7 @@
 							</p>
 						</div>
 					</div>
+					<hr>
 					<div class="row">
                     	<p class="mensajeEspera2" style="display:none">Un momento por favor...</p>
 						<div id="metodoPago" class="col-lg-12" style="display:none;">
@@ -630,7 +679,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 52
+				landing: 53
 			};
 
 			$('#metodoPago').empty();

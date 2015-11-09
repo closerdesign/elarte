@@ -26,30 +26,23 @@
 
 		<div class="container">
         
-        	<div class="row">
-            
-            	<img width="100%" class="img img-responsive" src="../img/landings/conferencia-virtual-enamorate-de-ti-3.png" alt:"Conferencia virtual por Walter Riso" title="Enamorate de ti, conferencia virtual por Walter Riso" />
+        	
 
-            </div>
-            
-            <div class="row">
-            
-            	<p style="font-size:18px; color:#600">
-                	<br /><i>"Los que no se quieren a sí mismos han aprendido a echarse la culpa por casi todo lo que hacen mal y a dudar del propio esfuerzo cuando hacen las cosas bien, como si tuvieran los cables cruzados." Walter Riso</i>
-                </p>
-            
+        
+        	<div class="row">
+            	    <h1 class="text-center">CONFERENCIA VIRTUAL ENAMÓRATE DE TI</h1>
+                    <h3 class="text-center">El poder de la autoestima para el desarrollo del potencial humano</h3>
+                    <br />
             </div>
         
         	<div class="row">
             	<div class="col-md-6" style="margin:0px 0px 20px 0px;">
-                	<h1 class="text-center">Enamórate de ti</h1>
-                    <h3 class="text-center">Conferencia virtual por Walter Riso</h3>
-                    <br />
+                	<br />
                     <p style="font-size:16px">
-                    Amarse a uno mismo es fundamental. Activar la autoestima es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal; no hay otra forma de cuidarse y de  reconocerse como un ser digno. No solamente es el punto de  referencia para saber cuánto se debe amar a los demás, sino que actúa como un factor de protección para las enfermedades psicológicas y un elemento que genera bienestar y calidad de vida. 
+                    La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más. En el amor la mala autoestima es una de las principales razones para que aparezcan problemas de dependencia, celos desmedidos, inseguridad, rechazo, entre otros. La conclusión de los especialistas es clara: si la autoestima no posee suficiente fuerza, viviremos mal, seremos infelices y ansiosos, y no sabremos manejar con asertvidad los problemas de pareja. 
                     </p>
                     <p style="font-size:16px">
-                    En esta conferencia, Walter Riso nos guiará hacia la obtención de la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y las virtudes que poseemos, para integrarlas al desarrollo de nuestra vida y volcarlas a los demás de manera efectiva y compasiva. Será un espacio para reflexionar y reencontrarse con la propia esencia, en un proceso donde las aspiraciones personales habrán de converger hacia un estado de bienestar auténtico.
+                    En esta magistral conferencia, Walter Riso nos dará las pautas para activar el amor propio, pero no haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos e integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera. Quererse uno mismo, despreciando o ignorando a los demás, es presunción y exclusión; querer a los demás, despreciándose uno mismo, es no reconocer el autoamor que nos define.
                     </p>
                     <br />
                     <ul style="list-style-image:../img/vineta2.png">
@@ -161,61 +154,19 @@
                 
                 	<h3>Medios de pago disponibles</h3>
                 	<br />
-                	<table class="table table-striped table-bordered">
-						<tr valign="middle">
-                        	<th></th>
-                            <th>Visa</th>
-                            <th>Mastercard</th>
-                            <th>Diners</th>
-                            <th>AMEX</th>
-                            <th>Paypal</th>
-                            <th>PSE</th>
-                            <th>Pago en efectivo</th>
-                        </tr>
-                        <tr>
-                        	<td>Desde cualquier país del mundo</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center"></td>
-                        </tr>
-                         <tr>
-                        	<td>Desde Colombia</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center">Baloto</td>
-                        </tr>
-                         <tr>
-                        	<td>Desde México</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center">Oxxo</td>
-                        </tr>
-                         <tr>
-                        	<td>Desde Perú</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center">BCP</td>
-                        </tr>
-                                
-                    </table>
                     
-                    <br />
+                    <ul style="list-style-image:../img/vineta2.png">
+						<li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde cualquier país del mundo:</b> Puedes pagar con tarjeta de crédito (Visa, Mastercard, Diners, American Express) o con Paypal. </li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde México:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Oxxo. Para pagar con Oxxo inscribete normalmente y encontrarás la opción para descargar el recibo de pago. </li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Colombia:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar con PSE y en efectivo a través de Baloto. Para pagar con Baloto inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Perú:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Banco de crédito BCP. Para pagar con BCP inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                        
+					</ul>
+                    
+                    
+                   
+                    
+                    <hr />
                     
                     <h3>Horarios en las principales ciudades</h3>
                     <br />
@@ -230,6 +181,7 @@
                         <tr><td>Sao Paulo</td><td>5:00 p.m.</td></tr>
 						<tr><td>Madrid, Barcelona</td><td>8:00 p.m.</td></tr>
 					</table>
+                    <p class="lead"><a href="http://www.timeanddate.com/worldclock/fixedtime.html?p1=41&iso=20151205T14&msg=Conferencia%20Virtual%20-%20Enam%C3%B3rate%20de%20ti&ah=2&low=5" target="_blank">Consultar más horarios</a></p>
                             
                     <br />
                     
@@ -255,8 +207,8 @@
             </div>    
                 
             <div class="row">
-            
             	<hr />
+            	
             	<h3>¿Tienes dudas o comentarios? Estaremos atentos a responderte</h3>
                 
             
@@ -274,9 +226,13 @@
 					
 					<div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
                     
-                    <br />
+                    <hr />
             
-            </div>
+ 
+            
+            
+            </div>   
+            
             
             <div class="row">
             	<div class="col-md-6">
@@ -303,9 +259,10 @@
                     </ul>
                     
                 </div>
-
+                
             
-            </div>    
+            </div>
+             
     		
 		</div>
 
@@ -513,6 +470,7 @@
 							</p>
 						</div>
 					</div>
+					<hr>
 					<div class="row">
                     	<p class="mensajeEspera2" style="display:none">Un momento por favor...</p>
 						<div id="metodoPago" class="col-lg-12" style="display:none;">
@@ -630,7 +588,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 52
+				landing: 55
 			};
 
 			$('#metodoPago').empty();

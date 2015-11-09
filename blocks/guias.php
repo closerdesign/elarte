@@ -245,13 +245,33 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			require 'guias50.php';
 			break;
 			
-			
+		
 			
 		////// CONFERENCIA ENAMORATE DE TI
 			
 		case "enamorate-de-ti-conferencia-por-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias52.php';
+			break;
+			
+		case "a-la-mujer-que-no-tiene-autoestima":
+			$_REQUEST['id'] = 1;
+			require 'guias53.php';
+			break;
+			
+		case "pautas-para-mejorar-la-autoestima-por-walter-riso":
+			$_REQUEST['id'] = 1;
+			require 'guias54.php';
+			break;
+			
+		case "conferencia-virtual-enamorate-de-ti":
+			$_REQUEST['id'] = 1;
+			require 'guias55.php';
+			break;
+			
+		case "urltemporal":
+			$_REQUEST['id'] = 1;
+			require 'guias56.php';
 			break;
 			
 		//Otros paquetes

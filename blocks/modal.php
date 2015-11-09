@@ -675,7 +675,7 @@
 								<tr><td>México, Guatemala, Tegucigalpa, San Salvador, San José, Managua</td><td>1:00 p.m.</td></tr>
 								<tr><td>Bogotá, Lima, Quito, Panamá, Miami, New York</td><td>2:00 p.m.</td></tr>
 								<tr><td>Caracas</td><td>2:30 p.m.</td></tr>
-								<tr><td>San Juan, Sucre</td><td>3:00 p.m.</td></tr>
+								<tr><td>San Juan, Sucre, Santo Domingo</td><td>3:00 p.m.</td></tr>
 								<tr><td>Buenos Aires, Asunción, Santiago, Montevideo</td><td>4:00 p.m.</td></tr>
                                 <tr><td>Sao Paulo</td><td>5:00 p.m.</td></tr>
 								<tr><td>Madrid, Barcelona</td><td>8:00 p.m.</td></tr>
