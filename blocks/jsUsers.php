@@ -2,7 +2,7 @@
 	
 	$(document).ready(function(){
 		labelProductos();
-	})	
+	});
 	
 	// Actualizar # de productos en el label
 	function labelProductos(){
@@ -15,7 +15,13 @@
 				}
 				$('#noProductos').html(data);
 				$('#noProductos').fadeIn();
-				$('.carrito').fadeIn();
+				<?php
+					if ( !isset($page_name) ) {
+				?>
+					$('.carrito').fadeIn();
+				<?php
+					}
+				?>
 			}
 		})
 	}

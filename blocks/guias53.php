@@ -20,6 +20,14 @@
 	?>
 
 	<!-- <div><img class="img img-responsive" src="../img/bannerl2.png"  /></div> -->
+
+    <?php
+    date_default_timezone_set('America/Bogota');
+    $date = date('m/d/Y h:i:s a', time());
+    $dia  = date('d', time());
+    $mes  = date('m', time());
+    $anio = date('Y', time());
+    ?>
 	
 	<div class="row top" >
     
@@ -116,22 +124,105 @@
                         <p style="font-size:16px; color:#FFF">No te quedes por fuera, aprovecha las temporadas de preventa y accede a esta magistral conferencia a muy bajo costo. Los cupos son limitados.</p>
                         
                         <table border="0" width="100%">
-                        	<tr height="80px">
-                            	<td valign="middle" width="20px"><input type="radio" value="1" name="precio_conferencia" checked="checked" /></td>
-                                <td valign="middle"><span style="font-size:16px; color:#FFF"><b>Primera preventa</b></span><br /><span style="font-size:15px; color:#FFF">Hasta nov. 10 de 2015</span></td>
-                                <td valign="middle" align="right"><span style="font-size:24px; color:#FFF">USD 7,99</span></td>
+                            <tr height="80px">
+                                <?php
+                                    if ( $dia <= 10 && $mes == 11 ) {
+                                ?>
+                                    <td valign="middle" width="20px">
+                                        <input type="radio" value="1" name="precio_conferencia" checked="checked" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#FFF"><b>Primera preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#FFF">Hasta nov. 10 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#FFF">USD 7,99</span>
+                                    </td>
+                                <?php        
+                                    }else{
+                                ?>
+                                    <td valign="middle" width="20px">
+                                        <input type="radio" value="1" name="precio_conferencia" disabled="disabled" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#a88080"><b>Primera preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#a88080">Hasta nov. 10 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#a88080">USD 7,99</span>
+                                    </td>
+                                <?php
+                                    }
+                                ?>
                             </tr>
                             <tr height="80px">
-                            	<td valign="middle" width="20px"><input type="radio" value="2" name="precio_conferencia" disabled="disabled" /></td>
-                                <td valign="middle"><span style="font-size:16px; color:#a88080"><b>Segunda preventa</b></span><br /><span style="font-size:15px; color:#a88080">Hasta nov. 17 de 2015</span></td>
-                                <td valign="middle" align="right"><span style="font-size:24px; color:#a88080">USD 9,99</span></td>
+                                <?php
+                                    if ( ($dia <= 17 && $dia > 10) && $mes == 11) {
+                                ?>
+                                    <td valign="middle" width="20px">
+                                            <input type="radio" value="2" name="precio_conferencia" checked="checked" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#FFF"><b>Segunda preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#FFF">Hasta nov. 17 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#FFF">USD 9,99</span>
+                                    </td>
+                                <?php        
+                                    }else{
+                                ?>
+                                    <td valign="middle" width="20px">
+                                            <input type="radio" value="2" name="precio_conferencia" disabled="disabled" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#a88080"><b>Segunda preventa</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#a88080">Hasta nov. 17 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#a88080">USD 9,99</span>
+                                    </td>
+                                <?php
+                                    }
+                                ?>
                             </tr>
                             <tr height="80px">
-                            	<td valign="middle" width="20px"><input type="radio" value="3" name="precio_conferencia" disabled="disabled" /></td>
-                                <td valign="middle"><span style="font-size:16px; color:#a88080"><b>Precio full</b></span><br /><span style="font-size:15px; color:#a88080">Hasta dic. 5 de 2015</span></td>
-                                <td valign="middle" align="right"><span style="font-size:24px; color:#a88080">USD 14,99</span></td>
+                                <?php
+                                    if ( $dia <= 05 && $mes == 12) {
+                                ?>
+                                    <td valign="middle" width="20px">
+                                        <input type="radio" value="3" name="precio_conferencia" checked="checked" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#FFF"><b>Precio full</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#FFF">Hasta dic. 5 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#FFF">USD 14,99</span>
+                                    </td>
+                                <?php
+                                    }else{
+                                ?>
+                                    <td valign="middle" width="20px">
+                                        <input type="radio" value="3" name="precio_conferencia" disabled="disabled" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span style="font-size:16px; color:#a88080"><b>Precio full</b></span>
+                                        <br />
+                                        <span style="font-size:15px; color:#a88080">Hasta dic. 5 de 2015</span>
+                                    </td>
+                                    <td valign="middle" align="right">
+                                        <span style="font-size:24px; color:#a88080">USD 14,99</span>
+                                    </td>
+                                <?php
+                                    }
+                                ?>
                             </tr>
-                        
                         </table>
                         
                         <hr />
@@ -449,54 +540,61 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title" id="myModalLabel">Proceso de inscripción a conferencia virtual</h4>
 					</div>
-					<div class="modal-body CompraPaquetes">
-						<div class="row">
-							<div class="col-lg-12">
-								
-                                <p style="font-size:16px">El siguiente paso de la inscripción es realizar el pago, ten en cuenta que según el país en el que te encuentres contarás con diferentes métodos transaccionales, presiona siguiente y continúa el proceso seleccionando el país desde donde pagarás. 
-								</p>
-							</div>
-						</div>
-						<div class="row" style="display:none">
-							<div class="col-lg-12">
-								<input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD $7.99</span></label>
-							</div>
-						</div>
-						<div class="row" style="display:none">
-							<div class="col-lg-12">
-								<input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
-								<label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD $9.99</span></label>
-							</div>
-						</div>
-						<div class="row" style="display:none">
-							<div class="col-lg-12">
-								<input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD $14.99</span></label>
-							</div>
-						</div>
-						<br>
-                        <p class="mensajeEspera1"></p>
-						
-						<br>
-						<div class="CompraPaquetes-dataContainer text-right">
-							<div class="row">
-								<div class="col-lg-12 text-rigth" style="font-size:22px">
-                                	<b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+					<div class="CompraPaquetes-dataContainer text-right">
+                            <?php
+                                if ( $dia <= 10 && $mes == 11 ) {
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
                                 </div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12 text-rigth" style="font-size:22px">
-									<b>Descuento:</b> USD -$<span class="CompraPaquetes-discount">7.00</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12 text-rigth" style="font-size:22px">
-									<b>Total a pagar: USD $<span class="CompraPaquetes-total">7.99</span></b>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Descuento:</b> USD -$<span class="CompraPaquetes-discount">7.00</span>
                                 </div>
-							</div>
-						</div>
-					</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">7.99</span></b>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if ( ($dia <= 17 && $dia > 10) && $mes == 11) {
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Descuento:</b> USD -$<span class="CompraPaquetes-discount">5.00</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">9.99</span></b>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                            <?php
+                                if ( $dia <= 05 && $mes == 12) {
+                            ?>    
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth" style="font-size:22px">
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">14.99</span></b>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                        </div>
 					<div class="modal-footer">
 						<div class="row">
 							<div class="col-lg-12">
@@ -522,24 +620,63 @@
 						</div>	
 					</div>
 					<div class="row">
-						<div class=" text-right">
-							<div class="row">
-								<div class="col-lg-12 text-rigth">
-                                	<b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                        <div class=" text-right">
+                            <?php
+                                if ( $dia <= 10 && $mes == 11 ) {
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
                                 </div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12 text-rigth">
-									<b>Descuento:</b> -<span class="CompraPaquetes-discount">7.00</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12 text-rigth">
-									<b>Total a pagar: USD $<span class="CompraPaquetes-total">7.99</span></b>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Descuento:</b> -<span class="CompraPaquetes-discount">7.00</span>
                                 </div>
-							</div>
-						</div>
-					</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">7.99</span></b>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>
+
+                            <?php
+                                if ( ($dia <= 17 && $dia > 10) && $mes == 11) {
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Descuento:</b> -<span class="CompraPaquetes-discount">5.00</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">9.99</span></b>
+                                </div>
+                            </div>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                                if ( $dia <= 05 && $mes == 12) {
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 text-rigth">
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">9.99</span></b>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -583,8 +720,28 @@
 
 	<script>
 	(function(){
-		var precio = 7.99
-		var id_paquete = 13
+		<?php
+            if ( $dia <= 10 && $mes == 11 ) {
+        ?>
+        var precio = 7.99;
+        <?php
+            }
+        ?>
+        <?php
+            if ( ($dia <= 17 && $dia > 10) && $mes == 11) {
+        ?>
+        var precio = 9.99;
+        <?php
+            }
+        ?>
+        <?php
+            if ( $dia <= 05 && $mes == 12) {
+        ?>
+        var precio = 14.99;
+        <?php
+            }
+        ?>
+		var id_paquete = 13;
 		var nombre = "Conferencia virtual: Enamorate de ti";
 
 
