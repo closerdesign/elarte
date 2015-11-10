@@ -42,13 +42,13 @@
 		}
 		?>
 		<div class="row">
-			<div class="col-lg-9 col-md-9">
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 				<p class="lead">
 					Valor a pagar: USD 
 					<span id="valorConferencia"><?= number_format($valor,2); ?></span>
 				</p>
 			</div>
-			<div class="col-lg-3 col-md-3">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 				<button type='submit' class='btn btn-primary'><i class='fa fa-paypal'></i> Continuar</button>
 			</div>
 		</div>

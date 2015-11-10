@@ -500,24 +500,18 @@
 								</p>
 							</div>
 						</div>
-						<div class="row" style="display:none">
-							<div class="col-lg-12">
-								<input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD $7.99</span></label>
-							</div>
-						</div>
-						<div class="row" style="display:none">
-							<div class="col-lg-12">
-								<input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
-								<label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD $9.99</span></label>
-							</div>
-						</div>
-						<div class="row" style="display:none">
-							<div class="col-lg-12">
-								<input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD $14.99</span></label>
-							</div>
-						</div>
+					  <hr>
+                       <!--  <div class="row">
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="codigoDescuento" placeholder="Código de descuento">
+                            </div>
+                            <div class="col-lg-2">
+                                <button class="btn btn-primary">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div> -->
+
 						<br>
                         <p class="mensajeEspera1"></p>
 						
@@ -683,14 +677,14 @@
 					</div>
 					<div class="row">
                     	<p class="mensajeEspera2" style="display:none">Un momento por favor...</p>
-						<div id="metodoPago" class="col-lg-12" style="display:none;">
+						<div id="metodoPago" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:none;">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer text-left" style="text-align: left;">
 					<div class="row">
 						<div class="col-lg-12">
-							<button class="btn btn-default" data-toggle="modal" data-target="#PaquetesModal" data-dismiss="modal">
+							<button class="btn btn-default pull-right" data-toggle="modal" data-target="#PaquetesModal" data-dismiss="modal">
 								<i class="glyphicon glyphicon-chevron-left"></i>Regresar
 							</button>
 						</div>
