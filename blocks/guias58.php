@@ -25,6 +25,50 @@
 
 		<div class="container">
 			            
+             <div class="row">
+            
+            	<h1 class="text-center">ENAMÓRATE DE TI Y SERÁS FELIZ</h1>
+                <br /><br />
+                <p style="font-size:16px">
+                    Durante un seminario para matrimonios, le preguntaron a una mujer: <br /><br />
+                    -¿Te hace feliz tu esposo? ¿Verdaderamente te hace feliz? <br /><br />
+                    En ese momento el esposo levantó ligeramente el cuello en señal de seguridad, sabía que su esposa diría que sí, pues ella jamás se había quejado durante su matrimonio. <br /><br />
+                    Sin embargo la esposa respondió rotundamente: <br /><br />
+                     
+                    - 'No... no me hace feliz' <br /><br />
+                    
+                    Y ante el asombro del esposo... continuó: <br /><br />
+                    
+                    -No me hace feliz... ¡Yo soy feliz! <br /><br />
+                    
+                    El que yo sea feliz o no, eso no depende de él, sino de mí. Yo soy la única persona, de quien depende, mi felicidad. Yo determino ser feliz en cada situación y en cada momento de mi vida, pues si mi felicidad dependiera de alguna persona, cosa... o circunstancia sobre la faz de esta tierra, yo estaría en serios problemas. Todo lo que existe en esta vida, cambia continuamente. El ser humano, las riquezas, mi cuerpo, el clima, los placeres, etc. Y así podría decir una lista interminable. A través de toda mi vida, he aprendido algo; decido ser feliz y lo demás lo llamo 'experiencias': amar, perdonar, ayudar, comprender, aceptar, escuchar, consolar. <br /><br />
+                    
+                    Hay gente que dice: <br /><br />
+                     
+                    - No puedo ser feliz... porque estoy enferma, porque no tengo dinero, porque hace mucho calor, porque alguien me insultó, porque alguien ha dejado de amarme, porque alguien no me valoró... <br /><br />
+                    
+                    Pero lo que no sabes es que ¡puedes ser feliz!:
+                    
+                    aunque... estés enfermo, 
+                    aunque... haga calor, 
+                    aunque... no tengas dinero,
+                    aunque... alguien te haya insultado, 
+                    aunque... alguien no te amó , 
+                    o no te haya valorado. <br /><br />
+                    
+                    La vida es como andar en bicicleta... te caes, sólo si dejas de pedalear. <br /><br />
+                    
+                    SER FELIZ ES UNA ACTITUD QUE SÓLO DEPENDE DE TI.<br /><br />
+                    
+                   
+                
+                </p>
+                
+                <hr />
+            
+            </div>
+             
+             
             <div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
                 	<div class="text-center" style="font-size:24px;">
@@ -244,32 +288,7 @@
 		
                 
                     
-                <div class="row">
-                    
-                    
-                    <h3>¿Tienes dudas o comentarios? Estaremos atentos a responderte</h3>
-                    
-                
-                    <?php
-                        $actual_link = "https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso";
-                        ?>
-                        <div id="fb-root"></div>
-                        <script>(function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1555280741417343";
-                        fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-                        
-                        <div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
-                        
-                        <hr />
-                
-     
-                
-                
-                </div>   
+                   
                 
                 
                 <div class="row">
@@ -621,7 +640,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 56
+				landing: 58
 			};
 
 			$('#metodoPago').empty();

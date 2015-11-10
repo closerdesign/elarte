@@ -279,6 +279,12 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			require 'guias56.php';
 			break;
 			
+		case "enamorate-de-ti-y-se-feliz":
+			$page_name = $_REQUEST['id'];
+			$_REQUEST['id'] = 1;
+			require 'guias58.php';
+			break;
+			
 		//Otros paquetes
 		case 10:
 			$_REQUEST['id'] = 2;
