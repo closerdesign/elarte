@@ -7,7 +7,7 @@
 	</div>
 	<div class="modal-body">
 		<div class="row">
-			<div class="col-md-3 form-group">
+			<div class="col-md-3 col-sm-12 col-xs-12 form-group">
 				<select class="form-control" name="tipoTarjeta" id="tipoTarjeta" required >
 					<option value="">Tipo de tarjeta ...</option>
 					<option value="VISA">VISA</option>
@@ -16,17 +16,17 @@
 					<option value="DINERS">DINERS</option>
 				</select>
 			</div>
-			<div class="col-md-4 form-group">
+			<div class="col-md-4  col-sm-12 col-xs-12 form-group">
 				<input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control" name="noTarjeta" id="noTarjeta" placeholder="Número de tarjeta" required />
 			</div>
-			<div class="col-md-5 form-group">
+			<div class="col-md-5  col-sm-12 col-xs-12 form-group">
 				<input type="text" class="form-control" name="nombreTarjeta" id="nombreTarjeta" placeholder="Nombre tarjeta" required />
 			</div>
 		</div>
 
 			
 		<div class="row">
-			<div class="col-md-4 form-group">
+			<div class="col-md-4  col-sm-4 col-xs-4 form-group">
 				<select class="form-control" name="mesTarjeta" id="mesTarjeta" required >
 					<option value="">Mes vencimiento</option>
 					<option value="01">01</option>
@@ -43,7 +43,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="col-md-4 form-group">
+			<div class="col-md-4  col-sm-4 col-xs-4 form-group">
 				<select class="form-control" name="yearTarjeta" id="yearTarjeta" required >
 					<option value="">Año vencimiento</option>
 					<option value="2015">2015</option>
@@ -59,7 +59,7 @@
 					<option value="2025">2025</option>
 				</select>
 			</div>
-			<div class="col-md-4 form-group">
+			<div class="col-md-4  col-sm-4 col-xs-4 form-group">
 				<input type="text" class="form-control" name="codigoSeguridad" id="codigoSeguridad" placeholder="Código de seguridad" required />
 			</div>
 
@@ -233,7 +233,7 @@
 								if (result === true) {
 									location.reload();
 								}else{
-									window.location = 'http://elarte.desarrollo.closerdesign.co/';
+									window.location = 'http://www.elartedesabervivir.com/';
 								}
 							}); 
 						}
