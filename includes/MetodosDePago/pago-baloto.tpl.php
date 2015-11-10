@@ -105,7 +105,7 @@
 				   					<?php
 				   						}
 				   					?>
-								   modal("Pagos en efectivo","<p>Por favor haga click en el enlace a continuación para descargar su desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-default' style='width:100%' href='" + url + "'>Descargar desprendible de pago</a></p><p><b>Importante:</b> Te hemos enviado a tu correo un mensaje que contiene algunas recomendaciones que debes tener en cuenta para poder realizar tu pago, así mismo como un enlace para que puedas generar tu recibo en caso de requerirlo nuevamente.</p>");
+								   modal("Pagos en efectivo","<p>Por favor pulsa el siguiente botón para generar tu desprendible de pago:</p><p class='text-center'><a target='_blank' class='btn btn-success btn-lg' style='width:100%' href='" + url + "'>Generar desprendible de pago</a></p><p><b>Ten presente:</b> Enviaremos a tu correo electrónico un mensaje con algunas recomendaciones para poder realizar tu pago y el enlace desde el cual podrás consultar este desprendible.</p>");
 								}
 
 							} else {
