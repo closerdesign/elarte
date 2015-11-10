@@ -510,7 +510,7 @@
 				<div class="modal-footer text-left" style="text-align: left;">
 					<div class="row">
 						<div class="col-lg-12">
-							<button class="btn btn-default" data-toggle="modal" data-target="#PaquetesModal" data-dismiss="modal">
+							<button class="btn btn-default pull-right" data-toggle="modal" data-target="#PaquetesModal" data-dismiss="modal">
 								<i class="glyphicon glyphicon-chevron-left"></i>Regresar
 							</button>
 						</div>

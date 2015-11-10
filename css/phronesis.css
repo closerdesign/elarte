@@ -1699,7 +1699,9 @@ img.mfp-img {
 	overflow-y: auto !important;
 }
 .modal-body {
+    display: block;
     overflow-y: auto;
+    width: 100%;
 }
 .modal-footer {
     margin-top: 0;
