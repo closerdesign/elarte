@@ -540,7 +540,37 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title" id="myModalLabel">Proceso de inscripción a conferencia virtual</h4>
 					</div>
-					<div class="CompraPaquetes-dataContainer text-right">
+					<div class="modal-body CompraPaquetes">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                
+                                <p style="font-size:16px">El siguiente paso de la inscripción es realizar el pago, ten en cuenta que según el país en el que te encuentres contarás con diferentes métodos transaccionales, presiona siguiente y continúa el proceso seleccionando el país desde donde pagarás. 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none">
+                            <div class="col-lg-12">
+                                <input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
+                                <label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD $7.99</span></label>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none">
+                            <div class="col-lg-12">
+                                <input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
+                                <label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD $9.99</span></label>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none">
+                            <div class="col-lg-12">
+                                <input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
+                                <label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD $14.99</span></label>
+                            </div>
+                        </div>
+                        <br>
+                        <p class="mensajeEspera1"></p>
+                        
+                        <br>
+                        <div class="CompraPaquetes-dataContainer text-right">
                             <?php
                                 if ( $dia <= 10 && $mes == 11 ) {
                             ?>
@@ -595,6 +625,7 @@
                                 }
                             ?>
                         </div>
+                    </div>
 					<div class="modal-footer">
 						<div class="row">
 							<div class="col-lg-12">
