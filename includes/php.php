@@ -931,7 +931,7 @@
 	{				
 		global $con;
 		
-		if( empty($_POST['pedido']) ){
+		if( empty($_POST['pedido']) || $_POST['pedido'] === 'NaN' ){
 			$q=mysqli_query($con, "INSERT INTO pedidos (usuario) VALUES ('$_POST[usuario]')");
 			$id=mysqli_insert_id($con);
 			setcookie('pedido', $id);
@@ -1775,7 +1775,7 @@
 					'$_POST[estado]',
 					'$_POST[pendingReason]',
 					'$_POST[responseCode]',
-					'"."U".$_POST[usuario]."L".$_POST[landing]."P".$_POST[paquete]."',
+					'"."U".$_POST['usuario']."L".$_POST['landing']."P".$_POST['paquete']."',
 					'$_POST[landing]'
 				)
 		")){

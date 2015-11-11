@@ -27,6 +27,13 @@
 		'2'=>"Formato de Audio"
 	);
 	
+	function dd($t)
+	{
+		echo "<pre>";
+		print_r($t);
+		echo "</pre>";
+	}
+
 	function getRealIpAddr()
 	{
 	    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet

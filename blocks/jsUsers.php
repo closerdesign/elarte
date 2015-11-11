@@ -71,8 +71,11 @@
 			}
 			if(msg==0){
 			   $('.load').fadeOut();
-			   bootbox.alert("Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.", function() {console.log("Alert Callback");})
+			  	bootbox.alert("Lo sentimos, se ha presentado un error. Por favor intenta de nuevo.", function(){
+			  		console.log("Alert Callback");
+				});
 			}else{
+				$.cookie("pedido", msg);
 				$.post('/includes/php.php',{
 					consulta: "detallePedido",
 					pedido: msg
