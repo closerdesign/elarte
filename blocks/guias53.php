@@ -78,7 +78,7 @@
         
         	<div class="row">
             
-            	<img width="100%" class="img img-responsive" src="../img/landings/conferencia-virtual-enamorate-de-ti-3.png" alt:"Conferencia virtual por Walter Riso" title="Enamorate de ti, conferencia virtual por Walter Riso" />
+            	<img width="100%" class="img img-responsive" src="../img/landings/Banner-landings-azul.png" alt:"Conferencia virtual por Walter Riso" title="Enamorate de ti, conferencia virtual por Walter Riso" />
 
             </div>
             
