@@ -74,7 +74,7 @@
                 
                 <div class="col-md-6">
                 
-                	<div style="margin:20px 10px 0px 10px; background-color:#500202; padding:10px 20px 10px 20px;">
+                	<div style="margin:20px 10px 0px 10px; background-color:#001d86; padding:10px 20px 10px 20px;">
                     
                     	<h1 class="text-center" style="color:#FFF">¡Inscríbete ahora!</h1>
                         <h4 class="text-center" style="color:#FFF">Entradas limitadas</h4>

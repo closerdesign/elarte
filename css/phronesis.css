@@ -1753,7 +1753,13 @@ img.mfp-img {
 	vertical-align: middle;
 }
 .Header-conferencia{
-	background: #632523;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00114d+0,001768+19,001977+32,001c82+43,001d86+53,000f46+100 */
+	background: #00114d; /* Old browsers */
+	background: -moz-linear-gradient(top,  #00114d 0%, #001768 19%, #001977 32%, #001c82 43%, #001d86 53%, #000f46 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #00114d 0%,#001768 19%,#001977 32%,#001c82 43%,#001d86 53%,#000f46 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #00114d 0%,#001768 19%,#001977 32%,#001c82 43%,#001d86 53%,#000f46 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00114d', endColorstr='#000f46',GradientType=0 ); /* IE6-9 */
+
 }
 .Header-conferencia .container{
 	padding-left: 0;
