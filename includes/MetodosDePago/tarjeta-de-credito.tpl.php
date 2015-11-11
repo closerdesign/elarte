@@ -155,12 +155,16 @@
 							if(msg===0){
 								alert('Lo sentimos, se ha presentado un error. Por favor notificanos acerca de este inconveniente.');
 								$('.load').fadeOut();
+								$.removeCookie('pedido');
+								location.reload();
 							}
 							if( (msg==1) && (response.transactionResponse.state=='PENDING') ){
 								$('#myModalVacioTitulo').html('Transacción en proceso de verificación');
 								$('#myModalVacioContenido').html('<p>En este momento la transacción se encuentra en proceso de verificación por parte de la entidad bancaria..</p><p>Una vez culmine el proceso, recibirás una notificación por correo electrónico acerca del estado de tu compra.</p>');
 								$('.load').fadeOut();
 								$('#myModalVacio').modal('show');
+								$.removeCookie('pedido');
+								location.reload();
 							}
 							if( (msg==1) && (response.transactionResponse.state=='APPROVED') ){
 								
@@ -186,6 +190,7 @@
 								
 								
 								alert('Transacción Aprobada. A continuación serás redireccionado a tu biblioteca donde podrás descargar las obras que acabas de adquirir. Si tu compra incluye acceso a una conferencia pronto recibirás un email con la confirmación y las instrucciones de ingreso');
+								$.removeCookie('pedido');
 								window.location.href="index.php?content=mi-cuenta&task=mis-publicaciones";
 							}
 							if(response.transactionResponse.state=='DECLINED'){
@@ -229,6 +234,7 @@
 						/*console.log('success');*/
 						if ( data.error === 1 ) {
 							descargar();
+							$.removeCookie('pedido');
 							bootbox.confirm('Ha ocurrido un error con su pedido<br>desea intentarlo nuevamente?', function(result) {
 								if (result === true) {
 									location.reload();

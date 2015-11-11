@@ -63,7 +63,7 @@
 	
 	// -- Comprador 
 	//Ingrese aquí el nombre del comprador.
-	PayUParameters::BUYER_NAME => $_POST['nombreUsuario'],
+	PayUParameters::BUYER_NAME => $_POST['nombreTarjeta'],
 	//Ingrese aquí el email del comprador.
 	PayUParameters::BUYER_EMAIL => $_POST['email'],
 	PayUParameters::BUYER_CITY => $_POST['ciudad'],
@@ -121,7 +121,8 @@ if ($response) {
 	/*$response->transactionResponse->trazabilityCode;*/
 	$response->transactionResponse->responseCode;
 	/*$response->transactionResponse->responseMessage;*/
-	
+	unset($_COOKIE['pedido']);
+	setcookie('pedido', null, -1, '/');
 	print json_encode($response);
 	
 }
