@@ -6,8 +6,12 @@
 				<a href="https://goo.gl/AXjEBl"><img class="img img-responsive" src="../img/bannerl3.png"  /></a>
 			</div>
 		</div>
-
-		<div class="row hidden-xs">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="alert alert-danger">Esta sección se encuentra en mantenimiento. Disculpa las molestias.</h2>
+			</div>
+		</div>
+		<div class="row hidden-lg hidden-md hidden-sm hidden-xs">
 			<div class="col-lg-12 col-md-12 col-sm-12">
             
 				<div class="filtroPublicaciones">
@@ -28,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row hidden-lg hidden-md hidden-sm hidden-xs">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<?php
 					$sql="SELECT * FROM publicaciones WHERE status = 1 AND id <> 21 ORDER BY id";
