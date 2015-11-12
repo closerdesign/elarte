@@ -1829,3 +1829,9 @@ img.mfp-img {
 	top: 0;
 	z-index: 9999;
 }
+#PaquetesModal .CompraPaquetes-dataContainer{
+	font-size: 22px;
+}
+#myModalPagoPaquetes .CompraPaquetes-discount{
+	
+}

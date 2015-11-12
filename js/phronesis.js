@@ -1176,29 +1176,42 @@ $('#inscripcionConferencia').validate({
 /*===================================================
 =            Validar código de descuento            =
 ===================================================*/
-$('body').on('click', '#validarDecuento', function(event) {
+$('body').on('click', '#validarDescuento', function(event) {
 	event.preventDefault();
 	var data = {
 		codigo : $('#codigoDescuento').val(),
-		consulta : 'validar-codigo-descuento'
+		consulta : 'validar-codigo-descuento',
+		total: parseFloat($(this).parents('.CompraPaquetes').find('.CompraPaquetes-total').text())
 	};
 	$.ajax({
 		url: '/includes/php.php',
 		type: 'POST',
 		dataType: 'json',
 		data: data,
+		context: this
 	})
 	.done(function(data) {
-		if (data.error === 0){
-			$('#descuentoMensaje').empty();
-			$('#descuentoMensaje').append('El código de descuento está errado');
+		if ( parseInt(data.error) !== 0){
+			$('#descuentoMensaje').empty().fadeIn('fast');
+			$('#descuentoMensaje').append(data.message).delay(2500).fadeOut('fast');
+
 			$('#vrPedido').val(data.valor);
 			$('#valorConferencia').text(data.valor);
 		}else{
-			$('#descuentoMensaje').empty();
-			$('#descuentoMensaje').append('Descuento aplicado');
-			$('#vrPedido').val(data.valor);
-			$('#valorConferencia').text(data.valor);
+			$('#descuentoMensaje').empty().fadeIn('fast').delay(2500).fadeOut('fast');
+			$('#descuentoMensaje').append(data.message).delay(2500).fadeOut('fast');
+
+			var descuento, total;
+
+			$('.CompraPaquetes-discount').parent().parent().after(data.html);
+			descuento = parseFloat($('.CompraPaquetes-discount').text());
+			total = parseFloat(data.total);
+
+			console.log(descuento);
+			console.log(total);
+
+			$('.CompraPaquetes-total').text(data.total);
+			/*$('#valorConferencia').text(data.valor);*/
 		}
 	})
 	.fail(function() {

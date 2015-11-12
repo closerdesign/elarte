@@ -623,30 +623,56 @@
 
 	function validarCodigoDescuento()
 	{
-		extract($_POST);
-		$codigo_valido = 'AYKL23';
-		$valor_descuento = 9.99;
-		$valor_normal = 9.99;
-		if (isset($codigo) && !empty($codigo)) {
+		global $con;
 
-			if ( $codigo_valido == $codigo ) {
-				$result['error'] = 1;
-				$result['message'] = 'Código correcto';
-				$result['valor'] = $valor_descuento;
-				echo json_encode($result);
-				return;
+		extract($_POST);
+	
+		if (isset($codigo) && !empty($codigo)) {
+			$sql_pre = "SELECT * FROM descuentos WHERE codigo like '".$codigo."'";
+			$q_pre = mysqli_query($con, $sql_pre);
+
+			$n = mysqli_num_rows($q_pre);
+			
+			if($n < 1){
+				$response['error'] = 1;
+				$response['message'] = '<div class="alert alert-danger">Este no es un código de descuento válido.</div>';
 			}else{
-				$result['error'] = 0;
-				$result['message'] = 'Error código incorrecto';
-				$result['valor'] = $valor_normal;
-				echo json_encode($result);
+				$data_pre = mysqli_fetch_array($q_pre, true);
+				if ( $data_pre['porcentaje'] != 0 ) {
+					$_SESSION['tipo_descuento'] = 'porcentaje';
+					$_SESSION['descuento'] = $data_pre['porcentaje'];
+					$response['html']           = '<div class="row">
+	                                <div class="col-lg-12 text-rigth">
+	                                    <b>Descuento de código:</b> -%<span class="CompraPaquetes-discount">'.$_SESSION['descuento'].'</span>
+	                                </div>
+	                            </div>';
+                   	$_SESSION['total_discount'] = $total_dis = $total * (1 - ( 1/$_SESSION['descuento'] ));
+				}else if ( $data_pre['cantidad'] != 0 ){
+					$_SESSION['tipo_descuento'] = 'cantidad';
+					$_SESSION['descuento'] = $data_pre['cantidad'];
+					$response['html']           = '<div class="row">
+	                                <div class="col-lg-12 text-rigth">
+	                                    <b>Descuento de código:</b> USD -<span class="CompraPaquetes-discount">'.$_SESSION['descuento'].'</span>
+	                                </div>
+	                            </div>';
+                   	$_SESSION['total_discount'] = $total_dis = $total - $_SESSION['descuento'] ;
+				}
+				$response['error']          = 0;
+				$response['message']        = '<div class="alert alert-success">Tu código es válido</div>';
+				$response['tipo_descuento'] = $_SESSION['tipo_descuento'];
+				$response['descuento']      = $_SESSION['descuento'];
+				$response['total']      	= $total_dis;
+
+				
+				echo json_encode($response);
 				return;
 			}
+			echo json_encode($response);
+			return;
 		}else{
-			$result['error'] = 0;
-			$result['message'] = 'Error no se enviaron los parámetros.';
-			$result['valor'] = $valor_normal;
-			echo json_encode($result);
+			$response['error'] = 2;
+			$response['message'] = '<div class="alert alert-danger">Debes ingresar un código para aplicar algún descuento.</div>';
+			echo json_encode($response);
 			return;
 		}
 	}

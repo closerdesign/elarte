@@ -501,16 +501,19 @@
 							</div>
 						</div>
 					  <hr>
-                       <!--  <div class="row">
+                        <div class="row">
                             <div class="col-lg-4">
                                 <input type="text" class="form-control" id="codigoDescuento" placeholder="Código de descuento">
                             </div>
                             <div class="col-lg-2">
-                                <button class="btn btn-primary">
+                                <button class="btn btn-primary" id="validarDescuento">
                                     Enviar
                                 </button>
                             </div>
-                        </div> -->
+                            <div class="col-lg-6" id="descuentoMensaje">
+                            </div>
+                            <input type="hidden" name="pagina" id="pagina" value="<?php echo $page_name; ?>">
+                        </div>
 
 						<br>
                         <p class="mensajeEspera1"></p>
@@ -808,7 +811,7 @@
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
-				pagina : '',
+				pagina : $('#pagina').val(),
 				value : precio,
 				coleccion : true,
 				id : id_paquete,

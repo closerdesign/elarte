@@ -198,6 +198,7 @@
 								$('#myModalVacioContenido').html('<p>El medio de pago que utilizaste ha sido rechazado. Por favor inténtalo con otro medio de pago o comunícate con tu entidad bancaria.</p>');
 								$('.load').fadeOut();
 								$('#myModalVacio').modal('show');
+								$.removeCookie('pedido');
 							}
 						});
 					//}
