@@ -1,3 +1,21 @@
+<?php
+if (isset($_POST['landing']) && $_POST['landing'] == 52 ) {
+?>
+<div class="row">
+	<h4>¿Tienes un código de descuento? Ingrésalo aquí:</h4>
+	<div class="col-md-6 form-group">
+		<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
+	</div>
+	<div class="col-md-6 form-group">
+		<button id="validarDescuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Aplicar código</button>
+	</div>
+</div>
+<div class="row">
+	<div id="descuentoMensaje"></div>
+</div>
+<?php
+}
+?>
 <form id="pagoConOxxo">
 	<div class="modal-header">
 		<h4><i class="fa fa-money"></i> Pagos en puntos OXXO - 7 Eleven</h4>
@@ -14,24 +32,6 @@
 				<input type="hidden" name="emailOxxo" id="emailOxxo" value="<?= getEmailUsuario($_SESSION['id']) ?>">
 			</div>
 		</div>
-		<?php
-		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos' || $_POST['pagina'] == 'conferencia-walter-riso') {
-		?>
-		<div class="row">
-			<h5>Ingrese su código de descuento</h5>
-			<div class="col-md-6 form-group">
-				<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
-			</div>
-			<div class="col-md-6 form-group">
-				<button id="validarDecuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Aplicar código</button>
-			</div>
-		</div>
-		<div class="row">
-			<span id="descuentoMensaje"></span>
-		</div>
-		<?php
-		}
-		?>
 		<hr>
 		<div class="row">
 			<div class="col-md-12">

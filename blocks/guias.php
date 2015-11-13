@@ -1,5 +1,8 @@
 <?php
 
+unset( $_COOKIE['tipo_descuento'], $_COOKIE['descuento'], $_COOKIE['total_discount'] );
+
+
 if ( !empty( $_REQUEST['id'] ) ) {
 	switch ( $_REQUEST['id'] ) {
 		// Guias en PDF
