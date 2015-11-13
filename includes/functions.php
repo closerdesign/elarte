@@ -405,10 +405,16 @@
 	
 	function getPrecioPaquete($val){
 		global $con;
-		$sql="SELECT precio FROM paquetes WHERE idPaquete = '$val'";
-		$q=mysqli_query($con, $sql);
-		$data=mysqli_fetch_array($q);
-		return $data['precio'];
+		if ( isset($_SESSION['tipo_descuento']) && isset($_SESSION['descuento']) && isset($_SESSION['total_discount']) ) {
+			$precio = $_SESSION['total_discount'];
+			unset($_SESSION['total_discount']);
+			return round($precio, 2);
+		}else{
+			$sql="SELECT precio FROM paquetes WHERE idPaquete = '$val'";
+			$q=mysqli_query($con, $sql);
+			$data=mysqli_fetch_array($q);
+			return $data['precio'];
+		}
 	}
 	
 	function getDataPaquete($val){

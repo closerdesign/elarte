@@ -1,3 +1,21 @@
+<?php
+if (isset($_POST['landing']) && $_POST['landing'] == 52 ) {
+?>
+<div class="row">
+	<h4>¿Tienes un código de descuento? Ingrésalo aquí:</h4>
+	<div class="col-md-6 form-group">
+		<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
+	</div>
+	<div class="col-md-6 form-group">
+		<button id="validarDescuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Aplicar código</button>
+	</div>
+</div>
+<div class="row">
+	<div id="descuentoMensaje"></div>
+</div>
+<?php
+}
+?>
 <form name="pagoPaypal" id="pagoPaypal" action="../includes/php.php" method="POST">
 	<div>
 		<h4>
@@ -16,24 +34,6 @@
 		<input type="hidden" name="codigoPaquete" value="<?= ( isset($_POST['coleccion']) ? $_REQUEST['id'] : '' ) ?>">
 		<input type="hidden" name="formaDePago" value="<?= ( isset($_POST['coleccion']) ? 2 : '' ) ?>">
 		<p>Ahora será dirigido a plataforma de Paypal para procesar su transacción.</p>
-		<?php
-		if (isset($_POST['pagina']) && $_POST['pagina'] == 'conferencia-amar-sin-apegos' || $_POST['pagina'] == 'conferencia-walter-riso') {
-		?>
-		<div class="row">
-			<h5>Ingrese su código de descuento</h5>
-			<div class="col-md-6 form-group">
-				<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
-			</div>
-			<div class="col-md-6 form-group">
-				<button id="validarDecuento" type="button" class="btn btn-primary"><i class="fa fa-university"></i> Aplicar código</button>
-			</div>
-		</div>
-		<div class="row">
-			<span id="descuentoMensaje"></span>
-		</div>
-		<?php
-		}
-		?>
 		<div class="row">
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
 				<p class="lead">
