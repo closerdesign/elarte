@@ -285,6 +285,19 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			require 'guias58.php';
 			break;
 			
+		case "ocho-tips-para-amarme-dia-a-dia":
+			$page_name = $_REQUEST['id'];
+			$_REQUEST['id'] = 1;
+			require 'guias60.php';
+			break;
+			
+			
+		case "guias-practicas-de-walter-riso-y-conferencia-virtual":
+			$page_name = $_REQUEST['id'];
+			$_REQUEST['id'] = 1;
+			require 'guias61.php';
+			break;
+			
 		//Otros paquetes
 		case 10:
 			$_REQUEST['id'] = 2;
