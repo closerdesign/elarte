@@ -443,11 +443,12 @@
             
             <div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
+                		<h2 class="text-center">Lleva hoy las 5 guías prácticas de Walter Riso y recibe:</h2>
                 		<div class="text-center" style="font-size:24px;">
-								<strong>
-									Lleva hoy las 5 guías prácticas con el<br /><span style="color:red">30% de descuento</span>
-								</strong>
-							</div>
+							<strong>                          
+                            	<span style="color:red">30% de descuento mas acceso gratis a la conferencia "Enamórate de ti"</span>
+							</strong>
+						</div>
 					</div>
 				</div>
             
@@ -815,7 +816,9 @@
 								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Los dos formatos PDF + MP3 <span class="orange">(-50% dto)</span></label>
 							</div>
 						</div>
-						<br>
+						<br />
+                        <b>IMPORTANTE:</b> Por La compra de cualquiera de estos formatos obtendrás acceso gratis a la conferencia virtual "Enamórate de ti". 
+						<br />
                         <p class="mensajeEspera1"></p>
 						<br>
 						<br>

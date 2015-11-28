@@ -15,21 +15,22 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 1;
 			require 'guias2.php';
 			break;
-
+		//FALTA
 		case "guia-practica-para-afrontar-la-infidelidad-de-pareja":
 			$_REQUEST['id'] = 1;
 			require 'guias3.php';
 			break;
-
+		//FALTA
 		case "guia-practica-para-no-sufrir-de-amor":
 			$_REQUEST['id'] = 1;
 			require 'guias4.php';
 			break;
-
+		//FALTA
 		case "guia-practica-para-no-dejarse-manipular-y-ser-asertivo":
 			$_REQUEST['id'] = 1;
 			require 'guias5.php';
 			break;
+		//FALTA
 		case "guia-practica-para-mejorar-la-autoestima":
 			$_REQUEST['id'] = 10;
 			require 'guias6.php';
@@ -38,71 +39,73 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 1;
 			require 'guias7.php';
 			break;
+			
 		case "como-identificar-que-soy-dependiente":
 			$_REQUEST['id'] = "1";
 			require 'guias8.php';
 			break;
+		//FALTA	
 		case "guias-practicas-de-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias9.php';
 			break;
-			
+		//FALTA		
 		case "guias-practicas-para-vivir-mejor":
 			$_REQUEST['id'] = 1;
 			require 'guias11.php';
 			break;
-			
+		//FALTA		
 		case "guias-de-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias12.php';
 			break;
-			
+		//FALTA		
 		case "guias-para-vivir-mejor-de-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias13.php';
 			break;
-			
+		//FALTA		
 		case "promocion-guias-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias14.php';
 			break;
-			
+		//FALTA		
 		case "mejorar-vida-emocional-con-guias-de-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias15.php';
 			break;
-			
+		//FALTA		
 		case "guias-practicas-para-no-sufrir-de-amor":
 			$_REQUEST['id'] = 1;
 			require 'guias16.php';
 			break;
-			
+		//FALTA		
 		case "guias-practicas-para-relaciones-sanas-17":
 			$_REQUEST['id'] = 1;
 			require 'guias17.php';
 			break;
-			
+		//FALTA		
 		case "guias-para-construir-un-amor-completo-18":
 			$_REQUEST['id'] = 1;
 			require 'guias18.php';
 			break;
 			
-			
+		//FALTA		
 		case "guias-de-walter-riso-para-construir-un-amor-sano-19":
 			$_REQUEST['id'] = 1;
 			require 'guias19.php';
 			break;
-			
+		
 		case "entrevista-sobre-guia-para-no-sufrir-de-amor":
 			$_REQUEST['id'] = 1;
 			require 'guias20.php';
 			break;
-			
+		//FALTA	
 		case "herramienta-practica-para-vivir-mejor":
 			$_REQUEST['id'] = 1;
 			require 'guias21.php';
 			break;
-			
+		//FALTA
 		case "guias-practicas-para-vivir-bien-en-pareja":
 			$_REQUEST['id'] = 1;
 			require 'guias22.php';
@@ -112,12 +115,12 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 1;
 			require 'guias23.php';
 			break;
-			
+		//FALTA
 		case "guia-practica-para-vencer-la-dependencia-emocional":
 			$_REQUEST['id'] = 7;
 			require 'guias24.php';
 			break;
-			
+		//FALTA
 		case "mejorar-tu-relacion-de-pareja-con-walter-riso":
 			$_REQUEST['id'] = 1;
 			require 'guias25.php';
@@ -168,6 +171,7 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			require 'guias34.php';
 			break;
 			
+			//FALTA
 		case "guias-para-mejorar-tu-vida-emocional-35":
 			$_REQUEST['id'] = 1;
 			require 'guias35.php';
@@ -182,12 +186,13 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 1;
 			require 'guias37.php';
 			break;
-			
+			//HASTA AQUÍ
 		case "te-amo-pero-te-dejo-38":
 			$_REQUEST['id'] = 1;
 			require 'guias38.php';
 			break;
 			
+		//NO EN NUEVO
 		case "guias-practicas-para-mejorar-vida-emocional-39":
 			$_REQUEST['id'] = 1;
 			require 'guias39.php';
@@ -207,12 +212,14 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$_REQUEST['id'] = 1;
 			require 'guias42.php';
 			break;
-			
+		
+		////NO EN NUEVA		
 		case "prueba":
 			$_REQUEST['id'] = 1;
 			require 'guias43.php';
 			break;	
-			
+		
+		////NO EN NUEVA	
 		case "guias-practicas-para-vivir-el-amor-saludablemente":
 			$_REQUEST['id'] = 1;
 			require 'guias44.php';
@@ -228,7 +235,7 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			require 'guias46.php';
 			break;
 		
-		case "aprener-a-expresar-tus-opiniones":
+		case "aprender-a-expresar-tus-opiniones":
 			$_REQUEST['id'] = 1;
 			require 'guias47.php';
 			break;
@@ -299,6 +306,23 @@ if ( !empty( $_REQUEST['id'] ) ) {
 			$page_name = $_REQUEST['id'];
 			$_REQUEST['id'] = 1;
 			require 'guias61.php';
+			break;
+			
+		case "conferencia-enamorate-de-ti-cod":
+			$page_name = $_REQUEST['id'];
+			$_REQUEST['id'] = 1;
+			require 'guias62.php';
+			break;
+			
+		case "estereotipos-que-afectan-tu-autoestima":
+			$page_name = $_REQUEST['id'];
+			$_REQUEST['id'] = 1;
+			require 'guias63.php';
+			break;
+			
+		case "guias-practicas-de-walter-riso-mas-conferencia":
+			$_REQUEST['id'] = 1;
+			require 'guias64.php';
 			break;
 			
 		//Otros paquetes

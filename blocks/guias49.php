@@ -121,57 +121,31 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 	
     
     
-    		<!-- //////////////////////////////////////// --> 
-            
-            
-            <div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-                		<div class="text-center" style="font-size:24px;">
-								<strong>
-									Lleva hoy las 5 guías prácticas de Walter Riso con el<br /><span style="color:red">30% de descuento</span>
-								</strong>
-							</div>
+    		<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+                	<h2 class="text-center">Lleva hoy las 5 guías prácticas de Walter Riso y recibe:</h2>
+                	<div class="text-center" style="font-size:24px;">
+						<strong>
+							
+                            
+                            <span style="color:red">30% de descuento mas acceso gratis a la conferencia "Enamórate de ti"</span>
+						</strong>
 					</div>
 				</div>
+			</div>
+            
             
             
             
 			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-12">
-									<br /><br />
-									<img class="img img-responsive" src="/admin/_lib/file/imgpaquetes/<?= $data['portada'] ?>" alt="<?= $data['nombre'] ?>">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-12">
-							<br /><br />
-							<ul style="list-style-image:../img/chulo.png">
-								<?php
-								$publicaciones=explode(',', $data['publicaciones']);
-								foreach($publicaciones as $pub){
-									?>
-									<li style="list-style-image:url(../img/chulo.png); font-size:16px;"><?= getNombrePublicacion($pub) ?> </li>
-									<?php
-								}
-								?>
-							</ul>
-							
-						</div>
-					</div>
+				<div class="col-md-12" align="center">
+					<br /><br />
+					<img class="img img-responsive" src="../img/landings/ConfGuias.png" alt="<?= $data['nombre'] ?>">
 				</div>
 			</div>
+							
+			
+				
 
 		
         
@@ -179,12 +153,12 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<br /><br />
+					
 					<h3 style="color:red" class="text-center">
-						Precio actual: USD <?= number_format($data['precio'],2) ?>
+						Todo por solo USD <?= number_format($data['precio'],2) ?>
 					</h3>
 					<h4 style="color:gray" class="text-center tachado">
-						<s>Precio normal: USD $34.95</s>
+						<s>Precio normal: USD $49.94</s>
 					</h4>
 					<br />
 					<div class="col-md-12">
@@ -206,14 +180,121 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 					</div>
 				</div>
 			</div>
-    
-    
-    
-    
-    
-    
-    
-    
+            
+            <!-- /////////////////////////////////////////////// -->
+            
+            <div class="row">
+            
+            	<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+                                    <h3 class="text-center">Sobre la conferencia virtual</h3>
+                                    <br />
+                                    <p style="font-size:16px">
+                                    	
+                                    	En esta magistral conferencia, Walter Riso nos dará las pautas para activar el amor propio, pero no haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos para integrarlas al desarrollo de nuestra vida. Así además, descubrirás que el primer paso para disfrutar de un amor de pareja saludable, pleno y sin sufrimiento es amarse a sí mismo. Una persona con baja autoestima estará más predispuesta a sufrir de dependencia emocional, celos patológicos, inseguridad, entre otros factores, y no sabrá afrontar con asertividad problemas de infidelidad o rechazo afectivo.
+                                    </p>
+                                    <br />
+                                    
+									<ul style="list-style-image:../img/vineta2.png">
+                                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;">La conferencia será transmitida, en vivo y en directo, el 5 de diciembre de 2015. <span style="cursor:pointer; color:#00F" onclick="$('#myModalHorarios').modal()">Consulta horarios por ciudad</span>.</li>
+                                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;">Si por algún motivo no puedes acceder a la conferencia en vivo, tendrás 72 horas para ver la grabación.</li>
+                                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;">Podrás realizar preguntas.</li>
+                                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;">Podrás acceder fácilmente desde cualquier parte del mundo a través de tu computadora, tablet o teléfono celular, solo necesitas una conexión estable a Internet.</li>
+                                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;">La duración de la conferencia es, aproximadamente, de 2 horas.</li>
+                                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;">Esta conferencia será dictada en idioma español.</li>
+                                        
+                                    </ul>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+            
+            
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br />
+                                    <h3 class="text-center">Sobre guías prácticas de Walter Riso</h3>
+                                    <br />
+                                    <p style="font-size:16px">
+                                    	Esta colección compuesta por 5 tomos es una excelente guía para iniciar un proceso de mejora y crecimiento personal, además, gracias a la amplia trayectoria de Walter Riso como terapeuta de pareja es la mejor herramienta para hacer del amor una experiencia sin sufrimiento, plena y saludable.  Cada guía está compuesta por un conjunto de pasos, ejercicios, reflexiones o experiencias que te servirán para alcanzar un objetivo específico. 
+                                    </p>
+                                    <br />
+                                    
+									
+                                    <p style="font-size:16px">El paquete está compuesto por 5 guías que puedes adquirir en formato de texto (pdf) o en formato de audio (mp3). Estás guías son: </p>
+                                    <ul style="list-style-image:../img/chulo.png">
+                                        <?php
+                                        $publicaciones=explode(',', $data['publicaciones']);
+                                        foreach($publicaciones as $pub){
+                                            ?>
+                                            <li style="list-style-image:url(../img/chulo.png); font-size:16px;"><?= getNombrePublicacion($pub) ?> </li>
+                                            <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                    <br />
+                                    <div class="col-md-12">
+										<?php if(isset($_SESSION['id'])){ ?>
+                                        <p class="text-center">
+                                            <center>
+                                                <button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción ahora</button>
+                                            </center>
+                                        </p>
+                                        <?php }else{ ?>
+                                        <p class="text-center">
+                                            <center>
+                                                <button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción ahora</button>
+                                            </center>
+                                        </p>
+                                        <?php } ?>
+                                        <br />
+                                        
+                                    </div>
+                                    
+                                    
+                                    
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+            
+            <hr />
+            
+            <!-- //////////////////////////////////////////////// -->
+            
+            
+            
+            
+            
+            
+            <div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+                	<h2 class="text-center">
+							Información detallada de las guías prácticas de Walter Riso</span>
+					</h2>
+                    <br />
+				</div>
+			</div>
+			
+            
             <div class="row">
 				<div class="col-md-3">
 					<div class="row">
@@ -221,7 +302,66 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 							<div class="row">
 								<div class="col-md-12" align="center">
 									<br />
-									<img class="img img-responsive" style="max-width:200px" src="/admin/_lib/file/imgpublicaciones/Guia%20practica%20para%20vencer%20la%20dependencia%20emocional.png" alt="Guía práctica para vencer la dependencia emocional" title="Guía práctica para vencer la dependencia emocional - Walter Riso">
+									<img width="200px" class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/No-sufrir-de-amor.png" alt="Guía práctica para no sufrir de amor" title="Guía práctica para no sufrir de amor - Walter Riso">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							
+							<h4>Guía práctica para no sufrir de amor</h4>
+                            <h5>39 Reflexiones y vivencias que te permitirán desarrollar estrategias y esquemas afectivos resistentes al "mal de amor"</h5>
+                            <br />
+                            <p style="font-size:16px">En esta obra Walter Riso te guiará por un modelo o un esquema de reflexión que te permita comprender lo que es el "buen amor" (sano, coherente, constructivo) y el "mal amor" (enfermo, incoherente, destructivo), permitiendote descubrir los motivos por los que transformamos absurdamente el amor en sufrimiento y dandote pautas y ejercicios prácticos que te ayudarán a generar esquemas y comportamientos más adaptativos para vivir el amor de una manera mas plena y saludable. </p>
+                            <br />
+                            
+                            <div class="row">
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Autor:</b> Walter Riso</li>
+                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
+                                        <li ><b>ISBN:</b> 978-958-57932-1-5</li>
+                                    </ul>
+                                </div>
+                                                  
+								<div class="col-md-6">   
+                                	<ul style="list-style-type:square">
+										<li><b>Idioma:</b> Español</li>
+                                        <li ><b>Nº de páginas (Versión texto):</b> 73</li>
+                                        <li ><b>Duración (Versión audio):</b> 02:51:00 (2 Horas, 51 minutos)</li>
+                                    </ul>
+                                </div>
+                            </div>                         
+                            
+                            
+						
+                            
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+            
+            <hr />
+            
+            <!-- //////////////////////////////////////// -->
+            
+            
+            <div class="row">
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12" align="center">
+									<br />
+									<img width="200px" class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia%20practica%20para%20vencer%20la%20dependencia%20emocional.png" alt="Guía práctica para vencer la dependencia emocional" title="Guía práctica para vencer la dependencia emocional - Walter Riso">
 								</div>
 							</div>
 							<div class="row">
@@ -238,7 +378,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 							<h4>Guía práctica para vencer la dependencia emocional</h4>
                             <h5>13 pasos para amar con independencia y libertad.</h5>
                             <br />
-                            <p style="font-size:16px">Ser autónomo desde el punto de vista emocional no es dejar de amar, sino gobernarse a sí mismo, ser fiel a los propios principios y no entregar la dignidad personal a cambio de nada, ni siquiera en nombre del amor. En esta guía Walter Riso nos enseña de una forma práctica y poco teórica los pasos que se deben seguir para Amar sin dependencias emocionales, pretende aportar ideas y procedimientos que permitan desarrollar destrezas y habilidades para afrontar la dependencia emocional, prevenirla y/o crear un estilo de vida orientado a la independencia y al desapego afectivo.   </p>
+                            <p style="font-size:16px">¿Eres de los que piensa y siente que no puedes vivir sin tu pareja, que tu vida sin ella no tiene sentido, que tu felicidad solo depende de tu pareja y que tu vida sólo puede girar en torno a ella? ¡Cuidado! depender de la persona que se ama no solo arruina relaciones, también es una manera de enterrarse en vida, un acto de automutilación psicológica donde el amor propio, el autorrespeto, la dignidad, los principios y la esencia de uno mismo son ofrendados y regalados irracional-mente.  </p>
                             <br />
                             
                             <div class="row">
@@ -275,69 +415,6 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
             <!-- //////////////////////////////////////// -->
             
             
-            
-            <div class="row">
-				<div class="col-md-3">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div align="center">
-									<br />
-									<img class="img img-responsive" style="max-width:200px" src="/admin/_lib/file/imgpublicaciones/No-sufrir-de-amor.png" alt="Guía práctica para no sufrir de amor" title="Guía práctica para no sufrir de amor - Walter Riso">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-9">
-					<div class="row">
-						<div class="col-md-12">
-							
-							<h4>Guía práctica para no sufrir de amor</h4>
-                            <h5>39 Reflexiones y vivencias que te permitirán desarrollar estrategias y esquemas afectivos resistentes al "mal de amor"</h5>
-                            <br />
-                            <p style="font-size:16px">Esta guía tiene por objetivo crear un espacio de reflexión para desarrollar estrategias y esquemas afectivos y cognitivos resistentes al "mal de amor". Si conoces los motivos principales por los que transformamos absurdamente el amor en sufrimiento, aprenderás a evitarlos y a generar esquemas y comportamientos más adaptativos. </p>
-                            <br />
-                            
-                            <div class="row">
-								<div class="col-md-6">   
-                                	<ul style="list-style-type:square">
-										<li><b>Autor:</b> Walter Riso</li>
-                                        <li ><b>Formatos:</b> PDF (Texto) - MP3 (Audio)</li>
-                                        <li ><b>ISBN:</b> 978-958-57932-1-5</li>
-                                    </ul>
-                                </div>
-                                                  
-								<div class="col-md-6">   
-                                	<ul style="list-style-type:square">
-										<li><b>Idioma:</b> Español</li>
-                                        <li ><b>Nº de páginas (Versión texto):</b> 73</li>
-                                        <li ><b>Duración (Versión audio):</b> 02:51:00 (2 Horas, 51 minutos)</li>
-                                    </ul>
-                                </div>
-                            </div>                         
-                            
-                            
-						
-                            
-						</div>
-					</div>
-                    
-				</div>
-			</div>
-            
-            <hr />
-            
-            <!-- //////////////////////////////////////// -->
-            
-            
-            
-            
-            
             <div class="row">
 				<div class="col-md-3">
 					<div class="row">
@@ -345,7 +422,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 							<div class="row">
 								<div class="col-md-12" align="center">
 									<br />
-									<img class="img img-responsive" style="max-width:200px" src="/admin/_lib/file/imgpublicaciones/Guia_practica_para_mejorar_autoestima.png" alt="Guía práctica para mejorar la autoestima" title="Guía práctica para mejorar la autoestima - Walter Riso">
+									<img width="200px" class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia_practica_para_mejorar_autoestima.png" alt="Guía práctica para mejorar la autoestima" title="Guía práctica para mejorar la autoestima - Walter Riso">
 								</div>
 							</div>
 							<div class="row">
@@ -362,7 +439,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 							<h4>Guía práctica para mejorar la autoestima</h4>
                             <h5>24 pasos para enamorarte de ti y mejorar tu autoestima.</h5>
                             <br />
-                            <p style="font-size:16px">La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más. En el amor la mala autoestima es una de las principales razones para que aparezcan problemas de dependencia, inseguridad y rechazo. La conclusión de los especialistas es clara: si la autoestima no posee suficiente fuerza, viviremos mal, seremos infelices, ansiosos y seremos mas debiles ante situaciones de rechazo o infidelidad. </p>
+                            <p style="font-size:16px">Activar el amor propio es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal. Y no se está haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino  a  la capacidad genuina de reconocer, sin vergüenza ni temor, las  fortalezas y virtudes que poseemos e  integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera. Quererse uno mismo, despreciando o ignorando a los demás, es presunción y exclusión; querer a los demás, despreciándose uno mismo, es no reconocer el autoamor que nos define. </p>
                             <br />
                             
                             <div class="row">
@@ -408,7 +485,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 							<div class="row">
 								<div class="col-md-12" align="center">
 									<br />
-									<img class="img img-responsive" style="max-width:200px" src="/admin/_lib/file/imgpublicaciones/Guia-practica-para-no-dejarse-manipular.png" alt="Guía práctica para no dejarse manipular y ser asertivo" title="Guía práctica para no dejarse manipular y ser asertivo - Walter Riso">
+									<img width="200px" class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia-practica-para-no-dejarse-manipular.png" alt="Guía práctica para no dejarse manipular y ser asertivo" title="Guía práctica para no dejarse manipular y ser asertivo - Walter Riso">
 								</div>
 							</div>
 							<div class="row">
@@ -471,7 +548,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 							<div class="row">
 								<div class="col-md-12" align="center">
 									<br />
-									<img class="img img-responsive" style="max-width:200px" src="/admin/_lib/file/imgpublicaciones/Guia-practica-para-afrontar-la-infidelidad.png" alt="Guía práctica para afrontar la infidelidad de la pareja" title="Guía práctica para afrontar la infidelidad de la pareja - Walter Riso">
+									<img width="200px" class="img img-responsive" src="/admin/_lib/file/imgpublicaciones/Guia-practica-para-afrontar-la-infidelidad.png" alt="Guía práctica para afrontar la infidelidad de la pareja" title="Guía práctica para afrontar la infidelidad de la pareja - Walter Riso">
 								</div>
 							</div>
 							<div class="row">
@@ -645,6 +722,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 	            					<div class="col-md-12">
 	            						<br />
                                         
+                                        
                                         <iframe id='audio_4400055' frameborder='0' allowfullscreen='' scrolling='no' height='200' style='border:1px solid #EEE;  box-sizing:border-box; width:100%;' src="https://www.ivoox.com/player_ej_4400055_4_1.html?c1=ff6600"></iframe> 
 	                                    
 	            					</div>
@@ -678,7 +756,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 									¡No dejes escapar esta oportunidad!
 								</strong>
                                 	<br /><br />
-                                    Lleva hoy estas guías en versión audio o pdf con el <span style="color:red">30% de descuento</span><br />o lleva las dos versiones con el <span style="color:red">50% de descuento</span>
+                                    Lleva hoy estas guías en versión audio o pdf con el <span style="color:red">30% de descuento</span><br />o lleva las dos versiones con el <span style="color:red">50% de descuento</span> y accede gratis a la conferencia "Enamórate de ti"
 							</div>
                         
                         <br />
@@ -702,6 +780,56 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 					</div>
 				</div>
                 
+                
+                
+                <div class="row">
+                    
+                    <h3>Medios de pago disponibles</h3>
+                        <br />
+                        
+                        <ul style="list-style-image:../img/vineta2.png">
+                            <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde cualquier país del mundo:</b> Puedes pagar con tarjeta de crédito (Visa, Mastercard, Diners, American Express) o con Paypal. </li>
+                            <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde México:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Oxxo. Para pagar con Oxxo inscribete normalmente y encontrarás la opción para descargar el recibo de pago. </li>
+                            <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Colombia:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar con PSE y en efectivo a través de Baloto. Para pagar con Baloto inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                            <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Perú:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Banco de crédito BCP. Para pagar con BCP inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                            
+                        </ul>
+                        
+                        
+                       
+                        
+                        <hr />
+                
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="text-center">¿Quieres contactarnos?</h3>
+                        <h4 class="text-center">Llámanos</h4>
+                        <br />
+                        <p class="text-center" style="font-size:16px;">
+                            Colombia: +5713819084<br />
+                            México: +525541708262<br />
+                            Estados Unidos: +13052304729<br />
+                        </p>
+                        <p class"text-center">También puedes hablar con nosotros a través del chat que encuentras en la parte inferior izquierda de esta página</p>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h3 class="text-center">Otros medios de contacto</h3>  
+                        <h4 class="text-center">Estaremos atentos a responderte</h4>     
+                        <br />
+                        <p class="text-center" style="font-size:16px;">
+                            Email: info@phronesisvirtual.com<br />
+                            Skype: editorialphronesis<br />
+                            Facebook: https://www.facebook.com/phronesisvirtual<br />
+                            Twitter: @phronesisvir<br />
+                        </ul>
+                        
+                    </div>
+                    
+                
+                </div>
 	            
 			</div>
 		</div>
@@ -799,7 +927,7 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 						<div class="row">
 							<div class="col-lg-12">
 								<input id="btnPaqueteAudio" type="radio" name="product" value="3" data-discount="30" data-price="34.95" data-format="MP3">
-								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> Formato de audio MP3 (-30% dto)</label>
+								<span class="CompraPaquetes-label" for="btnPaqueteAudio"> Formato de audio MP3 (-30% dto)</span>
 							</div>
 						</div>
 						<div class="row">
@@ -814,6 +942,8 @@ En esta noche te espero, no sé si vendrás, y una vez más en silencio quedaré
 								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Los dos formatos PDF + MP3 <span class="orange">(-50% dto)</span></label>
 							</div>
 						</div>
+                        <br />
+                        <b>IMPORTANTE:</b> Por La compra de cualquiera de estos formatos obtendrás acceso gratis a la conferencia virtual "Enamórate de ti". 
 						<br>
                         <p class="mensajeEspera1"></p>
 						<br>

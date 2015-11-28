@@ -13,7 +13,7 @@
 					</div>
 					<div class="Header-conferenciaColumns col-sm-9 col-xs-9 Header-conferenciaTitulo">
 						<h5>Conferencia Virtual por Walter Riso</h5>
-						<h4>¡ENAMÓRATE DE TÍ!</h4>
+						<h4>¡ENAMÓRATE DE TI!</h4>
 						<h5 style="text-align: right;">< Ver más ></h5>
 					</div>
 				</div>
@@ -29,13 +29,12 @@
 					</div>
 					<div class="Header-conferenciaColumns col-lg-3 Header-conferenciaTitulo">
 						<h5>Conferencia Virtual</h5>
-						<h4>¡ENAMÓRATE DE TÍ!</h4>
+						<h4>¡ENAMÓRATE DE TI!</h4>
 						<h5>Walter Riso</h5>
 					</div>
 					<div class="Header-conferenciaColumns col-lg-2 Header-conferenciaMensaje">
-						En preventa <br>
-						USD 9,99 <br>
-						Hasta noviembre 17
+						USD <span style="font-size:2.5rem;">14,99</span> <br>
+						Hasta diciembre 5
 					</div>
 					<div class="Header-conferenciaColumns col-lg-3 Header-conferenciaCountdown">
 						<div class="row">

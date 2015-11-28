@@ -11,7 +11,7 @@
 	
 					if (!$('#myModalCompletaRegistro').is(':visible')) {
 						$('#PaquetesModal').modal('show');
-						$.cookie('modal',1);
+						$.cookie('modal',1); 
 					}
 				});
 		</script>
@@ -36,70 +36,66 @@
         
         	<div class="row">
             
-            	<h1 class="text-center">Carta a mi amiga sin autoestima</h1>
-                <br />
-                <p style="font-size:16px">"No tengo tiempo para dormir el domingo, tengo tanto por hacer que me da remordimiento". Me disgusta que digas cosas como estas. Cuando te escucho me dan ganas de darte una cátedra sobre el amor propio (que, por cierto, hoy entiendo y disfruto gracias a los libros de Walter Riso). Sin embargo, y por prudencia, me toca callar pues ya en un intento previo recibí de ti malas respuestas;  sé bien que no te agradan mis consejos sobre el tema.</p>
-                <br />
-                <p style="font-size:16px">Yo también tengo, como millones de mujeres en el mundo, mil cosas por hacer: tengo hijos, un trabajo, una casa y un esposo con el cual compartir. Pero duermo hasta tarde los domingos, duermo tranquila aun cuando deba hacer tantas cosas. Como todos, necesito descansar y no me da remordimiento hacerlo; duermo dulce y plácidamente, reconforto mis ganas, mi entusiasmo y energías y vuelvo a empezar. Me gusta hacer "nada" cuando puedo, así libero mi mente de tantos "compromisos" que me llevan al estrés.</p>
-                <br />
-            	
+            	<h1 class="text-center">8 Tips para amarnos día a día</h1>
+                <br /><br />
             </div>
-            
-            
             <div class="row">
             	<div class="col-md-6">
-                	<img width="100%" class="img img-responsive" src="../img/landings/mujer-con-alta-autoestima.png" alt:"Mujer con alta autoestima" title="Mujer con alta autoestima mirandose al espejo" />
+                	<img class="img img-responsive" src="../img/landings/mujer-que-se-ama.png" alt:"Mujer que se ama" title="Mujer demostrando que tiene amor propio" />
                 </div>
-            	
+                
                 <div class="col-md-6">
                 	<p style="font-size:16px">
-                    	También me miro al espejo muchas veces y me digo "¡qué bella estás!"; al escucharme me sonrojo y sonrío; cuando te conté lo que yo hacía, que me hablaba, solo logré un ataque de risa en ti y recuerdo las palabras que dijiste: "yo nunca me miro al espejo, si acaso por 2 segundos y ya"; pues ya lo sabes, yo sí me aprecio, me aplaudo, me hablo… Me disgusta cuando dices "¡estoy fea, no tengo la cintura como quiero!", o esa vez que me dijiste "Me voy a encontrar con Juan" y la emoción duró un segundo, pues de inmediato te recriminaste: "cuantos años y yo trabajando igual, con la misma ropa, no tengo carro y ni un apartamento propio"… ¿Cómo es posible volver un momento de emoción y reencuentro en una tragedia monumental? ¡Oh por Dios! Has tenido nuevos amores, nuevos amigos, aprendiste un nuevo idioma, has viajado, aprendiste de cocina, has vivido y experimentado, has bailado, has comido los banquetes que has querido, has, has, has… ¿Por qué te fijas solo en lo negativo? Cuántos quisieran hacer tanto como tú, llevar la vida que tu llevas, tener buena salud y simplemente vivir.
-                    </p>
-                </div>
-            
-            </div>
-            
-            <div class="row">
-            	<p style="font-size:16px">
+                		Todos, en algún momento de nuestras vidas hemos pasado por malos ratos, donde sentimos que es difícil seguir; esto se debe a que nuestra autoestima está muy abajo, a que, aunque seamos personas seguras, algo no está bien dentro de nosotros y algo se está perdiendo. Es ahí donde tenemos que reaccionar y buscar soluciones, es importante saber cómo actuar ante estas señales y resolverlas a tiempo, antes que se hagan parte cotidiana de nuestras vidas.
+                	</p>
                 	<br />
-            		A ti, mujer sin autoestima, quiero hacerte comprender lo siguiente: si te aplaudes por tus logros (que son muchos), si te miras al espejo y te besas, si te abrazas, si haces "nada" en una tarde y dedicas ese tiempo para ti, tu autoestima se verá renovada, aparecerá una nueva mujer llena de ganas, entusiasmo y amor. Ya no verás como anormales mis acciones, como aquella de sentarme en un parque, quitarme los zapatos y tocar el pasto, mirar a lo lejos y solo pensar, disfrutar colores, disfrutar del viento. ¡No sé si estoy loca! Y si lo estoy, lo disfruto inmensamente.
-                </p>
- 				<p style="font-size:16px">
-					Mujer sin autoestima: Cuando digo que quiero emprender un nuevo hobbie, no me digas "eso te quita mucho tiempo"; créeme, yo lo disfruto y sí, quita tiempo, pero me gusta y lo hago con placer. Yo de ti me creo el cuento, estás aquí para disfrutar cada momento, para disfrutarte a ti misma, bella e inteligente mujer.
-				</p>
-                <hr />
-                <p style="font-size:16px">
-					<b>CONCLUSIÓN:</b> Cuando amamos lo que somos y aceptamos la realidad de nuestro ser, se nos hará más fácil aceptar aquello que no nos gusta; buscando mejorarlo y trabajar para sentirnos cada día más satisfechos con nosotros mismos. Como lo indica el psicólogo y escritor Walter Riso en su "Guía práctica para mejorar la autoestima": <i>"Activar el amor propio es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal. Y no se está haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos e integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera.  La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, dependencia emocional, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más"</i>. Hoy queremos invitarte a la conferencia virtual que dictará Walter Riso sobre este importante tema el próximo 5 de diciembre de 2015, es una cita para iniciar un romance que durará toda la vida: <i>el romance contigo mismo</i>. ¡No te la pierdas!. 
-                </p>
-            	<hr />
+                    <p style="font-size:16px">
+                        Una de las razones principales por la que pasan los seres humanos, que les genera baja autoestima, es no vivir el presente; tenemos la costumbre de vivir del recuerdo o de vivir de sueños futuros, y es ahí donde perdemos el rumbo de saber dónde está el hoy, qué hay de mi vida presente; estoy perdiendo muchas oportunidades de ser feliz disfrutando mi día, porque estoy pensando en que fue mi ayer y qué será mi mañana, es hora de abrir los ojos y darnos cuenta que si no cambiamos nuestra manera de vivir y de disfrutar nuestro presente, siempre viviremos de cosas vacías. Busca sentirte mejor viviendo la plenitud de hoy.
+                    </p>
+                    <br />
+                </div>
             </div>
-        
-        
+            <div class="row">
+                
+                <h3>Haz estas 8 cosas día a día y verás cómo fortaleces tu autoestima, ¡revísalas! </h3>
+                <br />
+                
+                <ol style="font-size:16px">
+                	<li>Respétate</li>
+                    <li>Conócete a ti mismo</li>
+                    <li>Acéptate y no compares</li>
+                    <li>Olvida la mentalidad negativa</li>
+                    <li>No vivas de insatisfacción</li>
+                    <li>Confía en ti mismo</li>
+                    <li>Esfuérzate en ser mejor siempre</li>
+                    <li>Plantea metas y consigue lograrlas</li>
+				</ol>
+                
+                <br />
+                
+                <p style="font-size:16px">
+                        <i>En este mes de la autoestima, Phronesis quiere invitarte a reflexionar sobre la importancia que le das a tu diario vivir, como bien lo afirma el psicólogo y escritor Walter Riso: "si no sueltas tu pasado y te prendes del futuro: ¿con qué mano agarras el presente?". Es importante proyectarnos al futuro y aprender del pasado, pero sin sacrificar el presente, la clave está en vivir el hoy, disfrutar cada día, cada momento que la vida nos regala, teniendo presente que lo más importante no es llegar a la meta sino disfrutar del camino. Este tema seguirá siendo tratado y analizado a profundidad en Phronesis durante este mes de la autoestima y será un tema fundamental en la próxima conferencia del psicólogo y escritor Walter Riso "Enamórate de ti" del próximo 5 de diciembre.</i>
+                </p>
+                
+                <hr />
+            
+            </div>
+
         
         	<div class="row">
-            
-            	<img width="100%" class="img img-responsive" src="../img/landings/Banner-landings-azul.png" alt:"Conferencia virtual por Walter Riso" title="Enamorate de ti, conferencia virtual por Walter Riso" />
-
-            </div>
-            
-            <div class="row">
-            
-            	<p style="font-size:18px; color:#600">
-                	<br /><i>"Los que no se quieren a sí mismos han aprendido a echarse la culpa por casi todo lo que hacen mal y a dudar del propio esfuerzo cuando hacen las cosas bien, como si tuvieran los cables cruzados." Walter Riso</i>
-                </p>
-            
+            	    <h1 class="text-center">CONFERENCIA VIRTUAL ENAMÓRATE DE TI</h1>
+                    <h3 class="text-center">El poder de la autoestima para el desarrollo del potencial humano</h3>
+                    <br />
             </div>
         
         	<div class="row">
             	<div class="col-md-6" style="margin:0px 0px 20px 0px;">
-                	<h1 class="text-center">Enamórate de ti</h1>
-                    <h3 class="text-center">Conferencia virtual por Walter Riso</h3>
-                    <br />
+                	<br />
                     <p style="font-size:16px">
-                    Amarse a uno mismo es fundamental. Activar la autoestima es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal; no hay otra forma de cuidarse y de  reconocerse como un ser digno. No solamente es el punto de  referencia para saber cuánto se debe amar a los demás, sino que actúa como un factor de protección para las enfermedades psicológicas y un elemento que genera bienestar y calidad de vida. 
+                    La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más. En el amor la mala autoestima es una de las principales razones para que aparezcan problemas de dependencia, celos desmedidos, inseguridad, rechazo, entre otros. La conclusión de los especialistas es clara: si la autoestima no posee suficiente fuerza, viviremos mal, seremos infelices y ansiosos, y no sabremos manejar con asertvidad los problemas de pareja. 
                     </p>
                     <p style="font-size:16px">
-                    En esta conferencia, Walter Riso nos guiará hacia la obtención de la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y las virtudes que poseemos, para integrarlas al desarrollo de nuestra vida y volcarlas a los demás de manera efectiva y compasiva. Será un espacio para reflexionar y reencontrarse con la propia esencia, en un proceso donde las aspiraciones personales habrán de converger hacia un estado de bienestar auténtico.
+                    En esta magistral conferencia, Walter Riso nos dará las pautas para activar el amor propio, pero no haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos e integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera. Quererse uno mismo, despreciando o ignorando a los demás, es presunción y exclusión; querer a los demás, despreciándose uno mismo, es no reconocer el autoamor que nos define.
                     </p>
                     <br />
                     <ul style="list-style-image:../img/vineta2.png">
@@ -132,12 +128,12 @@
                                         <input type="radio" value="1" name="precio_conferencia" checked="checked" />
                                     </td>
                                     <td valign="middle">
-                                        <span style="font-size:16px; color:#FFF"><b>Primera preventa</b></span>
+                                        <span style="font-size:16px; color:#666"><b>Primera preventa</b></span>
                                         <br />
-                                        <span style="font-size:15px; color:#FFF">Hasta nov. 10 de 2015</span>
+                                        <span style="font-size:15px; color:#666">Hasta nov. 10 de 2015</span>
                                     </td>
                                     <td valign="middle" align="right">
-                                        <span style="font-size:24px; color:#FFF">USD 7,99</span>
+                                        <span style="font-size:24px; color:#666">USD 7,99</span>
                                     </td>
                                 <?php        
                                     }else{
@@ -146,12 +142,12 @@
                                         <input type="radio" value="1" name="precio_conferencia" disabled="disabled" />
                                     </td>
                                     <td valign="middle">
-                                        <span style="font-size:16px; color:#a88080"><b>Primera preventa</b></span>
+                                        <span style="font-size:16px; color:#666"><b>Primera preventa</b></span>
                                         <br />
-                                        <span style="font-size:15px; color:#a88080">Hasta nov. 10 de 2015</span>
+                                        <span style="font-size:15px; color:#666">Hasta nov. 10 de 2015</span>
                                     </td>
                                     <td valign="middle" align="right">
-                                        <span style="font-size:24px; color:#a88080">USD 7,99</span>
+                                        <span style="font-size:24px; color:#666">USD 7,99</span>
                                     </td>
                                 <?php
                                     }
@@ -212,12 +208,12 @@
                                         <input type="radio" value="3" name="precio_conferencia" disabled="disabled" />
                                     </td>
                                     <td valign="middle">
-                                        <span style="font-size:16px; color:#a88080"><b>Precio full</b></span>
+                                        <span style="font-size:16px; color:#666"><b>Precio full</b></span>
                                         <br />
-                                        <span style="font-size:15px; color:#a88080">Hasta dic. 5 de 2015</span>
+                                        <span style="font-size:15px; color:#666">Hasta dic. 5 de 2015</span>
                                     </td>
                                     <td valign="middle" align="right">
-                                        <span style="font-size:24px; color:#a88080">USD 14,99</span>
+                                        <span style="font-size:24px; color:#666">USD 14,99</span>
                                     </td>
                                 <?php
                                     }
@@ -294,61 +290,19 @@
                 
                 	<h3>Medios de pago disponibles</h3>
                 	<br />
-                	<table class="table table-striped table-bordered">
-						<tr valign="middle">
-                        	<th></th>
-                            <th>Visa</th>
-                            <th>Mastercard</th>
-                            <th>Diners</th>
-                            <th>AMEX</th>
-                            <th>Paypal</th>
-                            <th>PSE</th>
-                            <th>Pago en efectivo</th>
-                        </tr>
-                        <tr>
-                        	<td>Desde cualquier país del mundo</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center"></td>
-                        </tr>
-                         <tr>
-                        	<td>Desde Colombia</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center">Baloto</td>
-                        </tr>
-                         <tr>
-                        	<td>Desde México</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center">Oxxo</td>
-                        </tr>
-                         <tr>
-                        	<td>Desde Perú</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center">BCP</td>
-                        </tr>
-                                
-                    </table>
                     
-                    <br />
+                    <ul style="list-style-image:../img/vineta2.png">
+						<li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde cualquier país del mundo:</b> Puedes pagar con tarjeta de crédito (Visa, Mastercard, Diners, American Express) o con Paypal. </li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde México:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Oxxo. Para pagar con Oxxo inscribete normalmente y encontrarás la opción para descargar el recibo de pago. </li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Colombia:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar con PSE y en efectivo a través de Baloto. Para pagar con Baloto inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Perú:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Banco de crédito BCP. Para pagar con BCP inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                        
+					</ul>
+                    
+                    
+                   
+                    
+                    <hr />
                     
                     <h3>Horarios en las principales ciudades</h3>
                     <br />
@@ -386,39 +340,14 @@
                 	
                 </div>
                 
-            </div>    
                 
+            </div>    
+
+            
             <div class="row">
             	<hr />
-            	
-            	<h3>¿Tienes dudas o comentarios? Estaremos atentos a responderte</h3>
-                
-            
-            	<?php
-					$actual_link = "https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso";
-					?>
-					<div id="fb-root"></div>
-					<script>(function(d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) return;
-					js = d.createElement(s); js.id = id;
-					js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1555280741417343";
-					fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));</script>
-					
-					<div class="fb-comments" data-href="<?= $actual_link; ?>" data-width="100%" data-numposts="5"></div>
-                    
-                    <hr />
-            
- 
-            
-            
-            </div>   
-            
-            
-            <div class="row">
             	<div class="col-md-6">
-                	<h3 class="text-center">¿Prefieres hablar con nosotros?</h3>
+                	<h3 class="text-center">¿Tienes alguna duda?</h3>
                     <h4 class="text-center">Llámanos</h4>
                     <br />
                     <p class="text-center" style="font-size:16px;">
@@ -541,36 +470,36 @@
 						<h4 class="modal-title" id="myModalLabel">Proceso de inscripción a conferencia virtual</h4>
 					</div>
 					<div class="modal-body CompraPaquetes">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                
+						<div class="row">
+							<div class="col-lg-12">
+								
                                 <p style="font-size:16px">El siguiente paso de la inscripción es realizar el pago, ten en cuenta que según el país en el que te encuentres contarás con diferentes métodos transaccionales, presiona siguiente y continúa el proceso seleccionando el país desde donde pagarás. 
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row" style="display:none">
-                            <div class="col-lg-12">
-                                <input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
-                                <label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD $7.99</span></label>
-                            </div>
-                        </div>
-                        <div class="row" style="display:none">
-                            <div class="col-lg-12">
-                                <input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
-                                <label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD $9.99</span></label>
-                            </div>
-                        </div>
-                        <div class="row" style="display:none">
-                            <div class="col-lg-12">
-                                <input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
-                                <label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD $14.99</span></label>
-                            </div>
-                        </div>
-                        <br>
+								</p>
+							</div>
+						</div>
+						<div class="row" style="display:none">
+							<div class="col-lg-12">
+								<input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD $7.99</span></label>
+							</div>
+						</div>
+						<div class="row" style="display:none">
+							<div class="col-lg-12">
+								<input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
+								<label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD $9.99</span></label>
+							</div>
+						</div>
+						<div class="row" style="display:none">
+							<div class="col-lg-12">
+								<input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD $14.99</span></label>
+							</div>
+						</div>
+						<br>
                         <p class="mensajeEspera1"></p>
-                        
-                        <br>
-                        <div class="CompraPaquetes-dataContainer text-right">
+						
+						<br>
+						<div class="CompraPaquetes-dataContainer text-right">
                             <?php
                                 if ( $dia <= 10 && $mes == 11 ) {
                             ?>
@@ -625,7 +554,7 @@
                                 }
                             ?>
                         </div>
-                    </div>
+					</div>
 					<div class="modal-footer">
 						<div class="row">
 							<div class="col-lg-12">
@@ -867,7 +796,7 @@
 				coleccion : true,
 				id : id_paquete,
 				nombre : nombre,
-				landing: 53
+				landing: 60
 			};
 
 			$('#metodoPago').empty();

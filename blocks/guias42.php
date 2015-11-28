@@ -66,6 +66,100 @@ Amar no requiere dejar al descubierto cada elemento de tu personalidad, ni que t
 			</div>
 			<hr />
             
+            
+            
+            <!------------------------------------------------------>
+            
+            
+            <div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+                		<h2 class="text-center">Lleva hoy las 5 guías prácticas de Walter Riso y recibe:</h2>
+                		<div class="text-center" style="font-size:24px;">
+							<strong>                          
+                    			<span style="color:red">30% de descuento mas acceso gratis a la conferencia "Enamórate de ti"</span>
+							</strong>
+						</div>
+					</div>
+				</div>
+            
+            
+            
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-12">
+									<br /><br />
+									<img class="img img-responsive" src="/admin/_lib/file/imgpaquetes/<?= $data['portada'] ?>" alt="<?= $data['nombre'] ?>">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<br /><br />
+							<ul style="list-style-image:../img/chulo.png">
+								<?php
+								$publicaciones=explode(',', $data['publicaciones']);
+								foreach($publicaciones as $pub){
+									?>
+									<li style="list-style-image:url(../img/chulo.png); font-size:16px;"><?= getNombrePublicacion($pub) ?> </li>
+									<?php
+								}
+								?>
+							</ul>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+		
+        
+        
+
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<br /><br />
+					<h3 style="color:red" class="text-center">
+						Precio actual: USD <?= number_format($data['precio'],2) ?>
+					</h3>
+					<h4 style="color:gray" class="text-center tachado">
+						<s>Precio normal: USD $34.95</s>
+					</h4>
+					<br />
+					<div class="col-md-12">
+						<?php if(isset($_SESSION['id'])){ ?>
+						<p class="text-center">
+							<center>
+								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción</button>
+							</center>
+						</p>
+						<?php }else{ ?>
+						<p class="text-center">
+							<center>
+								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción</button>
+							</center>
+						</p>
+						<?php } ?>
+						<br />
+						<hr />
+					</div>
+				</div>
+			</div>
+
+
+            <!-- /////////////////////////////////////////////////////  -->
+            
+            
+            
             <div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
                 	<h2 class="text-center">
@@ -382,91 +476,7 @@ Amar no requiere dejar al descubierto cada elemento de tu personalidad, ni que t
            <!-- //////////////////////////////////////// --> 
             
             
-            <div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-                		<div class="text-center" style="font-size:24px;">
-								<strong>
-									Lleva hoy las 5 guías prácticas con el<br /><span style="color:red">30% de descuento</span>
-								</strong>
-							</div>
-					</div>
-				</div>
             
-            
-            
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-12">
-									<br /><br />
-									<img class="img img-responsive" src="/admin/_lib/file/imgpaquetes/<?= $data['portada'] ?>" alt="<?= $data['nombre'] ?>">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-12">
-							<br /><br />
-							<ul style="list-style-image:../img/chulo.png">
-								<?php
-								$publicaciones=explode(',', $data['publicaciones']);
-								foreach($publicaciones as $pub){
-									?>
-									<li style="list-style-image:url(../img/chulo.png); font-size:16px;"><?= getNombrePublicacion($pub) ?> </li>
-									<?php
-								}
-								?>
-							</ul>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-
-		
-        
-        
-
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<br /><br />
-					<h3 style="color:red" class="text-center">
-						Precio actual: USD <?= number_format($data['precio'],2) ?>
-					</h3>
-					<h4 style="color:gray" class="text-center tachado">
-						<s>Precio normal: USD $34.95</s>
-					</h4>
-					<br />
-					<div class="col-md-12">
-						<?php if(isset($_SESSION['id'])){ ?>
-						<p class="text-center">
-							<center>
-								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#PaquetesModal">Comprar promoción</button>
-							</center>
-						</p>
-						<?php }else{ ?>
-						<p class="text-center">
-							<center>
-								<button style="width:320px" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModalRegistroPaquete">Comprar promoción</button>
-							</center>
-						</p>
-						<?php } ?>
-						<br />
-						<hr />
-					</div>
-				</div>
-			</div>
-
-
-            <!-- /////////////////////////////////////////////////////  -->
 		
             <div class="row">
             	<div class="col-md-6">
@@ -756,7 +766,9 @@ Amar no requiere dejar al descubierto cada elemento de tu personalidad, ni que t
 								<label class="CompraPaquetes-label" for="btnPaqueteAll"> Los dos formatos PDF + MP3 <span class="orange">(-50% dto)</span></label>
 							</div>
 						</div>
-						<br>
+						<br />
+                        <b>IMPORTANTE:</b> Por La compra de cualquiera de estos formatos obtendrás acceso gratis a la conferencia virtual "Enamórate de ti". 
+						<br />
                         <p class="mensajeEspera1"></p>
 						<br>
 						<br>

@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST['landing']) && $_POST['landing'] == 52 ) {
+if (isset($_POST['landing']) && $_POST['landing'] == 750 ) {
 ?>
-<div class="row">
+<!-- <div class="row">
 	<h4>¿Tienes un código de descuento? Ingrésalo aquí:</h4>
 	<div class="col-md-6 form-group">
 		<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" />
@@ -12,7 +12,7 @@ if (isset($_POST['landing']) && $_POST['landing'] == 52 ) {
 </div>
 <div class="row">
 	<div id="descuentoMensaje"></div>
-</div>
+</div> -->
 <?php
 }
 ?>

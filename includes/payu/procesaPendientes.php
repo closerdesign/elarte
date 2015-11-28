@@ -5,7 +5,7 @@
 	require_once '../rest-api-sample-app-php/app/bootstrap.php';
 	use PayPal\Api\Payment;
 	
-	$sql="SELECT * FROM pedidos WHERE status = 1 AND formaPago != 2 AND transactionId != ''";
+	$sql="SELECT * FROM pedidos WHERE (status = 1 OR status = 0) AND formaPago != 2 AND transactionId <> ''";
 	$q=mysqli_query($con, $sql);
 	$n=mysqli_num_rows($q);
 	

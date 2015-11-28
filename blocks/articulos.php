@@ -592,7 +592,7 @@
                             <div class="row" align="center">
                                 <hr />
                                 
-                                <a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso"><img class="img-responsive" src="http://www.elartedesabervivir.com/img/landings/Banner-articulos-conferencia-fondo-azul.png" alt="Conferencia enamorate de ti" title="Conferencia virutal por Watler Riso: Enamorate de ti" /></a>
+                                <a href="https://www.elartedesabervivir.com/guias/enamorate-de-ti-conferencia-por-walter-riso"><img class="img-responsive" src="http://www.elartedesabervivir.com/img/landings/Banner-articulos-conferencia-fondo-negro.png" alt="Conferencia enamorate de ti" title="Conferencia virutal por Watler Riso: Enamorate de ti" /></a>
                                 
                                 
                                 <!--

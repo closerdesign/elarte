@@ -202,6 +202,9 @@
 			case 'getPrecioPaquete':
 				consultarPrecioPaquete();
 				break;
+			case 'getPrecioPaquete2':
+				consultarPrecioPaquete2();
+				break;
 			default:
 				break;
 		}
@@ -387,7 +390,24 @@
 		$id = $_POST['id'];
 		$data = getDataPaquete($id);
 
+		
 		$result = array(
+						'precio' => $data['precio'],
+						'nombre' => $data['nombre'],
+						'error'  => 0
+					);
+		
+		echo json_encode($result);
+	}
+	
+	function consultarPrecioPaquete2()
+	{
+		$id = $_POST['id'];
+		$data = getDataPaquete2($id);
+
+		
+		$result = array(
+						'paquete_id' => $data['idPaquete'],
 						'precio' => $data['precio'],
 						'nombre' => $data['nombre'],
 						'error'  => 0
@@ -2245,14 +2265,14 @@
 	{		
 		$metodo = $_POST['metodo'];
 		
-		$valor = "9.99";
+		$valor = "14.99";
 
 		$today = date("Y-m-d H:i:s");
 		$date = "2015-06-30 00:00:00";
 		
 		if($today > $date){
 			
-			$valor = "9.99";
+			$valor = "14.99";
 			
 		}
 		

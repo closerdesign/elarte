@@ -34,72 +34,23 @@
 
 		<div class="container">
         
-        	<div class="row">
-            
-            	<h1 class="text-center">Carta a mi amiga sin autoestima</h1>
-                <br />
-                <p style="font-size:16px">"No tengo tiempo para dormir el domingo, tengo tanto por hacer que me da remordimiento". Me disgusta que digas cosas como estas. Cuando te escucho me dan ganas de darte una cátedra sobre el amor propio (que, por cierto, hoy entiendo y disfruto gracias a los libros de Walter Riso). Sin embargo, y por prudencia, me toca callar pues ya en un intento previo recibí de ti malas respuestas;  sé bien que no te agradan mis consejos sobre el tema.</p>
-                <br />
-                <p style="font-size:16px">Yo también tengo, como millones de mujeres en el mundo, mil cosas por hacer: tengo hijos, un trabajo, una casa y un esposo con el cual compartir. Pero duermo hasta tarde los domingos, duermo tranquila aun cuando deba hacer tantas cosas. Como todos, necesito descansar y no me da remordimiento hacerlo; duermo dulce y plácidamente, reconforto mis ganas, mi entusiasmo y energías y vuelvo a empezar. Me gusta hacer "nada" cuando puedo, así libero mi mente de tantos "compromisos" que me llevan al estrés.</p>
-                <br />
-            	
-            </div>
-            
-            
-            <div class="row">
-            	<div class="col-md-6">
-                	<img width="100%" class="img img-responsive" src="../img/landings/mujer-con-alta-autoestima.png" alt:"Mujer con alta autoestima" title="Mujer con alta autoestima mirandose al espejo" />
-                </div>
-            	
-                <div class="col-md-6">
-                	<p style="font-size:16px">
-                    	También me miro al espejo muchas veces y me digo "¡qué bella estás!"; al escucharme me sonrojo y sonrío; cuando te conté lo que yo hacía, que me hablaba, solo logré un ataque de risa en ti y recuerdo las palabras que dijiste: "yo nunca me miro al espejo, si acaso por 2 segundos y ya"; pues ya lo sabes, yo sí me aprecio, me aplaudo, me hablo… Me disgusta cuando dices "¡estoy fea, no tengo la cintura como quiero!", o esa vez que me dijiste "Me voy a encontrar con Juan" y la emoción duró un segundo, pues de inmediato te recriminaste: "cuantos años y yo trabajando igual, con la misma ropa, no tengo carro y ni un apartamento propio"… ¿Cómo es posible volver un momento de emoción y reencuentro en una tragedia monumental? ¡Oh por Dios! Has tenido nuevos amores, nuevos amigos, aprendiste un nuevo idioma, has viajado, aprendiste de cocina, has vivido y experimentado, has bailado, has comido los banquetes que has querido, has, has, has… ¿Por qué te fijas solo en lo negativo? Cuántos quisieran hacer tanto como tú, llevar la vida que tu llevas, tener buena salud y simplemente vivir.
-                    </p>
-                </div>
-            
-            </div>
-            
-            <div class="row">
-            	<p style="font-size:16px">
-                	<br />
-            		A ti, mujer sin autoestima, quiero hacerte comprender lo siguiente: si te aplaudes por tus logros (que son muchos), si te miras al espejo y te besas, si te abrazas, si haces "nada" en una tarde y dedicas ese tiempo para ti, tu autoestima se verá renovada, aparecerá una nueva mujer llena de ganas, entusiasmo y amor. Ya no verás como anormales mis acciones, como aquella de sentarme en un parque, quitarme los zapatos y tocar el pasto, mirar a lo lejos y solo pensar, disfrutar colores, disfrutar del viento. ¡No sé si estoy loca! Y si lo estoy, lo disfruto inmensamente.
-                </p>
- 				<p style="font-size:16px">
-					Mujer sin autoestima: Cuando digo que quiero emprender un nuevo hobbie, no me digas "eso te quita mucho tiempo"; créeme, yo lo disfruto y sí, quita tiempo, pero me gusta y lo hago con placer. Yo de ti me creo el cuento, estás aquí para disfrutar cada momento, para disfrutarte a ti misma, bella e inteligente mujer.
-				</p>
-                <hr />
-                <p style="font-size:16px">
-					<b>CONCLUSIÓN:</b> Cuando amamos lo que somos y aceptamos la realidad de nuestro ser, se nos hará más fácil aceptar aquello que no nos gusta; buscando mejorarlo y trabajar para sentirnos cada día más satisfechos con nosotros mismos. Como lo indica el psicólogo y escritor Walter Riso en su "Guía práctica para mejorar la autoestima": <i>"Activar el amor propio es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal. Y no se está haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos e integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera.  La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, dependencia emocional, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más"</i>. Hoy queremos invitarte a la conferencia virtual que dictará Walter Riso sobre este importante tema el próximo 5 de diciembre de 2015, es una cita para iniciar un romance que durará toda la vida: <i>el romance contigo mismo</i>. ¡No te la pierdas!. 
-                </p>
-            	<hr />
-            </div>
-        
-        
-        
-        	<div class="row">
-            
-            	<img width="100%" class="img img-responsive" src="../img/landings/Banner-landings-azul.png" alt:"Conferencia virtual por Walter Riso" title="Enamorate de ti, conferencia virtual por Walter Riso" />
+        	
 
-            </div>
-            
-            <div class="row">
-            
-            	<p style="font-size:18px; color:#600">
-                	<br /><i>"Los que no se quieren a sí mismos han aprendido a echarse la culpa por casi todo lo que hacen mal y a dudar del propio esfuerzo cuando hacen las cosas bien, como si tuvieran los cables cruzados." Walter Riso</i>
-                </p>
-            
+        
+        	<div class="row">
+            	    <h1 class="text-center">CONFERENCIA VIRTUAL ENAMÓRATE DE TI</h1>
+                    <h3 class="text-center">El poder de la autoestima para el desarrollo del potencial humano</h3>
+                    <br />
             </div>
         
         	<div class="row">
             	<div class="col-md-6" style="margin:0px 0px 20px 0px;">
-                	<h1 class="text-center">Enamórate de ti</h1>
-                    <h3 class="text-center">Conferencia virtual por Walter Riso</h3>
-                    <br />
+                	<br />
                     <p style="font-size:16px">
-                    Amarse a uno mismo es fundamental. Activar la autoestima es el primer paso hacia cualquier tipo de crecimiento psicológico y mejoramiento personal; no hay otra forma de cuidarse y de  reconocerse como un ser digno. No solamente es el punto de  referencia para saber cuánto se debe amar a los demás, sino que actúa como un factor de protección para las enfermedades psicológicas y un elemento que genera bienestar y calidad de vida. 
+                    La visión negativa que se tiene de uno mismo es un factor determinante para que aparezcan trastornos psicológicos como fobias, depresión, estrés, ansiedad, inseguridad interpersonal, alteraciones psicosomáticas, problemas de pareja, bajo rendimiento académico y laboral, abuso de sustancias, problemas de imagen corporal, incapacidad de regular las emociones, y muchos más. En el amor la mala autoestima es una de las principales razones para que aparezcan problemas de dependencia, celos desmedidos, inseguridad, rechazo, entre otros. La conclusión de los especialistas es clara: si la autoestima no posee suficiente fuerza, viviremos mal, seremos infelices y ansiosos, y no sabremos manejar con asertvidad los problemas de pareja. 
                     </p>
                     <p style="font-size:16px">
-                    En esta conferencia, Walter Riso nos guiará hacia la obtención de la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y las virtudes que poseemos, para integrarlas al desarrollo de nuestra vida y volcarlas a los demás de manera efectiva y compasiva. Será un espacio para reflexionar y reencontrarse con la propia esencia, en un proceso donde las aspiraciones personales habrán de converger hacia un estado de bienestar auténtico.
+                    En esta magistral conferencia, Walter Riso nos dará las pautas para activar el amor propio, pero no haciendo referencia al lado oscuro de la autoestima, al narcisismo y a la fascinación por el propio ego (egolatría), sino a la capacidad genuina de reconocer, sin vergüenza ni temor, las fortalezas y virtudes que poseemos e integrarlas al desarrollo de nuestra vida para hacerla más saludable y llevadera. Quererse uno mismo, despreciando o ignorando a los demás, es presunción y exclusión; querer a los demás, despreciándose uno mismo, es no reconocer el autoamor que nos define.
                     </p>
                     <br />
                     <ul style="list-style-image:../img/vineta2.png">
@@ -116,7 +67,7 @@
                 
                 <div class="col-md-6">
                 
-                	<div style="margin:20px 10px 0px 10px; background-color:#6d0019; padding:10px 20px 10px 20px;">
+                	<div style="margin:20px 10px 0px 10px; background-color:#333; padding:10px 20px 10px 20px;">
                     
                     	<h1 class="text-center" style="color:#FFF">¡Inscríbete ahora!</h1>
                         <h4 class="text-center" style="color:#FFF">Entradas limitadas</h4>
@@ -192,7 +143,7 @@
                             </tr>
                             <tr height="80px">
                                 <?php
-                                    if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
+                                    if (($dia >= 18 && $mes == 11) || ($dia <= 5 && $mes == 12)) {
                                 ?>
                                     <td valign="middle" width="20px">
                                         <input type="radio" value="3" name="precio_conferencia" checked="checked" />
@@ -294,61 +245,19 @@
                 
                 	<h3>Medios de pago disponibles</h3>
                 	<br />
-                	<table class="table table-striped table-bordered">
-						<tr valign="middle">
-                        	<th></th>
-                            <th>Visa</th>
-                            <th>Mastercard</th>
-                            <th>Diners</th>
-                            <th>AMEX</th>
-                            <th>Paypal</th>
-                            <th>PSE</th>
-                            <th>Pago en efectivo</th>
-                        </tr>
-                        <tr>
-                        	<td>Desde cualquier país del mundo</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center"></td>
-                        </tr>
-                         <tr>
-                        	<td>Desde Colombia</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center">Baloto</td>
-                        </tr>
-                         <tr>
-                        	<td>Desde México</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center">Oxxo</td>
-                        </tr>
-                         <tr>
-                        	<td>Desde Perú</td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"><img src="../img/chulo.png" alt="ok" /></td>
-                            <td align="center"></td>
-                            <td align="center">BCP</td>
-                        </tr>
-                                
-                    </table>
                     
-                    <br />
+                    <ul style="list-style-image:../img/vineta2.png">
+						<li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde cualquier país del mundo:</b> Puedes pagar con tarjeta de crédito (Visa, Mastercard, Diners, American Express) o con Paypal. </li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde México:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Oxxo. Para pagar con Oxxo inscribete normalmente y encontrarás la opción para descargar el recibo de pago. </li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Colombia:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar con PSE y en efectivo a través de Baloto. Para pagar con Baloto inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                        <li style="list-style-image:url(../img/vineta2.png); font-size:16px;"><b>Desde Perú:</b> Además de los pagos con tarjeta de crédito descritos anteriormente también puedes pagar en efectivo a través de Banco de crédito BCP. Para pagar con BCP inscribete normalmente a la conferencia y encontrarás la opción para descargar el recibo de pago.</li>
+                        
+					</ul>
+                    
+                    
+                   
+                    
+                    <hr />
                     
                     <h3>Horarios en las principales ciudades</h3>
                     <br />
@@ -538,55 +447,70 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Proceso de inscripción a conferencia virtual</h4>
+						<h4 class="modal-title" id="myModalLabel">Inscripción a conferencia virtual</h4>
 					</div>
 					<div class="modal-body CompraPaquetes">
-                        <div class="row">
-                            <div class="col-lg-12">
+						<div class="row">
+							<div class="col-lg-12">
+								
+                                <p style="font-size:16px">Si tienes un código de descuento ingrésalo aquí:</p>
                                 
-                                <p style="font-size:16px">El siguiente paso de la inscripción es realizar el pago, ten en cuenta que según el país en el que te encuentres contarás con diferentes métodos transaccionales, presiona siguiente y continúa el proceso seleccionando el país desde donde pagarás. 
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row" style="display:none">
-                            <div class="col-lg-12">
-                                <input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
-                                <label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD $7.99</span></label>
-                            </div>
-                        </div>
-                        <div class="row" style="display:none">
-                            <div class="col-lg-12">
-                                <input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
-                                <label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD $9.99</span></label>
-                            </div>
-                        </div>
-                        <div class="row" style="display:none">
-                            <div class="col-lg-12">
-                                <input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
-                                <label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD $14.99</span></label>
-                            </div>
-                        </div>
-                        <br>
-                        <p class="mensajeEspera1"></p>
-                        
-                        <br>
-                        <div class="CompraPaquetes-dataContainer text-right">
+                                
+                                <div class="row">
+                              
+                                	<div class="col-md-6" style="margin-top:5px; text-align:left">
+										<input type="text" class="form-control" name="codigoDescuento" id="codigoDescuento" placeholder="Código de descuento"> 
+                                	</div>
+                                    <div class="col-md-6" style="margin-top:5px">
+                                		<button id="botonCodigoDto" type="button" name="botonCodigoDto" class="btn btn-primary" disabled="disabled" >Aplicar código</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                	<br />
+                                    <p style="font-size:14px">Si no tienes un código, deja este espacio en blanco. <br />Para continuar con el registro verifica el valor a pagar y presiona el botón "Siguiente".</p>
+                                    
+                                </div>
+							</div>
+						</div>
+						<div class="row" style="display:none">
+							<div class="col-lg-12">
+								<input checked="checked" id="btnPaqueteAudio" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAudio"> <span class="orange">Precio de primera preventa (Hasta 8 de nov): USD 7.99</span></label>
+							</div>
+						</div>
+						<div class="row" style="display:none">
+							<div class="col-lg-12">
+								<input disabled="disabled" id="btnPaquetePDF" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF">
+								<label class="CompraPaquetes-label" for="btnPaquetePDF"> <span style="color:grey">Precio de segunda preventa (Hasta 15 de dic): USD 9.99</span></label>
+							</div>
+						</div>
+						<div class="row" style="display:none">
+							<div class="col-lg-12">
+								<input disabled="disabled" id="btnPaqueteAll" type="radio" name="product" value="13" data-discount="7.00" data-price="14.99" data-format="PDF + MP3">
+								<label class="CompraPaquetes-label" for="btnPaqueteAll"> <span style="color:grey">Precio full: USD 14.99</span></label>
+							</div>
+						</div>
+						<br />
+                        <div class="mensajeEspera1" style="display:none;"></div>
+						<br />
+						
+						<div class="CompraPaquetes-dataContainer text-right">
                             <?php
                                 if ( $dia <= 10 && $mes == 11 ) {
                             ?>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Precio:</b> USD <span class="CompraPaquetes-price">14.99</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Descuento:</b> USD -$<span class="CompraPaquetes-discount">7.00</span>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Descuento:</b> USD -<span class="CompraPaquetes-discount">7.00</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">7.99</span></b>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Total a pagar: USD <span class="CompraPaquetes-total">7.99</span></b>
                                 </div>
                             </div>
                             <?php
@@ -596,36 +520,46 @@
                                 if ( ($dia <= 17 && $dia > 10) && $mes == 11) {
                             ?>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Precio:</b> USD<span class="CompraPaquetes-price">14.99</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Descuento:</b> USD -$<span class="CompraPaquetes-discount">5.00</span>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Descuento:</b> USD -<span class="CompraPaquetes-discount">5.00</span>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">9.99</span></b>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Total a pagar: USD <span class="CompraPaquetes-total">9.99</span></b>
                                 </div>
                             </div>
                             <?php
                                 }
                             ?>
                             <?php
-                                if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
+                                if (($dia >= 18 && $mes == 11) || ($dia <= 5 && $mes == 12)) {
                             ?>    
+                            <div class="row" style="display:none;" id="precio_fase3">
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Precio:</b> USD <span class="CompraPaquetes-price">14.99</span>
+                                </div>
+                            </div>
+                            <div class="row" style="display:none;" id="descuento_fase3">
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Descuento:</b> USD -<span class="CompraPaquetes-discount">0.00</span>
+                                </div>
+                            </div>
                             <div class="row">
-                                <div class="col-lg-12 text-rigth" style="font-size:22px">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">14.99</span></b>
+                                <div class="col-lg-12 text-rigth" style="font-size:18px">
+                                    <b>Total a pagar: USD <span class="CompraPaquetes-total">14.99</span></b>
                                 </div>
                             </div>
                             <?php
                                 }
                             ?>
                         </div>
-                    </div>
+					</div>
 					<div class="modal-footer">
 						<div class="row">
 							<div class="col-lg-12">
@@ -657,7 +591,7 @@
                             ?>
                             <div class="row">
                                 <div class="col-lg-12 text-rigth">
-                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                                    <b>Precio:</b> USD <span class="CompraPaquetes-price">14.99</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -667,7 +601,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 text-rigth">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">7.99</span></b>
+                                    <b>Total a pagar: USD <span class="CompraPaquetes-total">7.99</span></b>
                                 </div>
                             </div>
                             <?php
@@ -679,7 +613,7 @@
                             ?>
                             <div class="row">
                                 <div class="col-lg-12 text-rigth">
-                                    <b>Precio:</b> USD $<span class="CompraPaquetes-price">14.99</span>
+                                    <b>Precio:</b> USD <span class="CompraPaquetes-price">14.99</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -689,18 +623,18 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 text-rigth">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">9.99</span></b>
+                                    <b>Total a pagar: USD <span class="CompraPaquetes-total">9.99</span></b>
                                 </div>
                             </div>
                             <?php
                             }
                             ?>
                             <?php
-                                if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
+                                if (($dia >= 18 && $mes == 11) || ($dia <= 5 && $mes == 12)) {
                             ?>
                             <div class="row">
                                 <div class="col-lg-12 text-rigth">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">14.99</span></b>
+                                    <b>Total a pagar: USD <span class="CompraPaquetes-total">14.99</span></b>
                                 </div>
                             </div>
                             <?php
@@ -766,15 +700,19 @@
             }
         ?>
         <?php
-            if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
+            if (($dia >= 18 && $mes == 11) || ($dia <= 5 && $mes == 12)) {
         ?>
         var precio = 14.99;
         <?php
             }
         ?>
 		var id_paquete = 13;
+		var id_paquete_2 = 13;
+		var precio_total = precio;
 		var nombre = "Conferencia virtual: Enamorate de ti";
 
+
+		
 
 		$('body').on('change', '#paisMetodo', function(event) {
 			event.preventDefault();
@@ -808,50 +746,116 @@
 				$('#metodo').slideUp();
 			}
 		});
+		
+        $(document).ready(function() {
+            $('body').on('keyup', '#codigoDescuento', function(event) {
+                if ( $(this).val() != "" ) {
+                    $('#botonCodigoDto').prop('disabled', false);   
+                }
+            });
+        });
 
 
-		$('body').on('change', 'input:radio[name="product"]', function(event) {
+		
+		$('body').on('click', '#botonCodigoDto', function(event) {
+			
 			console.log($(this).val());
-			var discount = $(this).data('discount');
-			var price = $(this).data('price');
-			var format = $(this).data('format');
+			var codigo_dto = $('#codigoDescuento').val();
+			
 			
 			
 			$('.CompraPaquetes-dataContainer').slideUp('fast');
 			$('#CompraPaquetes-nextButton').slideUp('fast');
 			$('.mensajeEspera1').text("Un momento por favor...");
+			$('.mensajeEspera1').slideDown('fast');
 			
-
 			$.ajax({
 				url: '/includes/php.php',
 				type: 'POST',
 				dataType: 'json',
 				data: {
-					id: $(this).val(),
-					consulta: 'getPrecioPaquete'
+					id: codigo_dto,
+					consulta: 'getPrecioPaquete2'
 				},
 				context: this
 			})
 			.done(function(data) {
-				precio     = data.precio;
-				id_paquete = $(this).val();
-				nombre     = 'Conferencia virtual "Enamorate de ti" por Walter Riso.';
-
-				//if ( !$('.CompraPaquetes-dataContainer').is(':visible') ) {
+				
+				id_paquete = data.paquete_id;
+				
+				if(codigo_dto && id_paquete)
+				{
+					
+					price = precio;
+					precio = data.precio;
+					discount =  precio_total - precio;
+					
+					
+					format = "NA";
+					id_paquete_2 = data.paquete_id;
+					nombre = 'Conferencia virtual "Enamorate de ti" por Walter Riso.';
+		
+						//if ( !$('.CompraPaquetes-dataContainer').is(':visible') ) {
 					$('.CompraPaquetes-dataContainer').slideDown('fast');
-				//}
-				$('.mensajeEspera1').text("");
-				console.log('nombre: '+data.nombre);
-				$('#CompraPaquetes-nombre').text(nombre);
-				$('.CompraPaquetes-price').text(price);
-				$('.CompraPaquetes-discount').text(discount);
-				$('.CompraPaquetes-total').text(precio);
-				$('#CompraPaquetes-nextButton').slideDown('fast');
+						//}
+						
+					$('.mensajeEspera1').html("<div style='background-color:green; text-align:center; padding:10px; font-size:16px; color:#FFF'>¡Excelente! El código ha sido aplicado correctamente</div>");
+					$('.mensajeEspera1').slideDown('slow');
+					$('.mensajeEspera1').delay(4000);
+					$('.mensajeEspera1').slideUp('fast');
+						
+					console.log('nombre: '+data.nombre);
+					$('#CompraPaquetes-nombre').text(nombre);
+					$('.CompraPaquetes-price').text(price);
+					$('.CompraPaquetes-discount').text(discount);
+					$('.CompraPaquetes-total').text(precio);
+					$('#precio_fase3').slideDown('fast');
+					$('#descuento_fase3').slideDown('fast');
+					$('#CompraPaquetes-nextButton').slideDown('fast');
+					
+				}
+				else
+				{
+					$('.CompraPaquetes-dataContainer').slideDown('fast');
+					
+					$('.mensajeEspera1').html("<div style='background-color:red; text-align:center; padding:10px; font-size:16px; color:#FFF'><b>El código utilizado no es valido</b></div>");
+					$('.mensajeEspera1').slideDown('slow');
+					$('.mensajeEspera1').delay(4000);
+					$('.mensajeEspera1').slideUp('slow');
+					
+					$('#CompraPaquetes-nextButton').slideDown('fast');
+					
+				}
+				
 			})
 			.fail(function() {
 			})
 			.always(function() {
 			});
+			
+			
+			
+			/*if(codigo_dto == "COD345")
+			{
+				
+			
+				
+	
+				
+				
+	
+				
+				
+				
+			}
+			else
+			{
+				
+			}
+			
+			*/	
+			
+			
 		});
 
 		$('body').on('change', '#metodo', function(event) {
@@ -859,15 +863,16 @@
 			console.log(nombre);
 			$('#metodoPago').slideUp();
 			$('.mensajeEspera2').slideDown();
+			
 			var data = {
 				consulta : 'obtenerFormularioDePago2',
 				metodo : $(this).val(),
 				pagina : '',
 				value : precio,
 				coleccion : true,
-				id : id_paquete,
+				id : id_paquete_2,
 				nombre : nombre,
-				landing: 53
+				landing: 62
 			};
 
 			$('#metodoPago').empty();

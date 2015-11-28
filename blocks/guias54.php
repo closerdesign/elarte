@@ -108,7 +108,7 @@
                 
                 <div class="col-md-6">
                 
-                	<div style="margin:20px 10px 0px 10px; background-color:#001d86; padding:10px 20px 10px 20px;">
+                	<div style="margin:20px 10px 0px 10px; background-color:#6d0019; padding:10px 20px 10px 20px;">
                     
                     	<h1 class="text-center" style="color:#FFF">¡Inscríbete ahora!</h1>
                         <h4 class="text-center" style="color:#FFF">Entradas limitadas</h4>
@@ -184,7 +184,7 @@
                             </tr>
                             <tr height="80px">
                                 <?php
-                                    if ( $dia <= 05 && $mes == 12) {
+                                    if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
                                 ?>
                                     <td valign="middle" width="20px">
                                         <input type="radio" value="3" name="precio_conferencia" checked="checked" />
@@ -564,7 +564,7 @@
                                 }
                             ?>
                             <?php
-                                if ( $dia <= 05 && $mes == 12) {
+                                if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
                             ?>    
                             <div class="row">
                                 <div class="col-lg-12 text-rigth" style="font-size:22px">
@@ -646,11 +646,11 @@
                             }
                             ?>
                             <?php
-                                if ( $dia <= 05 && $mes == 12) {
+                                if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
                             ?>
                             <div class="row">
                                 <div class="col-lg-12 text-rigth">
-                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">9.99</span></b>
+                                    <b>Total a pagar: USD $<span class="CompraPaquetes-total">14.99</span></b>
                                 </div>
                             </div>
                             <?php
@@ -716,7 +716,7 @@
             }
         ?>
         <?php
-            if ( $dia <= 05 && $mes == 12) {
+            if ( ($dia <= 05 && $mes == 12) || ( $dia > 17 && $mes == 11 ) ) {
         ?>
         var precio = 14.99;
         <?php

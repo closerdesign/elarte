@@ -417,6 +417,17 @@
 		}
 	}
 	
+	function getDataPaquete2($codigo_dto){ //PARA CODIGOS DE DTO
+		global $con;
+		
+		
+		$sql="SELECT idPaquete, precio FROM paquetes WHERE cod_descuento = '$codigo_dto'";
+		$q=mysqli_query($con, $sql);
+		$data=mysqli_fetch_array($q);
+		return $data;
+		
+	}
+	
 	function getDataPaquete($val){
 		global $con;
 		$sql="SELECT * FROM paquetes WHERE idPaquete = '$val'";

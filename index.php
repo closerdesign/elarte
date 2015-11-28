@@ -102,7 +102,7 @@
 	</body>
 	
 	<!-- Phronesis -->
-	<script src="/js/phronesis.js?verion=1213"></script>
+	<script src="/js/phronesis.js?verion=1215"></script>
 	
 	<?php if(isset($_SESSION['id'])){ require_once('blocks/jsUsers.php'); } ?>
 	
